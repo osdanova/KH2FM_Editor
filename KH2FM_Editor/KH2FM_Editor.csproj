@@ -55,20 +55,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="DataDictionary\BonsEvents.cs" />
+    <Compile Include="DataDictionary\Characters.cs" />
+    <Compile Include="DataDictionary\CommandMenu.cs" />
+    <Compile Include="DataDictionary\Commands.cs" />
+    <Compile Include="DataDictionary\Enemy.cs" />
+    <Compile Include="DataDictionary\Entity.cs" />
+    <Compile Include="DataDictionary\EntityFile.cs" />
+    <Compile Include="DataDictionary\Equipment.cs" />
+    <Compile Include="DataDictionary\itemCategories.cs" />
+    <Compile Include="DataDictionary\Items.cs" />
+    <Compile Include="DataDictionary\objTypes.cs" />
+    <Compile Include="DataDictionary\Rooms.cs" />
+    <Compile Include="DataDictionary\Shops.cs" />
+    <Compile Include="DataDictionary\Worlds.cs" />
+    <Compile Include="View\Main\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\MainWindowController.cs" />
+    <Compile Include="View\Objentry\ObjentryPage.xaml.cs">
+      <DependentUpon>ObjentryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Objentry\ObjentryPageHandler.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Libs\FileHandler\FileHandler.cs" />
+    <Compile Include="Libs\FormatHandler.cs" />
+    <Compile Include="Libs\Pcsx2\Pcsx2Memory.cs" />
+    <Compile Include="Libs\TreeView\SimpleFileNode.cs" />
+    <Compile Include="Libs\TreeView\TreeViewHandler.cs" />
+    <Page Include="View\Main\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Objentry\ObjentryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\COMMON\BaseEntry.cs" />
+    <Compile Include="Model\COMMON\EntryFile.cs" />
+    <Compile Include="Model\Objentry\ObjentryFile.cs" />
+    <Compile Include="Model\Objentry\ObjentryItem.cs" />
+    <Compile Include="Libs\Binary\BinaryHandler.cs" />
+    <Compile Include="Libs\Binary\DataAccess.cs" />
+    <Compile Include="Libs\Memory\MemoryAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\KH2FM Editor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
