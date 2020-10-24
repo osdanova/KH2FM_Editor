@@ -81,7 +81,7 @@ namespace KH2FM_Editor.View.Objentry
             objentryItems.Clear();
             foreach (ObjentryItem entry in objentryFile.entries)
             {
-                if (entry.entity.Contains(entitySearch))
+                if (entry.EntityValue.Contains(entitySearch))
                 {
                     objentryItems.Add(entry);
                 }

@@ -36,34 +36,34 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding objentryItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Path=id}" />
-                    <DataGridTextColumn Header="Unk1" Binding="{Binding Path=unk1}" />
-                    <DataGridTextColumn Header="Type" Binding="{Binding Path=typeName}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Type ID" Binding="{Binding Path=type}" />
-                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=unk2}" />
-                    <DataGridTextColumn Header="Unk3" Binding="{Binding Path=unk3}" />
-                    <DataGridTextColumn Header="Weapon Joint" Binding="{Binding Path=weaponJoint}" />
-                    <DataGridTextColumn Header="Entity" Binding="{Binding Path=entity}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Model Name" Binding="{Binding Path=modelName}" />
-                    <DataGridTextColumn Header="Anim Name" Binding="{Binding Path=animName}" />
-                    <DataGridTextColumn Header="Unk4" Binding="{Binding Path=unk4}" />
-                    <DataGridTextColumn Header="Unk5" Binding="{Binding Path=unk5}" />
-                    <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=neoStatus}" />
-                    <DataGridTextColumn Header="NeoMoveset" Binding="{Binding Path=neoMoveset}" />
-                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=unk6}" />
-                    <DataGridTextColumn Header="Weight" Binding="{Binding Path=weight}" />
-                    <DataGridTextColumn Header="Spawn Limit" Binding="{Binding Path=spawnLimit}" />
-                    <DataGridTextColumn Header="Unk7" Binding="{Binding Path=unk7}" />
-                    <DataGridTextColumn Header="Unk8" Binding="{Binding Path=unk8}" />
-                    <DataGridTextColumn Header="Com Menu Opt Name" Binding="{Binding Path=comMenuOptName}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Com Menu Opt" Binding="{Binding Path=comMenuOpt}" />
-                    <DataGridTextColumn Header="Extra Spawn 1 Name" Binding="{Binding Path=extraSpawn1Name}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Extra Spawn 1" Binding="{Binding Path=extraSpawn1}" />
-                    <DataGridTextColumn Header="Extra Spawn 2 Name" Binding="{Binding Path=extraSpawn2Name}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Extra Spawn 2" Binding="{Binding Path=extraSpawn2}" />
-                    <DataGridTextColumn Header="Extra Spawn 3 Name" Binding="{Binding Path=extraSpawn3Name}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Extra Spawn 3" Binding="{Binding Path=extraSpawn3}" />
-                    <DataGridTextColumn Header="Unk9" Binding="{Binding Path=unk9}" />
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                    <DataGridTextColumn Header="Unk02" Binding="{Binding Path=Unk02}" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding Path=TypeValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Type ID" Binding="{Binding Path=Type}" />
+                    <DataGridTextColumn Header="Unk05" Binding="{Binding Path=Unk05}" />
+                    <DataGridTextColumn Header="Unk06" Binding="{Binding Path=Unk06}" />
+                    <DataGridTextColumn Header="Weapon Joint" Binding="{Binding Path=WeaponJoint}" />
+                    <DataGridTextColumn Header="Entity" Binding="{Binding Path=EntityValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Model Name" Binding="{Binding Path=ModelName}" />
+                    <DataGridTextColumn Header="Anim Name" Binding="{Binding Path=AnimName}" />
+                    <DataGridTextColumn Header="Unk72" Binding="{Binding Path=Unk72}" />
+                    <DataGridTextColumn Header="Unk74" Binding="{Binding Path=Unk74}" />
+                    <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=NeoStatus}" />
+                    <DataGridTextColumn Header="NeoMoveset" Binding="{Binding Path=NeoMoveset}" />
+                    <DataGridTextColumn Header="Unk80" Binding="{Binding Path=Unk80}" />
+                    <DataGridTextColumn Header="Weight" Binding="{Binding Path=Weight}" />
+                    <DataGridTextColumn Header="Spawn Limit" Binding="{Binding Path=SpawnLimit}" />
+                    <DataGridTextColumn Header="Unk85" Binding="{Binding Path=Unk85}" />
+                    <DataGridTextColumn Header="Unk86" Binding="{Binding Path=Unk86}" />
+                    <DataGridTextColumn Header="Com Menu Opt Name" Binding="{Binding Path=ComMenuOptValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Com Menu Opt" Binding="{Binding Path=ComMenuOpt}" />
+                    <DataGridTextColumn Header="Extra Spawn 1 Name" Binding="{Binding Path=ExtraSpawn1Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Extra Spawn 1" Binding="{Binding Path=ExtraSpawn1}" />
+                    <DataGridTextColumn Header="Extra Spawn 2 Name" Binding="{Binding Path=ExtraSpawn2Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Extra Spawn 2" Binding="{Binding Path=ExtraSpawn2}" />
+                    <DataGridTextColumn Header="Extra Spawn 3 Name" Binding="{Binding Path=ExtraSpawn3Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Extra Spawn 3" Binding="{Binding Path=ExtraSpawn3}" />
+                    <DataGridTextColumn Header="Unk94" Binding="{Binding Path=Unk94}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" />

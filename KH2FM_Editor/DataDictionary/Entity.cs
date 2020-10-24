@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor_WPF.Data
+namespace KH2FM_Editor.DataDictionary
 {
-    class Entity
+    public class Entity
     {
-        // Objentry file entries. 4 Bytes
-        public static Dictionary<uint, String> valuesDic = new Dictionary<uint, string>() {
+        // 4 Bytes
+        // Objentry.
+        public static Dictionary<uint, String> valuesDictionary = new Dictionary<uint, string>() {
 { 1 , "(M) Fat Bandit" },
 { 2 , "(M) Trick Ghost" },
 { 3 , "(M) Rabid Dog" },
@@ -1908,9 +1909,10 @@ namespace KH2FM_Editor_WPF.Data
 { 2560 , "(F) Ansem Laboratory's Xemnas's CD for Chamber of Repose (HB)" },
 { 2561 , "(H) ??? (CM)" }
         };
-        public static String getValueName(uint id)
+
+        public static String getValue(uint id)
         {
-            if (valuesDic.ContainsKey(id)) return valuesDic[id];
+            if (valuesDictionary.ContainsKey(id)) return valuesDictionary[id];
             return "";
         }
     }

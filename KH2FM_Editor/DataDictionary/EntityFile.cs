@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor_WPF.Data
+namespace KH2FM_Editor.DataDictionary
 {
-    class EntityFile
+    public class EntityFile
     {
-        public static Dictionary<String, String> valuesDic = new Dictionary<string, string>() {
+        public static Dictionary<String, String> valuesDictionary = new Dictionary<string, string>() {
 { "M_EX060" , "(M) Fat Bandit" },
 { "M_EX500" , "(M) Trick Ghost" },
 { "M_EX510" , "(M) Rabid Dog" },
@@ -1907,9 +1907,10 @@ namespace KH2FM_Editor_WPF.Data
 { "F_HB601" , "(F) Ansem Laboratory's Xemnas's CD for Chamber of Repose (HB)" },
 { "H_CM030" , "(H) ??? (CM)" }
         };
-        public static String getValueName(String id)
+
+        public static String getValue(String id)
         {
-            if (valuesDic.ContainsKey(id)) return valuesDic[id];
+            if (valuesDictionary.ContainsKey(id)) return valuesDictionary[id];
             return "";
         }
     }

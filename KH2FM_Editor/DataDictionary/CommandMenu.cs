@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor_WPF.Data
+namespace KH2FM_Editor.DataDictionary
 {
-    class CommandMenu
+    public class CommandMenu
     {
-        // Objentry file entries. 1 Byte
-        public static Dictionary<byte, String> valuesDic = new Dictionary<byte, string>() {
+        // 1 Byte
+        // Objentry
+        public static Dictionary<byte, String> valuesDictionary = new Dictionary<byte, string>() {
 { 0 , "Sora / Roxas" },
 { 1 , "Valor" },
 { 2 , "Wisdom" },
@@ -22,9 +23,9 @@ namespace KH2FM_Editor_WPF.Data
 { 24 , "Die / Card" }
         };
 
-        public static String getName(byte id)
+        public static String getValue(byte id)
         {
-            if (valuesDic.ContainsKey(id)) return valuesDic[id];
+            if (valuesDictionary.ContainsKey(id)) return valuesDictionary[id];
             return "";
         }
     }

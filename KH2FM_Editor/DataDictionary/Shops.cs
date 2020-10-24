@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor_WPF.Data
+namespace KH2FM_Editor.DataDictionary
 {
-    class Shops
+    public class Shops
     {
-        public static Dictionary<ushort, String> valuesDic = new Dictionary<ushort, string>() {
+        // 2 Bytes
+        public static Dictionary<ushort, String> valuesDictionary = new Dictionary<ushort, string>() {
 { 0 , "TT Weapons" },
 { 1 , "TT Armor" },
 { 2 , "TT Accessories" },
@@ -29,9 +30,9 @@ namespace KH2FM_Editor_WPF.Data
 { 20 , "TWTNW" }
         };
 
-        public static String getName(ushort id)
+        public static String getValue(ushort id)
         {
-            if (valuesDic.ContainsKey(id)) return valuesDic[id];
+            if (valuesDictionary.ContainsKey(id)) return valuesDictionary[id];
             return "";
         }
     }

@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace KH2FM_Editor_WPF.FileTypes.GENERIC
 {
-    public class BaseEntry
+    public class BaseEntry : INotifyPropertyChanged
     {
+        //----------------------------------------------------------------------------------------
+        public event PropertyChangedEventHandler PropertyChanged;
+        // NotifyPropertyChanged(nameof(PROPERTY_NAME_TO_UPDATE));
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        //----------------------------------------------------------------------------------------
+
         // Entry data as bytes
         protected List<byte> raw;
 

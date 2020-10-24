@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor_WPF.Data
+namespace KH2FM_Editor.DataDictionary
 {
-    class Rooms
+    public class Rooms
     {
-        public static Dictionary<String, String> valuesDic = new Dictionary<string, string>() {
+        public static Dictionary<String, String> valuesDictionary = new Dictionary<string, string>() {
 { "al00" , "Agrabah > Agrabah >> " },
 { "al01" , "Agrabah > Bazaar >> " },
 { "al02" , "Agrabah > The Peddler's Shop >> " },
@@ -294,9 +294,9 @@ namespace KH2FM_Editor_WPF.Data
 { "wm00" , "World Map > Ocean Between >>  " }
         };
 
-        public static String getName(String id)
+        public static String getValue(String id)
         {
-            if (valuesDic.ContainsKey(id)) return valuesDic[id];
+            if (valuesDictionary.ContainsKey(id)) return valuesDictionary[id];
             return "";
         }
     }
