@@ -1,6 +1,7 @@
-﻿using KH2FM_Editor_WPF.FileTypes.GENERIC;
-using KH2FM_Editor_WPF.FileTypes.Objentry;
+﻿using KH2FM_Editor.Libs.FileHandler;
 using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Objentry;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,19 +13,19 @@ namespace KH2FM_Editor.View.Objentry
     class ObjentryPageHandler
     {
         // DATA
-        String fileName { get; set; }
-        String filePath { get; set; }
-        public ObjentryFile objentryFile { get; set; }
-        public ObservableCollection<ObjentryItem> objentryItems { get; set; }
+        String FileName { get; set; }
+        String FilePath { get; set; }
+        public ObjentryFile ObjentryFileLoaded { get; set; }
+        public ObservableCollection<ObjentryItem> ObjentryFileItems { get; set; }
 
         // OPTIONS
-        public string memOffset { get; set; }
-        public string entitySearch { get; set; }
+        public string MemOffset { get; set; }
+        public string EntitySearch { get; set; }
 
         public ObjentryPageHandler(String filepath)
         {
-            memOffset = "21C94100";
-            entitySearch = "";
+            MemOffset = "21C94100";
+            EntitySearch = "";
             Console.WriteLine("DEBUG > ObjentryPageHandler > Processing file...");
             processFile(filepath);
             Console.WriteLine("DEBUG > ObjentryPageHandler > File processed!");
@@ -34,59 +35,76 @@ namespace KH2FM_Editor.View.Objentry
         {
             Console.WriteLine("DEBUG > ObjentryPageHandler > Getting file info...");
             // Get file data
-            this.filePath = filePath;
-            fileName = Path.GetFileName(this.filePath);
+            this.FilePath = filePath;
+            FileName = Path.GetFileName(this.FilePath);
 
             // Assert objentry.bin file
-            if (!fileName.EndsWith("objentry.bin")) return;
+            if (!FileName.EndsWith("objentry.bin")) return;
 
-            Console.WriteLine("DEBUG > ObjentryPageHandler > Reading " + fileName + "...");
-            objentryFile = new ObjentryFile(fileName, File.ReadAllBytes(filePath).ToList());
-            objentryItems = new ObservableCollection<ObjentryItem>();
+            Console.WriteLine("DEBUG > ObjentryPageHandler > Reading " + FileName + "...");
+            ObjentryFileLoaded = new ObjentryFile(FileName, File.ReadAllBytes(filePath).ToList());
 
-            foreach (ObjentryItem entry in objentryFile.entries)
+            ObjentryFileItems = new ObservableCollection<ObjentryItem>();
+            foreach (ObjentryItem entry in ObjentryFileLoaded.Entries)
             {
-                objentryItems.Add(entry);
+                ObjentryFileItems.Add(entry);
             }
         }
-
+        
         public void insertDataToFile()
         {
-            objentryFile.entries = new List<BaseEntry>();
-            foreach (ObjentryItem entry in objentryItems)
+            ObjentryFileLoaded.Entries = new ObservableCollection<EntryItem>();
+            foreach (ObjentryItem entry in ObjentryFileItems)
             {
-                objentryFile.entries.Add(entry);
+                ObjentryFileLoaded.Entries.Add(entry);
             }
         }
 
-        public void testData()
+        public void act_testData()
         {
             Console.WriteLine("DEBUG > ObjentryPageHandler > Writing to Pcsx2...");
+            // For whenever an entry is added
             //insertDataToFile();
-            List<byte> fileToWrite = objentryFile.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(memOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            List<byte> fileToWrite = ObjentryFileLoaded.getAsByteList();
+            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
             Console.WriteLine("DEBUG > ObjentryPageHandler > Finished writing!");
         }
 
-        public void search()
+        public void act_search()
         {
             Console.WriteLine("DEBUG > ObjentryPageHandler > Searching...");
-            if (entitySearch == "")
+            if (EntitySearch == "")
             {
-                foreach (ObjentryItem entry in objentryFile.entries)
+                foreach (ObjentryItem entry in ObjentryFileLoaded.Entries)
                 {
-                    objentryItems.Add(entry);
+                    ObjentryFileItems.Add(entry);
                 }
             }
-            objentryItems.Clear();
-            foreach (ObjentryItem entry in objentryFile.entries)
+            ObjentryFileItems.Clear();
+            foreach (ObjentryItem entry in ObjentryFileLoaded.Entries)
             {
-                if (entry.EntityValue.Contains(entitySearch))
+                if (entry.EntityValue.Contains(EntitySearch))
                 {
-                    objentryItems.Add(entry);
+                    ObjentryFileItems.Add(entry);
                 }
             }
             Console.WriteLine("DEBUG > ObjentryPageHandler > Finished searching!");
+        }
+
+        public void act_save()
+        {
+            if (ObjentryFileLoaded == null) return;
+            Console.WriteLine("DEBUG > ObjentryPageHandler > Saving...");
+            insertDataToFile();
+            Console.WriteLine("DEBUG > ObjentryPageHandler > Finished saving!");
+        }
+
+        public void act_export()
+        {
+            if (ObjentryFileLoaded == null) return;
+            Console.WriteLine("DEBUG > ObjentryPageHandler > Exporting...");
+            FileHandler.saveFile(FileName, ObjentryFileLoaded.getAsByteList());
+            Console.WriteLine("DEBUG > ObjentryPageHandler > Export saving!");
         }
     }
 }

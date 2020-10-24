@@ -1,12 +1,12 @@
 ﻿using KH2FM_Editor.DataDictionary;
-using KH2FM_Editor_WPF.FileTypes.GENERIC;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Libs.Binary;
-using KH2FM_Editor.Libs;
+using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor_WPF.FileTypes.Objentry
+namespace KH2FM_Editor.Model.Objentry
 {
-    public class ObjentryItem : BaseEntry
+    public class ObjentryItem : EntryItem
     {
         public static readonly int entrySize = 96;
         // Data Location
@@ -82,7 +82,7 @@ namespace KH2FM_Editor_WPF.FileTypes.Objentry
         public string ModelName
         {
             get { return DataAccess.readString(raw, modelNameOffset, modelNameSize); }
-            set { DataAccess.writeString32(raw, value, modelNameOffset, modelNameSize); NotifyPropertyChanged(nameof(Entity)); }
+            set { DataAccess.writeString32(raw, value, modelNameOffset, modelNameSize); NotifyPropertyChanged(nameof(EntityValue)); }
         }
         public string AnimName
         {

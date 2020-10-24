@@ -1,28 +1,35 @@
 ﻿using KH2FM_Editor.Libs.Binary;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-namespace KH2FM_Editor_WPF.FileTypes.GENERIC
+namespace KH2FM_Editor.Model.COMMON
 {
+    /* 
+     * Entry Files contain a header, with its type and the entry count. Followed by the entry list.
+     * If they have a name, it comes from their parent file.
+     * There are EntryFiles that have headers of 16, 8 & 4 bytes
+     * I've set the default as 8. which is the most common
+     */
     public class EntryFile
     {
-        // There are EntryFiles that have headers of 16, 8 & 4 bytes
-        // I've set the default as 8. which is the most common
-
-        protected String name;
-        // Header contains the file type and the entry count
-        protected List<byte> header;
-        public List<BaseEntry> entries = new List<BaseEntry>();
+        public String Name { get; set; }
+        public List<byte> Header { get; set; }
+        public ObservableCollection<EntryItem> Entries { get; set; }
 
         // Data Location
         protected int headerOffset = 0, headerSize = 8;
         protected int typeOffset = 0, typeSize = 4;
         protected int entryCountOffset = 4, entryCountSize = 4;
-        int entrySize;
+        protected int entrySize;
 
-        public EntryFile() { }
+        public EntryFile()
+        {
+            Entries = new ObservableCollection<EntryItem>();
+        }
         public EntryFile(String name, List<byte> raw)
         {
+            Entries = new ObservableCollection<EntryItem>();
             constructorCommon(name, raw);
         }
         public EntryFile(String name, List<byte> raw, int typeSize, int entryCountSize)
@@ -37,7 +44,7 @@ namespace KH2FM_Editor_WPF.FileTypes.GENERIC
         private void constructorCommon(String name, List<byte> raw)
         {
             Console.WriteLine("DEBUG >>> Found entry file: " + name);
-            this.name = name;
+            this.Name = name;
             entrySize = raw.Count;
             processHeader(raw);
             processEntries(raw);
@@ -59,44 +66,64 @@ namespace KH2FM_Editor_WPF.FileTypes.GENERIC
         }
         */
 
-        public ulong entryCount
+        public ulong Type
         {
             get
             {
-                if (entryCountSize == 8) return DataAccess.readULong(header, entryCountOffset, entryCountSize);
-                else if (entryCountSize == 4) return DataAccess.readUInt(header, entryCountOffset, entryCountSize);
-                else if (entryCountSize == 2) return DataAccess.readUShort(header, entryCountOffset, entryCountSize);
+                if (typeSize == 8) return DataAccess.readULong(Header, typeOffset, typeSize);
+                else if (typeSize == 4) return DataAccess.readUInt(Header, typeOffset, typeSize);
+                else if (typeSize == 2) return DataAccess.readUShort(Header, typeOffset, typeSize);
                 else return 0;
             }
             set
             {
-                if(entryCountSize == 8) DataAccess.writeULong(header, (ulong)value, entryCountOffset, entryCountSize);
-                if(entryCountSize == 4) DataAccess.writeUInt(header, (uint)value, entryCountOffset, entryCountSize);
-                if(entryCountSize == 2) DataAccess.writeUShort(header, (ushort)value, entryCountOffset, entryCountSize);
+                if (entryCountSize == 8) DataAccess.writeULong(Header, (ulong)value, entryCountOffset, entryCountSize);
+                if (entryCountSize == 4) DataAccess.writeUInt(Header, (uint)value, entryCountOffset, entryCountSize);
+                if (entryCountSize == 2) DataAccess.writeUShort(Header, (ushort)value, entryCountOffset, entryCountSize);
             }
         }
+        public ulong EntryCount
+        {
+            get
+            {
+                if (entryCountSize == 8) return DataAccess.readULong(Header, entryCountOffset, entryCountSize);
+                else if (entryCountSize == 4) return DataAccess.readUInt(Header, entryCountOffset, entryCountSize);
+                else if (entryCountSize == 2) return DataAccess.readUShort(Header, entryCountOffset, entryCountSize);
+                else return 0;
+            }
+            set
+            {
+                if(entryCountSize == 8) DataAccess.writeULong(Header, (ulong)value, entryCountOffset, entryCountSize);
+                if(entryCountSize == 4) DataAccess.writeUInt(Header, (uint)value, entryCountOffset, entryCountSize);
+                if(entryCountSize == 2) DataAccess.writeUShort(Header, (ushort)value, entryCountOffset, entryCountSize);
+            }
+        }
+
+        // Recalculates the entry count of the file
         public void recalcEntryCount()
         {
-            if (entryCountSize == 8) entryCount = (ulong)entries.Count;
-            else if (entryCountSize == 4) entryCount = (uint)entries.Count;
-            else if (entryCountSize == 2) entryCount = (ushort)entries.Count;
-            else entryCount = (uint)entries.Count;
+            if (entryCountSize == 8) EntryCount = (ulong)Entries.Count;
+            else if (entryCountSize == 4) EntryCount = (uint)Entries.Count;
+            else if (entryCountSize == 2) EntryCount = (ushort)Entries.Count;
+            else EntryCount = (uint)Entries.Count;
         }
 
+        // Reads and processes the header
         public void processHeader(List<byte> raw)
         {
-            header = new List<byte>();
-            header.AddRange(raw.GetRange(headerOffset, headerSize));
+            Header = new List<byte>();
+            Header.AddRange(raw.GetRange(headerOffset, headerSize));
         }
 
+        // Reads and processes the entries
         public virtual void processEntries(List<byte> raw)
         {
             int currentOffset = headerSize;
 
             // Entries
-            for (ulong i = 0; i < entryCount; i++)
+            for (ulong i = 0; i < EntryCount; i++)
             {
-                entries.Add(new BaseEntry(raw.GetRange(currentOffset, entrySize)));
+                Entries.Add(new EntryItem(raw.GetRange(currentOffset, entrySize)));
                 currentOffset += entrySize;
             }
         }
@@ -109,32 +136,15 @@ namespace KH2FM_Editor_WPF.FileTypes.GENERIC
             recalcEntryCount();
 
             // Header
-            data.AddRange(header);
+            data.AddRange(Header);
 
             // Entries
-            foreach (BaseEntry entry in entries)
+            foreach (EntryItem entry in Entries)
             {
                 data.AddRange(entry.getAsByteList());
             }
 
             return data;
         }
-        /*
-        // Create Control to show data
-        public override Tuple<String, Control> getControl()
-        {
-            if (entries.Count <= 0)
-            {
-                RichTextBox output = new RichTextBox();
-                output.AutoSize = true;
-                output.Dock = DockStyle.Fill;
-                return new Tuple<string, Control>(name, output);
-            }
-
-            return new Tuple<string, Control>(name, entries[0].getDataGrid(entries));
-        }
-        */
-
-
     }
 }

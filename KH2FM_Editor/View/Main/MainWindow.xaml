@@ -1,11 +1,9 @@
 ﻿<Window x:Class="KH2FM_Editor.View.Main.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KH2FM_Editor"
-        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-		xmlns:self="clr-namespace:KH2FM_Editor.Libs.TreeView"
+        xmlns:self="clr-namespace:KH2FM_Editor.Libs.TreeView"
         mc:Ignorable="d"
         Title="KH2FM Editor" Height="450" Width="800">
 

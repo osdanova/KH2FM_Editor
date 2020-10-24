@@ -1,7 +1,4 @@
-﻿using KH2FM_Editor_WPF.FileTypes.GENERIC;
-using KH2FM_Editor_WPF.FileTypes.Objentry;
-using System;
-using System.Collections.ObjectModel;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,7 +17,6 @@ namespace KH2FM_Editor.View.Objentry
         }
         public ObjentryPage(String filepath)
         {
-            Console.WriteLine("DEBUG > ObjentryPage > Objentry file page");
             Console.WriteLine("DEBUG > ObjentryPage > Filepath: " + filepath);
             handler = new ObjentryPageHandler(filepath);
             DataContext = handler;
@@ -30,12 +26,22 @@ namespace KH2FM_Editor.View.Objentry
 
         public void btn_testData(object sender, RoutedEventArgs e)
         {
-            handler.testData();
+            handler.act_testData();
         }
 
         public void btn_search(object sender, RoutedEventArgs e)
         {
-            handler.search();
+            handler.act_search();
+        }
+
+        public void btn_save(object sender, RoutedEventArgs e)
+        {
+            handler.act_save();
+        }
+
+        public void btn_export(object sender, RoutedEventArgs e)
+        {
+            handler.act_export();
         }
     }
 }

@@ -22,8 +22,7 @@ namespace KH2FM_Editor.View.Main
                 // Note that you can have more than one file.
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-                //HandleFileOpen(files[0]);
-                MainWindowController.loadTreeView(fileTreeview, files[0]);
+                MainWindowHandler.loadTreeView(fileTreeview, files[0]);
             }
         }
 
@@ -35,7 +34,7 @@ namespace KH2FM_Editor.View.Main
                     return;
                 }
             }
-            MainWindowController.loadFile(load_frame, fileTreeview.SelectedItem);
+            MainWindowHandler.loadFile(load_frame, fileTreeview.SelectedItem);
         }
 
         private void menuDebugBreakpoint(object sender, EventArgs e)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace KH2FM_Editor.Libs
+namespace KH2FM_Editor.Libs.Utils
 {
     class FormatHandler
     {
@@ -25,6 +25,7 @@ namespace KH2FM_Editor.Libs
             }
             return text;
         }
+
         // Returns a byte list of 0s of the given size
         public static List<byte> getByteListOfSize(int size)
         {

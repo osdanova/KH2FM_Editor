@@ -1,4 +1,4 @@
-﻿using KH2FM_Editor.Libs;
+﻿using KH2FM_Editor.Libs.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;

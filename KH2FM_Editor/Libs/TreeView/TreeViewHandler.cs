@@ -3,6 +3,9 @@ using System.IO;
 
 namespace KH2FM_Editor.Libs.TreeView
 {
+    /*
+     * Loads the File tree given a folder or file
+     */
     class TreeViewHandler
     {
         public static SimpleFileNode fileTreeRoot;
@@ -17,37 +20,24 @@ namespace KH2FM_Editor.Libs.TreeView
         // Returns a SimpleFileNode with all its children given the file/dir path
         public static SimpleFileNode loadFileTreeNode(String path)
         {
-            SimpleFileNode fileTreeNode = new SimpleFileNode();
-            fileTreeNode.path = path;
-            fileTreeNode.Name = Path.GetFileName(path);
-            fileTreeNode.isDirectory = isDirectory(path);
+            SimpleFileNode fileTreeNode = new SimpleFileNode(path);
 
             // CHILDREN
-            if (fileTreeNode.isDirectory)
+            if (fileTreeNode.IsDirectory)
             {
                 // DIRECTORIES
                 foreach (String childDir in Directory.GetDirectories(path))
                 {
-                    fileTreeNode.children.Add(loadFileTreeNode(childDir));
+                    fileTreeNode.Children.Add(loadFileTreeNode(childDir));
                 }
                 // FILES
                 foreach (String childFile in Directory.GetFiles(path))
                 {
-                    fileTreeNode.children.Add(loadFileTreeNode(childFile));
+                    fileTreeNode.Children.Add(loadFileTreeNode(childFile));
                 }
             }
 
             return fileTreeNode;
-        }
-
-        // Returns true if the path given is from a directory
-        public static Boolean isDirectory(string path)
-        {
-            FileAttributes attr = File.GetAttributes(path);
-            if (attr.HasFlag(FileAttributes.Directory))
-                return true;
-            else
-                return false;
         }
     }
     
