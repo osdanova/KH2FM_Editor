@@ -53,7 +53,7 @@ namespace KH2FM_Editor.View.Objentry
         
         public void insertDataToFile()
         {
-            ObjentryFileLoaded.Entries = new ObservableCollection<EntryItem>();
+            ObjentryFileLoaded.Entries = new ObservableCollection<Str_EntryItem>();
             foreach (ObjentryItem entry in ObjentryFileItems)
             {
                 ObjentryFileLoaded.Entries.Add(entry);

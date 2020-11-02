@@ -1,0 +1,53 @@
+﻿<Page x:Class="KH2FM_Editor.View.Battle.Bons.BonsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BonsPage">
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="30" Background="Black" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Foreground="White" FontFamily="Arial" FontWeight="Bold">Test Offset</Label>
+            <TextBox DockPanel.Dock="Left" Width="100" Background="White" Text="{Binding MemOffset}"></TextBox>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST</Button>
+        </DockPanel>
+        <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
+            <!-- Column sizes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <!--DATAGRID-->
+            <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding BonsFileItems}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Event" Binding="{Binding Path=EventValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                    <DataGridTextColumn Header="Character" Binding="{Binding Path=CharacterValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Character ID" Binding="{Binding Path=Character}" />
+                    <DataGridTextColumn Header="Hp" Binding="{Binding Path=Hp}" />
+                    <DataGridTextColumn Header="Mp" Binding="{Binding Path=Mp}" />
+                    <DataGridTextColumn Header="Drive" Binding="{Binding Path=Drive}" />
+                    <DataGridTextColumn Header="ItemSlot" Binding="{Binding Path=ItemSlot}" />
+                    <DataGridTextColumn Header="AccSlot" Binding="{Binding Path=AccSlot}" />
+                    <DataGridTextColumn Header="ArmorSlot" Binding="{Binding Path=ArmorSlot}" />
+                    <DataGridTextColumn Header="Item 1" Binding="{Binding Path=Item1Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Item 2 ID" Binding="{Binding Path=Item1}" />
+                    <DataGridTextColumn Header="Item 2" Binding="{Binding Path=Item2Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Item 2 ID" Binding="{Binding Path=Item2}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+            <DockPanel Grid.Column="2" LastChildFill="False">
+                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Page>

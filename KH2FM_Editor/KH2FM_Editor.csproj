@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataDictionary\FmlvTypes.cs" />
     <Compile Include="DataDictionary\BonsEvents.cs" />
     <Compile Include="DataDictionary\Characters.cs" />
     <Compile Include="DataDictionary\CommandMenu.cs" />
@@ -78,17 +79,139 @@
     <Compile Include="Model\Bar\BarSubFile.cs" />
     <Compile Include="Model\Bar\BarSubFileHandler.cs" />
     <Compile Include="Model\Bar\RawSubFile.cs" />
+    <Compile Include="Model\Battle\Atkp\AtkpItem.cs" />
+    <Compile Include="Model\Battle\Atkp\AtkpFile.cs" />
+    <Compile Include="Model\Battle\BattleFile.cs" />
+    <Compile Include="Model\Battle\Bons\BonsItem.cs" />
+    <Compile Include="Model\Battle\Bons\BonsFile.cs" />
+    <Compile Include="Model\Battle\Btlv\BtlvItem.cs" />
+    <Compile Include="Model\Battle\Btlv\BtlvFile.cs" />
+    <Compile Include="Model\Battle\Enmp\EnmpItem.cs" />
+    <Compile Include="Model\Battle\Enmp\EnmpFile.cs" />
+    <Compile Include="Model\Battle\Fmlv\FmlvItem.cs" />
+    <Compile Include="Model\Battle\Fmlv\FmlvFile.cs" />
+    <Compile Include="Model\Battle\Limt\LimtItem.cs" />
+    <Compile Include="Model\Battle\Limt\LimtFile.cs" />
+    <Compile Include="Model\Battle\Lvpm\LvpmItem.cs" />
+    <Compile Include="Model\Battle\Lvpm\LvpmFile.cs" />
+    <Compile Include="Model\Battle\Lvup\LvupCharacter.cs" />
+    <Compile Include="Model\Battle\Lvup\LvupItem.cs" />
+    <Compile Include="Model\Battle\Lvup\LvupFile.cs" />
+    <Compile Include="Model\Battle\Magc\MagcItem.cs" />
+    <Compile Include="Model\Battle\Magc\MagcFile.cs" />
+    <Compile Include="Model\Battle\Patn\PatnItem.cs" />
+    <Compile Include="Model\Battle\Patn\PatnFile.cs" />
+    <Compile Include="Model\Battle\Plrp\PlrpItem.cs" />
+    <Compile Include="Model\Battle\Plrp\PlrpFile.cs" />
+    <Compile Include="Model\Battle\Przt\PrztItem.cs" />
+    <Compile Include="Model\Battle\Przt\PrztFile.cs" />
+    <Compile Include="Model\Battle\Stop\StopItem.cs" />
+    <Compile Include="Model\Battle\Stop\StopFile.cs" />
+    <Compile Include="Model\Battle\Sumn\SumnItem.cs" />
+    <Compile Include="Model\Battle\Sumn\SumnFile.cs" />
+    <Compile Include="Model\Battle\Vtbl\VtblItem.cs" />
+    <Compile Include="Model\Battle\Vtbl\VtblFile.cs" />
+    <Compile Include="Model\Jiminy\JiminyFile.cs" />
+    <Compile Include="Model\Jiminy\Puzz\PuzzItem.cs" />
+    <Compile Include="Model\Jiminy\Puzz\PuzzFile.cs" />
+    <Compile Include="Model\Jiminy\Worl\WorlItem.cs" />
+    <Compile Include="Model\Jiminy\Worl\WorlFile.cs" />
+    <Compile Include="Model\Mixdata\Cond\CondItem.cs" />
+    <Compile Include="Model\Mixdata\Cond\CondFile.cs" />
+    <Compile Include="Model\Mixdata\Leve\LeveItem.cs" />
+    <Compile Include="Model\Mixdata\Leve\LeveFile.cs" />
+    <Compile Include="Model\Mixdata\MixdataFile.cs" />
+    <Compile Include="Model\Mixdata\Reci\ReciItem.cs" />
+    <Compile Include="Model\Mixdata\Reci\ReciFile.cs" />
     <Compile Include="View\Bar\BarPage.xaml.cs">
       <DependentUpon>BarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Bar\BarPageHandler.cs" />
+    <Compile Include="View\Bar\VbrtFile.cs" />
+    <Compile Include="View\Battle\Btlv\BtlvPage.xaml.cs">
+      <DependentUpon>BtlvPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Btlv\BtlvPageHandler.cs" />
+    <Compile Include="View\Battle\Enmp\EnmpPage.xaml.cs">
+      <DependentUpon>EnmpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Enmp\EnmpPageHandler.cs" />
+    <Compile Include="View\Battle\Fmlv\FmlvPage.xaml.cs">
+      <DependentUpon>FmlvPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Fmlv\FmlvPageHandler.cs" />
+    <Compile Include="View\Battle\Limt\LimtPage.xaml.cs">
+      <DependentUpon>LimtPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Limt\LimtPageHandler.cs" />
+    <Compile Include="View\Battle\Lvpm\LvpmPage.xaml.cs">
+      <DependentUpon>LvpmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Lvpm\LvpmPageHandler.cs" />
+    <Compile Include="View\Battle\Patn\PatnPage.xaml.cs">
+      <DependentUpon>PatnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Patn\PatnPageHandler.cs" />
+    <Compile Include="View\Battle\Plrp\PlrpPage.xaml.cs">
+      <DependentUpon>PlrpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Plrp\PlrpPageHandler.cs" />
+    <Compile Include="View\Battle\Przt\PrztPage.xaml.cs">
+      <DependentUpon>PrztPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Przt\PrztPageHandler.cs" />
+    <Compile Include="View\Battle\Stop\StopPage.xaml.cs">
+      <DependentUpon>StopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Stop\StopPageHandler.cs" />
+    <Compile Include="View\Battle\Sumn\SumnPage.xaml.cs">
+      <DependentUpon>SumnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Sumn\SumnPageHandler.cs" />
+    <Compile Include="View\Battle\Vtbl\VtblPage.xaml.cs">
+      <DependentUpon>VtblPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Vtbl\VtblPageHandler.cs" />
+    <Compile Include="View\Battle\Lvup\LvupPage.xaml.cs">
+      <DependentUpon>LvupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Lvup\LvupPageHandler.cs" />
+    <Compile Include="View\Battle\Bons\BonsPage.xaml.cs">
+      <DependentUpon>BonsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Bons\BonsPageHandler.cs" />
+    <Compile Include="View\Battle\Magc\MagcPage.xaml.cs">
+      <DependentUpon>MagcPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Magc\MagcPageHandler.cs" />
+    <Compile Include="View\Battle\Atkp\AtkpPage.xaml.cs">
+      <DependentUpon>AtkpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Atkp\AtkpPageHandler.cs" />
+    <Compile Include="View\Jiminy\Puzz\PuzzPage.xaml.cs">
+      <DependentUpon>PuzzPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Jiminy\Puzz\PuzzPageHandler.cs" />
+    <Compile Include="View\Jiminy\Worl\WorlPage.xaml.cs">
+      <DependentUpon>WorlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Jiminy\Worl\WorlPageHandler.cs" />
     <Compile Include="View\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\MainWindowHandler.cs" />
-    <Compile Include="View\Mixdata\MixDataPage.xaml.cs">
-      <DependentUpon>MixDataPage.xaml</DependentUpon>
+    <Compile Include="View\Mixdata\Cond\CondPage.xaml.cs">
+      <DependentUpon>CondPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Mixdata\Cond\CondPageHandler.cs" />
+    <Compile Include="View\Mixdata\Leve\LevePage.xaml.cs">
+      <DependentUpon>LevePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mixdata\Leve\LevePageHandler.cs" />
+    <Compile Include="View\Mixdata\Reci\ReciPage.xaml.cs">
+      <DependentUpon>ReciPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mixdata\Reci\ReciPageHandler.cs" />
     <Compile Include="View\Objentry\ObjentryPage.xaml.cs">
       <DependentUpon>ObjentryPage.xaml</DependentUpon>
     </Compile>
@@ -106,13 +229,89 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Battle\Btlv\BtlvPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Enmp\EnmpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Fmlv\FmlvPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Limt\LimtPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Lvpm\LvpmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Patn\PatnPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Plrp\PlrpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Przt\PrztPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Stop\StopPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Sumn\SumnPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Vtbl\VtblPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Lvup\LvupPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Bons\BonsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Magc\MagcPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Atkp\AtkpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Jiminy\Puzz\PuzzPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Jiminy\Worl\WorlPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Mixdata\MixDataPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\Mixdata\Cond\CondPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Mixdata\Leve\LevePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Mixdata\Reci\ReciPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Objentry\ObjentryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -120,8 +319,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\COMMON\EntryItem.cs" />
-    <Compile Include="Model\COMMON\EntryFile.cs" />
+    <Compile Include="Model\COMMON\Str_EntryItem.cs" />
+    <Compile Include="Model\COMMON\Str_EntryFile.cs" />
     <Compile Include="Model\Objentry\ObjentryFile.cs" />
     <Compile Include="Model\Objentry\ObjentryItem.cs" />
     <Compile Include="Libs\Binary\BinaryHandler.cs" />
@@ -156,7 +355,9 @@
     <Resource Include="Images\Icons\KH2FM Editor.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\Battle\" />
+    <Folder Include="Model\Battle\Ptya\" />
+    <Folder Include="Model\Battle\Vbrt\" />
+    <Folder Include="Model\Mixdata\Exp\" />
     <Folder Include="View\System\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

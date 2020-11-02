@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.Bar
 {
-    class BarItem : EntryItem
+    class BarItem : Str_EntryItem
     {
         public static readonly int entrySize = 16;
         // Data Location

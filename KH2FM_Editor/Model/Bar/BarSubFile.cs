@@ -2,10 +2,11 @@
 
 namespace KH2FM_Editor.Model.Bar
 {
-    public class BarSubFile
+    interface BarSubFile
     {
-        public string ParentBarName { get; set; }
-        public string BarName { get; set; }
-        public virtual List<byte> getAsByteList() { return null; }
+        //public string ParentBarName { get; set; }
+        //public string BarName { get; set; }
+        //public virtual List<byte> getSubFileAsByteList() { return null; }
+        List<byte> getSubFileAsByteList();
     }
 }

@@ -45,13 +45,13 @@ namespace KH2FM_Editor.Model.Bar
         }
         public void processSubfiles(List<byte> raw)
         {
-            // NOTE for future -> Instead of loading all of the files, load only the one that gets open
-
             uint currentOffset = Items[0].Offset;
             foreach(BarItem item in Items)
             {
+                Console.WriteLine("DEBUG > BarFile > Processing subfile: " + item.Name + " at: " + item.Offset + " (" + item.Size + " bytes)");
                 // Use the handler to know which file to add
-                SubFiles.Add(new RawSubFile(this.Name, item.Name, raw.GetRange((int)item.Offset, (int)item.Size)));
+                //SubFiles.Add(new RawSubFile(raw.GetRange((int)item.Offset, (int)item.Size)));
+                SubFiles.Add(BarSubFileHandler.handleSubFile(Name, item.Name, raw.GetRange((int)item.Offset, (int)item.Size)));
             }
         }
 
@@ -81,7 +81,7 @@ namespace KH2FM_Editor.Model.Bar
         {
             for (int i = 0; i < Items.Count; i++)
             {
-                Items[i].Size = (uint)SubFiles[i].getAsByteList().Count;
+                Items[i].Size = (uint)SubFiles[i].getSubFileAsByteList().Count;
             }
         }
 
@@ -95,7 +95,7 @@ namespace KH2FM_Editor.Model.Bar
         }
 
         // Returns the object as a byte list
-        public override List<byte> getAsByteList()
+        public List<byte> getAsByteList()
         {
             recalcOffsets();
 
@@ -106,9 +106,14 @@ namespace KH2FM_Editor.Model.Bar
             // Item entries
             foreach (BarItem item in Items) rawObject.AddRange(item.getAsByteList());
             // Items
-            foreach (BarSubFile item in SubFiles) rawObject.AddRange(item.getAsByteList());
+            foreach (BarSubFile item in SubFiles) rawObject.AddRange(item.getSubFileAsByteList());
 
             return rawObject;
+        }
+
+        public List<byte> getSubFileAsByteList()
+        {
+            return getAsByteList();
         }
     }
 }

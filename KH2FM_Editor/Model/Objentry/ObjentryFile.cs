@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.Objentry
 {
-    public class ObjentryFile : EntryFile
+    public class ObjentryFile : Str_EntryFile
     {
-        public ObjentryFile(String name, List<byte> raw) : base(name, raw) { }
+        public ObjentryFile(String name, List<byte> raw) : base(name, 4, 4, ObjentryItem.entrySize,  raw) { }
 
         public override void processEntries(List<byte> raw)
         {

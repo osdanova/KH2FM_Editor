@@ -25,7 +25,13 @@ namespace KH2FM_Editor.View.Main
                     loadFrame.Navigate(new ObjentryPage((file as SimpleFileNode).FilePath));
                     break;
                 case FileTypesEnum.MIXDATA:
-                    loadFrame.Navigate(new BarPage((file as SimpleFileNode).FilePath));
+                    loadFrame.Navigate(new BarPage(null, (file as SimpleFileNode).FilePath));
+                    break;
+                case FileTypesEnum.JIMINY:
+                    loadFrame.Navigate(new BarPage(null, (file as SimpleFileNode).FilePath));
+                    break;
+                case FileTypesEnum.BATTLE:
+                    loadFrame.Navigate(new BarPage(null, (file as SimpleFileNode).FilePath));
                     break;
                 default:
                     break;

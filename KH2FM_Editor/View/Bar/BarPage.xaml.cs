@@ -1,5 +1,8 @@
-﻿using System;
+﻿using KH2FM_Editor.Model.Bar;
+using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace KH2FM_Editor.View.Bar
 {
@@ -14,13 +17,30 @@ namespace KH2FM_Editor.View.Bar
         {
             InitializeComponent();
         }
-        public BarPage(String filepath)
+        public BarPage(String parentName, String filepath)
         {
             Console.WriteLine("DEBUG > BarPage > Filepath: " + filepath);
-            handler = new BarPageHandler(filepath);
+            handler = new BarPageHandler(parentName, filepath);
             DataContext = handler;
 
+            if (parentName != null) hideExportForSubfile();
+
             InitializeComponent();
+        }
+
+        public void hideExportForSubfile()
+        {
+            barActions.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        public void btn_export(object sender, RoutedEventArgs e)
+        {
+            handler.act_export();
+        }
+
+        public void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            handler.loadFile(load_frame, (((ListViewItem)sender).Content as BarItem));
         }
     }
 }

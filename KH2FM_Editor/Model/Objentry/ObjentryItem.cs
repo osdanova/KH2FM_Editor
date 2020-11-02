@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.Objentry
 {
-    public class ObjentryItem : EntryItem
+    public class ObjentryItem : Str_EntryItem
     {
         public static readonly int entrySize = 96;
         // Data Location
