@@ -7,6 +7,8 @@ namespace KH2FM_Editor.Model.Battle.Atkp
 {
     public class AtkpFile : Str_EntryFile, BarSubFile
     {
+        public List<byte> AtkpFileEnd { get; set; }
+
         public AtkpFile(String name, List<byte> raw) : base(name, 4, 4, AtkpItem.entrySize, raw) { }
 
         public override void processEntries(List<byte> raw)
@@ -19,11 +21,19 @@ namespace KH2FM_Editor.Model.Battle.Atkp
                 Entries.Add(new AtkpItem(raw.GetRange(currentOffset, AtkpItem.entrySize)));
                 currentOffset += AtkpItem.entrySize;
             }
+
+            if(currentOffset < raw.Count)
+            {
+                AtkpFileEnd = new List<byte>();
+                AtkpFileEnd.AddRange(raw.GetRange(currentOffset, raw.Count - currentOffset));
+            }
         }
 
         public List<byte> getSubFileAsByteList()
         {
-            return getAsByteList();
+            List<byte> data = getAsByteList();
+            if (AtkpFileEnd != null) data.AddRange(AtkpFileEnd);
+            return data;
         }
     }
 }

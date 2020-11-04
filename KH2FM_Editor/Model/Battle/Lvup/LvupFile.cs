@@ -10,8 +10,8 @@ namespace KH2FM_Editor.Model.Battle.Lvup
     {
         public String Name { get; set; }
         public List<byte> Header { get; set; }
-        List<uint> CharacterPointers { get; set; }
-        ObservableCollection<LvupCharacter> Characters { get; set; }
+        public List<uint> CharacterPointers { get; set; }
+        public ObservableCollection<LvupCharacter> Characters { get; set; }
 
         // Data Location
         int headerSize = 8, charPointerSize = 4;
@@ -105,7 +105,7 @@ namespace KH2FM_Editor.Model.Battle.Lvup
             // Header
             data.AddRange(Header);
             // Character pointers
-            foreach(ulong pointer in CharacterPointers)
+            foreach(uint pointer in CharacterPointers)
             {
                 data.AddRange(BitConverter.GetBytes(pointer));
             }

@@ -5,8 +5,8 @@ namespace KH2FM_Editor.DataDictionary
 {
     public class Worlds
     {
-        // 2 Bytes
-        public static Dictionary<ushort, String> valuesDictionary = new Dictionary<ushort, string>() {
+        // 1 Byte
+        public static Dictionary<byte, String> valuesDictionary = new Dictionary<byte, string>() {
 { 0 , "zz" },
 { 1 , "es" },
 { 2 , "tt" },
@@ -28,7 +28,7 @@ namespace KH2FM_Editor.DataDictionary
 { 18 , "eh" }
         };
 
-        public static String getValue(ushort id)
+        public static String getValue(byte id)
         {
             if (valuesDictionary.ContainsKey(id)) return valuesDictionary[id];
             return "";

@@ -1,0 +1,42 @@
+﻿<Page x:Class="KH2FM_Editor.View.System03.Sklt.SkltPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SkltPage">
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="30" Background="Black" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Foreground="White" FontFamily="Arial" FontWeight="Bold">Test Offset</Label>
+            <TextBox DockPanel.Dock="Left" Width="100" Background="White" Text="{Binding MemOffset}"></TextBox>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST</Button>
+        </DockPanel>
+        <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
+            <!-- Column sizes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <!--DATAGRID-->
+            <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding SkltFileItems}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                    <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
+                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=Unk6}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+            <DockPanel Grid.Column="2" LastChildFill="False">
+                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Page>

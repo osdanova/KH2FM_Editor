@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace KH2FM_Editor.DataDictionary
 {
-    public class Entity
+    public class Entities
     {
         // 4 Bytes
         // Objentry.

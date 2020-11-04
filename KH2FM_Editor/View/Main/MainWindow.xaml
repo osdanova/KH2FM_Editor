@@ -33,7 +33,7 @@
             <TreeView Name="fileTreeview" Background="#2d2d2d"
                       AllowDrop="true" Drop="fileTreeview_Drop">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type self:SimpleFileNode}" ItemsSource="{Binding children}">
+                    <HierarchicalDataTemplate DataType="{x:Type self:SimpleFileNode}" ItemsSource="{Binding Children}">
                         <TextBlock Text="{Binding Name}" Foreground="White"/>
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>

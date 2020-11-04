@@ -22,6 +22,8 @@ namespace KH2FM_Editor.Libs.TreeView
         {
             SimpleFileNode fileTreeNode = new SimpleFileNode(path);
 
+            //Console.WriteLine("TreeViewHandler > node: " + path);
+
             // CHILDREN
             if (fileTreeNode.IsDirectory)
             {

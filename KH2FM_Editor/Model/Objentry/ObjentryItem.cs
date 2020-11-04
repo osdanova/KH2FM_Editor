@@ -145,7 +145,7 @@ namespace KH2FM_Editor.Model.Objentry
         }
         public string ExtraSpawn1Value
         {
-            get { return Entity.getValue(ExtraSpawn1); }
+            get { return Entities.getValue(ExtraSpawn1); }
         }
         public ushort ExtraSpawn1
         {
@@ -154,7 +154,7 @@ namespace KH2FM_Editor.Model.Objentry
         }
         public string ExtraSpawn2Value
         {
-            get { return Entity.getValue(ExtraSpawn2); }
+            get { return Entities.getValue(ExtraSpawn2); }
         }
         public ushort ExtraSpawn2
         {
@@ -163,7 +163,7 @@ namespace KH2FM_Editor.Model.Objentry
         }
         public string ExtraSpawn3Value
         {
-            get { return Entity.getValue(ExtraSpawn3); }
+            get { return Entities.getValue(ExtraSpawn3); }
         }
         public ushort ExtraSpawn3
         {

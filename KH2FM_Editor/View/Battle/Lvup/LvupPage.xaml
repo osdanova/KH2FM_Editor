@@ -20,31 +20,282 @@
                 <ColumnDefinition Width="2" />
                 <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
-
-            <!--DATAGRID-->
-            <DataGrid Grid.Column="0"
+            <!-- Character tabs -->
+            <TabControl>
+                <TabItem Header="Sora/Roxas">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
                   AlternatingRowBackground="LightGray" CanUserAddRows="True"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
-                  ItemsSource="{Binding LvupFileItems}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="TypeId" Binding="{Binding Path=TypeId}" />
-                    <DataGridTextColumn Header="LevelId" Binding="{Binding Path=LevelId}" />
-                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
-                    <DataGridTextColumn Header="Filename" Binding="{Binding Path=Filename}" />
-                    <DataGridTextColumn Header="Unk36" Binding="{Binding Path=Unk36}" />
-                    <DataGridTextColumn Header="CommandValue" Binding="{Binding Path=CommandValue}" />
-                    <DataGridTextColumn Header="Command" Binding="{Binding Path=Command}" />
-                    <DataGridTextColumn Header="GroundAnim" Binding="{Binding Path=GroundAnim}" />
-                    <DataGridTextColumn Header="GroundUnk" Binding="{Binding Path=GroundUnk}" />
-                    <DataGridTextColumn Header="AirAnim" Binding="{Binding Path=AirAnim}" />
-                    <DataGridTextColumn Header="AirUnk" Binding="{Binding Path=AirUnk}" />
-                    <DataGridTextColumn Header="FinishAnim" Binding="{Binding Path=FinishAnim}" />
-                    <DataGridTextColumn Header="FinishUnk" Binding="{Binding Path=FinishUnk}" />
-                    <DataGridTextColumn Header="Unk52" Binding="{Binding Path=Unk52}" />
-                    <DataGridTextColumn Header="Unk53" Binding="{Binding Path=Unk53}" />
-                    <DataGridTextColumn Header="Unk54" Binding="{Binding Path=Unk54}" />
-                </DataGrid.Columns>
-            </DataGrid>
+                  ItemsSource="{Binding LvupFileItemsSoraRoxas}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Donald">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsDonald}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Goofy">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsGoofy}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Mickey">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsMickey}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Auron">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsAuron}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Ping/Mulan">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsPingMulan}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Aladdin">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsAladdin}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Sparrow">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsSparrow}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Beast">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsBeast}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Jack">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsJack}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Simba">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsSimba}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Tron">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsTron}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Riku">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding LvupFileItemsRiku}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="AbiSword" Binding="{Binding Path=AbiSwordValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiSword Id" Binding="{Binding Path=AbiSword}" />
+                            <DataGridTextColumn Header="AbiShield" Binding="{Binding Path=AbiShieldValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiShield Id" Binding="{Binding Path=AbiShield}" />
+                            <DataGridTextColumn Header="AbiStaff" Binding="{Binding Path=AbiStaffValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="AbiStaff Id" Binding="{Binding Path=AbiStaff}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
             <DockPanel Grid.Column="2" LastChildFill="False">
                 <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>

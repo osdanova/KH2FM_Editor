@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor.FileTypes
+namespace KH2FM_Editor.Model.Battle
 {
     class BattleFile : BarFile
     {

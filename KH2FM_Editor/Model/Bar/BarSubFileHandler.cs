@@ -7,7 +7,6 @@ using KH2FM_Editor.Model.Mixdata.Reci;
 using KH2FM_Editor.Model.Jiminy;
 using KH2FM_Editor.Model.Jiminy.Worl;
 using KH2FM_Editor.Model.Jiminy.Puzz;
-using KH2FM_Editor.FileTypes;
 using KH2FM_Editor.Model.Battle.Atkp;
 using KH2FM_Editor.Model.Battle.Magc;
 using KH2FM_Editor.Model.Battle.Lvup;
@@ -23,6 +22,15 @@ using KH2FM_Editor.Model.Battle.Stop;
 using KH2FM_Editor.Model.Battle.Sumn;
 using KH2FM_Editor.Model.Battle.Vtbl;
 using KH2FM_Editor.Model.Battle.Bons;
+using KH2FM_Editor.Model.Battle;
+using KH2FM_Editor.Model.System03;
+using KH2FM_Editor.Model.System03.Cmd;
+using KH2FM_Editor.Model.System03.Wmst;
+using KH2FM_Editor.Model.System03.Item;
+using KH2FM_Editor.Model.System03.Trsr;
+using KH2FM_Editor.Model.System03.Shop;
+using KH2FM_Editor.Model.System03.Sklt;
+using KH2FM_Editor.Model.System03.Evtp;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -60,6 +68,23 @@ namespace KH2FM_Editor.Model.Bar
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "sumn") return new SumnFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "vbrt") return new VbrtFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "vtbl") return new VtblFile(name, raw);
+
+            // SYSTEM
+            if (FileHandler.getFileType(name) == FileTypesEnum.SYSTEM) return new SystemFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "rcct") return new RcctFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "cmd\0") return new CmdFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "went") return new WentFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "wmst") return new WmstFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "arif") return new ArifFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "item") return new ItemFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "trsr") return new TrsrFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "memt") return new MemtFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "ftst") return new FtstFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "shop") return new ShopFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "sklt") return new SkltFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "pref") return new PrefFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "evtp") return new EvtpFile(name, raw);
+            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "ipic") return new IpicFile(name, raw);
 
             return new RawSubFile(raw);
         }

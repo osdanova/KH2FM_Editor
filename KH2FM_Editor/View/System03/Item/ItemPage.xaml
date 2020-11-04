@@ -1,0 +1,87 @@
+﻿<Page x:Class="KH2FM_Editor.View.System03.Item.ItemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ItemPage">
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="30" Background="Black" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Foreground="White" FontFamily="Arial" FontWeight="Bold">Test Offset</Label>
+            <TextBox DockPanel.Dock="Left" Width="100" Background="White" Text="{Binding MemOffset}"></TextBox>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST</Button>
+        </DockPanel>
+        <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
+            <!-- Column sizes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <TabControl>
+                <TabItem Header="Items">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding ItemFileItems}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Item" Binding="{Binding Path=ItemValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                            <DataGridTextColumn Header="Category" Binding="{Binding Path=CategoryValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Category Id" Binding="{Binding Path=Category}" />
+                            <DataGridTextColumn Header="Unk3" Binding="{Binding Path=Unk3}" />
+                            <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
+                            <DataGridTextColumn Header="Rank" Binding="{Binding Path=Rank}" />
+                            <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />
+                            <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" />
+                            <DataGridTextColumn Header="Buy" Binding="{Binding Path=Buy}" />
+                            <DataGridTextColumn Header="Sell" Binding="{Binding Path=Sell}" />
+                            <DataGridTextColumn Header="Command" Binding="{Binding Path=CommandValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Command Id" Binding="{Binding Path=Command}" />
+                            <DataGridTextColumn Header="Slot" Binding="{Binding Path=Slot}" />
+                            <DataGridTextColumn Header="Image" Binding="{Binding Path=Image}" />
+                            <DataGridTextColumn Header="Unk22" Binding="{Binding Path=Unk22}" />
+                            <DataGridTextColumn Header="Unk23" Binding="{Binding Path=Unk23}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Equipment">
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding ItemFileEquipment}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Equipment" Binding="{Binding Path=EquipmentValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                            <DataGridTextColumn Header="Ability" Binding="{Binding Path=AbilityValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Ability Id" Binding="{Binding Path=Ability}" />
+                            <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                            <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                            <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                            <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
+                            <DataGridTextColumn Header="PhysRes" Binding="{Binding Path=PhysRes}" />
+                            <DataGridTextColumn Header="FireRes" Binding="{Binding Path=FireRes}" />
+                            <DataGridTextColumn Header="BlizRes" Binding="{Binding Path=BlizRes}" />
+                            <DataGridTextColumn Header="ThunRes" Binding="{Binding Path=ThunRes}" />
+                            <DataGridTextColumn Header="DarkRes" Binding="{Binding Path=DarkRes}" />
+                            <DataGridTextColumn Header="NeutralRes" Binding="{Binding Path=NeutralRes}" />
+                            <DataGridTextColumn Header="GeneralRes" Binding="{Binding Path=GeneralRes}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+            
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+            <DockPanel Grid.Column="2" LastChildFill="False">
+                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Page>
