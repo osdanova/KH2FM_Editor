@@ -1,0 +1,100 @@
+﻿<Page x:Class="KH2FM_Editor.View.System03.Shop.ShopPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShopPage">
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="30" Background="Black" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Foreground="White" FontFamily="Arial" FontWeight="Bold">Test Offset</Label>
+            <TextBox DockPanel.Dock="Left" Width="100" Background="White" Text="{Binding MemOffset}"></TextBox>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST</Button>
+        </DockPanel>
+        <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
+            <!-- Column sizes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <!--SHOPS-->
+            <DockPanel Grid.Column="0" Grid.ColumnSpan="2">
+                <Label DockPanel.Dock="Top" Foreground="White" FontFamily="Arial" FontWeight="Bold">SHOPS</Label>
+                <!--DATAGRID-->
+                <DataGrid
+                          AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                          AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                          ItemsSource="{Binding ShopFileShops}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Shop" Binding="{Binding Path=ShopValue}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Unk18" Binding="{Binding Path=Unk18}" />
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                        <DataGridTextColumn Header="Unlock" Binding="{Binding Path=Unlock}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />
+                        <DataGridTextColumn Header="Entity" Binding="{Binding Path=EntityValue}" />
+                        <DataGridTextColumn Header="Entity Id" Binding="{Binding Path=Entity}" />
+                        <DataGridTextColumn Header="PosX" Binding="{Binding Path=PosX}" />
+                        <DataGridTextColumn Header="PosY" Binding="{Binding Path=PosY}" />
+                        <DataGridTextColumn Header="PosZ" Binding="{Binding Path=PosZ}" />
+                        <DataGridTextColumn Header="Sound" Binding="{Binding Path=Sound}" />
+                        <DataGridTextColumn Header="InventoryCount" Binding="{Binding Path=InventoryCount}" />
+                        <DataGridTextColumn Header="Unk20" Binding="{Binding Path=Unk20}" />
+                        <DataGridTextColumn Header="InventoryOfst" Binding="{Binding Path=InventoryOfst}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+
+
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+
+            <!--SHOPS-->
+            <DockPanel Grid.Column="2" Grid.ColumnSpan="2">
+                <Label DockPanel.Dock="Top" Foreground="White" FontFamily="Arial" FontWeight="Bold">INVENTORIES</Label>
+                <!--DATAGRID-->
+                <DataGrid
+                          AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                          AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                          ItemsSource="{Binding ShopFileInventories}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="UnlockEvent" Binding="{Binding Path=UnlockEvent}" />
+                        <DataGridTextColumn Header="ProductCount" Binding="{Binding Path=ProductCount}" />
+                        <DataGridTextColumn Header="ProductOfst" Binding="{Binding Path=ProductOfst}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+
+
+            <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" />
+
+            <!--SHOPS-->
+            <DockPanel Grid.Column="4" Grid.ColumnSpan="2">
+                <Label DockPanel.Dock="Top" Foreground="White" FontFamily="Arial" FontWeight="Bold">PRODUCTS</Label>
+                <!--DATAGRID-->
+                <DataGrid
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding ShopFileProducts}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Product" Binding="{Binding Path=ProductValue}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Product Id" Binding="{Binding Path=Product}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+
+            <GridSplitter Grid.Column="5" HorizontalAlignment="Stretch" />
+
+            <DockPanel Grid.Column="6" LastChildFill="False">
+                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Page>

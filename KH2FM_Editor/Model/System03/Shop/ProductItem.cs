@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.System03.Shop
 {
-    class ProductItem : Str_EntryItem
+    public class ProductItem : Str_EntryItem
     {
         public static readonly int entrySize = 2;
         // Data Location

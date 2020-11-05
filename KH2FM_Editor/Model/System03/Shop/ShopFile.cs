@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace KH2FM_Editor.Model.System03.Shop
 {
-    class ShopFile : BarSubFile
+    public class ShopFile : BarSubFile
     {
         // Contains a list of programs
         public String Name { get; set; }

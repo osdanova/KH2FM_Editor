@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.System03.Shop
 {
-    class InventoryItem : Str_EntryItem
+    public class InventoryItem : Str_EntryItem
     {
         public static readonly int entrySize = 8;
         // Data Location

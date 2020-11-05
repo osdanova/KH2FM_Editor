@@ -256,6 +256,10 @@
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Item\ItemPageHandler.cs" />
+    <Compile Include="View\System03\Shop\ShopPage.xaml.cs">
+      <DependentUpon>ShopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Shop\ShopPageHandler.cs" />
     <Compile Include="View\System03\Sklt\SkltPage.xaml.cs">
       <DependentUpon>SkltPage.xaml</DependentUpon>
     </Compile>
@@ -372,6 +376,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\System03\Shop\ShopPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\System03\Sklt\SkltPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -427,7 +435,6 @@
     <Folder Include="Model\Mixdata\Exp\" />
     <Folder Include="Model\System03\Ftst\" />
     <Folder Include="Model\System03\Rcct\" />
-    <Folder Include="View\System03\Shop\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

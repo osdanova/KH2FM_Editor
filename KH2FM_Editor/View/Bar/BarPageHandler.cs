@@ -54,6 +54,7 @@ using KH2FM_Editor.View.Mixdata.Reci;
 using KH2FM_Editor.View.System03.Cmd;
 using KH2FM_Editor.View.System03.Evtp;
 using KH2FM_Editor.View.System03.Item;
+using KH2FM_Editor.View.System03.Shop;
 using KH2FM_Editor.View.System03.Sklt;
 using KH2FM_Editor.View.System03.Trsr;
 using KH2FM_Editor.View.System03.Wmst;
@@ -271,7 +272,7 @@ namespace KH2FM_Editor.View.Bar
                             break;
                         case "shop":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ShopFile));
-                            //loadFrame.Navigate(new ShopPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ShopFile));
+                            loadFrame.Navigate(new ShopPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ShopFile));
                             break;
                         case "sklt":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SkltFile));
