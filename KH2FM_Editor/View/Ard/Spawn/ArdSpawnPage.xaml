@@ -81,6 +81,34 @@
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </TabItem>
+
+                            <!--WalkPaths-->
+                            <TabItem Header="Walkpaths">
+                                <!-- BLOCKS -->
+                                <TabControl ItemsSource="{Binding WalkPathSpawns}">
+                                    <!-- WalkPath title -->
+                                    <TabControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="WP"></TextBlock>
+                                        </DataTemplate>
+                                    </TabControl.ItemTemplate>
+                                    <!-- WalkPath content -->
+                                    <TabControl.ContentTemplate>
+                                        <DataTemplate>
+                                            <DataGrid
+                                              AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                                              AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                                              ItemsSource="{Binding Items}">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="PosX" Binding="{Binding Path=PosX}" />
+                                                    <DataGridTextColumn Header="PosY" Binding="{Binding Path=PosY}" />
+                                                    <DataGridTextColumn Header="PosZ" Binding="{Binding Path=PosZ}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </DataTemplate>
+                                    </TabControl.ContentTemplate>
+                                </TabControl>
+                            </TabItem>
                             <!--Unk16-->
                             <TabItem Header="Unk16">
                                 <DataGrid
@@ -88,7 +116,7 @@
                                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                                   ItemsSource="{Binding Unk16Spawns}">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                                        <DataGridTextColumn Header="Raw" Binding="{Binding Path=raw}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </TabItem>
@@ -99,7 +127,7 @@
                                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                                   ItemsSource="{Binding Unk8Spawns}">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                                        <DataGridTextColumn Header="Raw" Binding="{Binding Path=raw}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </TabItem>

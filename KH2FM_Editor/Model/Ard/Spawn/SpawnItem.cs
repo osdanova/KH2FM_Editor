@@ -38,35 +38,35 @@ namespace KH2FM_Editor.Model.Ard.Spawn
             get { return DataAccess.readUShort(raw, entityIdOffset, entityIdSize); }
             set { DataAccess.writeUShort(raw, value, entityIdOffset, entityIdSize); NotifyPropertyChanged(nameof(EntityValue)); }
         }
-        public uint PosX
+        public float PosX
         {
-            get { return DataAccess.readUInt(raw, posXOffset, locRotSize); }
-            set { DataAccess.writeUInt(raw, value, posXOffset, locRotSize); }
+            get { return DataAccess.readFloat(raw, posXOffset, locRotSize); }
+            set { DataAccess.writeFloat(raw, value, posXOffset, locRotSize); }
         }
-        public uint PosY
+        public float PosY
         {
-            get { return DataAccess.readUInt(raw, posYOffset, locRotSize); }
-            set { DataAccess.writeUInt(raw, value, posYOffset, locRotSize); }
+            get { return DataAccess.readFloat(raw, posYOffset, locRotSize); }
+            set { DataAccess.writeFloat(raw, value, posYOffset, locRotSize); }
         }
-        public uint PosZ
+        public float PosZ
         {
-            get { return DataAccess.readUInt(raw, posZOffset, locRotSize); }
-            set { DataAccess.writeUInt(raw, value, posZOffset, locRotSize); }
+            get { return DataAccess.readFloat(raw, posZOffset, locRotSize); }
+            set { DataAccess.writeFloat(raw, value, posZOffset, locRotSize); }
         }
-        public uint RotX
+        public float RotX
         {
-            get { return DataAccess.readUInt(raw, rotXOffset, locRotSize); }
-            set { DataAccess.writeUInt(raw, value, rotXOffset, locRotSize); }
+            get { return DataAccess.readFloat(raw, rotXOffset, locRotSize); }
+            set { DataAccess.writeFloat(raw, value, rotXOffset, locRotSize); }
         }
-        public uint RotY
+        public float RotY
         {
-            get { return DataAccess.readUInt(raw, rotYOffset, locRotSize); }
-            set { DataAccess.writeUInt(raw, value, rotYOffset, locRotSize); }
+            get { return DataAccess.readFloat(raw, rotYOffset, locRotSize); }
+            set { DataAccess.writeFloat(raw, value, rotYOffset, locRotSize); }
         }
-        public uint RotZ
+        public float RotZ
         {
-            get { return DataAccess.readUInt(raw, rotZOffset, locRotSize); }
-            set { DataAccess.writeUInt(raw, value, rotZOffset, locRotSize); }
+            get { return DataAccess.readFloat(raw, rotZOffset, locRotSize); }
+            set { DataAccess.writeFloat(raw, value, rotZOffset, locRotSize); }
         }
         public string Unk28
         {

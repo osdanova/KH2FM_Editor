@@ -28,15 +28,15 @@ namespace KH2FM_Editor.Model.Ard.Spawn
             else Raw = rawData;
         }
 
-        public ushort Type
+        public uint Type
         {
-            get { return DataAccess.readUShort(Header, typeOffset, typeSize); }
-            set { DataAccess.writeUShort(Header, value, typeOffset, typeSize); }
+            get { return DataAccess.readUInt(Header, typeOffset, typeSize); }
+            set { DataAccess.writeUInt(Header, value, typeOffset, typeSize); }
         }
-        public ushort BlockCount
+        public uint BlockCount
         {
-            get { return DataAccess.readUShort(Header, blockCountOffset, blockCountSize); }
-            set { DataAccess.writeUShort(Header, value, blockCountOffset, blockCountSize); }
+            get { return DataAccess.readUInt(Header, blockCountOffset, blockCountSize); }
+            set { DataAccess.writeUInt(Header, value, blockCountOffset, blockCountSize); }
         }
 
         private void processData(List<byte> rawData)
@@ -50,7 +50,7 @@ namespace KH2FM_Editor.Model.Ard.Spawn
 
             Console.WriteLine("DEBUG >>> Found " + BlockCount + " blocks");
             // Blocks
-            foreach (var i in Enumerable.Range(0, BlockCount))
+            foreach (var i in Enumerable.Range(0, (int)BlockCount))
             {
                 // Blocks only read up to their size, so no need to pass only their data
                 ArdBlockFile currentBlock = new ArdBlockFile(rawData.GetRange(currentOffset, rawData.Count - currentOffset));
