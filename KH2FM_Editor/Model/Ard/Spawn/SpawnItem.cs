@@ -4,7 +4,7 @@ using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor.Model.Ard
+namespace KH2FM_Editor.Model.Ard.Spawn
 {
     public class SpawnItem : Str_EntryItem
     {

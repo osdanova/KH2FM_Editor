@@ -3,20 +3,20 @@ using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
 
-namespace KH2FM_Editor.Model.Ard
+namespace KH2FM_Editor.Model.Ard.Spawn
 {
-    public class WalkPathPoint : Str_EntryItem
+    public class WalkPathItem : Str_EntryItem
     {
-        public static readonly int entrySize = 4;
+        public static readonly int entrySize = 12;
         // Data Location
         int xOffset = 0, yOffset = 4, zOffset = 8;
         int posSize = 4;
 
-        public WalkPathPoint()
+        public WalkPathItem()
         {
             raw = FormatHandler.getByteListOfSize(entrySize);
         }
-        public WalkPathPoint(List<byte> rawData) : base(rawData)
+        public WalkPathItem(List<byte> rawData) : base(rawData)
         {
         }
 

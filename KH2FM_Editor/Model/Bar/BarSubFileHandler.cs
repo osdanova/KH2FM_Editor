@@ -33,6 +33,7 @@ using KH2FM_Editor.Model.System03.Sklt;
 using KH2FM_Editor.Model.System03.Evtp;
 using KH2FM_Editor.Model.Ard;
 using KH2FM_Editor.Model.Ard.Script;
+using KH2FM_Editor.Model.Ard.Spawn;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -91,11 +92,11 @@ namespace KH2FM_Editor.Model.Bar
             // ARD
             if (FileHandler.getFileType(name) == FileTypesEnum.ARD) return new ArdFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "map\0") return new ArdScriptFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "m_") return new MapSubFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("m_")) return new SpawnFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "btl\0") return new ArdScriptFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "b_") return new ArdBattleSubFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("b_")) return new SpawnFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "evt\0") return new ArdScriptFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "e_") return new EventSubFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("e_")) return new SpawnFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "number") return new SceneFile(name, raw);
 
             return new RawSubFile(name, raw);
