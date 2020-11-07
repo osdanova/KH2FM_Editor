@@ -8,7 +8,7 @@ namespace KH2FM_Editor.Model.Ard.Spawn
 {
     public class SpawnItem : Str_EntryItem
     {
-        public static readonly int entrySize = 48;
+        public static readonly int entrySize = 64;
         // Data Location
         public static readonly int entityIdOffset = 0, entityIdSize = 2;
         public static readonly int locRotSize = 4;

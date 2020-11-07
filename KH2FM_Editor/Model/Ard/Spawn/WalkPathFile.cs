@@ -32,6 +32,8 @@ namespace KH2FM_Editor.Model.Ard.Spawn
         }
         public void addData(List<Byte> rawData)
         {
+            Items = new ObservableCollection<WalkPathItem>();
+
             int currentOffset = 0;
             foreach (var i in Enumerable.Range(0, ItemCount))
             {

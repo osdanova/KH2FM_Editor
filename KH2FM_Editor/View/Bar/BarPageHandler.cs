@@ -1,6 +1,7 @@
 ﻿using KH2FM_Editor.Libs.FileHandler;
 using KH2FM_Editor.Model.Ard;
 using KH2FM_Editor.Model.Ard.Script;
+using KH2FM_Editor.Model.Ard.Spawn;
 using KH2FM_Editor.Model.Bar;
 using KH2FM_Editor.Model.Battle;
 using KH2FM_Editor.Model.Battle.Atkp;
@@ -300,20 +301,19 @@ namespace KH2FM_Editor.View.Bar
                     break;
 
                 case FileTypesEnum.ARD:
-                    switch (entry.Name)
+                    if(entry.Name == "map\0" ||
+                        entry.Name == "btl\0" ||
+                        entry.Name == "evt\0")
                     {
-                        case "map\0":
-                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
-                            loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
-                            break;
-                        case "btl\0":
-                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
-                            loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
-                            break;
-                        case "evt\0":
-                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
-                            loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
-                            break;
+                        Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                        loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                    }
+                    else if (entry.Name.StartsWith("m_") ||
+                              entry.Name.StartsWith("b_") ||
+                              entry.Name.StartsWith("e_"))
+                    {
+                        Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SpawnFile));
+                        //loadFrame.Navigate(new SpawnPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SpawnFile));
                     }
                     break;
             }

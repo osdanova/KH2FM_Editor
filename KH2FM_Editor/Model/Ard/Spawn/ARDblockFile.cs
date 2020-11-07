@@ -42,6 +42,7 @@ namespace KH2FM_Editor.Model.Ard.Spawn
         public ArdBlockFile(List<Byte> rawData)
         {
             Header = rawData.GetRange(headerOffset, headerSize);
+            //Console.WriteLine("DELETE DEBUG > block header: " + DataAccess.readHexString(Header, 0, headerSize));
             addData(rawData.GetRange(headerSize, rawData.Count - headerSize));
         }
         public static ArdBlockFile headerConstructor(List<Byte> rawHeader)
@@ -144,14 +145,22 @@ namespace KH2FM_Editor.Model.Ard.Spawn
 
         public void addData(List<byte> rawData)
         {
-            int currentOffset = headerSize;
+            EntitySpawns = new ObservableCollection<SpawnItem>();
+            EventSpawns = new ObservableCollection<SpawnItem>();
+            WalkPathSpawns = new ObservableCollection<WalkPathFile>();
+            Unk16Spawns = new ObservableCollection<Str_EntryItem>();
+            Unk8Spawns = new ObservableCollection<Str_EntryItem>();
+
+            int currentOffset = 0;
             foreach (var i in Enumerable.Range(0, EntityCount))
             {
+                //Console.WriteLine("DELETE DEBUG > Entity: " + DataAccess.readHexString(rawData.GetRange(currentOffset, SpawnItem.entrySize), 0, SpawnItem.entrySize));
                 EntitySpawns.Add(new SpawnItem(rawData.GetRange(currentOffset, SpawnItem.entrySize)));
                 currentOffset += SpawnItem.entrySize;
             }
             foreach (var i in Enumerable.Range(0, EventCount))
             {
+                //Console.WriteLine("DELETE DEBUG > Event: " + DataAccess.readHexString(rawData.GetRange(currentOffset, SpawnItem.entrySize), 0, SpawnItem.entrySize));
                 EventSpawns.Add(new SpawnItem(rawData.GetRange(currentOffset, SpawnItem.entrySize)));
                 currentOffset += SpawnItem.entrySize;
             }

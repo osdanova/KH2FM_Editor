@@ -41,6 +41,8 @@ namespace KH2FM_Editor.Model.Ard.Spawn
 
         private void processData(List<byte> rawData)
         {
+            Blocks = new ObservableCollection<ArdBlockFile>();
+
             int currentOffset = 0;
 
             Header = rawData.GetRange(0, headerSize);
