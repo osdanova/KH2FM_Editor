@@ -35,6 +35,7 @@ using KH2FM_Editor.Model.System03.Sklt;
 using KH2FM_Editor.Model.System03.Trsr;
 using KH2FM_Editor.Model.System03.Wmst;
 using KH2FM_Editor.View.Ard.Script;
+using KH2FM_Editor.View.Ard.Spawn;
 using KH2FM_Editor.View.Battle.Atkp;
 using KH2FM_Editor.View.Battle.Bons;
 using KH2FM_Editor.View.Battle.Btlv;
@@ -313,7 +314,7 @@ namespace KH2FM_Editor.View.Bar
                               entry.Name.StartsWith("e_"))
                     {
                         Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SpawnFile));
-                        //loadFrame.Navigate(new SpawnPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SpawnFile));
+                        loadFrame.Navigate(new ArdSpawnPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SpawnFile));
                     }
                     break;
             }

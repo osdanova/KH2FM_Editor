@@ -157,6 +157,10 @@
       <DependentUpon>ArdScriptPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Ard\Script\ArdScriptPageHandler.cs" />
+    <Compile Include="View\Ard\Spawn\ArdSpawnPage.xaml.cs">
+      <DependentUpon>ArdSpawnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ard\Spawn\ArdSpawnPageHandler.cs" />
     <Compile Include="View\Bar\BarPage.xaml.cs">
       <DependentUpon>BarPage.xaml</DependentUpon>
     </Compile>
@@ -287,6 +291,10 @@
     </Compile>
     <Compile Include="View\System03\Wmst\WmstPageHandler.cs" />
     <Page Include="View\Ard\Script\ArdScriptPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Ard\Spawn\ArdSpawnPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

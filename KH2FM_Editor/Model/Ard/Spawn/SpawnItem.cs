@@ -98,7 +98,5 @@ namespace KH2FM_Editor.Model.Ard.Spawn
             get { return DataAccess.readHexString(raw, entityRCOffset, entityRCSize); }
             set { DataAccess.writeHexString(raw, value, entityRCOffset, entityRCSize); }
         }
-
     }
-
 }
