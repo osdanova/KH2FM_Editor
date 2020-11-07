@@ -36,6 +36,9 @@ namespace KH2FM_Editor.View.Main
                 case FileTypesEnum.SYSTEM:
                     loadFrame.Navigate(new BarPage(null, (file as SimpleFileNode).FilePath));
                     break;
+                case FileTypesEnum.ARD:
+                    loadFrame.Navigate(new BarPage(null, (file as SimpleFileNode).FilePath));
+                    break;
                 default:
                     break;
             }

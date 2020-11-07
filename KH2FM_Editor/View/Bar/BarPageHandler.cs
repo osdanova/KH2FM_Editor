@@ -1,4 +1,6 @@
 ﻿using KH2FM_Editor.Libs.FileHandler;
+using KH2FM_Editor.Model.Ard;
+using KH2FM_Editor.Model.Ard.Script;
 using KH2FM_Editor.Model.Bar;
 using KH2FM_Editor.Model.Battle;
 using KH2FM_Editor.Model.Battle.Atkp;
@@ -31,6 +33,7 @@ using KH2FM_Editor.Model.System03.Shop;
 using KH2FM_Editor.Model.System03.Sklt;
 using KH2FM_Editor.Model.System03.Trsr;
 using KH2FM_Editor.Model.System03.Wmst;
+using KH2FM_Editor.View.Ard.Script;
 using KH2FM_Editor.View.Battle.Atkp;
 using KH2FM_Editor.View.Battle.Bons;
 using KH2FM_Editor.View.Battle.Btlv;
@@ -111,6 +114,9 @@ namespace KH2FM_Editor.View.Bar
                     break;
                 case FileTypesEnum.SYSTEM:
                     BarFileLoaded = new SystemFile(FileName, File.ReadAllBytes(filePath).ToList());
+                    break;
+                case FileTypesEnum.ARD:
+                    BarFileLoaded = new ArdFile(FileName, File.ReadAllBytes(filePath).ToList());
                     break;
             }
         }
@@ -289,6 +295,24 @@ namespace KH2FM_Editor.View.Bar
                         case "ipic":
                             //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as IpicFile));
                             //loadFrame.Navigate(new IpicPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as IpicFile));
+                            break;
+                    }
+                    break;
+
+                case FileTypesEnum.ARD:
+                    switch (entry.Name)
+                    {
+                        case "map\0":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                            loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                            break;
+                        case "btl\0":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                            loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                            break;
+                        case "evt\0":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
+                            loadFrame.Navigate(new ArdScriptPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArdScriptFile));
                             break;
                     }
                     break;
