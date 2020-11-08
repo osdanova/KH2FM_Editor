@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.FileHandler;
+using KH2FM_Editor.Libs.Pcsx2;
 using KH2FM_Editor.Model.Ard;
 using KH2FM_Editor.Model.Ard.Script;
 using KH2FM_Editor.Model.Ard.Spawn;
@@ -64,6 +65,7 @@ using KH2FM_Editor.View.System03.Sklt;
 using KH2FM_Editor.View.System03.Trsr;
 using KH2FM_Editor.View.System03.Wmst;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
@@ -77,10 +79,14 @@ namespace KH2FM_Editor.View.Bar
         String FilePath { get; set; }
         public BarFile BarFileLoaded { get; set; }
 
+        // OPTIONS
+        public string MemOffset { get; set; }
+
         public BarPageHandler(String parentName, String filepath)
         {
             Console.WriteLine("DEBUG > BarPageHandler > Processing file...");
             processFile(parentName, filepath);
+            MemOffset = getFileAddress();
             Console.WriteLine("DEBUG > BarPageHandler > File processed!");
         }
 
@@ -91,6 +97,18 @@ namespace KH2FM_Editor.View.Bar
             Console.WriteLine("DEBUG > BarPageHandler > Exporting...");
             FileHandler.saveFile(FileName, BarFileLoaded.getAsByteList());
             Console.WriteLine("DEBUG > BarPageHandler > Export saving!");
+        }
+
+        public void act_testData()
+        {
+            Console.WriteLine("DEBUG > BarPageHandler > Writing to Pcsx2...");
+            // For whenever an entry is added
+            //insertDataToFile();
+            // Starting offset: The bar in memory uses different offsets, so we start from the first subfile
+            int startOffset = BarFileLoaded.Header.Count + (BarFileLoaded.Items.Count * BarFile.entrySize);
+            List<byte> fileToWrite = BarFileLoaded.getAsByteList().GetRange(startOffset, BarFileLoaded.getAsByteList().Count - startOffset);
+            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber) + startOffset, fileToWrite.Count - startOffset, fileToWrite);
+            Console.WriteLine("DEBUG > BarPageHandler > Finished writing!");
         }
 
 
@@ -318,6 +336,15 @@ namespace KH2FM_Editor.View.Bar
                     }
                     break;
             }
+        }
+
+        public string getFileAddress()
+        {
+            if (FileName == "al00.ard") return "21C35C40";
+            if (FileName == "mu03.ard") return "21C56440";
+
+            // Unknown
+            return "20000000";
         }
     }
 }

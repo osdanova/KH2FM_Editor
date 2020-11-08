@@ -10,12 +10,8 @@
     <DockPanel>
         <!-- TOPNAV MENU -->
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
-                <Separator />
-                <MenuItem Header="_Exit" />
+            <MenuItem Header="Tools">
+                <MenuItem Header="Inventory" Click="tool_Inventory" />
             </MenuItem>
             <MenuItem Header="DEBUG">
                 <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" />

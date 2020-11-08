@@ -1,6 +1,7 @@
 ﻿using KH2FM_Editor.Libs.FileHandler;
 using KH2FM_Editor.Libs.TreeView;
 using KH2FM_Editor.View.Bar;
+using KH2FM_Editor.View.Battle.Inventory;
 using KH2FM_Editor.View.Objentry;
 using System.Windows.Controls;
 
@@ -15,6 +16,18 @@ namespace KH2FM_Editor.View.Main
             TreeViewHandler.loadFileTree(filePath);
             fileTreeview.Items.Add(TreeViewHandler.fileTreeRoot);
         }
+
+        // Opens the specified file
+        public static void openPage(Frame loadFrame, string page)
+        {
+            switch (page)
+            {
+                case "Inventory":
+                    loadFrame.Navigate(new InventoryPage());
+                    break;
+            }
+        }
+
 
         // Given a SimpleFileNode object, loads the file
         public static void loadFile(Frame loadFrame,  object file)

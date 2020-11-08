@@ -19,34 +19,45 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-        <!-- Column sizes -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="2" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <!-- Bar info panel -->
-        <DockPanel Grid.Column="0" Background="#2d2d2d" LastChildFill = "False">
+    <DockPanel>
+        <!-- Top Menu -->
+        <DockPanel DockPanel.Dock="Top" Height="50" LastChildFill="False" Background="Black">
             <!-- Bar Data -->
-            <DockPanel DockPanel.Dock="Top" Height="50">
+            <DockPanel DockPanel.Dock="Left" Width="200"  LastChildFill="False">
                 <Label DockPanel.Dock="Top" Foreground="White"
                     Content="{Binding Path=BarFileLoaded.Name, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label DockPanel.Dock="Top" Foreground="White"
                     Content="{Binding Path=BarFileLoaded.Identifier, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
-            <!-- Bar actions -->
-            <DockPanel Name="barActions"  DockPanel.Dock="Bottom" Height="50">
-                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_export">Export</Button>
-            </DockPanel>
-            <!-- Bar subfiles list -->
-            <ListView Width="200" ItemsSource="{Binding BarFileLoaded.Items}" DisplayMemberPath="Name" AlternationCount="2"/>
+            <!-- Test -->
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST BAR</Button>
+            <TextBox DockPanel.Dock="Right" Width="100" Background="White" Text="{Binding MemOffset}" VerticalAlignment="Center"></TextBox>
+            <Label DockPanel.Dock="Right" Foreground="White" FontFamily="Arial" FontWeight="Bold" VerticalAlignment="Center">Test Offset</Label>
         </DockPanel>
-        <!-- Splitter -->
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-        <!-- Page loader -->
-        <Grid Grid.Column="2" Background="#2d2d2d">
-            <Frame x:Name="load_frame"/>
+        <Grid>
+            <!-- Column sizes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!-- Bar info panel -->
+            <DockPanel Grid.Column="0" Background="#2d2d2d" LastChildFill = "False">
+                <!-- Bar actions -->
+                <DockPanel Name="barActions"  DockPanel.Dock="Bottom" Height="50">
+                    <Button DockPanel.Dock="Bottom" Width="100" Click="btn_export">Export</Button>
+                </DockPanel>
+                <!-- Bar subfiles list -->
+                <ListView Width="200" ItemsSource="{Binding BarFileLoaded.Items}" DisplayMemberPath="Name" AlternationCount="2"/>
+            </DockPanel>
+            <!-- Splitter -->
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+            <!-- Page loader -->
+            <Grid Grid.Column="2" Background="#2d2d2d">
+                <Frame x:Name="load_frame"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </DockPanel>
+    
+    
 </Page>

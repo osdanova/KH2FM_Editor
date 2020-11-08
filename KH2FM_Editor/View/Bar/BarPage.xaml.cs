@@ -42,5 +42,10 @@ namespace KH2FM_Editor.View.Bar
         {
             handler.loadFile(load_frame, (((ListViewItem)sender).Content as BarItem));
         }
+
+        public void btn_testData(object sender, RoutedEventArgs e)
+        {
+            handler.act_testData();
+        }
     }
 }

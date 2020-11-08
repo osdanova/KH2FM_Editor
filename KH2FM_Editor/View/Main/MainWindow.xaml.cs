@@ -15,6 +15,7 @@ namespace KH2FM_Editor.View.Main
             InitializeComponent();
         }
 
+        // Filetree
         private void fileTreeview_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -25,7 +26,6 @@ namespace KH2FM_Editor.View.Main
                 MainWindowHandler.loadTreeView(fileTreeview, files[0]);
             }
         }
-
         private void OnItemMouseDoubleClick(object sender, MouseButtonEventArgs args)
         {
             // Makes sure the code only executes once
@@ -37,6 +37,13 @@ namespace KH2FM_Editor.View.Main
             MainWindowHandler.loadFile(load_frame, fileTreeview.SelectedItem);
         }
 
+        // Tools
+        private void tool_Inventory(object sender, EventArgs e)
+        {
+            MainWindowHandler.openPage(load_frame, "Inventory");
+        }
+
+        // Debug
         private void menuDebugBreakpoint(object sender, EventArgs e)
         {
             Console.WriteLine("MENU >>> DEBUG >>> BREAKPOINT");
