@@ -13,10 +13,9 @@ namespace KH2FM_Editor.Model.System03.Cmd
         public static readonly int idOffset = 0, idSize = 2;
         public static readonly int unkId1Offset = 2, unkId1Size = 2;
         public static readonly int unkId2Offset = 4, unkId2Size = 2;
-        public static readonly int unk6Offset = 6, unk6Size = 1;
-        public static readonly int unk7Offset = 7, unk7Size = 1;
-        public static readonly int unk8Offset = 8, unk8Size = 2;
-        public static readonly int unk10Offset = 10, unk10Size = 2;
+        public static readonly int submenuOffset = 6, submenuSize = 1;
+        public static readonly int iconOffset = 7, iconSize = 1;
+        public static readonly int textOffset = 8, textSize = 2;
         public static readonly int unk12Offset = 12, unk12Size = 4;
         public static readonly int unk16Offset = 16, unk16Size = 2;
         public static readonly int unk18Offset = 18, unk18Size = 2;
@@ -24,7 +23,7 @@ namespace KH2FM_Editor.Model.System03.Cmd
         public static readonly int unk24Offset = 24, unk24Size = 1;
         public static readonly int unk25Offset = 25, unk25Size = 1;
         public static readonly int unk26Offset = 26, unk26Size = 2;
-        public static readonly int mpCostOffset = 28, mpCostSize = 2;
+        public static readonly int mpDrCostOffset = 28, mpDrCostSize = 2;
         public static readonly int unk30Offset = 30, unk30Size = 4;
         public static readonly int unk34Offset = 34, unk34Size = 2;
         public static readonly int unk36Offset = 36, unk36Size = 1;
@@ -62,25 +61,20 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readUShort(raw, unkId2Offset, unkId2Size); }
             set { DataAccess.writeUShort(raw, value, unkId2Offset, unkId2Size); }
         }
-        public string Unk6
+        public string Submenu
         {
-            get { return DataAccess.readHexString(raw, unk6Offset, unk6Size); }
-            set { DataAccess.writeHexString(raw, value, unk6Offset, unk6Size); }
+            get { return DataAccess.readHexString(raw, submenuOffset, submenuSize); }
+            set { DataAccess.writeHexString(raw, value, submenuOffset, submenuSize); }
         }
-        public string Unk7
+        public string Icon
         {
-            get { return DataAccess.readHexString(raw, unk7Offset, unk7Size); }
-            set { DataAccess.writeHexString(raw, value, unk7Offset, unk7Size); }
+            get { return DataAccess.readHexString(raw, iconOffset, iconSize); }
+            set { DataAccess.writeHexString(raw, value, iconOffset, iconSize); }
         }
-        public string Unk8
+        public string Text
         {
-            get { return DataAccess.readHexString(raw, unk8Offset, unk8Size); }
-            set { DataAccess.writeHexString(raw, value, unk8Offset, unk8Size); }
-        }
-        public string Unk10
-        {
-            get { return DataAccess.readHexString(raw, unk10Offset, unk10Size); }
-            set { DataAccess.writeHexString(raw, value, unk10Offset, unk10Size); }
+            get { return DataAccess.readHexString(raw, textOffset, textSize); }
+            set { DataAccess.writeHexString(raw, value, textOffset, textSize); }
         }
         public string Unk12
         {
@@ -117,10 +111,10 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readHexString(raw, unk26Offset, unk26Size); }
             set { DataAccess.writeHexString(raw, value, unk26Offset, unk26Size); }
         }
-        public ushort MpCost
+        public ushort MpDrCost
         {
-            get { return DataAccess.readUShort(raw, mpCostOffset, mpCostSize); }
-            set { DataAccess.writeUShort(raw, value, mpCostOffset, mpCostSize); }
+            get { return DataAccess.readUShort(raw, mpDrCostOffset, mpDrCostSize); }
+            set { DataAccess.writeUShort(raw, value, mpDrCostOffset, mpDrCostSize); }
         }
         public string Unk30
         {

@@ -34,6 +34,7 @@ using KH2FM_Editor.Model.System03.Item;
 using KH2FM_Editor.Model.System03.Shop;
 using KH2FM_Editor.Model.System03.Sklt;
 using KH2FM_Editor.Model.System03.Trsr;
+using KH2FM_Editor.Model.System03.Went;
 using KH2FM_Editor.Model.System03.Wmst;
 using KH2FM_Editor.View.Ard.Script;
 using KH2FM_Editor.View.Ard.Spawn;
@@ -63,6 +64,7 @@ using KH2FM_Editor.View.System03.Item;
 using KH2FM_Editor.View.System03.Shop;
 using KH2FM_Editor.View.System03.Sklt;
 using KH2FM_Editor.View.System03.Trsr;
+using KH2FM_Editor.View.System03.Went;
 using KH2FM_Editor.View.System03.Wmst;
 using System;
 using System.Collections.Generic;
@@ -269,8 +271,8 @@ namespace KH2FM_Editor.View.Bar
                             loadFrame.Navigate(new CmdPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as CmdFile));
                             break;
                         case "went":
-                            //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as WentFile));
-                            //loadFrame.Navigate(new WentPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as WentFile));
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as WentFile));
+                            loadFrame.Navigate(new WentPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as WentFile));
                             break;
                         case "wmst":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as WmstFile));
@@ -329,6 +331,8 @@ namespace KH2FM_Editor.View.Bar
                     }
                     else if (entry.Name.StartsWith("m_") ||
                               entry.Name.StartsWith("b_") ||
+                              entry.Name.StartsWith("s_") ||
+                              entry.Name.StartsWith("z_") ||
                               entry.Name.StartsWith("e_"))
                     {
                         Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SpawnFile));

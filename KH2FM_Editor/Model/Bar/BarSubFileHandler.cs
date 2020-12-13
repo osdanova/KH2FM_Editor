@@ -34,6 +34,7 @@ using KH2FM_Editor.Model.System03.Evtp;
 using KH2FM_Editor.Model.Ard;
 using KH2FM_Editor.Model.Ard.Script;
 using KH2FM_Editor.Model.Ard.Spawn;
+using KH2FM_Editor.Model.System03.Went;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -76,7 +77,7 @@ namespace KH2FM_Editor.Model.Bar
             if (FileHandler.getFileType(name) == FileTypesEnum.SYSTEM) return new SystemFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "rcct") return new RcctFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "cmd\0") return new CmdFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "went") return new WentFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "went") return new WentFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "wmst") return new WmstFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "arif") return new ArifFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "item") return new ItemFile(name, raw);
@@ -95,6 +96,8 @@ namespace KH2FM_Editor.Model.Bar
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("m_")) return new SpawnFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "btl\0") return new ArdScriptFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("b_")) return new SpawnFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("s_")) return new SpawnFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("z_")) return new SpawnFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "evt\0") return new ArdScriptFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name.StartsWith("e_")) return new SpawnFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.ARD && name == "number") return new SceneFile(name, raw);

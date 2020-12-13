@@ -36,10 +36,10 @@
                     <DataGridTextColumn Header="Command" Binding="{Binding Path=Command}" />
                     <DataGridTextColumn Header="GroundAnim" Binding="{Binding Path=GroundAnim}" />
                     <DataGridTextColumn Header="GroundUnk" Binding="{Binding Path=GroundUnk}" />
-                    <DataGridTextColumn Header="AirAnim" Binding="{Binding Path=AirAnim}" />
-                    <DataGridTextColumn Header="AirUnk" Binding="{Binding Path=AirUnk}" />
                     <DataGridTextColumn Header="FinishAnim" Binding="{Binding Path=FinishAnim}" />
                     <DataGridTextColumn Header="FinishUnk" Binding="{Binding Path=FinishUnk}" />
+                    <DataGridTextColumn Header="AirAnim" Binding="{Binding Path=AirAnim}" />
+                    <DataGridTextColumn Header="AirUnk" Binding="{Binding Path=AirUnk}" />
                     <DataGridTextColumn Header="Unk52" Binding="{Binding Path=Unk52}" />
                     <DataGridTextColumn Header="Unk53" Binding="{Binding Path=Unk53}" />
                     <DataGridTextColumn Header="Unk54" Binding="{Binding Path=Unk54}" />

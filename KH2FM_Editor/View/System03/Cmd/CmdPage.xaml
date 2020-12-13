@@ -31,10 +31,9 @@
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
                     <DataGridTextColumn Header="UnkId1" Binding="{Binding Path=UnkId1}" />
                     <DataGridTextColumn Header="UnkId2" Binding="{Binding Path=UnkId2}" />
-                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=Unk6}" />
-                    <DataGridTextColumn Header="Unk7" Binding="{Binding Path=Unk7}" />
-                    <DataGridTextColumn Header="Unk8" Binding="{Binding Path=Unk8}" />
-                    <DataGridTextColumn Header="Unk10" Binding="{Binding Path=Unk10}" />
+                    <DataGridTextColumn Header="Submenu" Binding="{Binding Path=Submenu}" />
+                    <DataGridTextColumn Header="Icon" Binding="{Binding Path=Icon}" />
+                    <DataGridTextColumn Header="Text" Binding="{Binding Path=Text}" />
                     <DataGridTextColumn Header="Unk12" Binding="{Binding Path=Unk12}" />
                     <DataGridTextColumn Header="Unk16" Binding="{Binding Path=Unk16}" />
                     <DataGridTextColumn Header="Unk18" Binding="{Binding Path=Unk18}" />
@@ -42,7 +41,7 @@
                     <DataGridTextColumn Header="Unk24" Binding="{Binding Path=Unk24}" />
                     <DataGridTextColumn Header="Unk25" Binding="{Binding Path=Unk25}" />
                     <DataGridTextColumn Header="Unk26" Binding="{Binding Path=Unk26}" />
-                    <DataGridTextColumn Header="MpCost" Binding="{Binding Path=MpCost}" />
+                    <DataGridTextColumn Header="MpDrCost" Binding="{Binding Path=MpDrCost}" />
                     <DataGridTextColumn Header="Unk30" Binding="{Binding Path=Unk30}" />
                     <DataGridTextColumn Header="Unk34" Binding="{Binding Path=Unk34}" />
                     <DataGridTextColumn Header="Unk36" Binding="{Binding Path=Unk36}" />

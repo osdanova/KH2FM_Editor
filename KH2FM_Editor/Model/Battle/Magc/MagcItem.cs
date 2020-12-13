@@ -69,32 +69,32 @@ namespace KH2FM_Editor.Model.Battle.Magc
             get { return DataAccess.readUShort(raw, commandOffset, commandSize); }
             set { DataAccess.writeUShort(raw, value, commandOffset, commandSize); NotifyPropertyChanged(nameof(CommandValue)); }
         }
-        public string GroundAnim
+        public ushort GroundAnim
         {
-            get { return DataAccess.readHexString(raw, groundAnimOffset, groundAnimSize); }
-            set { DataAccess.writeHexString(raw, value, groundAnimOffset, groundAnimSize); }
+            get { return DataAccess.readUShort(raw, groundAnimOffset, groundAnimSize); }
+            set { DataAccess.writeUShort(raw, value, groundAnimOffset, groundAnimSize); }
         }
         public string GroundUnk
         {
             get { return DataAccess.readHexString(raw, groundUnkOffset, groundUnkSize); }
             set { DataAccess.writeHexString(raw, value, groundUnkOffset, groundUnkSize); }
         }
-        public string AirAnim
+        public ushort FinishAnim
         {
-            get { return DataAccess.readHexString(raw, airAnimOffset, airAnimSize); }
-            set { DataAccess.writeHexString(raw, value, airAnimOffset, airAnimSize); }
+            get { return DataAccess.readUShort(raw, airAnimOffset, airAnimSize); }
+            set { DataAccess.writeUShort(raw, value, airAnimOffset, airAnimSize); }
         }
-        public string AirUnk
+        public string FinishUnk
         {
             get { return DataAccess.readHexString(raw, airUnkOffset, airUnkSize); }
             set { DataAccess.writeHexString(raw, value, airUnkOffset, airUnkSize); }
         }
-        public string FinishAnim
+        public ushort AirAnim
         {
-            get { return DataAccess.readHexString(raw, finishAnimOffset, finishAnimSize); }
-            set { DataAccess.writeHexString(raw, value, finishAnimOffset, finishAnimSize); }
+            get { return DataAccess.readUShort(raw, finishAnimOffset, finishAnimSize); }
+            set { DataAccess.writeUShort(raw, value, finishAnimOffset, finishAnimSize); }
         }
-        public string FinishUnk
+        public string AirUnk
         {
             get { return DataAccess.readHexString(raw, finishUnkOffset, finishUnkSize); }
             set { DataAccess.writeHexString(raw, value, finishUnkOffset, finishUnkSize); }

@@ -38,7 +38,7 @@
                     <DataGridTextColumn Header="AccSlot" Binding="{Binding Path=AccSlot}" />
                     <DataGridTextColumn Header="ArmorSlot" Binding="{Binding Path=ArmorSlot}" />
                     <DataGridTextColumn Header="Item 1" Binding="{Binding Path=Item1Value}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Item 2 ID" Binding="{Binding Path=Item1}" />
+                    <DataGridTextColumn Header="Item 1 ID" Binding="{Binding Path=Item1}" />
                     <DataGridTextColumn Header="Item 2" Binding="{Binding Path=Item2Value}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Item 2 ID" Binding="{Binding Path=Item2}" />
                 </DataGrid.Columns>

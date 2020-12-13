@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataDictionary\ArdOpcodes.cs" />
+    <Compile Include="DataDictionary\WentPointers.cs" />
     <Compile Include="DataDictionary\DebugInventory.cs" />
     <Compile Include="DataDictionary\FmlvTypes.cs" />
     <Compile Include="DataDictionary\BonsEvents.cs" />
@@ -153,6 +154,9 @@
     <Compile Include="Model\System03\SystemFile.cs" />
     <Compile Include="Model\System03\Trsr\TrsrItem.cs" />
     <Compile Include="Model\System03\Trsr\TrsrFile.cs" />
+    <Compile Include="Model\System03\Went\WentFile.cs" />
+    <Compile Include="Model\System03\Went\WentItem.cs" />
+    <Compile Include="Model\System03\Went\WentSet.cs" />
     <Compile Include="Model\System03\Wmst\WmstItem.cs" />
     <Compile Include="Model\System03\Wmst\WmstFile.cs" />
     <Compile Include="View\Ard\Script\ArdScriptPage.xaml.cs">
@@ -292,6 +296,10 @@
       <DependentUpon>TrsrPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Trsr\TrsrPageHandler.cs" />
+    <Compile Include="View\System03\Went\WentPage.xaml.cs">
+      <DependentUpon>WentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Went\WentPageHandler.cs" />
     <Compile Include="View\System03\Wmst\WmstPage.xaml.cs">
       <DependentUpon>WmstPage.xaml</DependentUpon>
     </Compile>
@@ -421,6 +429,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\System03\Trsr\TrsrPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\System03\Went\WentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
