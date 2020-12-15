@@ -1,0 +1,29 @@
+﻿<Page x:Class="KH2FM_Editor.View.About.AboutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AboutPage">
+
+    <StackPanel Background="Black">
+        <StackPanel Margin="20">
+
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center">KH2FM editor</Label>
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">Made by: Osdanova</Label>
+            <Label></Label>
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15">V. 0.1</Label>
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" >* Version Content:</Label>
+            <TextBlock Foreground="White" FontFamily="Arial" FontWeight="Bold" >
+            This is a pre-release version. It contains many bugs (It'll crash easily)<LineBreak/>
+            The purpose of this release is to share with people the tool in order to study the various files of the game.<LineBreak/>
+            As such, play around with the files and report anything you find at OpenKH's Discord.<LineBreak/>
+            That being said, feel free to use this tool for making your own mods.<LineBreak/>
+            Be aware that this version hasn't been tested, so many functions may not work or may cause the tool to crash.
+            </TextBlock>
+
+        </StackPanel>
+    </StackPanel>
+    
+</Page>

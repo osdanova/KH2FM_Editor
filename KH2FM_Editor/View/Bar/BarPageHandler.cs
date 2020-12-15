@@ -31,6 +31,9 @@ using KH2FM_Editor.Model.System03;
 using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.Model.System03.Evtp;
 using KH2FM_Editor.Model.System03.Item;
+using KH2FM_Editor.Model.System03.Pref.Fmab;
+using KH2FM_Editor.Model.System03.Pref.Magi;
+using KH2FM_Editor.Model.System03.Pref.Plyr;
 using KH2FM_Editor.Model.System03.Shop;
 using KH2FM_Editor.Model.System03.Sklt;
 using KH2FM_Editor.Model.System03.Trsr;
@@ -60,7 +63,10 @@ using KH2FM_Editor.View.Mixdata.Leve;
 using KH2FM_Editor.View.Mixdata.Reci;
 using KH2FM_Editor.View.System03.Cmd;
 using KH2FM_Editor.View.System03.Evtp;
+using KH2FM_Editor.View.System03.Fmab;
 using KH2FM_Editor.View.System03.Item;
+using KH2FM_Editor.View.System03.Magi;
+using KH2FM_Editor.View.System03.Plyr;
 using KH2FM_Editor.View.System03.Shop;
 using KH2FM_Editor.View.System03.Sklt;
 using KH2FM_Editor.View.System03.Trsr;
@@ -91,7 +97,14 @@ namespace KH2FM_Editor.View.Bar
             MemOffset = getFileAddress();
             Console.WriteLine("DEBUG > BarPageHandler > File processed!");
         }
-
+        public BarPageHandler(String parentName, BarFile file)
+        {
+            Console.WriteLine("DEBUG > BarPageHandler > Processing file...");
+            FileName = parentName;
+            BarFileLoaded = file;
+            MemOffset = getFileAddress();
+            Console.WriteLine("DEBUG > BarPageHandler > File processed!");
+        }
 
         public void act_export()
         {
@@ -112,7 +125,6 @@ namespace KH2FM_Editor.View.Bar
             Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber) + startOffset, fileToWrite.Count - startOffset, fileToWrite);
             Console.WriteLine("DEBUG > BarPageHandler > Finished writing!");
         }
-
 
         public void processFile(String parentName, String filePath)
         {
@@ -307,8 +319,8 @@ namespace KH2FM_Editor.View.Bar
                             loadFrame.Navigate(new SkltPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SkltFile));
                             break;
                         case "pref":
-                            //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PrefFile));
-                            //loadFrame.Navigate(new PrefPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PrefFile));
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as BarFile));
+                            loadFrame.Navigate(new BarPage("PREF", BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as BarFile));
                             break;
                         case "evtp":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as EvtpFile));
@@ -340,12 +352,37 @@ namespace KH2FM_Editor.View.Bar
                     }
                     break;
             }
+
+            Console.WriteLine("DEBUG > BarPageHandler > FileName: " + FileName);
+            Console.WriteLine("DEBUG > BarPageHandler > Entry: " + entry.Name);
+
+            switch (FileName)
+            {
+                case "PREF":
+                    switch (entry.Name)
+                    {
+                        case "plyr":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PlyrFile));
+                            loadFrame.Navigate(new PlyrPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PlyrFile));
+                            break;
+                        case "fmab":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as FmabFile));
+                            loadFrame.Navigate(new FmabPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as FmabFile));
+                            break;
+                        case "magi":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MagiFile));
+                            loadFrame.Navigate(new MagiPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MagiFile));
+                            break;
+                    }
+                    break;
+            }
         }
 
         public string getFileAddress()
         {
             if (FileName == "al00.ard") return "21C35C40";
             if (FileName == "mu03.ard") return "21C56440";
+            if (FileName == "PREF") return "21CE27B0";
 
             // Unknown
             return "20000000";

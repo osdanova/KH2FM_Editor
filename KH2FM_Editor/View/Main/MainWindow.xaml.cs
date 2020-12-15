@@ -42,6 +42,14 @@ namespace KH2FM_Editor.View.Main
         {
             MainWindowHandler.openPage(load_frame, "Inventory");
         }
+        private void tool_Stats(object sender, EventArgs e)
+        {
+            MainWindowHandler.openPage(load_frame, "Stats");
+        }
+        private void about_Open(object sender, EventArgs e)
+        {
+            MainWindowHandler.openPage(load_frame, "About");
+        }
 
         // Debug
         private void menuDebugBreakpoint(object sender, EventArgs e)

@@ -145,6 +145,14 @@
     <Compile Include="Model\System03\Item\ItemItem.cs" />
     <Compile Include="Model\System03\Item\ItemFile.cs" />
     <Compile Include="Model\System03\Item\ItemTable.cs" />
+    <Compile Include="Model\System03\Pref\Fmab\FmabFile.cs" />
+    <Compile Include="Model\System03\Pref\Fmab\FmabItem.cs" />
+    <Compile Include="Model\System03\Pref\Magi\MagiFile.cs" />
+    <Compile Include="Model\System03\Pref\Magi\MagiItem.cs" />
+    <Compile Include="Model\System03\Pref\Plyr\PlyrItem.cs" />
+    <Compile Include="Model\System03\Pref\Plyr\PlyrFile.cs" />
+    <Compile Include="Model\System03\Pref\Prty\PrtyFile.cs" />
+    <Compile Include="Model\System03\Pref\Prty\Prtytem.cs" />
     <Compile Include="Model\System03\Shop\InventoryItem.cs" />
     <Compile Include="Model\System03\Shop\ProductItem.cs" />
     <Compile Include="Model\System03\Shop\ShopItem.cs" />
@@ -159,6 +167,9 @@
     <Compile Include="Model\System03\Went\WentSet.cs" />
     <Compile Include="Model\System03\Wmst\WmstItem.cs" />
     <Compile Include="Model\System03\Wmst\WmstFile.cs" />
+    <Compile Include="View\About\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Ard\Script\ArdScriptPage.xaml.cs">
       <DependentUpon>ArdScriptPage.xaml</DependentUpon>
     </Compile>
@@ -235,6 +246,10 @@
       <DependentUpon>InventoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Debug\Inventory\InventoryPageHandler.cs" />
+    <Compile Include="View\Debug\Stats\StatsPage.xaml.cs">
+      <DependentUpon>StatsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Debug\Stats\StatsPageHandler.cs" />
     <Compile Include="View\Jiminy\Puzz\PuzzPage.xaml.cs">
       <DependentUpon>PuzzPage.xaml</DependentUpon>
     </Compile>
@@ -284,6 +299,18 @@
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Item\ItemPageHandler.cs" />
+    <Compile Include="View\System03\Pref\Fmab\FmabPage.xaml.cs">
+      <DependentUpon>FmabPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Pref\Fmab\FmabPageHandler.cs" />
+    <Compile Include="View\System03\Pref\Magi\MagiPage.xaml.cs">
+      <DependentUpon>MagiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Pref\Magi\MagiPageHandler.cs" />
+    <Compile Include="View\System03\Pref\Plyr\PlyrPage.xaml.cs">
+      <DependentUpon>PlyrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Pref\Plyr\PlyrPageHandler.cs" />
     <Compile Include="View\System03\Shop\ShopPage.xaml.cs">
       <DependentUpon>ShopPage.xaml</DependentUpon>
     </Compile>
@@ -304,6 +331,10 @@
       <DependentUpon>WmstPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Wmst\WmstPageHandler.cs" />
+    <Page Include="View\About\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Ard\Script\ArdScriptPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -380,6 +411,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Debug\Stats\StatsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Jiminy\Puzz\PuzzPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -417,6 +452,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\System03\Item\ItemPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\System03\Pref\Fmab\FmabPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\System03\Pref\Magi\MagiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\System03\Pref\Plyr\PlyrPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

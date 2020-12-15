@@ -27,26 +27,6 @@ namespace KH2FM_Editor.View.System03.Went
             Console.WriteLine("DEBUG > WentPageHandler > File processed!");
         }
 
-        public void processFile()
-        {
-            Console.WriteLine("DEBUG > WentPageHandler > Getting file info...");
-
-            /*WentFileItems = new ObservableCollection<WentItem>();
-            foreach (WentItem entry in WentFileLoaded.Entries)
-            {
-                WentFileItems.Add(entry);
-            }*/
-        }
-
-        public void insertDataToFile()
-        {/*
-            WentFileLoaded.Entries = new ObservableCollection<Str_EntryItem>();
-            foreach (WentItem entry in WentFileItems)
-            {
-                WentFileLoaded.Entries.Add(entry);
-            }*/
-        }
-
         public void act_testData()
         {
             Console.WriteLine("DEBUG > WentPageHandler > Writing to Pcsx2...");
@@ -61,7 +41,6 @@ namespace KH2FM_Editor.View.System03.Went
         {
             if (WentFileLoaded == null) return;
             Console.WriteLine("DEBUG > WentPageHandler > Saving...");
-            insertDataToFile();
             Console.WriteLine("DEBUG > WentPageHandler > Finished saving!");
         }
     }

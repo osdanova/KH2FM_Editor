@@ -2,7 +2,7 @@
 
 namespace KH2FM_Editor.Model.Bar
 {
-    interface BarSubFile
+    public interface BarSubFile
     {
         //public string ParentBarName { get; set; }
         //public string BarName { get; set; }

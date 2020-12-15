@@ -1,7 +1,9 @@
 ﻿using KH2FM_Editor.Libs.FileHandler;
 using KH2FM_Editor.Libs.TreeView;
+using KH2FM_Editor.View.About;
 using KH2FM_Editor.View.Bar;
 using KH2FM_Editor.View.Battle.Inventory;
+using KH2FM_Editor.View.Debug.Stats;
 using KH2FM_Editor.View.Objentry;
 using System.Windows.Controls;
 
@@ -24,6 +26,12 @@ namespace KH2FM_Editor.View.Main
             {
                 case "Inventory":
                     loadFrame.Navigate(new InventoryPage());
+                    break;
+                case "Stats":
+                    loadFrame.Navigate(new StatsPage());
+                    break;
+                case "About":
+                    loadFrame.Navigate(new AboutPage());
                     break;
             }
         }

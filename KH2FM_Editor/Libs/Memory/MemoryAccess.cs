@@ -60,7 +60,5 @@ namespace KH2FM_Editor.Libs.Memory
 
             CloseHandle(hProc);
         }
-
-
     }
 }

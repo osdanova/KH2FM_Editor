@@ -9,6 +9,7 @@ namespace KH2FM_Editor.Libs.FileHandler
     {
         public static FileTypesEnum getFileType(String fileName)
         {
+            if (fileName == null) return FileTypesEnum.UNKNOWN;
             if (fileName.EndsWith(".ard")) return FileTypesEnum.ARD;
             if (fileName.EndsWith("battle.bin")) return FileTypesEnum.BATTLE;
             if (fileName.EndsWith("objentry.bin")) return FileTypesEnum.OBJENTRY;

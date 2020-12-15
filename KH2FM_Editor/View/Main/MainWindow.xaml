@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:self="clr-namespace:KH2FM_Editor.Libs.TreeView"
         mc:Ignorable="d"
-        Title="KH2FM Editor" Height="450" Width="800">
+        Title="KH2FM Editor" Height="700" Width="1000">
 
     <DockPanel>
         <!-- TOPNAV MENU -->
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Tools">
                 <MenuItem Header="Inventory" Click="tool_Inventory" />
+                <MenuItem Header="Stats" Click="tool_Stats" />
+            </MenuItem>
+            <MenuItem Header="About">
+                <MenuItem Header="About" Click="about_Open" />
             </MenuItem>
             <MenuItem Header="DEBUG">
                 <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" />

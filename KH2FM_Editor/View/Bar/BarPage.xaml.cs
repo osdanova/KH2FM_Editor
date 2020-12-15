@@ -1,5 +1,6 @@
 ﻿using KH2FM_Editor.Model.Bar;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,9 +28,20 @@ namespace KH2FM_Editor.View.Bar
 
             InitializeComponent();
         }
+        public BarPage(String parentName, BarFile file)
+        {
+            Console.WriteLine("DEBUG > BarPage > Subfile: " + file.Name);
+            handler = new BarPageHandler(parentName, file);
+            DataContext = handler;
+
+            if (parentName != null) hideExportForSubfile();
+
+            InitializeComponent();
+        }
 
         public void hideExportForSubfile()
         {
+            if(barActions != null)
             barActions.Visibility = System.Windows.Visibility.Collapsed;
         }
 

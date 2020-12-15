@@ -35,6 +35,10 @@ using KH2FM_Editor.Model.Ard;
 using KH2FM_Editor.Model.Ard.Script;
 using KH2FM_Editor.Model.Ard.Spawn;
 using KH2FM_Editor.Model.System03.Went;
+using KH2FM_Editor.Model.System03.Pref.Fmab;
+using KH2FM_Editor.Model.System03.Pref.Plyr;
+using KH2FM_Editor.Model.System03.Pref.Prty;
+using KH2FM_Editor.Model.System03.Pref.Magi;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -86,7 +90,11 @@ namespace KH2FM_Editor.Model.Bar
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "ftst") return new FtstFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "shop") return new ShopFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "sklt") return new SkltFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "pref") return new PrefFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "pref") return new BarFile(name, raw);
+                if (parentBar == "pref" && name == "plyr") return new PlyrFile(name, raw);
+                if (parentBar == "pref" && name == "fmab") return new FmabFile(name, raw);
+                //if (parentBar == "pref" && name == "prty") return new PrtyFile(name, raw);
+                if (parentBar == "pref" && name == "magi") return new MagiFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "evtp") return new EvtpFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "ipic") return new IpicFile(name, raw);
 

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace KH2FM_Editor.Model.Bar
 {
-    class BarFile : BarSubFile
+    public class BarFile : BarSubFile
     {
         public List<byte> Header { get; set; }
         public String Name { get; set; }

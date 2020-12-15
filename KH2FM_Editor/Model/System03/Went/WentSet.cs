@@ -14,7 +14,7 @@ namespace KH2FM_Editor.Model.System03.Went
 
         public WentSet(String name, List<byte> raw)
         {
-            Console.WriteLine("DEBUG > WentSet > Found entry: " + name);
+            //Console.WriteLine("DEBUG > WentSet > Found entry: " + name);
             // File name
             this.Name = name;
 

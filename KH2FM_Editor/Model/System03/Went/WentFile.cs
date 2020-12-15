@@ -56,8 +56,8 @@ namespace KH2FM_Editor.Model.System03.Went
                 // Pointers
                 Pointers.Add(pointerValue);
             }
-            Console.WriteLine("DELETE DEBUG >>> Pointer count: " + Pointers.Count);
-            Console.WriteLine("DELETE DEBUG >>> Pointer Set count: " + PointerSet.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Pointer count: " + Pointers.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Pointer Set count: " + PointerSet.Count);
         }
         public void processSets(List<byte> raw)
         {
@@ -66,10 +66,10 @@ namespace KH2FM_Editor.Model.System03.Went
             {
                 // First 4 bytes is the size of the set, including the size itself
                 uint setSize = DataAccess.readUInt(raw, (int)PointerSet[i] * intSize, intSize);
-                Console.WriteLine("DELETE DEBUG >>> Weapon Set for: " + WentPointers.getCharacter(i) + " - size:" + setSize);
+                //Console.WriteLine("DELETE DEBUG >>> Weapon Set for: " + WentPointers.getCharacter(i) + " - size:" + setSize);
                 WeaponSets.Add(new WentSet(WentPointers.getCharacter(i), raw.GetRange((int)PointerSet[i] * intSize, (int)setSize * intSize))) ;
             }
-            Console.WriteLine("DELETE DEBUG >>> Weapon Set count: " + WeaponSets.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Weapon Set count: " + WeaponSets.Count);
         }
 
         public void recalcPointers()
