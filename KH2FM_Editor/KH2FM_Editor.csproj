@@ -153,6 +153,8 @@
     <Compile Include="Model\System03\Pref\Plyr\PlyrFile.cs" />
     <Compile Include="Model\System03\Pref\Prty\PrtyFile.cs" />
     <Compile Include="Model\System03\Pref\Prty\Prtytem.cs" />
+    <Compile Include="Model\System03\Rcct\RcctFile.cs" />
+    <Compile Include="Model\System03\Rcct\RcctItem.cs" />
     <Compile Include="Model\System03\Shop\InventoryItem.cs" />
     <Compile Include="Model\System03\Shop\ProductItem.cs" />
     <Compile Include="Model\System03\Shop\ShopItem.cs" />
@@ -529,7 +531,6 @@
     <Folder Include="Model\Battle\Vbrt\" />
     <Folder Include="Model\Mixdata\Exp\" />
     <Folder Include="Model\System03\Ftst\" />
-    <Folder Include="Model\System03\Rcct\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

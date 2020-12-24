@@ -27,7 +27,7 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding VtblFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=raw}" />
+                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

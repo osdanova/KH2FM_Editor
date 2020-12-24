@@ -28,7 +28,8 @@
                   ItemsSource="{Binding PlrpFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Unk0" Binding="{Binding Path=Unk0}" />
-                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
+                    <DataGridTextColumn Header="Character" Binding="{Binding Path=Character}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Character ID" Binding="{Binding Path=CharacterId}" />
                     <DataGridTextColumn Header="Hp" Binding="{Binding Path=Hp}" />
                     <DataGridTextColumn Header="Mp" Binding="{Binding Path=Mp}" />
                     <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />

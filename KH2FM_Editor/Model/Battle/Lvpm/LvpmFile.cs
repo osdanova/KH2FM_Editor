@@ -13,8 +13,10 @@ namespace KH2FM_Editor.Model.Battle.Lvpm
         {
             int currentOffset = headerSize;
 
+            int lvpmCount = raw.Count / LvpmItem.entrySize;
+
             // Entries
-            for (ulong i = 0; i < EntryCount; i++)
+            for (int i = 0; i < lvpmCount; i++)
             {
                 Entries.Add(new LvpmItem(raw.GetRange(currentOffset, LvpmItem.entrySize)));
                 currentOffset += LvpmItem.entrySize;

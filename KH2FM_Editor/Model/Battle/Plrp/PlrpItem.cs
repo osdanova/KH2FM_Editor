@@ -11,7 +11,7 @@ namespace KH2FM_Editor.Model.Battle.Plrp
         public static readonly int entrySize = 128;
         // Data Location
         public int unk0Offset = 0, unk0Size = 2;
-        public int unk2Offset = 2, unk2Size = 1;
+        public int characterOffset = 2, characterSize = 1;
         public int hpOffset = 3, hpSize = 1;
         public int mpOffset = 4, mpSize = 1;
         public int apOffset = 5, apSize = 1;
@@ -84,10 +84,14 @@ namespace KH2FM_Editor.Model.Battle.Plrp
             get { return DataAccess.readHexString(raw, unk0Offset, unk0Size); }
             set { DataAccess.writeHexString(raw, value, unk0Offset, unk0Size); }
         }
-        public string Unk2
+        public string Character
         {
-            get { return DataAccess.readHexString(raw, unk2Offset, unk2Size); }
-            set { DataAccess.writeHexString(raw, value, unk2Offset, unk2Size); }
+            get { return Characters.getValue((ushort)CharacterId); }
+        }
+        public byte CharacterId
+        {
+            get { return DataAccess.readByte(raw, characterOffset); }
+            set { DataAccess.writeByte(raw, value, characterOffset); }
         }
         public byte Hp
         {

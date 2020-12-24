@@ -7,7 +7,7 @@ namespace KH2FM_Editor.Model.Battle.Patn
 {
     class PatnItem : Str_EntryItem
     {
-        public static readonly int entrySize = 31;
+        public static readonly int entrySize = 32;
         // Data Location
         public int idOffset = 0, idSize = 1;
         // 19 values
@@ -30,6 +30,7 @@ namespace KH2FM_Editor.Model.Battle.Patn
         public int unk17Offset = 17, unk17Size = 1;
         public int unk18Offset = 18, unk18Size = 1;
         public int unk19Offset = 19, unk19Size = 1;
+        public int unk20Offset = 20, unk20Size = 1;
 
         public int paddingOffset = 19, paddingSize = 12;
 
