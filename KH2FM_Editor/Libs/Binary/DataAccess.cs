@@ -47,11 +47,15 @@ namespace KH2FM_Editor.Libs.Binary
         // WRITE
         public static void writeHexString(List<byte> data, string input, int offset, int size)
         {
-            if (data.Count <= offset + size)
+            Console.WriteLine("data.Count: " + data.Count);
+            Console.WriteLine("offset + size: " + (offset + size));
+            if (data.Count >= offset + size)
                 data.RemoveRange(offset, size);
             else
                 data.RemoveRange(offset, data.Count - offset);
+            Console.WriteLine("BEFORE data.Count: " + data.Count);
             data.InsertRange(offset, BinaryHandler.HexStringAsBytes(input));
+            Console.WriteLine("AFTER data.Count: " + data.Count);
         }
         public static void writeString(List<byte> data, string input, int offset, int size)
         {

@@ -28,7 +28,25 @@
                   ItemsSource="{Binding PatnFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="UnkAll" Binding="{Binding Path=UnkAll}" />
+                    <DataGridTextColumn Header="Unk1" Binding="{Binding Path=Unk1}" />
+                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
+                    <DataGridTextColumn Header="Unk3" Binding="{Binding Path=Unk3}" />
+                    <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
+                    <DataGridTextColumn Header="Unk5" Binding="{Binding Path=Unk5}" />
+                    <DataGridTextColumn Header="Magnet" Binding="{Binding Path=Magnet}" />
+                    <DataGridTextColumn Header="Unk7" Binding="{Binding Path=Unk7}" />
+                    <DataGridTextColumn Header="Unk8" Binding="{Binding Path=Unk8}" />
+                    <DataGridTextColumn Header="Unk9" Binding="{Binding Path=Unk9}" />
+                    <DataGridTextColumn Header="Unk10" Binding="{Binding Path=Unk10}" />
+                    <DataGridTextColumn Header="Unk11" Binding="{Binding Path=Unk11}" />
+                    <DataGridTextColumn Header="Unk12" Binding="{Binding Path=Unk12}" />
+                    <DataGridTextColumn Header="Unk13" Binding="{Binding Path=Unk13}" />
+                    <DataGridTextColumn Header="Unk14" Binding="{Binding Path=Unk14}" />
+                    <DataGridTextColumn Header="Unk15" Binding="{Binding Path=Unk15}" />
+                    <DataGridTextColumn Header="Unk16" Binding="{Binding Path=Unk16}" />
+                    <DataGridTextColumn Header="Unk17" Binding="{Binding Path=Unk17}" />
+                    <DataGridTextColumn Header="Unk18" Binding="{Binding Path=Unk18}" />
+                    <DataGridTextColumn Header="Unk19" Binding="{Binding Path=Unk19}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
