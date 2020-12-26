@@ -2,7 +2,8 @@
 using KH2FM_Editor.Libs.TreeView;
 using KH2FM_Editor.View.About;
 using KH2FM_Editor.View.Bar;
-using KH2FM_Editor.View.Battle.Inventory;
+using KH2FM_Editor.View.Debug.Abilities;
+using KH2FM_Editor.View.Debug.Inventory;
 using KH2FM_Editor.View.Debug.Stats;
 using KH2FM_Editor.View.Objentry;
 using System.Windows.Controls;
@@ -29,6 +30,9 @@ namespace KH2FM_Editor.View.Main
                     break;
                 case "Stats":
                     loadFrame.Navigate(new StatsPage());
+                    break;
+                case "Abilities":
+                    loadFrame.Navigate(new AbilitiesPage());
                     break;
                 case "About":
                     loadFrame.Navigate(new AboutPage());

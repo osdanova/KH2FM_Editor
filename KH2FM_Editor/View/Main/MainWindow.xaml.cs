@@ -46,6 +46,10 @@ namespace KH2FM_Editor.View.Main
         {
             MainWindowHandler.openPage(load_frame, "Stats");
         }
+        private void tool_Abilities(object sender, EventArgs e)
+        {
+            MainWindowHandler.openPage(load_frame, "Abilities");
+        }
         private void about_Open(object sender, EventArgs e)
         {
             MainWindowHandler.openPage(load_frame, "About");

@@ -36,6 +36,11 @@ namespace KH2FM_Editor.Model.Battle.Fmlv
             get { return DataAccess.readByte(raw, idOffset); }
             set { DataAccess.writeByte(raw, value, idOffset); NotifyPropertyChanged(nameof(TypeValue)); NotifyPropertyChanged(nameof(LevelValue)); }
         }
+        public string IdAsHex
+        {
+            get { return DataAccess.readHexString(raw, idOffset, idSize); }
+            set { DataAccess.writeHexString(raw, value, idOffset, idSize); }
+        }
         public byte AbilityLevel
         {
             get { return DataAccess.readByte(raw, abilityLevelOffset); }

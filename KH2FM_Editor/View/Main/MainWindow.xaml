@@ -13,6 +13,7 @@
             <MenuItem Header="Tools">
                 <MenuItem Header="Inventory" Click="tool_Inventory" />
                 <MenuItem Header="Stats" Click="tool_Stats" />
+                <MenuItem Header="Abilities" Click="tool_Abilities" />
             </MenuItem>
             <MenuItem Header="About">
                 <MenuItem Header="About" Click="about_Open" />

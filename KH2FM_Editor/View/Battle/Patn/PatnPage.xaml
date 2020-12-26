@@ -32,7 +32,7 @@
                     <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
                     <DataGridTextColumn Header="Unk3" Binding="{Binding Path=Unk3}" />
                     <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
-                    <DataGridTextColumn Header="Unk5" Binding="{Binding Path=Unk5}" />
+                    <DataGridTextColumn Header="MagnetBurst" Binding="{Binding Path=MagnetBurst}" />
                     <DataGridTextColumn Header="Magnet" Binding="{Binding Path=Magnet}" />
                     <DataGridTextColumn Header="Unk7" Binding="{Binding Path=Unk7}" />
                     <DataGridTextColumn Header="Unk8" Binding="{Binding Path=Unk8}" />

@@ -19,7 +19,7 @@ namespace KH2FM_Editor.Model.Objentry
         public static readonly int modelNameOffset = 8, modelNameSize = 32;
         public static readonly int animNameOffset = 40, animNameSize = 32;
         public static readonly int unk72Offset = 72, unk72Size = 2;
-        public static readonly int unk74Offset = 74, unk74Size = 2;
+        public static readonly int allyDmgCapOffset = 74, allyDmgCapSize = 2;
         public static readonly int neoStatusOffset = 76, neoStatusSize = 2;
         public static readonly int neoMovesetOffset = 78, neoMovesetSize = 2;
         public static readonly int unk80Offset = 80, unk80Size = 2;
@@ -94,10 +94,10 @@ namespace KH2FM_Editor.Model.Objentry
             get { return DataAccess.readHexString(raw, unk72Offset, unk72Size); }
             set { DataAccess.writeHexString(raw, value, unk72Offset, unk72Size); }
         }
-        public string Unk74
+        public string AllyDmgCap
         {
-            get { return DataAccess.readHexString(raw, unk74Offset, unk74Size); }
-            set { DataAccess.writeHexString(raw, value, unk74Offset, unk74Size); }
+            get { return DataAccess.readHexString(raw, allyDmgCapOffset, allyDmgCapSize); }
+            set { DataAccess.writeHexString(raw, value, allyDmgCapOffset, allyDmgCapSize); }
         }
         public ushort NeoStatus
         {

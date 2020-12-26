@@ -28,8 +28,8 @@
                   ItemsSource="{Binding FmlvFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="TypeValue" Binding="{Binding Path=TypeValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="LevelValue" Binding="{Binding Path=LevelValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                    <!--<DataGridTextColumn Header="LevelValue" Binding="{Binding Path=LevelValue}" IsReadOnly="True" />-->
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=IdAsHex}" />
                     <DataGridTextColumn Header="AbilityLevel" Binding="{Binding Path=AbilityLevel}" />
                     <DataGridTextColumn Header="RewardValue" Binding="{Binding Path=RewardValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Reward" Binding="{Binding Path=Reward}" />

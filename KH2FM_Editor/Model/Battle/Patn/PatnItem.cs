@@ -15,7 +15,7 @@ namespace KH2FM_Editor.Model.Battle.Patn
         public int unk2Offset = 2, unk2Size = 1;
         public int unk3Offset = 3, unk3Size = 1;
         public int unk4Offset = 4, unk4Size = 1;
-        public int unk5Offset = 5, unk5Size = 1;
+        public int magnetBurstOffset = 5, magnetBurstSize = 1;
         public int magnetOffset = 6, magnetSize = 1;
         public int unk7Offset = 7, unk7Size = 1;
         public int unk8Offset = 8, unk8Size = 1;
@@ -50,7 +50,7 @@ namespace KH2FM_Editor.Model.Battle.Patn
         public string Unk2 { get { return DataAccess.readHexString(raw, unk2Offset, unk2Size); } set { DataAccess.writeHexString(raw, value, unk2Size, unk2Size); } }
         public string Unk3 { get { return DataAccess.readHexString(raw, unk3Offset, unk3Size); } set { DataAccess.writeHexString(raw, value, unk3Size, unk3Size); } }
         public string Unk4 { get { return DataAccess.readHexString(raw, unk4Offset, unk4Size); } set { DataAccess.writeHexString(raw, value, unk4Size, unk4Size); } }
-        public string Unk5 { get { return DataAccess.readHexString(raw, unk5Offset, unk5Size); } set { DataAccess.writeHexString(raw, value, unk5Size, unk5Size); } }
+        public string MagnetBurst { get { return DataAccess.readHexString(raw, magnetBurstOffset, magnetBurstSize); } set { DataAccess.writeHexString(raw, value, magnetBurstOffset, magnetBurstSize); } }
         public string Magnet { get { return DataAccess.readHexString(raw, magnetOffset, magnetSize); } set { DataAccess.writeHexString(raw, value, magnetOffset, magnetSize); } }
         public string Unk7 { get { return DataAccess.readHexString(raw, unk7Offset, unk7Size); } set { DataAccess.writeHexString(raw, value, unk7Size, unk7Size); } }
         public string Unk8 { get { return DataAccess.readHexString(raw, unk8Offset, unk8Size); } set { DataAccess.writeHexString(raw, value, unk8Size, unk8Size); } }

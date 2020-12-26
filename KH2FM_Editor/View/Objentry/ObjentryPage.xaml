@@ -47,7 +47,7 @@
                     <DataGridTextColumn Header="Model Name" Binding="{Binding Path=ModelName}" />
                     <DataGridTextColumn Header="Anim Name" Binding="{Binding Path=AnimName}" />
                     <DataGridTextColumn Header="Unk72" Binding="{Binding Path=Unk72}" />
-                    <DataGridTextColumn Header="Unk74" Binding="{Binding Path=Unk74}" />
+                    <DataGridTextColumn Header="AllyDmgCap" Binding="{Binding Path=AllyDmgCap}" />
                     <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=NeoStatus}" />
                     <DataGridTextColumn Header="NeoMoveset" Binding="{Binding Path=NeoMoveset}" />
                     <DataGridTextColumn Header="Unk80" Binding="{Binding Path=Unk80}" />

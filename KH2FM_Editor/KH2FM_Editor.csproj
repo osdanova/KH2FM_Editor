@@ -123,6 +123,7 @@
     <Compile Include="Model\Battle\Sumn\SumnFile.cs" />
     <Compile Include="Model\Battle\Vtbl\VtblItem.cs" />
     <Compile Include="Model\Battle\Vtbl\VtblFile.cs" />
+    <Compile Include="Model\DEBUG\AbilitiesFile.cs" />
     <Compile Include="Model\DEBUG\InventoryFile.cs" />
     <Compile Include="Model\Jiminy\JiminyFile.cs" />
     <Compile Include="Model\Jiminy\Puzz\PuzzItem.cs" />
@@ -244,6 +245,10 @@
       <DependentUpon>AtkpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Battle\Atkp\AtkpPageHandler.cs" />
+    <Compile Include="View\Debug\Abilities\AbilitiesPage.xaml.cs">
+      <DependentUpon>AbilitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Debug\Abilities\AbilitiesPageHandler.cs" />
     <Compile Include="View\Debug\Inventory\InventoryPage.xaml.cs">
       <DependentUpon>InventoryPage.xaml</DependentUpon>
     </Compile>
@@ -406,6 +411,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Battle\Atkp\AtkpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Debug\Abilities\AbilitiesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
