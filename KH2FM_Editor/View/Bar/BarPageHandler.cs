@@ -31,6 +31,7 @@ using KH2FM_Editor.Model.System03;
 using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.Model.System03.Evtp;
 using KH2FM_Editor.Model.System03.Item;
+using KH2FM_Editor.Model.System03.Memt;
 using KH2FM_Editor.Model.System03.Pref.Fmab;
 using KH2FM_Editor.Model.System03.Pref.Magi;
 using KH2FM_Editor.Model.System03.Pref.Plyr;
@@ -66,6 +67,7 @@ using KH2FM_Editor.View.System03.Evtp;
 using KH2FM_Editor.View.System03.Fmab;
 using KH2FM_Editor.View.System03.Item;
 using KH2FM_Editor.View.System03.Magi;
+using KH2FM_Editor.View.System03.Memt;
 using KH2FM_Editor.View.System03.Plyr;
 using KH2FM_Editor.View.System03.Shop;
 using KH2FM_Editor.View.System03.Sklt;
@@ -303,8 +305,8 @@ namespace KH2FM_Editor.View.Bar
                             loadFrame.Navigate(new TrsrPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as TrsrFile));
                             break;
                         case "memt":
-                            //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MemtFile));
-                            //loadFrame.Navigate(new MemtPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MemtFile));
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MemtFile));
+                            loadFrame.Navigate(new MemtPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MemtFile));
                             break;
                         case "ftst":
                             //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as FtstFile));

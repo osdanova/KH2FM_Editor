@@ -1,0 +1,78 @@
+﻿<Page x:Class="KH2FM_Editor.View.System03.Memt.MemtPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MemtPage">
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="30" Background="Black" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Foreground="White" FontFamily="Arial" FontWeight="Bold">Test Offset</Label>
+            <TextBox DockPanel.Dock="Left" Width="100" Background="White" Text="{Binding MemOffset}"></TextBox>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST</Button>
+        </DockPanel>
+        <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
+            <!-- Column sizes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <!--DATAGRID-->
+            <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding MemtFileItems}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="World" Binding="{Binding Path=World}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="WorldId" Binding="{Binding Path=WorldId}" />
+                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
+                    <DataGridTextColumn Header="Player" Binding="{Binding Path=Player}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Id" Binding="{Binding Path=PlayerId}" />
+                    <DataGridTextColumn Header="Party1" Binding="{Binding Path=Party1}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Party1 Id" Binding="{Binding Path=Party1Id}" />
+                    <DataGridTextColumn Header="Party2" Binding="{Binding Path=Party2}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Party2 Id" Binding="{Binding Path=Party2Id}" />
+                    <DataGridTextColumn Header="Party3" Binding="{Binding Path=Party3}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Party3 Id" Binding="{Binding Path=Party3Id}" />
+                    <DataGridTextColumn Header="Player Valor" Binding="{Binding Path=PlayerValor}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Valor Id" Binding="{Binding Path=PlayerValorId}" />
+                    <DataGridTextColumn Header="Player Wisdom" Binding="{Binding Path=PlayerWisdom}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Wisdom Id" Binding="{Binding Path=PlayerWisdomId}" />
+                    <DataGridTextColumn Header="Player Limit" Binding="{Binding Path=PlayerLimit}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Limit Id" Binding="{Binding Path=PlayerLimitId}" />
+                    <DataGridTextColumn Header="Player Master" Binding="{Binding Path=PlayerMaster}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Master Id" Binding="{Binding Path=PlayerMasterId}" />
+                    <DataGridTextColumn Header="Player Final" Binding="{Binding Path=PlayerFinal}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Final Id" Binding="{Binding Path=PlayerFinalId}" />
+                    <DataGridTextColumn Header="Player Anti" Binding="{Binding Path=PlayerAnti}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Anti Id" Binding="{Binding Path=PlayerAntiId}" />
+                    <DataGridTextColumn Header="Player Mickey" Binding="{Binding Path=PlayerMickey}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Mickey Id" Binding="{Binding Path=PlayerMickeyId}" />
+                    <DataGridTextColumn Header="Player HP" Binding="{Binding Path=PlayerHP}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player HP Id" Binding="{Binding Path=PlayerHPId}" />
+                    <DataGridTextColumn Header="Player Valor HP" Binding="{Binding Path=PlayerValorHP}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Valor HP Id" Binding="{Binding Path=PlayerValorHPId}" />
+                    <DataGridTextColumn Header="Player Wisdom HP" Binding="{Binding Path=PlayerWisdomHP}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Wisdom HP Id" Binding="{Binding Path=PlayerWisdomHPId}" />
+                    <DataGridTextColumn Header="Player Limit HP" Binding="{Binding Path=PlayerLimitHP}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Limit HP Id" Binding="{Binding Path=PlayerLimitHPId}" />
+                    <DataGridTextColumn Header="Player Master HP" Binding="{Binding Path=PlayerMasterHP}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Master HP Id" Binding="{Binding Path=PlayerMasterHPId}" />
+                    <DataGridTextColumn Header="Player Final HP" Binding="{Binding Path=PlayerFinalHP}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player Final HP Id" Binding="{Binding Path=PlayerFinalHPId}" />
+                    <DataGridTextColumn Header="Player HP 2" Binding="{Binding Path=PlayerHP2}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Player HP 2 Id" Binding="{Binding Path=PlayerHP2Id}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+            <DockPanel Grid.Column="2" LastChildFill="False">
+                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Page>

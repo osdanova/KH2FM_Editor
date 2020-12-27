@@ -39,6 +39,7 @@ using KH2FM_Editor.Model.System03.Pref.Fmab;
 using KH2FM_Editor.Model.System03.Pref.Plyr;
 using KH2FM_Editor.Model.System03.Pref.Prty;
 using KH2FM_Editor.Model.System03.Pref.Magi;
+using KH2FM_Editor.Model.System03.Memt;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -86,7 +87,7 @@ namespace KH2FM_Editor.Model.Bar
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "arif") return new ArifFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "item") return new ItemFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "trsr") return new TrsrFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "memt") return new MemtFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "memt") return new MemtFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "ftst") return new FtstFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "shop") return new ShopFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "sklt") return new SkltFile(name, raw);
