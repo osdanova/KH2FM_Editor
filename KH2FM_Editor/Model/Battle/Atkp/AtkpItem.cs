@@ -51,10 +51,10 @@ namespace KH2FM_Editor.Model.Battle.Atkp
         {
         }
 
-        public ushort SubId
+        public string SubId
         {
-            get { return DataAccess.readUShort(raw, subIdOffset, subIdSize); }
-            set { DataAccess.writeUShort(raw, value, subIdOffset, subIdSize); }
+            get { return DataAccess.readHexString(raw, subIdOffset, subIdSize); }
+            set { DataAccess.writeHexString(raw, value, subIdOffset, subIdSize); }
         }
         public ushort Id
         {

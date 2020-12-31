@@ -147,6 +147,7 @@
     <Compile Include="Model\System03\Item\ItemFile.cs" />
     <Compile Include="Model\System03\Item\ItemTable.cs" />
     <Compile Include="Model\System03\Memt\MemtFile.cs" />
+    <Compile Include="Model\System03\Memt\MemtConf.cs" />
     <Compile Include="Model\System03\Memt\MemtItem.cs" />
     <Compile Include="Model\System03\Pref\Fmab\FmabFile.cs" />
     <Compile Include="Model\System03\Pref\Fmab\FmabItem.cs" />

@@ -27,13 +27,16 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding SumnFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Unk0" Binding="{Binding Path=Unk0}" />
-                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
-                    <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
-                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=Unk6}" />
-                    <DataGridTextColumn Header="Unk8" Binding="{Binding Path=Unk8}" />
-                    <DataGridTextColumn Header="Unk10" Binding="{Binding Path=Unk10}" />
-                    <DataGridTextColumn Header="Unk12" Binding="{Binding Path=Unk12}" />
+                    <DataGridTextColumn Header="Command" Binding="{Binding Path=Command}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command Id" Binding="{Binding Path=CommandId}" />
+                    <DataGridTextColumn Header="Item" Binding="{Binding Path=Item}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Item Id" Binding="{Binding Path=ItemId}" />
+                    <DataGridTextColumn Header="Entity" Binding="{Binding Path=Entity}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Entity Id" Binding="{Binding Path=EntityId}" />
+                    <DataGridTextColumn Header="Entity 2" Binding="{Binding Path=Entity2}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Entity 2 Id" Binding="{Binding Path=Entity2Id}" />
+                    <DataGridTextColumn Header="Limit" Binding="{Binding Path=Limit}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Limit Id" Binding="{Binding Path=LimitId}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

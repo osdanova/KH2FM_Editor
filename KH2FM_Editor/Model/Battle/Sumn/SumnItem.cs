@@ -1,4 +1,5 @@
-﻿using KH2FM_Editor.Libs.Binary;
+﻿using KH2FM_Editor.DataDictionary;
+using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
@@ -9,13 +10,11 @@ namespace KH2FM_Editor.Model.Battle.Sumn
     {
         public static readonly int entrySize = 64;
         // Data Location
-        public int unk0Offset = 0, unk0Size = 2;
-        public int unk2Offset = 2, unk2Size = 2;
-        public int unk4Offset = 4, unk4Size = 2;
-        public int unk6Offset = 6, unk6Size = 2;
-        public int unk8Offset = 8, unk8Size = 2;
-        public int unk10Offset = 10, unk10Size = 2;
-        public int unk12Offset = 12, unk12Size = 2;
+        public int commandOffset = 0, commandSize = 2;
+        public int itemOffset = 2, itemSize = 2;
+        public int entityOffset = 4, entitySize = 4;
+        public int entity2Offset = 8, entity2Size = 4;
+        public int limitOffset = 12, limitSize = 2;
         public int paddingOffset = 14, paddingSize = 50;
 
         public SumnItem()
@@ -26,40 +25,50 @@ namespace KH2FM_Editor.Model.Battle.Sumn
         {
         }
 
-        public ushort Unk0
+        public string Command
         {
-            get { return DataAccess.readUShort(raw, unk0Offset, unk0Size); }
-            set { DataAccess.writeUShort(raw, value, unk0Offset, unk0Size); }
+            get { return Commands.getValue(CommandId); }
         }
-        public ushort Unk2
+        public ushort CommandId
         {
-            get { return DataAccess.readUShort(raw, unk2Offset, unk2Size); }
-            set { DataAccess.writeUShort(raw, value, unk2Offset, unk2Size); }
+            get { return DataAccess.readUShort(raw, commandOffset, commandSize); }
+            set { DataAccess.writeUShort(raw, value, commandOffset, commandSize); NotifyPropertyChanged(nameof(Command)); }
         }
-        public ushort Unk4
+        public string Item
         {
-            get { return DataAccess.readUShort(raw, unk4Offset, unk4Size); }
-            set { DataAccess.writeUShort(raw, value, unk4Offset, unk4Size); }
+            get { return Items.getValue(ItemId); }
         }
-        public ushort Unk6
+        public ushort ItemId
         {
-            get { return DataAccess.readUShort(raw, unk6Offset, unk6Size); }
-            set { DataAccess.writeUShort(raw, value, unk6Offset, unk6Size); }
+            get { return DataAccess.readUShort(raw, itemOffset, itemSize); }
+            set { DataAccess.writeUShort(raw, value, itemOffset, itemSize); NotifyPropertyChanged(nameof(Item)); }
         }
-        public ushort Unk8
+        public string Entity
         {
-            get { return DataAccess.readUShort(raw, unk8Offset, unk8Size); }
-            set { DataAccess.writeUShort(raw, value, unk8Offset, unk8Size); }
+            get { return Entities.getValue((ushort)EntityId); }
         }
-        public ushort Unk10
+        public uint EntityId
         {
-            get { return DataAccess.readUShort(raw, unk10Offset, unk10Size); }
-            set { DataAccess.writeUShort(raw, value, unk10Offset, unk10Size); }
+            get { return DataAccess.readUInt(raw, entityOffset, entitySize); }
+            set { DataAccess.writeUInt(raw, value, entityOffset, entitySize); NotifyPropertyChanged(nameof(Entity)); }
         }
-        public ushort Unk12
+        public string Entity2
         {
-            get { return DataAccess.readUShort(raw, unk12Offset, unk12Size); }
-            set { DataAccess.writeUShort(raw, value, unk12Offset, unk12Size); }
+            get { return Entities.getValue((ushort)Entity2Id); }
+        }
+        public uint Entity2Id
+        {
+            get { return DataAccess.readUInt(raw, entity2Offset, entity2Size); }
+            set { DataAccess.writeUInt(raw, value, entity2Offset, entity2Size); NotifyPropertyChanged(nameof(Entity2)); }
+        }
+        public string Limit
+        {
+            get { return Commands.getValue(LimitId); }
+        }
+        public ushort LimitId
+        {
+            get { return DataAccess.readUShort(raw, limitOffset, limitSize); }
+            set { DataAccess.writeUShort(raw, value, limitOffset, limitSize); NotifyPropertyChanged(nameof(Limit)); }
         }
     }
 }
