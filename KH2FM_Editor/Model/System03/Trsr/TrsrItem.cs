@@ -53,8 +53,8 @@ namespace KH2FM_Editor.Model.System03.Trsr
         }
         public byte Type
         {
-            get { return DataAccess.readByte(raw, itemOffset); }
-            set { DataAccess.writeByte(raw, value, itemOffset); NotifyPropertyChanged(nameof(typeValue)); }
+            get { return DataAccess.readByte(raw, typeOffset); }
+            set { DataAccess.writeByte(raw, value, typeOffset); NotifyPropertyChanged(nameof(typeValue)); }
         }
         public string RoomName
         {

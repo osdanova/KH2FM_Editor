@@ -1,24 +1,23 @@
-﻿using KH2FM_Editor.Model.Battle.Lvup;
+﻿using KH2FM_Editor.Model.Mixdata.Exp;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace KH2FM_Editor.View.Battle.Lvup
+namespace KH2FM_Editor.View.Mixdata.Exp
 {
     /// <summary>
-    /// Interaction logic for LvupPage.xaml
+    /// Interaction logic for ExpPage.xaml
     /// </summary>
-    public partial class LvupPage : Page
+    public partial class ExpPage : Page
     {
-        LvupPageHandler handler;
+        ExpPageHandler handler;
 
-        public LvupPage()
+        public ExpPage()
         {
             InitializeComponent();
         }
-        public LvupPage(LvupFile file)
+        public ExpPage(ExpFile file)
         {
-            //Console.WriteLine("DEBUG > LvupPage > Filepath: " + filepath);
-            handler = new LvupPageHandler(file);
+            handler = new ExpPageHandler(file);
             DataContext = handler;
 
             InitializeComponent();
@@ -31,7 +30,7 @@ namespace KH2FM_Editor.View.Battle.Lvup
 
         public void btn_save(object sender, RoutedEventArgs e)
         {
-            //handler.act_save();
+            handler.act_save();
         }
     }
 }

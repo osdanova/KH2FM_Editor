@@ -14,9 +14,11 @@ namespace KH2FM_Editor.Model.Battle.Limt
         public int characterOffset = 1, characterSize = 1;
         public int summonOffset = 2, summonSize = 1;
         public int groupOffset = 3, groupSize = 1;
-        public int nameOffset = 4, nameSize = 32;
-        public int unk36Offset = 36, unk36Size = 4;
-        public int unk40Offset = 40, unk40Size = 4;
+        public int fileOffset = 4, fileSize = 32;
+        public int spawnOffset = 36, spawnSize = 2;
+        public int padding1Offset = 36, padding1Size = 2;
+        public int commandOffset = 40, commandSize = 2;
+        public int limitOffset = 42, limitSize = 2;
         public int unk44Offset = 44, unk44Size = 4;
         public int paddingOffset = 48, paddingSize = 16;
 
@@ -56,20 +58,42 @@ namespace KH2FM_Editor.Model.Battle.Limt
             get { return DataAccess.readByte(raw, groupOffset); }
             set { DataAccess.writeByte(raw, value, groupOffset); }
         }
-        public string Name
+        public string File
         {
-            get { return DataAccess.readString(raw, nameOffset, nameSize); }
-            set { DataAccess.writeString32(raw, value, nameOffset, nameSize); }
+            get { return DataAccess.readString(raw, fileOffset, fileSize); }
+            set { DataAccess.writeString32(raw, value, fileOffset, fileSize); }
         }
-        public string Unk36
+        public string SpawnValue
         {
-            get { return DataAccess.readHexString(raw, unk36Offset, unk36Size); }
-            set { DataAccess.writeHexString(raw, value, unk36Offset, unk36Size); }
+            get { return Entities.getValue(Spawn); }
         }
-        public string Unk40
+        public ushort Spawn
         {
-            get { return DataAccess.readHexString(raw, unk40Offset, unk40Size); }
-            set { DataAccess.writeHexString(raw, value, unk40Offset, unk40Size); }
+            get { return DataAccess.readUShort(raw, spawnOffset, spawnSize); }
+            set { DataAccess.writeUShort(raw, value, spawnOffset, spawnSize); NotifyPropertyChanged(nameof(SpawnValue)); }
+        }
+        public string Padding1
+        {
+            get { return DataAccess.readHexString(raw, padding1Offset, padding1Size); }
+            set { DataAccess.writeHexString(raw, value, padding1Offset, padding1Size); }
+        }
+        public string CommandValue
+        {
+            get { return Commands.getValue(Command); }
+        }
+        public ushort Command
+        {
+            get { return DataAccess.readUShort(raw, commandOffset, commandSize); }
+            set { DataAccess.writeUShort(raw, value, commandOffset, commandSize); NotifyPropertyChanged(nameof(CommandValue)); }
+        }
+        public string LimitValue
+        {
+            get { return Items.getValue(Limit); }
+        }
+        public ushort Limit
+        {
+            get { return DataAccess.readUShort(raw, limitOffset, limitSize); }
+            set { DataAccess.writeUShort(raw, value, limitOffset, limitSize); NotifyPropertyChanged(nameof(LimitValue)); }
         }
         public string Unk44
         {

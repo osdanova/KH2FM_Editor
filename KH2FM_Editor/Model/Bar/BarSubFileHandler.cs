@@ -40,6 +40,7 @@ using KH2FM_Editor.Model.System03.Pref.Plyr;
 using KH2FM_Editor.Model.System03.Pref.Prty;
 using KH2FM_Editor.Model.System03.Pref.Magi;
 using KH2FM_Editor.Model.System03.Memt;
+using KH2FM_Editor.Model.Mixdata.Exp;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -52,6 +53,7 @@ namespace KH2FM_Editor.Model.Bar
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.MIXDATA && name == "cond") return new CondFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.MIXDATA && name == "leve") return new LeveFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.MIXDATA && name == "reci") return new ReciFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.MIXDATA && name == "exp\0") return new ExpFile(name, raw);
 
             // JIMINY
             if (FileHandler.getFileType(name) == FileTypesEnum.JIMINY) return new JiminyFile(name, raw);

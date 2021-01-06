@@ -132,6 +132,8 @@
     <Compile Include="Model\Jiminy\Worl\WorlFile.cs" />
     <Compile Include="Model\Mixdata\Cond\CondItem.cs" />
     <Compile Include="Model\Mixdata\Cond\CondFile.cs" />
+    <Compile Include="Model\Mixdata\Exp\ExpFile.cs" />
+    <Compile Include="Model\Mixdata\Exp\ExpItem.cs" />
     <Compile Include="Model\Mixdata\Leve\LeveItem.cs" />
     <Compile Include="Model\Mixdata\Leve\LeveFile.cs" />
     <Compile Include="Model\Mixdata\MixdataFile.cs" />
@@ -276,6 +278,10 @@
       <DependentUpon>CondPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Mixdata\Cond\CondPageHandler.cs" />
+    <Compile Include="View\Mixdata\Exp\ExpPage.xaml.cs">
+      <DependentUpon>ExpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mixdata\Exp\ExpPageHandler.cs" />
     <Compile Include="View\Mixdata\Leve\LevePage.xaml.cs">
       <DependentUpon>LevePage.xaml</DependentUpon>
     </Compile>
@@ -449,6 +455,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Mixdata\Exp\ExpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Mixdata\Leve\LevePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -549,7 +559,6 @@
   <ItemGroup>
     <Folder Include="Model\Battle\Ptya\" />
     <Folder Include="Model\Battle\Vbrt\" />
-    <Folder Include="Model\Mixdata\Exp\" />
     <Folder Include="Model\System03\Ftst\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

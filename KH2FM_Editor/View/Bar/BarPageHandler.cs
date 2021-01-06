@@ -25,6 +25,7 @@ using KH2FM_Editor.Model.Jiminy.Puzz;
 using KH2FM_Editor.Model.Jiminy.Worl;
 using KH2FM_Editor.Model.Mixdata;
 using KH2FM_Editor.Model.Mixdata.Cond;
+using KH2FM_Editor.Model.Mixdata.Exp;
 using KH2FM_Editor.Model.Mixdata.Leve;
 using KH2FM_Editor.Model.Mixdata.Reci;
 using KH2FM_Editor.Model.System03;
@@ -60,6 +61,7 @@ using KH2FM_Editor.View.Battle.Vtbl;
 using KH2FM_Editor.View.Jiminy.Puzz;
 using KH2FM_Editor.View.Jiminy.Worl;
 using KH2FM_Editor.View.Mixdata.Cond;
+using KH2FM_Editor.View.Mixdata.Exp;
 using KH2FM_Editor.View.Mixdata.Leve;
 using KH2FM_Editor.View.Mixdata.Reci;
 using KH2FM_Editor.View.System03.Cmd;
@@ -179,6 +181,10 @@ namespace KH2FM_Editor.View.Bar
                         case "leve":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as LeveFile));
                             loadFrame.Navigate(new LevePage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as LeveFile));
+                            break;
+                        case "exp\0":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ExpFile));
+                            loadFrame.Navigate(new ExpPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ExpFile));
                             break;
                     }
                     break;

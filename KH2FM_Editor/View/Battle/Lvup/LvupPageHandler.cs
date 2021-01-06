@@ -233,6 +233,7 @@ namespace KH2FM_Editor.View.Battle.Lvup
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = LvupFileLoaded.getAsByteList();
+            Console.WriteLine("DEBUG > LvupPageHandler > Writing "+fileToWrite.Count+" bytes at address: " + int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber));
             Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
             Console.WriteLine("DEBUG > LvupPageHandler > Finished writing!");
         }
