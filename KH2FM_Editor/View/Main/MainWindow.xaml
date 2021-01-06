@@ -18,9 +18,9 @@
             <MenuItem Header="About">
                 <MenuItem Header="About" Click="about_Open" />
             </MenuItem>
-            <MenuItem Header="DEBUG">
-                <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" />
-            </MenuItem>
+            <!-- <MenuItem Header="DEBUG"> -->
+            <!-- <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" /> -->
+            <!-- </MenuItem> -->
         </Menu>
         <!-- APP -->
         <Grid>

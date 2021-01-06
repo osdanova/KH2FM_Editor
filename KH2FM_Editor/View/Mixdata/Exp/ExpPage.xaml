@@ -27,7 +27,11 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding ExpFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="RawData" Binding="{Binding Path=RawData}" />
+                    <DataGridTextColumn Header="C Exp" Binding="{Binding Path=expC}" />
+                    <DataGridTextColumn Header="B Exp" Binding="{Binding Path=expB}" />
+                    <DataGridTextColumn Header="A Exp" Binding="{Binding Path=expA}" />
+                    <DataGridTextColumn Header="S Exp" Binding="{Binding Path=expS}" />
+                    <DataGridTextColumn Header="Unk08" Binding="{Binding Path=Unk08}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

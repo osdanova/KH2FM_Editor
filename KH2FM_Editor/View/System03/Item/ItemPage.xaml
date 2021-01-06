@@ -34,7 +34,7 @@
                             <DataGridTextColumn Header="Category" Binding="{Binding Path=CategoryValue}" IsReadOnly="True" />
                             <DataGridTextColumn Header="Category Id" Binding="{Binding Path=Category}" />
                             <DataGridTextColumn Header="Unk3" Binding="{Binding Path=Unk3}" />
-                            <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
+                            <DataGridTextColumn Header="SubId" Binding="{Binding Path=SubId}" />
                             <DataGridTextColumn Header="Rank" Binding="{Binding Path=Rank}" />
                             <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" />
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />

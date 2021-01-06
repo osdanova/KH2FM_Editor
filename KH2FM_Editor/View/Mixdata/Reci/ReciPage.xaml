@@ -28,7 +28,10 @@
                   ItemsSource="{Binding ReciFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Unk02" Binding="{Binding Path=Unk02}" />
+                    <DataGridTextColumn Header="Unlock" Binding="{Binding Path=UnlockValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Unlock ID" Binding="{Binding Path=Unlock}" />
+                    <DataGridTextColumn Header="Rank" Binding="{Binding Path=RankValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Rank ID" Binding="{Binding Path=Rank}" />
                     <DataGridTextColumn Header="Result" Binding="{Binding Path=ResultValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Result ID" Binding="{Binding Path=Result}" />
                     <DataGridTextColumn Header="Upgrade" Binding="{Binding Path=UpgradeValue}" IsReadOnly="True" />

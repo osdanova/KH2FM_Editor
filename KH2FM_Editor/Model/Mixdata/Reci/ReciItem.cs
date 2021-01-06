@@ -11,7 +11,8 @@ namespace KH2FM_Editor.Model.Mixdata.Reci
         public static readonly int entrySize = 32;
         // Data Location
         public static readonly int idOffset = 0, idSize = 2;
-        public static readonly int unk02Offset = 2, unk02Size = 2;
+        public static readonly int unlockOffset = 2, unlockSize = 1;
+        public static readonly int rankOffset = 3, rankSize = 1;
         public static readonly int resultOffset = 4, resultSize = 2;
         public static readonly int upgradeOffset = 6, upgradeSize = 2;
         public static readonly int ingredient1Offset = 8, ingredient1Size = 2;
@@ -40,10 +41,37 @@ namespace KH2FM_Editor.Model.Mixdata.Reci
             get { return DataAccess.readUShort(raw, idOffset, idSize); }
             set { DataAccess.writeUShort(raw, value, idOffset, idSize); }
         }
-        public string Unk02
+        public string UnlockValue
         {
-            get { return DataAccess.readHexString(raw, unk02Offset, unk02Size); }
-            set { DataAccess.writeHexString(raw, value, unk02Offset, unk02Size); }
+            get
+            {
+                if (Rank == 0) return "Recipe";
+                if (Rank == 1) return "Free dev. 1";
+                if (Rank == 2) return "Free dev. 2";
+                if (Rank == 3) return "Free dev. 3";
+                return "";
+            }
+        }
+        public byte Unlock
+        {
+            get { return DataAccess.readByte(raw, unlockOffset); }
+            set { DataAccess.writeByte(raw, value, unlockOffset); NotifyPropertyChanged(nameof(UnlockValue)); }
+        }
+        public string RankValue
+        {
+            get
+            {
+                if (Rank == 0) return "C";
+                if (Rank == 1) return "B";
+                if (Rank == 2) return "A";
+                if (Rank == 3) return "S";
+                return "";
+            }
+        }
+        public byte Rank
+        {
+            get { return DataAccess.readByte(raw, rankOffset); }
+            set { DataAccess.writeByte(raw, value, rankOffset); NotifyPropertyChanged(nameof(RankValue)); }
         }
         public string ResultValue
         {

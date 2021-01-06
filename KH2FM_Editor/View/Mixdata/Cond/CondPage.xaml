@@ -28,10 +28,16 @@
                   ItemsSource="{Binding CondFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Reward" Binding="{Binding Path=Reward}" />
-                    <DataGridTextColumn Header="Unk04" Binding="{Binding Path=Unk04}" />
+                    <DataGridTextColumn Header="Reward" Binding="{Binding Path=RewardValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Reward Id" Binding="{Binding Path=Reward}" />
+                    <DataGridTextColumn Header="Reward Type" Binding="{Binding Path=RewardTypeValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Reward Type Id" Binding="{Binding Path=RewardType}" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding Path=Type}" />
+                    <DataGridTextColumn Header="Rank" Binding="{Binding Path=Rank}" />
+                    <DataGridTextColumn Header="Condition Type" Binding="{Binding Path=CondTypeValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Condition Type Id" Binding="{Binding Path=CondType}" />
                     <DataGridTextColumn Header="Count" Binding="{Binding Path=Count}" />
-                    <DataGridTextColumn Header="Unk10" Binding="{Binding Path=Unk10}" />
+                    <DataGridTextColumn Header="UnlockFlag" Binding="{Binding Path=UnlockFlag}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

@@ -13,7 +13,7 @@ namespace KH2FM_Editor.Model.System03.Item
         public int idOffset = 0, idSize = 2;
         public int categoryOffset = 2, categorySize = 1;
         public int unk3Offset = 3, unk3Size = 1;
-        public int unk4Offset = 4, unk4Size = 1;
+        public int subIdOffset = 4, subIdSize = 1;
         public int rankOffset = 5, rankSize = 1;
         public int statusOffset = 6, statusSize = 2;
         public int nameOffset = 8, nameSize = 2;
@@ -57,10 +57,10 @@ namespace KH2FM_Editor.Model.System03.Item
             get { return DataAccess.readHexString(raw, unk3Offset, unk3Size); }
             set { DataAccess.writeHexString(raw, value, unk3Offset, unk3Size); }
         }
-        public string Unk4
+        public byte SubId
         {
-            get { return DataAccess.readHexString(raw, unk4Offset, unk4Size); }
-            set { DataAccess.writeHexString(raw, value, unk4Offset, unk4Size); }
+            get { return DataAccess.readByte(raw, subIdOffset); }
+            set { DataAccess.writeByte(raw, value, subIdOffset); }
         }
         public byte Rank
         {
