@@ -117,6 +117,7 @@
     <Compile Include="Model\Battle\Plrp\PlrpFile.cs" />
     <Compile Include="Model\Battle\Przt\PrztItem.cs" />
     <Compile Include="Model\Battle\Przt\PrztFile.cs" />
+    <Compile Include="Model\Battle\Ptya\PtyaFile.cs" />
     <Compile Include="Model\Battle\Stop\StopItem.cs" />
     <Compile Include="Model\Battle\Stop\StopFile.cs" />
     <Compile Include="Model\Battle\Sumn\SumnItem.cs" />
@@ -557,7 +558,6 @@
     <Resource Include="Images\Icons\KH2FM Editor.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\Battle\Ptya\" />
     <Folder Include="Model\Battle\Vbrt\" />
     <Folder Include="Model\System03\Ftst\" />
   </ItemGroup>

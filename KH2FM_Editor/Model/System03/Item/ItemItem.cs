@@ -12,7 +12,7 @@ namespace KH2FM_Editor.Model.System03.Item
         // Data Location
         public int idOffset = 0, idSize = 2;
         public int categoryOffset = 2, categorySize = 1;
-        public int unk3Offset = 3, unk3Size = 1;
+        public int visibilityOffset = 3, visibilitySize = 1;
         public int subIdOffset = 4, subIdSize = 1;
         public int rankOffset = 5, rankSize = 1;
         public int statusOffset = 6, statusSize = 2;
@@ -23,8 +23,8 @@ namespace KH2FM_Editor.Model.System03.Item
         public int commandOffset = 16, commandSize = 2;
         public int slotOffset = 18, slotSize = 2;
         public int imageOffset = 20, imageSize = 2;
-        public int unk22Offset = 22, unk22Size = 1;
-        public int unk23Offset = 23, unk23Size = 1;
+        public int prizeBoxOffset = 22, prizeBoxSize = 1;
+        public int iconOffset = 23, iconSize = 1;
 
         public ItemItem()
         {
@@ -45,17 +45,21 @@ namespace KH2FM_Editor.Model.System03.Item
         }
         public string CategoryValue
         {
-            get { return ItemCategories.getValue(Category); }
+            get { return ItemData.getCategory(Category); }
         }
         public byte Category
         {
             get { return DataAccess.readByte(raw, categoryOffset); }
             set { DataAccess.writeByte(raw, value, categoryOffset); NotifyPropertyChanged(nameof(CategoryValue)); }
         }
-        public string Unk3
+        public string VisibilityValue
         {
-            get { return DataAccess.readHexString(raw, unk3Offset, unk3Size); }
-            set { DataAccess.writeHexString(raw, value, unk3Offset, unk3Size); }
+            get { return ItemData.getVisibility(Visibility); }
+        }
+        public byte Visibility
+        {
+            get { return DataAccess.readByte(raw, visibilityOffset); }
+            set { DataAccess.writeByte(raw, value, visibilityOffset); NotifyPropertyChanged(nameof(Visibility)); }
         }
         public byte SubId
         {
@@ -111,15 +115,23 @@ namespace KH2FM_Editor.Model.System03.Item
             get { return DataAccess.readUShort(raw, imageOffset, imageSize); }
             set { DataAccess.writeUShort(raw, value, imageOffset, imageSize); }
         }
-        public string Unk22
+        public string PrizeBoxValue
         {
-            get { return DataAccess.readHexString(raw, unk22Offset, unk22Size); }
-            set { DataAccess.writeHexString(raw, value, unk22Offset, unk22Size); }
+            get { return ItemData.getPrizeBox(PrizeBox); }
         }
-        public string Unk23
+        public byte PrizeBox
         {
-            get { return DataAccess.readHexString(raw, unk23Offset, unk23Size); }
-            set { DataAccess.writeHexString(raw, value, unk23Offset, unk23Size); }
+            get { return DataAccess.readByte(raw, prizeBoxOffset); }
+            set { DataAccess.writeByte(raw, value, prizeBoxOffset); NotifyPropertyChanged(nameof(PrizeBoxValue)); }
+        }
+        public string IconValue
+        {
+            get { return ItemData.getIcon(Icon); }
+        }
+        public byte Icon
+        {
+            get { return DataAccess.readByte(raw, iconOffset); }
+            set { DataAccess.writeByte(raw, value, iconOffset); NotifyPropertyChanged(nameof(IconValue)); }
         }
     }
 }

@@ -46,7 +46,8 @@
                     <DataGridTextColumn Header="Entity" Binding="{Binding Path=EntityValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Model Name" Binding="{Binding Path=ModelName}" />
                     <DataGridTextColumn Header="Anim Name" Binding="{Binding Path=AnimName}" />
-                    <DataGridTextColumn Header="Unk72" Binding="{Binding Path=Unk72}" />
+                    <DataGridTextColumn Header="State" Binding="{Binding Path=State}" />
+                    <DataGridTextColumn Header="Unk73" Binding="{Binding Path=Unk73}" />
                     <DataGridTextColumn Header="AllyDmgCap" Binding="{Binding Path=AllyDmgCap}" />
                     <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=NeoStatus}" />
                     <DataGridTextColumn Header="NeoMoveset" Binding="{Binding Path=NeoMoveset}" />
@@ -63,7 +64,8 @@
                     <DataGridTextColumn Header="Extra Spawn 2" Binding="{Binding Path=ExtraSpawn2}" />
                     <DataGridTextColumn Header="Extra Spawn 3 Name" Binding="{Binding Path=ExtraSpawn3Value}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Extra Spawn 3" Binding="{Binding Path=ExtraSpawn3}" />
-                    <DataGridTextColumn Header="Unk94" Binding="{Binding Path=Unk94}" />
+                    <DataGridTextColumn Header="Extra Spawn 4 Name" Binding="{Binding Path=ExtraSpawn4Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Extra Spawn 4" Binding="{Binding Path=ExtraSpawn4}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" />

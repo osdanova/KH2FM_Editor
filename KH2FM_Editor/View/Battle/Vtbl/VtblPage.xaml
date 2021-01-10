@@ -27,7 +27,21 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding VtblFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                    <DataGridTextColumn Header="Char" Binding="{Binding Path=CharValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Char Id" Binding="{Binding Path=Char}" />
+                    <DataGridTextColumn Header="Action" Binding="{Binding Path=Action}" />
+                    <DataGridTextColumn Header="Priority" Binding="{Binding Path=Priority}" />
+                    <DataGridTextColumn Header="Unk03" Binding="{Binding Path=Unk03}" />
+                    <DataGridTextColumn Header="Voice 1" Binding="{Binding Path=Voice1}" />
+                    <DataGridTextColumn Header="Voice 1 Chance" Binding="{Binding Path=Voice1Chance}" />
+                    <DataGridTextColumn Header="Voice 2" Binding="{Binding Path=Voice2}" />
+                    <DataGridTextColumn Header="Voice 2 Chance" Binding="{Binding Path=Voice2Chance}" />
+                    <DataGridTextColumn Header="Voice 3" Binding="{Binding Path=Voice3}" />
+                    <DataGridTextColumn Header="Voice 3 Chance" Binding="{Binding Path=Voice3Chance}" />
+                    <DataGridTextColumn Header="Voice 4" Binding="{Binding Path=Voice4}" />
+                    <DataGridTextColumn Header="Voice 4 Chance" Binding="{Binding Path=Voice4Chance}" />
+                    <DataGridTextColumn Header="Voice 5" Binding="{Binding Path=Voice5}" />
+                    <DataGridTextColumn Header="Voice 5 Chance" Binding="{Binding Path=Voice5Chance}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

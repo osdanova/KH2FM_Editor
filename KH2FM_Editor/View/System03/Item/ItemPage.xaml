@@ -33,7 +33,8 @@
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
                             <DataGridTextColumn Header="Category" Binding="{Binding Path=CategoryValue}" IsReadOnly="True" />
                             <DataGridTextColumn Header="Category Id" Binding="{Binding Path=Category}" />
-                            <DataGridTextColumn Header="Unk3" Binding="{Binding Path=Unk3}" />
+                            <DataGridTextColumn Header="Visibility" Binding="{Binding Path=VisibilityValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Visibility Id" Binding="{Binding Path=Visibility}" />
                             <DataGridTextColumn Header="SubId" Binding="{Binding Path=SubId}" />
                             <DataGridTextColumn Header="Rank" Binding="{Binding Path=Rank}" />
                             <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" />
@@ -45,8 +46,10 @@
                             <DataGridTextColumn Header="Command Id" Binding="{Binding Path=Command}" />
                             <DataGridTextColumn Header="Slot" Binding="{Binding Path=Slot}" />
                             <DataGridTextColumn Header="Image" Binding="{Binding Path=Image}" />
-                            <DataGridTextColumn Header="Unk22" Binding="{Binding Path=Unk22}" />
-                            <DataGridTextColumn Header="Unk23" Binding="{Binding Path=Unk23}" />
+                            <DataGridTextColumn Header="Prize Box" Binding="{Binding Path=PrizeBoxValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Prize Box Id" Binding="{Binding Path=PrizeBox}" />
+                            <DataGridTextColumn Header="Icon" Binding="{Binding Path=IconValue}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Icon Id" Binding="{Binding Path=Icon}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

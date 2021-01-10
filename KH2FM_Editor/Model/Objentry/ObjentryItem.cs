@@ -18,7 +18,8 @@ namespace KH2FM_Editor.Model.Objentry
         public static readonly int weaponJointOffset = 7, weaponJointSize = 1;
         public static readonly int modelNameOffset = 8, modelNameSize = 32;
         public static readonly int animNameOffset = 40, animNameSize = 32;
-        public static readonly int unk72Offset = 72, unk72Size = 2;
+        public static readonly int stateOffset = 72, stateSize = 1;
+        public static readonly int unk73Offset = 73, unk73Size = 1;
         public static readonly int allyDmgCapOffset = 74, allyDmgCapSize = 2;
         public static readonly int neoStatusOffset = 76, neoStatusSize = 2;
         public static readonly int neoMovesetOffset = 78, neoMovesetSize = 2;
@@ -31,7 +32,7 @@ namespace KH2FM_Editor.Model.Objentry
         public static readonly int extraSpawn1Offset = 88, extraSpawn1Size = 2;
         public static readonly int extraSpawn2Offset = 90, extraSpawn2Size = 2;
         public static readonly int extraSpawn3Offset = 92, extraSpawn3Size = 2;
-        public static readonly int unk94Offset = 94, unk94Size = 2;
+        public static readonly int extraSpawn4Offset = 94, extraSpawn4Size = 2;
 
         public ObjentryItem()
         {
@@ -89,10 +90,15 @@ namespace KH2FM_Editor.Model.Objentry
             get { return DataAccess.readString(raw, animNameOffset, animNameSize); }
             set { DataAccess.writeString32(raw, value, animNameOffset, animNameSize); }
         }
-        public string Unk72
+        public byte State
         {
-            get { return DataAccess.readHexString(raw, unk72Offset, unk72Size); }
-            set { DataAccess.writeHexString(raw, value, unk72Offset, unk72Size); }
+            get { return DataAccess.readByte(raw, stateOffset); }
+            set { DataAccess.writeByte(raw, value, stateOffset); }
+        }
+        public string Unk73
+        {
+            get { return DataAccess.readHexString(raw, unk73Offset, unk73Size); }
+            set { DataAccess.writeHexString(raw, value, unk73Offset, unk73Size); }
         }
         public string AllyDmgCap
         {
@@ -170,10 +176,14 @@ namespace KH2FM_Editor.Model.Objentry
             get { return DataAccess.readUShort(raw, extraSpawn3Offset, extraSpawn3Size); }
             set { DataAccess.writeUShort(raw, value, extraSpawn3Offset, extraSpawn3Size); NotifyPropertyChanged(nameof(ExtraSpawn3Value)); }
         }
-        public string Unk94
+        public string ExtraSpawn4Value
         {
-            get { return DataAccess.readHexString(raw, unk94Offset, unk94Size); }
-            set { DataAccess.writeHexString(raw, value, unk94Offset, unk94Size); }
+            get { return Entities.getValue(ExtraSpawn4); }
+        }
+        public ushort ExtraSpawn4
+        {
+            get { return DataAccess.readUShort(raw, extraSpawn4Offset, extraSpawn4Size); }
+            set { DataAccess.writeUShort(raw, value, extraSpawn4Offset, extraSpawn4Size); NotifyPropertyChanged(nameof(ExtraSpawn4Value)); }
         }
     }
 }

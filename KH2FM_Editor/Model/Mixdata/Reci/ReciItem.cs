@@ -45,10 +45,10 @@ namespace KH2FM_Editor.Model.Mixdata.Reci
         {
             get
             {
-                if (Rank == 0) return "Recipe";
-                if (Rank == 1) return "Free dev. 1";
-                if (Rank == 2) return "Free dev. 2";
-                if (Rank == 3) return "Free dev. 3";
+                if (Unlock == 0) return "Recipe";
+                if (Unlock == 1) return "Free dev. 1";
+                if (Unlock == 2) return "Free dev. 2";
+                if (Unlock == 3) return "Free dev. 3";
                 return "";
             }
         }

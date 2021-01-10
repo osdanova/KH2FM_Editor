@@ -11,17 +11,9 @@
         <StackPanel Margin="20">
 
             <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center">KH2FM editor</Label>
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">V. 1.0</Label>
             <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">Made by: Osdanova</Label>
-            <Label></Label>
-            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15">V. 0.1</Label>
-            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" >* Version Content:</Label>
-            <TextBlock Foreground="White" FontFamily="Arial" FontWeight="Bold" >
-            This is a pre-release version. It contains many bugs (It'll crash easily)<LineBreak/>
-            The purpose of this release is to share with people the tool in order to study the various files of the game.<LineBreak/>
-            As such, play around with the files and report anything you find at OpenKH's Discord.<LineBreak/>
-            That being said, feel free to use this tool for making your own mods.<LineBreak/>
-            Be aware that this version hasn't been tested, so many functions may not work or may cause the tool to crash.
-            </TextBlock>
+            <Label Foreground="White" FontFamily="Arial" FontSize="15" HorizontalAlignment="Center">https://github.com/osdanova/KH2FM_Editor</Label>
 
         </StackPanel>
     </StackPanel>

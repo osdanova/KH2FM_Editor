@@ -41,6 +41,7 @@ using KH2FM_Editor.Model.System03.Pref.Prty;
 using KH2FM_Editor.Model.System03.Pref.Magi;
 using KH2FM_Editor.Model.System03.Memt;
 using KH2FM_Editor.Model.Mixdata.Exp;
+using KH2FM_Editor.Model.Battle.Ptya;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -74,7 +75,7 @@ namespace KH2FM_Editor.Model.Bar
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "patn") return new PatnFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "plrp") return new PlrpFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "przt") return new PrztFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "ptya") return new PtyaFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "ptya") return new PtyaFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "stop") return new StopFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "sumn") return new SumnFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.BATTLE && name == "vbrt") return new VbrtFile(name, raw);
