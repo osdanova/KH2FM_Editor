@@ -17,6 +17,7 @@ using KH2FM_Editor.Model.Battle.Magc;
 using KH2FM_Editor.Model.Battle.Patn;
 using KH2FM_Editor.Model.Battle.Plrp;
 using KH2FM_Editor.Model.Battle.Przt;
+using KH2FM_Editor.Model.Battle.Ptya;
 using KH2FM_Editor.Model.Battle.Stop;
 using KH2FM_Editor.Model.Battle.Sumn;
 using KH2FM_Editor.Model.Battle.Vtbl;
@@ -55,6 +56,7 @@ using KH2FM_Editor.View.Battle.Magc;
 using KH2FM_Editor.View.Battle.Patn;
 using KH2FM_Editor.View.Battle.Plrp;
 using KH2FM_Editor.View.Battle.Przt;
+using KH2FM_Editor.View.Battle.Ptya;
 using KH2FM_Editor.View.Battle.Stop;
 using KH2FM_Editor.View.Battle.Sumn;
 using KH2FM_Editor.View.Battle.Vtbl;
@@ -213,8 +215,8 @@ namespace KH2FM_Editor.View.Bar
                             loadFrame.Navigate(new AtkpPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as AtkpFile));
                             break;
                         case "ptya":
-                            //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PtyaFile));
-                            //loadFrame.Navigate(new PtyaPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PtyaFile));
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PtyaFile));
+                            loadFrame.Navigate(new PtyaPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PtyaFile));
                             break;
                         case "przt":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PrztFile));

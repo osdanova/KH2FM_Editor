@@ -118,6 +118,8 @@
     <Compile Include="Model\Battle\Przt\PrztItem.cs" />
     <Compile Include="Model\Battle\Przt\PrztFile.cs" />
     <Compile Include="Model\Battle\Ptya\PtyaFile.cs" />
+    <Compile Include="Model\Battle\Ptya\PtyaSet.cs" />
+    <Compile Include="Model\Battle\Ptya\PtyaItem.cs" />
     <Compile Include="Model\Battle\Stop\StopItem.cs" />
     <Compile Include="Model\Battle\Stop\StopFile.cs" />
     <Compile Include="Model\Battle\Sumn\SumnItem.cs" />
@@ -223,6 +225,10 @@
       <DependentUpon>PrztPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Battle\Przt\PrztPageHandler.cs" />
+    <Compile Include="View\Battle\Ptya\PtyaPage.xaml.cs">
+      <DependentUpon>PtyaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Battle\Ptya\PtyaPageHandler.cs" />
     <Compile Include="View\Battle\Stop\StopPage.xaml.cs">
       <DependentUpon>StopPage.xaml</DependentUpon>
     </Compile>
@@ -397,6 +403,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Battle\Przt\PrztPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Battle\Ptya\PtyaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
