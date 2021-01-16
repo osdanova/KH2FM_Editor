@@ -78,12 +78,12 @@ namespace KH2FM_Editor.Model.Battle.Ptya
 
                 currentOffset += pointerSize;
             }
-            Console.WriteLine("DELETE DEBUG >>> Pointer count: " + Pointers.Count);
-            Console.WriteLine("DELETE DEBUG >>> Pointer Set count: " + PointerSet.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Pointer count: " + Pointers.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Pointer Set count: " + PointerSet.Count);
             uint lastPointer = 0;
             foreach (uint pointer in PointerSet)
             {
-                Console.WriteLine("DELETE DEBUG >>> Pointer: " + pointer + " - " + (pointer - lastPointer));
+                //Console.WriteLine("DELETE DEBUG >>> Pointer: " + pointer + " - " + (pointer - lastPointer));
                 lastPointer = pointer;
             }
         }

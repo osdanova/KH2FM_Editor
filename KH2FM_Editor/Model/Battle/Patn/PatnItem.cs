@@ -46,24 +46,24 @@ namespace KH2FM_Editor.Model.Battle.Patn
             get { return DataAccess.readByte(raw, idOffset); }
             set { DataAccess.writeByte(raw, value, idOffset); }
         }
-        public string Unk1 { get { return DataAccess.readHexString(raw, unk1Offset, unk1Size); } set { DataAccess.writeHexString(raw, value, unk1Size, unk1Size); } }
-        public string Unk2 { get { return DataAccess.readHexString(raw, unk2Offset, unk2Size); } set { DataAccess.writeHexString(raw, value, unk2Size, unk2Size); } }
-        public string Unk3 { get { return DataAccess.readHexString(raw, unk3Offset, unk3Size); } set { DataAccess.writeHexString(raw, value, unk3Size, unk3Size); } }
-        public string Unk4 { get { return DataAccess.readHexString(raw, unk4Offset, unk4Size); } set { DataAccess.writeHexString(raw, value, unk4Size, unk4Size); } }
+        public string Unk1 { get { return DataAccess.readHexString(raw, unk1Offset, unk1Size); } set { DataAccess.writeHexString(raw, value, unk1Offset, unk1Size); } }
+        public string Unk2 { get { return DataAccess.readHexString(raw, unk2Offset, unk2Size); } set { DataAccess.writeHexString(raw, value, unk2Offset, unk2Size); } }
+        public string Unk3 { get { return DataAccess.readHexString(raw, unk3Offset, unk3Size); } set { DataAccess.writeHexString(raw, value, unk3Offset, unk3Size); } }
+        public string Unk4 { get { return DataAccess.readHexString(raw, unk4Offset, unk4Size); } set { DataAccess.writeHexString(raw, value, unk4Offset, unk4Size); } }
         public string MagnetBurst { get { return DataAccess.readHexString(raw, magnetBurstOffset, magnetBurstSize); } set { DataAccess.writeHexString(raw, value, magnetBurstOffset, magnetBurstSize); } }
         public string Magnet { get { return DataAccess.readHexString(raw, magnetOffset, magnetSize); } set { DataAccess.writeHexString(raw, value, magnetOffset, magnetSize); } }
-        public string Unk7 { get { return DataAccess.readHexString(raw, unk7Offset, unk7Size); } set { DataAccess.writeHexString(raw, value, unk7Size, unk7Size); } }
-        public string Unk8 { get { return DataAccess.readHexString(raw, unk8Offset, unk8Size); } set { DataAccess.writeHexString(raw, value, unk8Size, unk8Size); } }
-        public string Unk9 { get { return DataAccess.readHexString(raw, unk9Offset, unk9Size); } set { DataAccess.writeHexString(raw, value, unk9Size, unk9Size); } }
-        public string Unk10 { get { return DataAccess.readHexString(raw, unk10Offset, unk10Size); } set { DataAccess.writeHexString(raw, value, unk10Size, unk10Size); } }
-        public string Unk11 { get { return DataAccess.readHexString(raw, unk11Offset, unk11Size); } set { DataAccess.writeHexString(raw, value, unk11Size, unk11Size); } }
-        public string Unk12 { get { return DataAccess.readHexString(raw, unk12Offset, unk12Size); } set { DataAccess.writeHexString(raw, value, unk12Size, unk12Size); } }
-        public string Unk13 { get { return DataAccess.readHexString(raw, unk13Offset, unk13Size); } set { DataAccess.writeHexString(raw, value, unk13Size, unk13Size); } }
-        public string Unk14 { get { return DataAccess.readHexString(raw, unk14Offset, unk14Size); } set { DataAccess.writeHexString(raw, value, unk14Size, unk14Size); } }
-        public string Unk15 { get { return DataAccess.readHexString(raw, unk15Offset, unk15Size); } set { DataAccess.writeHexString(raw, value, unk15Size, unk15Size); } }
-        public string Unk16 { get { return DataAccess.readHexString(raw, unk16Offset, unk16Size); } set { DataAccess.writeHexString(raw, value, unk16Size, unk16Size); } }
-        public string Unk17 { get { return DataAccess.readHexString(raw, unk17Offset, unk17Size); } set { DataAccess.writeHexString(raw, value, unk17Size, unk17Size); } }
-        public string Unk18 { get { return DataAccess.readHexString(raw, unk18Offset, unk18Size); } set { DataAccess.writeHexString(raw, value, unk18Size, unk18Size); } }
-        public string Unk19 { get { return DataAccess.readHexString(raw, unk19Offset, unk19Size); } set { DataAccess.writeHexString(raw, value, unk19Size, unk19Size); } }
+        public string Unk7 { get { return DataAccess.readHexString(raw, unk7Offset, unk7Size); } set { DataAccess.writeHexString(raw, value, unk7Offset, unk7Size); } }
+        public string Unk8 { get { return DataAccess.readHexString(raw, unk8Offset, unk8Size); } set { DataAccess.writeHexString(raw, value, unk8Offset, unk8Size); } }
+        public string Unk9 { get { return DataAccess.readHexString(raw, unk9Offset, unk9Size); } set { DataAccess.writeHexString(raw, value, unk9Offset, unk9Size); } }
+        public string Unk10 { get { return DataAccess.readHexString(raw, unk10Offset, unk10Size); } set { DataAccess.writeHexString(raw, value, unk10Offset, unk10Size); } }
+        public string Unk11 { get { return DataAccess.readHexString(raw, unk11Offset, unk11Size); } set { DataAccess.writeHexString(raw, value, unk11Offset, unk11Size); } }
+        public string Unk12 { get { return DataAccess.readHexString(raw, unk12Offset, unk12Size); } set { DataAccess.writeHexString(raw, value, unk12Offset, unk12Size); } }
+        public string Unk13 { get { return DataAccess.readHexString(raw, unk13Offset, unk13Size); } set { DataAccess.writeHexString(raw, value, unk13Offset, unk13Size); } }
+        public string Unk14 { get { return DataAccess.readHexString(raw, unk14Offset, unk14Size); } set { DataAccess.writeHexString(raw, value, unk14Offset, unk14Size); } }
+        public string Unk15 { get { return DataAccess.readHexString(raw, unk15Offset, unk15Size); } set { DataAccess.writeHexString(raw, value, unk15Offset, unk15Size); } }
+        public string Unk16 { get { return DataAccess.readHexString(raw, unk16Offset, unk16Size); } set { DataAccess.writeHexString(raw, value, unk16Offset, unk16Size); } }
+        public string Unk17 { get { return DataAccess.readHexString(raw, unk17Offset, unk17Size); } set { DataAccess.writeHexString(raw, value, unk17Offset, unk17Size); } }
+        public string Unk18 { get { return DataAccess.readHexString(raw, unk18Offset, unk18Size); } set { DataAccess.writeHexString(raw, value, unk18Offset, unk18Size); } }
+        public string Unk19 { get { return DataAccess.readHexString(raw, unk19Offset, unk19Size); } set { DataAccess.writeHexString(raw, value, unk19Offset, unk19Size); } }
     }
 }

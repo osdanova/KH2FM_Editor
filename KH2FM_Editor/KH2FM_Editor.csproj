@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataDictionary\ArdOpcodes.cs" />
+    <Compile Include="DataDictionary\Animations.cs" />
     <Compile Include="DataDictionary\WentPointers.cs" />
     <Compile Include="DataDictionary\DebugInventory.cs" />
     <Compile Include="DataDictionary\FmlvTypes.cs" />
@@ -142,6 +143,10 @@
     <Compile Include="Model\Mixdata\MixdataFile.cs" />
     <Compile Include="Model\Mixdata\Reci\ReciItem.cs" />
     <Compile Include="Model\Mixdata\Reci\ReciFile.cs" />
+    <Compile Include="Model\System03\Arif\ArifFile.cs" />
+    <Compile Include="Model\System03\Arif\ArifBlock.cs" />
+    <Compile Include="Model\System03\Arif\ArifPointer.cs" />
+    <Compile Include="Model\System03\Arif\ArifItem.cs" />
     <Compile Include="Model\System03\Cmd\CmdItem.cs" />
     <Compile Include="Model\System03\Cmd\CmdFile.cs" />
     <Compile Include="Model\System03\Evtp\EvtpItem.cs" />
@@ -310,6 +315,10 @@
     <Compile Include="Libs\Pcsx2\Pcsx2Memory.cs" />
     <Compile Include="Libs\TreeView\SimpleFileNode.cs" />
     <Compile Include="Libs\TreeView\TreeViewHandler.cs" />
+    <Compile Include="View\System03\Arif\ArifPage.xaml.cs">
+      <DependentUpon>ArifPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Arif\ArifPageHandler.cs" />
     <Compile Include="View\System03\Cmd\CmdPage.xaml.cs">
       <DependentUpon>CmdPage.xaml</DependentUpon>
     </Compile>
@@ -338,6 +347,10 @@
       <DependentUpon>PlyrPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Pref\Plyr\PlyrPageHandler.cs" />
+    <Compile Include="View\System03\Rcct\RcctPage.xaml.cs">
+      <DependentUpon>RcctPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Rcct\RcctPageHandler.cs" />
     <Compile Include="View\System03\Shop\ShopPage.xaml.cs">
       <DependentUpon>ShopPage.xaml</DependentUpon>
     </Compile>
@@ -482,6 +495,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\System03\Arif\ArifPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\System03\Cmd\CmdPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -507,6 +524,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\System03\Pref\Plyr\PlyrPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\System03\Rcct\RcctPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

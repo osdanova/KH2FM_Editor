@@ -42,6 +42,8 @@ using KH2FM_Editor.Model.System03.Pref.Magi;
 using KH2FM_Editor.Model.System03.Memt;
 using KH2FM_Editor.Model.Mixdata.Exp;
 using KH2FM_Editor.Model.Battle.Ptya;
+using KH2FM_Editor.Model.System03.Rcct;
+using KH2FM_Editor.Model.System03.Arif;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -83,11 +85,11 @@ namespace KH2FM_Editor.Model.Bar
 
             // SYSTEM
             if (FileHandler.getFileType(name) == FileTypesEnum.SYSTEM) return new SystemFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "rcct") return new RcctFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "rcct") return new RcctFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "cmd\0") return new CmdFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "went") return new WentFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "wmst") return new WmstFile(name, raw);
-            //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "arif") return new ArifFile(name, raw);
+            if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "arif") return new ArifFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "item") return new ItemFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "trsr") return new TrsrFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "memt") return new MemtFile(name, raw);

@@ -30,6 +30,7 @@ using KH2FM_Editor.Model.Mixdata.Exp;
 using KH2FM_Editor.Model.Mixdata.Leve;
 using KH2FM_Editor.Model.Mixdata.Reci;
 using KH2FM_Editor.Model.System03;
+using KH2FM_Editor.Model.System03.Arif;
 using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.Model.System03.Evtp;
 using KH2FM_Editor.Model.System03.Item;
@@ -37,6 +38,7 @@ using KH2FM_Editor.Model.System03.Memt;
 using KH2FM_Editor.Model.System03.Pref.Fmab;
 using KH2FM_Editor.Model.System03.Pref.Magi;
 using KH2FM_Editor.Model.System03.Pref.Plyr;
+using KH2FM_Editor.Model.System03.Rcct;
 using KH2FM_Editor.Model.System03.Shop;
 using KH2FM_Editor.Model.System03.Sklt;
 using KH2FM_Editor.Model.System03.Trsr;
@@ -66,6 +68,7 @@ using KH2FM_Editor.View.Mixdata.Cond;
 using KH2FM_Editor.View.Mixdata.Exp;
 using KH2FM_Editor.View.Mixdata.Leve;
 using KH2FM_Editor.View.Mixdata.Reci;
+using KH2FM_Editor.View.System03.Arif;
 using KH2FM_Editor.View.System03.Cmd;
 using KH2FM_Editor.View.System03.Evtp;
 using KH2FM_Editor.View.System03.Fmab;
@@ -73,6 +76,7 @@ using KH2FM_Editor.View.System03.Item;
 using KH2FM_Editor.View.System03.Magi;
 using KH2FM_Editor.View.System03.Memt;
 using KH2FM_Editor.View.System03.Plyr;
+using KH2FM_Editor.View.System03.Rcct;
 using KH2FM_Editor.View.System03.Shop;
 using KH2FM_Editor.View.System03.Sklt;
 using KH2FM_Editor.View.System03.Trsr;
@@ -285,8 +289,8 @@ namespace KH2FM_Editor.View.Bar
                     switch (entry.Name)
                     {
                         case "rcct":
-                            //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as RcctFile));
-                            //loadFrame.Navigate(new RcctPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as RcctFile));
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as RcctFile));
+                            loadFrame.Navigate(new RcctPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as RcctFile));
                             break;
                         case "cmd\0":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as CmdFile));
@@ -301,8 +305,8 @@ namespace KH2FM_Editor.View.Bar
                             loadFrame.Navigate(new WmstPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as WmstFile));
                             break;
                         case "arif":
-                            //Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArifFile));
-                            //loadFrame.Navigate(new ArifPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArifFile));
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArifFile));
+                            loadFrame.Navigate(new ArifPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ArifFile));
                             break;
                         case "item":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as ItemFile));

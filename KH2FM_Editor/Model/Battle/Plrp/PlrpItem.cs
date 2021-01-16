@@ -91,7 +91,7 @@ namespace KH2FM_Editor.Model.Battle.Plrp
         public byte CharacterId
         {
             get { return DataAccess.readByte(raw, characterOffset); }
-            set { DataAccess.writeByte(raw, value, characterOffset); }
+            set { DataAccess.writeByte(raw, value, characterOffset); NotifyPropertyChanged(nameof(Character)); }
         }
         public byte Hp
         {
