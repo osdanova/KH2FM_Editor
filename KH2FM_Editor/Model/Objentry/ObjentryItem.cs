@@ -71,10 +71,10 @@ namespace KH2FM_Editor.Model.Objentry
             get { return DataAccess.readHexString(raw, unk06Offset, unk06Size); }
             set { DataAccess.writeHexString(raw, value, unk06Offset, unk06Size); }
         }
-        public string WeaponJoint
+        public byte WeaponJoint
         {
-            get { return DataAccess.readHexString(raw, weaponJointOffset, weaponJointSize); }
-            set { DataAccess.writeHexString(raw, value, weaponJointOffset, weaponJointSize); }
+            get { return DataAccess.readByte(raw, weaponJointOffset); }
+            set { DataAccess.writeByte(raw, value, weaponJointOffset); }
         }
         public string EntityValue
         {

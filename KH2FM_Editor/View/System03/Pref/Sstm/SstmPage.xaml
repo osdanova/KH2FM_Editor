@@ -1,0 +1,122 @@
+﻿<Page x:Class="KH2FM_Editor.View.System03.Sstm.SstmPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SstmPage">
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="30" Background="Black" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Foreground="White" FontFamily="Arial" FontWeight="Bold">Test Offset</Label>
+            <TextBox DockPanel.Dock="Left" Width="100" Background="White" Text="{Binding MemOffset}"></TextBox>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST</Button>
+        </DockPanel>
+        <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
+            <!--DATAGRID-->
+            <DataGrid Grid.Column="0"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  ItemsSource="{Binding SstmFileLoaded.SystemPrefs}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CeilingStop" Binding="{Binding Path=CeilingStop}" />
+                    <DataGridTextColumn Header="CeilingDisableCommandTime" Binding="{Binding Path=CeilingDisableCommandTime}" />
+                    <DataGridTextColumn Header="HangRangeH" Binding="{Binding Path=HangRangeH}" />
+                    <DataGridTextColumn Header="HangRangeL" Binding="{Binding Path=HangRangeL}" />
+                    <DataGridTextColumn Header="HangRangeXZ" Binding="{Binding Path=HangRangeXZ}" />
+                    <DataGridTextColumn Header="FallMax" Binding="{Binding Path=FallMax}" />
+                    <DataGridTextColumn Header="BlowBrakeXZ" Binding="{Binding Path=BlowBrakeXZ}" />
+                    <DataGridTextColumn Header="BlowMinXZ" Binding="{Binding Path=BlowMinXZ}" />
+                    <DataGridTextColumn Header="BlowBrakeUp" Binding="{Binding Path=BlowBrakeUp}" />
+                    <DataGridTextColumn Header="BlowUp" Binding="{Binding Path=BlowUp}" />
+                    <DataGridTextColumn Header="BlowSpeed" Binding="{Binding Path=BlowSpeed}" />
+                    <DataGridTextColumn Header="BlowToHitBack" Binding="{Binding Path=BlowToHitBack}" />
+                    <DataGridTextColumn Header="HitBack" Binding="{Binding Path=HitBack}" />
+                    <DataGridTextColumn Header="HitBackSmall" Binding="{Binding Path=HitBackSmall}" />
+                    <DataGridTextColumn Header="HitBackToJump" Binding="{Binding Path=HitBackToJump}" />
+                    <DataGridTextColumn Header="FlyBlowBrake" Binding="{Binding Path=FlyBlowBrake}" />
+                    <DataGridTextColumn Header="FlyBlowStop" Binding="{Binding Path=FlyBlowStop}" />
+                    <DataGridTextColumn Header="FlyBlowUpAdjust" Binding="{Binding Path=FlyBlowUpAdjust}" />
+                    <DataGridTextColumn Header="MagicJump" Binding="{Binding Path=MagicJump}" />
+                    <DataGridTextColumn Header="LockOnRange" Binding="{Binding Path=LockOnRange}" />
+                    <DataGridTextColumn Header="LockOnReleaseRange" Binding="{Binding Path=LockOnReleaseRange}" />
+                    <DataGridTextColumn Header="StunRecov" Binding="{Binding Path=StunRecov}" />
+                    <DataGridTextColumn Header="StunRecovHp" Binding="{Binding Path=StunRecovHp}" />
+                    <DataGridTextColumn Header="StunRelax" Binding="{Binding Path=StunRelax}" />
+                    <DataGridTextColumn Header="DriveZako" Binding="{Binding Path=DriveZako}" />
+                    <DataGridTextColumn Header="ChangeTimeZako" Binding="{Binding Path=ChangeTimeZako}" />
+                    <DataGridTextColumn Header="DriveTime" Binding="{Binding Path=DriveTime}" />
+                    <DataGridTextColumn Header="DriveTimeRelax" Binding="{Binding Path=DriveTimeRelax}" />
+                    <DataGridTextColumn Header="ChangeTimeAddRate" Binding="{Binding Path=ChangeTimeAddRate}" />
+                    <DataGridTextColumn Header="ChangeTimeSubRate" Binding="{Binding Path=ChangeTimeSubRate}" />
+                    <DataGridTextColumn Header="MpDriveRate" Binding="{Binding Path=MpDriveRate}" />
+                    <DataGridTextColumn Header="MpToMpDrive" Binding="{Binding Path=MpToMpDrive}" />
+                    <DataGridTextColumn Header="SummonTimeRelax" Binding="{Binding Path=SummonTimeRelax}" />
+                    <DataGridTextColumn Header="SummonPrayTime" Binding="{Binding Path=SummonPrayTime}" />
+                    <DataGridTextColumn Header="SummonPrayTimeSkip" Binding="{Binding Path=SummonPrayTimeSkip}" />
+                    <DataGridTextColumn Header="AntiFormDriveCount" Binding="{Binding Path=AntiFormDriveCount}" />
+                    <DataGridTextColumn Header="AntiFormSubCount" Binding="{Binding Path=AntiFormSubCount}" />
+                    <DataGridTextColumn Header="AntiFormDamageRate" Binding="{Binding Path=AntiFormDamageRate}" />
+                    <DataGridTextColumn Header="FinalFormRate" Binding="{Binding Path=FinalFormRate}" />
+                    <DataGridTextColumn Header="FinalFormMulRate" Binding="{Binding Path=FinalFormMulRate}" />
+                    <DataGridTextColumn Header="FinalFormMaxRate" Binding="{Binding Path=FinalFormMaxRate}" />
+                    <DataGridTextColumn Header="FinalFormSubCount" Binding="{Binding Path=FinalFormSubCount}" />
+                    <DataGridTextColumn Header="AttackDistToSpeed" Binding="{Binding Path=AttackDistToSpeed}" />
+                    <DataGridTextColumn Header="AlCarpetDashInner" Binding="{Binding Path=AlCarpetDashInner}" />
+                    <DataGridTextColumn Header="AlCarpetDashDelay" Binding="{Binding Path=AlCarpetDashDelay}" />
+                    <DataGridTextColumn Header="AlCarpetDashAccel" Binding="{Binding Path=AlCarpetDashAccel}" />
+                    <DataGridTextColumn Header="AlCarpetDashBrake" Binding="{Binding Path=AlCarpetDashBrake}" />
+                    <DataGridTextColumn Header="LkDashDriftInner" Binding="{Binding Path=LkDashDriftInner}" />
+                    <DataGridTextColumn Header="LkDashDriftTime" Binding="{Binding Path=LkDashDriftTime}" />
+                    <DataGridTextColumn Header="LkDashAccelDrift" Binding="{Binding Path=LkDashAccelDrift}" />
+                    <DataGridTextColumn Header="LkDashAccelStop" Binding="{Binding Path=LkDashAccelStop}" />
+                    <DataGridTextColumn Header="LkDashDriftSpeed" Binding="{Binding Path=LkDashDriftSpeed}" />
+                    <DataGridTextColumn Header="LkMagicJump" Binding="{Binding Path=LkMagicJump}" />
+                    <DataGridTextColumn Header="MickeyChargeWait" Binding="{Binding Path=MickeyChargeWait}" />
+                    <DataGridTextColumn Header="MickeyDownRate" Binding="{Binding Path=MickeyDownRate}" />
+                    <DataGridTextColumn Header="MickeyMinRate" Binding="{Binding Path=MickeyMinRate}" />
+                    <DataGridTextColumn Header="LmSwimSpeed" Binding="{Binding Path=LmSwimSpeed}" />
+                    <DataGridTextColumn Header="LmSwimControl" Binding="{Binding Path=LmSwimControl}" />
+                    <DataGridTextColumn Header="LmSwimAccel" Binding="{Binding Path=LmSwimAccel}" />
+                    <DataGridTextColumn Header="LmDolphinAccel" Binding="{Binding Path=LmDolphinAccel}" />
+                    <DataGridTextColumn Header="LmDolphinSpeedMax" Binding="{Binding Path=LmDolphinSpeedMax}" />
+                    <DataGridTextColumn Header="LmDolphinSpeedMin" Binding="{Binding Path=LmDolphinSpeedMin}" />
+                    <DataGridTextColumn Header="LmDolphinSpeedMaxDist" Binding="{Binding Path=LmDolphinSpeedMaxDist}" />
+                    <DataGridTextColumn Header="LmDolphinSpeedMinDist" Binding="{Binding Path=LmDolphinSpeedMinDist}" />
+                    <DataGridTextColumn Header="LmDolphinRotMax" Binding="{Binding Path=LmDolphinRotMax}" />
+                    <DataGridTextColumn Header="LmDolphinRotDist" Binding="{Binding Path=LmDolphinRotDist}" />
+                    <DataGridTextColumn Header="LmDolphinRotMaxDist" Binding="{Binding Path=LmDolphinRotMaxDist}" />
+                    <DataGridTextColumn Header="LmDolphinDistToTime" Binding="{Binding Path=LmDolphinDistToTime}" />
+                    <DataGridTextColumn Header="LmDolphfloatimeMax" Binding="{Binding Path=LmDolphfloatimeMax}" />
+                    <DataGridTextColumn Header="LmDolphfloatimeMin" Binding="{Binding Path=LmDolphfloatimeMin}" />
+                    <DataGridTextColumn Header="LmDolphinNearSpeed" Binding="{Binding Path=LmDolphinNearSpeed}" />
+                    <DataGridTextColumn Header="DriveBerserkAttack" Binding="{Binding Path=DriveBerserkAttack}" />
+                    <DataGridTextColumn Header="MpHaste" Binding="{Binding Path=MpHaste}" />
+                    <DataGridTextColumn Header="MpHasra" Binding="{Binding Path=MpHasra}" />
+                    <DataGridTextColumn Header="MpHasga" Binding="{Binding Path=MpHasga}" />
+                    <DataGridTextColumn Header="DrawRange" Binding="{Binding Path=DrawRange}" />
+                    <DataGridTextColumn Header="ComboDamageUp" Binding="{Binding Path=ComboDamageUp}" />
+                    <DataGridTextColumn Header="ReactionDamageUp" Binding="{Binding Path=ReactionDamageUp}" />
+                    <DataGridTextColumn Header="DamageDrive" Binding="{Binding Path=DamageDrive}" />
+                    <DataGridTextColumn Header="DriveBoost" Binding="{Binding Path=DriveBoost}" />
+                    <DataGridTextColumn Header="FormBoost" Binding="{Binding Path=FormBoost}" />
+                    <DataGridTextColumn Header="ExpChance" Binding="{Binding Path=ExpChance}" />
+                    <DataGridTextColumn Header="Defender" Binding="{Binding Path=Defender}" />
+                    <DataGridTextColumn Header="ElementUp" Binding="{Binding Path=ElementUp}" />
+                    <DataGridTextColumn Header="DamageAspil" Binding="{Binding Path=DamageAspil}" />
+                    <DataGridTextColumn Header="HyperHeal" Binding="{Binding Path=HyperHeal}" />
+                    <DataGridTextColumn Header="CombiBoost" Binding="{Binding Path=CombiBoost}" />
+                    <DataGridTextColumn Header="PrizeUp" Binding="{Binding Path=PrizeUp}" />
+                    <DataGridTextColumn Header="LuckUp" Binding="{Binding Path=LuckUp}" />
+                    <DataGridTextColumn Header="ItemUp" Binding="{Binding Path=ItemUp}" />
+                    <DataGridTextColumn Header="AutoHeal" Binding="{Binding Path=AutoHeal}" />
+                    <DataGridTextColumn Header="SummonBoost" Binding="{Binding Path=SummonBoost}" />
+                    <DataGridTextColumn Header="DriveConvert" Binding="{Binding Path=DriveConvert}" />
+                    <DataGridTextColumn Header="DefenceMaster" Binding="{Binding Path=DefenceMaster}" />
+                    <DataGridTextColumn Header="DefenceMasterRatio" Binding="{Binding Path=DefenceMasterRatio}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Page>

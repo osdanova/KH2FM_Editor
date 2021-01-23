@@ -167,6 +167,8 @@
     <Compile Include="Model\System03\Pref\Plyr\PlyrFile.cs" />
     <Compile Include="Model\System03\Pref\Prty\PrtyFile.cs" />
     <Compile Include="Model\System03\Pref\Prty\Prtytem.cs" />
+    <Compile Include="Model\System03\Pref\Sstm\SstmItem.cs" />
+    <Compile Include="Model\System03\Pref\Sstm\SstmFile.cs" />
     <Compile Include="Model\System03\Rcct\RcctFile.cs" />
     <Compile Include="Model\System03\Rcct\RcctItem.cs" />
     <Compile Include="Model\System03\Shop\InventoryItem.cs" />
@@ -339,6 +341,10 @@
       <DependentUpon>FmabPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Pref\Fmab\FmabPageHandler.cs" />
+    <Compile Include="View\System03\Pref\Sstm\SstmPage.xaml.cs">
+      <DependentUpon>SstmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Pref\Sstm\SstmPageHandler.cs" />
     <Compile Include="View\System03\Pref\Magi\MagiPage.xaml.cs">
       <DependentUpon>MagiPage.xaml</DependentUpon>
     </Compile>
@@ -347,6 +353,10 @@
       <DependentUpon>PlyrPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Pref\Plyr\PlyrPageHandler.cs" />
+    <Compile Include="View\System03\Pref\Prty\PrtyPage.xaml.cs">
+      <DependentUpon>PrtyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\System03\Pref\Prty\PrtyPageHandler.cs" />
     <Compile Include="View\System03\Rcct\RcctPage.xaml.cs">
       <DependentUpon>RcctPage.xaml</DependentUpon>
     </Compile>
@@ -519,11 +529,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\System03\Pref\Sstm\SstmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\System03\Pref\Magi\MagiPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\System03\Pref\Plyr\PlyrPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\System03\Pref\Prty\PrtyPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

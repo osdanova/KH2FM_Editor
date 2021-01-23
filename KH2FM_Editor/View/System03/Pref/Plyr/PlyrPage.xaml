@@ -20,7 +20,35 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding PlyrFileLoaded.PlayerPrefs}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                    <DataGridTextColumn Header="AttackYOfs" Binding="{Binding Path=AttackYOfs}" />
+                    <DataGridTextColumn Header="AttackRadius" Binding="{Binding Path=AttackRadius}" />
+                    <DataGridTextColumn Header="AttackMinH" Binding="{Binding Path=AttackMinH}" />
+                    <DataGridTextColumn Header="AttackMaxH" Binding="{Binding Path=AttackMaxH}" />
+                    <DataGridTextColumn Header="AttackVAngle" Binding="{Binding Path=AttackVAngle}" />
+                    <DataGridTextColumn Header="AttackVRange" Binding="{Binding Path=AttackVRange}" />
+                    <DataGridTextColumn Header="AttackSRange" Binding="{Binding Path=AttackSRange}" />
+                    <DataGridTextColumn Header="AttackHAngle" Binding="{Binding Path=AttackHAngle}" />
+                    <DataGridTextColumn Header="AttackUMinH" Binding="{Binding Path=AttackUMinH}" />
+                    <DataGridTextColumn Header="AttackUMaxH" Binding="{Binding Path=AttackUMaxH}" />
+                    <DataGridTextColumn Header="AttackURange" Binding="{Binding Path=AttackURange}" />
+                    <DataGridTextColumn Header="AttackJFront" Binding="{Binding Path=AttackJFront}" />
+                    <DataGridTextColumn Header="AttackAirMinH" Binding="{Binding Path=AttackAirMinH}" />
+                    <DataGridTextColumn Header="AttackAirMaxH" Binding="{Binding Path=AttackAirMaxH}" />
+                    <DataGridTextColumn Header="AttackAirBigHOfs" Binding="{Binding Path=AttackAirBigHOfs}" />
+                    <DataGridTextColumn Header="AttackUV0" Binding="{Binding Path=AttackUV0}" />
+                    <DataGridTextColumn Header="AttackJV0" Binding="{Binding Path=AttackJV0}" />
+                    <DataGridTextColumn Header="AttackFirstV0" Binding="{Binding Path=AttackFirstV0}" />
+                    <DataGridTextColumn Header="AttackComboV0" Binding="{Binding Path=AttackComboV0}" />
+                    <DataGridTextColumn Header="AttackFinishV0" Binding="{Binding Path=AttackFinishV0}" />
+                    <DataGridTextColumn Header="BlowRecovH" Binding="{Binding Path=BlowRecovH}" />
+                    <DataGridTextColumn Header="BlowRecovV" Binding="{Binding Path=BlowRecovV}" />
+                    <DataGridTextColumn Header="BlowRecovTime" Binding="{Binding Path=BlowRecovTime}" />
+                    <DataGridTextColumn Header="AutoLockOnRange" Binding="{Binding Path=AutoLockOnRange}" />
+                    <DataGridTextColumn Header="AutoLockOnMinH" Binding="{Binding Path=AutoLockOnMinH}" />
+                    <DataGridTextColumn Header="AutoLockOnMaxH" Binding="{Binding Path=AutoLockOnMaxH}" />
+                    <DataGridTextColumn Header="AutoLockOnTime" Binding="{Binding Path=AutoLockOnTime}" />
+                    <DataGridTextColumn Header="AutoLockOnHAdjust" Binding="{Binding Path=AutoLockOnHAdjust}" />
+                    <DataGridTextColumn Header="AutoLockOnInnerAdjust" Binding="{Binding Path=AutoLockOnInnerAdjust}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

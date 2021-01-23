@@ -44,6 +44,7 @@ using KH2FM_Editor.Model.Mixdata.Exp;
 using KH2FM_Editor.Model.Battle.Ptya;
 using KH2FM_Editor.Model.System03.Rcct;
 using KH2FM_Editor.Model.System03.Arif;
+using KH2FM_Editor.Model.System03.Pref.Sstm;
 
 namespace KH2FM_Editor.Model.Bar
 {
@@ -99,7 +100,8 @@ namespace KH2FM_Editor.Model.Bar
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "pref") return new BarFile(name, raw);
                 if (parentBar == "pref" && name == "plyr") return new PlyrFile(name, raw);
                 if (parentBar == "pref" && name == "fmab") return new FmabFile(name, raw);
-                //if (parentBar == "pref" && name == "prty") return new PrtyFile(name, raw);
+                if (parentBar == "pref" && name == "prty") return new PrtyFile(name, raw);
+                if (parentBar == "pref" && name == "sstm") return new SstmFile(name, raw);
                 if (parentBar == "pref" && name == "magi") return new MagiFile(name, raw);
             if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "evtp") return new EvtpFile(name, raw);
             //if (FileHandler.getFileType(parentBar) == FileTypesEnum.SYSTEM && name == "ipic") return new IpicFile(name, raw);

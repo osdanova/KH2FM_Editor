@@ -38,6 +38,8 @@ using KH2FM_Editor.Model.System03.Memt;
 using KH2FM_Editor.Model.System03.Pref.Fmab;
 using KH2FM_Editor.Model.System03.Pref.Magi;
 using KH2FM_Editor.Model.System03.Pref.Plyr;
+using KH2FM_Editor.Model.System03.Pref.Prty;
+using KH2FM_Editor.Model.System03.Pref.Sstm;
 using KH2FM_Editor.Model.System03.Rcct;
 using KH2FM_Editor.Model.System03.Shop;
 using KH2FM_Editor.Model.System03.Sklt;
@@ -76,9 +78,11 @@ using KH2FM_Editor.View.System03.Item;
 using KH2FM_Editor.View.System03.Magi;
 using KH2FM_Editor.View.System03.Memt;
 using KH2FM_Editor.View.System03.Plyr;
+using KH2FM_Editor.View.System03.Prty;
 using KH2FM_Editor.View.System03.Rcct;
 using KH2FM_Editor.View.System03.Shop;
 using KH2FM_Editor.View.System03.Sklt;
+using KH2FM_Editor.View.System03.Sstm;
 using KH2FM_Editor.View.System03.Trsr;
 using KH2FM_Editor.View.System03.Went;
 using KH2FM_Editor.View.System03.Wmst;
@@ -382,6 +386,14 @@ namespace KH2FM_Editor.View.Bar
                         case "fmab":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as FmabFile));
                             loadFrame.Navigate(new FmabPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as FmabFile));
+                            break;
+                        case "prty":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PrtyFile));
+                            loadFrame.Navigate(new PrtyPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as PrtyFile));
+                            break;
+                        case "sstm":
+                            Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SstmFile));
+                            loadFrame.Navigate(new SstmPage(BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as SstmFile));
                             break;
                         case "magi":
                             Console.WriteLine("DEBUG > BarPageHandler > Opening File: " + (BarFileLoaded.SubFiles[BarFileLoaded.Items.IndexOf(entry)] as MagiFile));

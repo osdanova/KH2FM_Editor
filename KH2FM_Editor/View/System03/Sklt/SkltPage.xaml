@@ -27,9 +27,10 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding SkltFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Unk4" Binding="{Binding Path=Unk4}" />
-                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=Unk6}" />
+                    <DataGridTextColumn Header="Character" Binding="{Binding Path=CharacterValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Character Id" Binding="{Binding Path=Character}" />
+                    <DataGridTextColumn Header="Bone1" Binding="{Binding Path=Bone1}" />
+                    <DataGridTextColumn Header="Bone2" Binding="{Binding Path=Bone2}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

@@ -20,7 +20,40 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding MagiFileLoaded.PlayerPrefs}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                    <DataGridTextColumn Header="fire_radius" Binding="{Binding Path=fire_radius}" />
+                    <DataGridTextColumn Header="fire_height" Binding="{Binding Path=fire_height}" />
+                    <DataGridTextColumn Header="fire_time" Binding="{Binding Path=fire_time}" />
+                    <DataGridTextColumn Header="blizzard_fade_time" Binding="{Binding Path=blizzard_fade_time}" />
+                    <DataGridTextColumn Header="blizzard_time" Binding="{Binding Path=blizzard_time}" />
+                    <DataGridTextColumn Header="blizzard_speed" Binding="{Binding Path=blizzard_speed}" />
+                    <DataGridTextColumn Header="blizzard_radius" Binding="{Binding Path=blizzard_radius}" />
+                    <DataGridTextColumn Header="blizzard_hitback" Binding="{Binding Path=blizzard_hitback}" />
+                    <DataGridTextColumn Header="thunder_notarget_dist" Binding="{Binding Path=thunder_notarget_dist}" />
+                    <DataGridTextColumn Header="thunder_border_height" Binding="{Binding Path=thunder_border_height}" />
+                    <DataGridTextColumn Header="thunder_notarget_height" Binding="{Binding Path=thunder_notarget_height}" />
+                    <DataGridTextColumn Header="thunder_check_height" Binding="{Binding Path=thunder_check_height}" />
+                    <DataGridTextColumn Header="thunder_burst_radius" Binding="{Binding Path=thunder_burst_radius}" />
+                    <DataGridTextColumn Header="thunder_height" Binding="{Binding Path=thunder_height}" />
+                    <DataGridTextColumn Header="thunder_radius" Binding="{Binding Path=thunder_radius}" />
+                    <DataGridTextColumn Header="thunder_attack_wait" Binding="{Binding Path=thunder_attack_wait}" />
+                    <DataGridTextColumn Header="thunder_time" Binding="{Binding Path=thunder_time}" />
+                    <DataGridTextColumn Header="cure_range" Binding="{Binding Path=cure_range}" />
+                    <DataGridTextColumn Header="magnet_min_yofs" Binding="{Binding Path=magnet_min_yofs}" />
+                    <DataGridTextColumn Header="magnet_large_time" Binding="{Binding Path=magnet_large_time}" />
+                    <DataGridTextColumn Header="magnet_stay_time" Binding="{Binding Path=magnet_stay_time}" />
+                    <DataGridTextColumn Header="magnet_small_time" Binding="{Binding Path=magnet_small_time}" />
+                    <DataGridTextColumn Header="magnet_radius" Binding="{Binding Path=magnet_radius}" />
+                    <DataGridTextColumn Header="reflect_radius" Binding="{Binding Path=reflect_radius}" />
+                    <DataGridTextColumn Header="reflect_laser_time" Binding="{Binding Path=reflect_laser_time}" />
+                    <DataGridTextColumn Header="reflect_finish_time" Binding="{Binding Path=reflect_finish_time}" />
+                    <DataGridTextColumn Header="reflect_lv1_radius" Binding="{Binding Path=reflect_lv1_radius}" />
+                    <DataGridTextColumn Header="reflect_lv1_height" Binding="{Binding Path=reflect_lv1_height}" />
+                    <DataGridTextColumn Header="reflect_lv2_count" Binding="{Binding Path=reflect_lv2_count}" />
+                    <DataGridTextColumn Header="reflect_lv2_radius" Binding="{Binding Path=reflect_lv2_radius}" />
+                    <DataGridTextColumn Header="reflect_lv2_height" Binding="{Binding Path=reflect_lv2_height}" />
+                    <DataGridTextColumn Header="reflect_lv3_count" Binding="{Binding Path=reflect_lv3_count}" />
+                    <DataGridTextColumn Header="reflect_lv3_radius" Binding="{Binding Path=reflect_lv3_radius}" />
+                    <DataGridTextColumn Header="reflect_lv3_height" Binding="{Binding Path=reflect_lv3_height}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

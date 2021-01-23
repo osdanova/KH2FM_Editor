@@ -20,7 +20,23 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding FmabFileLoaded.FormAbs}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                    <DataGridTextColumn Header="HighJumpHeight" Binding="{Binding Path=HighJumpHeight}" />
+                    <DataGridTextColumn Header="AirDodgeHeight" Binding="{Binding Path=AirDodgeHeight}" />
+                    <DataGridTextColumn Header="AirDodgeSpeed" Binding="{Binding Path=AirDodgeSpeed}" />
+                    <DataGridTextColumn Header="AirSlideTime" Binding="{Binding Path=AirSlideTime}" />
+                    <DataGridTextColumn Header="AirSlideSpeed" Binding="{Binding Path=AirSlideSpeed}" />
+                    <DataGridTextColumn Header="AirSlideBrake" Binding="{Binding Path=AirSlideBrake}" />
+                    <DataGridTextColumn Header="AirSlideStopBrake" Binding="{Binding Path=AirSlideStopBrake}" />
+                    <DataGridTextColumn Header="AirSlideStarTime" Binding="{Binding Path=AirSlideStarTime}" />
+                    <DataGridTextColumn Header="GlideSpeed" Binding="{Binding Path=GlideSpeed}" />
+                    <DataGridTextColumn Header="GlideFallRatio" Binding="{Binding Path=GlideFallRatio}" />
+                    <DataGridTextColumn Header="GlideFallHeight" Binding="{Binding Path=GlideFallHeight}" />
+                    <DataGridTextColumn Header="GlideFallMax" Binding="{Binding Path=GlideFallMax}" />
+                    <DataGridTextColumn Header="GlideAccel" Binding="{Binding Path=GlideAccel}" />
+                    <DataGridTextColumn Header="GlideStartHeight" Binding="{Binding Path=GlideStartHeight}" />
+                    <DataGridTextColumn Header="GlideEndHeight" Binding="{Binding Path=GlideEndHeight}" />
+                    <DataGridTextColumn Header="GlideTurnSpeed" Binding="{Binding Path=GlideTurnSpeed}" />
+                    <DataGridTextColumn Header="DodgeRollStarTime" Binding="{Binding Path=DodgeRollStarTime}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

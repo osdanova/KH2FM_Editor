@@ -53,13 +53,14 @@ namespace KH2FM_Editor.Model.System03.Pref.Magi
                 {
                     PointerSet.Add(pointerValue);
                     PointerSet.Sort();
+                    Console.WriteLine("DELETE DEBUG >>> Magi - Pointer found: " + pointerValue);
                 }
 
                 // Pointers
                 Pointers.Add(pointerValue);
             }
-            Console.WriteLine("DELETE DEBUG >>> Pointer count: " + Pointers.Count);
-            Console.WriteLine("DELETE DEBUG >>> Pointer Set count: " + PointerSet.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Pointer count: " + Pointers.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Pointer Set count: " + PointerSet.Count);
         }
         public void processSets(List<byte> raw)
         {

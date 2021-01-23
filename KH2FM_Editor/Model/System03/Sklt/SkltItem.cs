@@ -1,4 +1,5 @@
-﻿using KH2FM_Editor.Libs.Binary;
+﻿using KH2FM_Editor.DataDictionary;
+using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ namespace KH2FM_Editor.Model.System03.Sklt
     {
         public static readonly int entrySize = 8;
         // Data Location
-        public int idOffset = 0, idSize = 4;
-        public int unk4Offset = 4, unk4Size = 2;
-        public int unk6Offset = 6, unk6Size = 2;
+        public int characterOffset = 0, characterSize = 4;
+        public int bone1Offset = 4, bone1Size = 2;
+        public int bone2Offset = 6, bone2Size = 2;
 
         public SkltItem()
         {
@@ -21,20 +22,24 @@ namespace KH2FM_Editor.Model.System03.Sklt
         {
         }
 
-        public uint Id
+        public string CharacterValue
         {
-            get { return DataAccess.readUInt(raw, idOffset, idSize); }
-            set { DataAccess.writeUInt(raw, value, idOffset, idSize); }
+            get { return Characters.getValue((ushort)Character); }
         }
-        public string Unk4
+        public uint Character
         {
-            get { return DataAccess.readHexString(raw, unk4Offset, unk4Size); }
-            set { DataAccess.writeHexString(raw, value, unk4Offset, unk4Size); }
+            get { return DataAccess.readUInt(raw, characterOffset, characterSize); }
+            set { DataAccess.writeUInt(raw, value, characterOffset, characterSize); NotifyPropertyChanged(nameof(CharacterValue)); }
         }
-        public string Unk6
+        public short Bone1
         {
-            get { return DataAccess.readHexString(raw, unk6Offset, unk6Size); }
-            set { DataAccess.writeHexString(raw, value, unk6Offset, unk6Size); }
+            get { return DataAccess.readShort(raw, bone1Offset, bone1Size); }
+            set { DataAccess.writeShort(raw, value, bone1Offset, bone1Size); }
+        }
+        public short Bone2
+        {
+            get { return DataAccess.readShort(raw, bone2Offset, bone2Size); }
+            set { DataAccess.writeShort(raw, value, bone2Offset, bone2Size); }
         }
     }
 }
