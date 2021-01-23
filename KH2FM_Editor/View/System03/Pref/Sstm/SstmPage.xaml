@@ -19,6 +19,36 @@
                   AlternatingRowBackground="LightGray" CanUserAddRows="True"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding SstmFileLoaded.SystemPrefs}">
+                <DataGrid.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                        <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                    </TransformGroup>
+                </DataGrid.LayoutTransform>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                        <Setter Property="LayoutTransform">
+                            <Setter.Value>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-90"/>
+                                    <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                </TransformGroup>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.CellStyle>
+                    <Style  TargetType="DataGridCell">
+                        <Setter Property="LayoutTransform">
+                            <Setter.Value>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-90"/>
+                                    <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                </TransformGroup>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.CellStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CeilingStop" Binding="{Binding Path=CeilingStop}" />
                     <DataGridTextColumn Header="CeilingDisableCommandTime" Binding="{Binding Path=CeilingDisableCommandTime}" />

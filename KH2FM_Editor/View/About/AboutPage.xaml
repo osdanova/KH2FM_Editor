@@ -11,9 +11,12 @@
         <StackPanel Margin="20">
 
             <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center">KH2FM editor</Label>
-            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">V. 1.2</Label>
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">V. 1.3</Label>
             <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">Made by: Osdanova</Label>
+            <Label Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">With the help of the KH community.</Label>
             <Label Foreground="White" FontFamily="Arial" FontSize="15" HorizontalAlignment="Center">https://github.com/osdanova/KH2FM_Editor</Label>
+            <Label Margin="0,20,0,0" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">Special Thanks to the OpenKH community.</Label>
+            <Label Foreground="White" FontFamily="Arial" FontSize="15" HorizontalAlignment="Center">https://openkh.dev/</Label>
 
         </StackPanel>
     </StackPanel>
