@@ -11,28 +11,29 @@ namespace KH2FM_Editor.Model.System03.Cmd
         public static readonly int entrySize = 48;
         // Data Location
         public static readonly int idOffset = 0, idSize = 2;
-        public static readonly int unkId1Offset = 2, unkId1Size = 2;
+        public static readonly int execOffset = 2, execSize = 2;
         public static readonly int unkId2Offset = 4, unkId2Size = 2;
         public static readonly int submenuOffset = 6, submenuSize = 1;
         public static readonly int iconOffset = 7, iconSize = 1;
-        public static readonly int textOffset = 8, textSize = 2;
-        public static readonly int unk12Offset = 12, unk12Size = 4;
-        public static readonly int unk16Offset = 16, unk16Size = 2;
-        public static readonly int unk18Offset = 18, unk18Size = 2;
-        public static readonly int unk20Offset = 20, unk20Size = 4;
-        public static readonly int unk24Offset = 24, unk24Size = 1;
-        public static readonly int unk25Offset = 25, unk25Size = 1;
-        public static readonly int unk26Offset = 26, unk26Size = 2;
-        public static readonly int mpDrCostOffset = 28, mpDrCostSize = 2;
-        public static readonly int unk30Offset = 30, unk30Size = 4;
-        public static readonly int unk34Offset = 34, unk34Size = 2;
-        public static readonly int unk36Offset = 36, unk36Size = 1;
-        public static readonly int unk37Offset = 37, unk37Size = 1;
-        public static readonly int unk38Offset = 38, unk38Size = 2;
-        public static readonly int unk40Offset = 40, unk40Size = 2;
-        public static readonly int unk42Offset = 42, unk42Size = 2;
-        public static readonly int unk44Offset = 44, unk44Size = 2;
-        public static readonly int unk46Offset = 46, unk46Size = 2;
+        public static readonly int textOffset = 8, textSize = 4;
+        public static readonly int flagOffset = 12, flagSize = 4;
+        public static readonly int rangeOffset = 16, rangeSize = 4;
+        public static readonly int dirOffset = 20, dirSize = 4;
+        public static readonly int dirRangeOffset = 24, dirRangeSize = 4;
+        public static readonly int mpDrCostOffset = 28, mpDrCostSize = 1;
+        public static readonly int cameraOffset = 29, cameraSize = 1;
+        public static readonly int priorityOffset = 30, prioritySize = 1;
+        public static readonly int receiverOffset = 31, receiverSize = 1;
+        public static readonly int timeOffset = 32, timeSize = 2;
+        public static readonly int requireOffset = 34, requireSize = 2;
+        public static readonly int markOffset = 36, markSize = 1;
+        public static readonly int actionOffset = 37, actionSize = 1;
+        public static readonly int rcCountOffset = 38, rcCountSize = 2;
+        public static readonly int distanceRangeOffset = 40, distanceRangeSize = 2;
+        public static readonly int scoreOffset = 42, scoreSize = 2;
+        public static readonly int disableFormOffset = 44, disableFormSize = 2;
+        public static readonly int groupOffset = 46, groupize = 1;
+        public static readonly int reserveOffset = 47, reserveize = 1;
 
         public CmdItem()
         {
@@ -51,115 +52,120 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readUShort(raw, idOffset, idSize); }
             set { DataAccess.writeUShort(raw, value, idOffset, idSize); NotifyPropertyChanged(nameof(CommandValue)); }
         }
-        public ushort UnkId1
+        public ushort Exec
         {
-            get { return DataAccess.readUShort(raw, unkId1Offset, unkId1Size); }
-            set { DataAccess.writeUShort(raw, value, unkId1Offset, unkId1Size); }
+            get { return DataAccess.readUShort(raw, execOffset, execSize); }
+            set { DataAccess.writeUShort(raw, value, execOffset, execSize); }
         }
         public ushort UnkId2
         {
             get { return DataAccess.readUShort(raw, unkId2Offset, unkId2Size); }
             set { DataAccess.writeUShort(raw, value, unkId2Offset, unkId2Size); }
         }
-        public string Submenu
+        public sbyte Submenu
         {
-            get { return DataAccess.readHexString(raw, submenuOffset, submenuSize); }
-            set { DataAccess.writeHexString(raw, value, submenuOffset, submenuSize); }
+            get { return DataAccess.readSByte(raw, submenuOffset); }
+            set { DataAccess.writeSByte(raw, value, submenuOffset); }
         }
-        public string Icon
+        public byte Icon
         {
-            get { return DataAccess.readHexString(raw, iconOffset, iconSize); }
-            set { DataAccess.writeHexString(raw, value, iconOffset, iconSize); }
+            get { return DataAccess.readByte(raw, iconOffset); }
+            set { DataAccess.writeByte(raw, value, iconOffset); }
         }
-        public string Text
+        public int Text
         {
-            get { return DataAccess.readHexString(raw, textOffset, textSize); }
-            set { DataAccess.writeHexString(raw, value, textOffset, textSize); }
+            get { return DataAccess.readInt(raw, textOffset, textSize); }
+            set { DataAccess.writeInt(raw, value, textOffset, textSize); }
         }
-        public string Unk12
+        public uint Flag
         {
-            get { return DataAccess.readHexString(raw, unk12Offset, unk12Size); }
-            set { DataAccess.writeHexString(raw, value, unk12Offset, unk12Size); }
+            get { return DataAccess.readUInt(raw, flagOffset, flagSize); }
+            set { DataAccess.writeUInt(raw, value, flagOffset, flagSize); }
         }
-        public string Unk16
+        public float Range
         {
-            get { return DataAccess.readHexString(raw, unk16Offset, unk16Size); }
-            set { DataAccess.writeHexString(raw, value, unk16Offset, unk16Size); }
+            get { return DataAccess.readFloat(raw, rangeOffset, rangeSize); }
+            set { DataAccess.writeFloat(raw, value, rangeOffset, rangeSize); }
         }
-        public string Unk18
+        public float Dir
         {
-            get { return DataAccess.readHexString(raw, unk18Offset, unk18Size); }
-            set { DataAccess.writeHexString(raw, value, unk18Offset, unk18Size); }
+            get { return DataAccess.readFloat(raw, dirOffset, dirSize); }
+            set { DataAccess.writeFloat(raw, value, dirOffset, dirSize); }
         }
-        public string Unk20
+        public float DirRange
         {
-            get { return DataAccess.readHexString(raw, unk20Offset, unk20Size); }
-            set { DataAccess.writeHexString(raw, value, unk20Offset, unk20Size); }
+            get { return DataAccess.readFloat(raw, dirRangeOffset, dirRangeSize); }
+            set { DataAccess.writeFloat(raw, value, dirRangeOffset, dirRangeSize); }
         }
-        public string Unk24
+        public byte MpDrCost
         {
-            get { return DataAccess.readHexString(raw, unk24Offset, unk24Size); }
-            set { DataAccess.writeHexString(raw, value, unk24Offset, unk24Size); }
+            get { return DataAccess.readByte(raw, mpDrCostOffset); }
+            set { DataAccess.writeByte(raw, value, mpDrCostOffset); }
         }
-        public string Unk25
+        public byte Camera
         {
-            get { return DataAccess.readHexString(raw, unk25Offset, unk25Size); }
-            set { DataAccess.writeHexString(raw, value, unk25Offset, unk25Size); }
+            get { return DataAccess.readByte(raw, cameraOffset); }
+            set { DataAccess.writeByte(raw, value, cameraOffset); }
         }
-        public string Unk26
+        public byte Priority
         {
-            get { return DataAccess.readHexString(raw, unk26Offset, unk26Size); }
-            set { DataAccess.writeHexString(raw, value, unk26Offset, unk26Size); }
+            get { return DataAccess.readByte(raw, priorityOffset); }
+            set { DataAccess.writeByte(raw, value, priorityOffset); }
         }
-        public ushort MpDrCost
+        public byte Receiver
         {
-            get { return DataAccess.readUShort(raw, mpDrCostOffset, mpDrCostSize); }
-            set { DataAccess.writeUShort(raw, value, mpDrCostOffset, mpDrCostSize); }
+            get { return DataAccess.readByte(raw, receiverOffset); }
+            set { DataAccess.writeByte(raw, value, receiverOffset); }
         }
-        public string Unk30
+        public ushort Time
         {
-            get { return DataAccess.readHexString(raw, unk30Offset, unk30Size); }
-            set { DataAccess.writeHexString(raw, value, unk30Offset, unk30Size); }
+            get { return DataAccess.readUShort(raw, timeOffset, timeSize); }
+            set { DataAccess.writeUShort(raw, value, timeOffset, timeSize); }
         }
-        public string Unk34
+        public ushort Require
         {
-            get { return DataAccess.readHexString(raw, unk34Offset, unk34Size); }
-            set { DataAccess.writeHexString(raw, value, unk34Offset, unk34Size); }
+            get { return DataAccess.readUShort(raw, requireOffset, requireSize); }
+            set { DataAccess.writeUShort(raw, value, requireOffset, requireSize); }
         }
-        public string Unk36
+        public byte Mark
         {
-            get { return DataAccess.readHexString(raw, unk36Offset, unk36Size); }
-            set { DataAccess.writeHexString(raw, value, unk36Offset, unk36Size); }
+            get { return DataAccess.readByte(raw, markOffset); }
+            set { DataAccess.writeByte(raw, value, markOffset); }
         }
-        public string Unk37
+        public byte Action
         {
-            get { return DataAccess.readHexString(raw, unk37Offset, unk37Size); }
-            set { DataAccess.writeHexString(raw, value, unk37Offset, unk37Size); }
+            get { return DataAccess.readByte(raw, actionOffset); }
+            set { DataAccess.writeByte(raw, value, actionOffset); }
         }
-        public string Unk38
+        public ushort RcCount
         {
-            get { return DataAccess.readHexString(raw, unk38Offset, unk38Size); }
-            set { DataAccess.writeHexString(raw, value, unk38Offset, unk38Size); }
+            get { return DataAccess.readUShort(raw, rcCountOffset, rcCountSize); }
+            set { DataAccess.writeUShort(raw, value, rcCountOffset, rcCountSize); }
         }
-        public string Unk40
+        public ushort DistanceRange
         {
-            get { return DataAccess.readHexString(raw, unk40Offset, unk40Size); }
-            set { DataAccess.writeHexString(raw, value, unk40Offset, unk40Size); }
+            get { return DataAccess.readUShort(raw, distanceRangeOffset, distanceRangeSize); }
+            set { DataAccess.writeUShort(raw, value, distanceRangeOffset, distanceRangeSize); }
         }
-        public string Unk42
+        public ushort Score
         {
-            get { return DataAccess.readHexString(raw, unk42Offset, unk42Size); }
-            set { DataAccess.writeHexString(raw, value, unk42Offset, unk42Size); }
+            get { return DataAccess.readUShort(raw, scoreOffset, scoreSize); }
+            set { DataAccess.writeUShort(raw, value, scoreOffset, scoreSize); }
         }
-        public string Unk44
+        public ushort DisableForm
         {
-            get { return DataAccess.readHexString(raw, unk44Offset, unk44Size); }
-            set { DataAccess.writeHexString(raw, value, unk44Offset, unk44Size); }
+            get { return DataAccess.readUShort(raw, disableFormOffset, disableFormSize); }
+            set { DataAccess.writeUShort(raw, value, requireOffset, requireSize); }
         }
-        public string Unk46
+        public byte Group
         {
-            get { return DataAccess.readHexString(raw, unk46Offset, unk46Size); }
-            set { DataAccess.writeHexString(raw, value, unk46Offset, unk46Size); }
+            get { return DataAccess.readByte(raw, groupOffset); }
+            set { DataAccess.writeByte(raw, value, groupOffset); }
+        }
+        public byte Reserve
+        {
+            get { return DataAccess.readByte(raw, reserveOffset); }
+            set { DataAccess.writeByte(raw, value, reserveOffset); }
         }
     }
 }

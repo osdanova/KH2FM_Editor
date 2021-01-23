@@ -39,6 +39,10 @@ namespace KH2FM_Editor.Libs.Binary
         {
             return data[offset];
         }
+        public static sbyte readSByte(List<byte> data, int offset)
+        {
+            return (sbyte)data[offset];
+        }
         public static float readFloat(List<byte> data, int offset, int size)
         {
             return BinaryHandler.bytesAsFloat(data.GetRange(offset, size));
@@ -99,6 +103,11 @@ namespace KH2FM_Editor.Libs.Binary
         {
             data.RemoveAt(offset);
             data.Insert(offset, input);
+        }
+        public static void writeSByte(List<byte> data, sbyte input, int offset)
+        {
+            data.RemoveAt(offset);
+            data.Insert(offset, (byte)input);
         }
         public static void writeFloat(List<byte> data, float input, int offset, int size)
         {
