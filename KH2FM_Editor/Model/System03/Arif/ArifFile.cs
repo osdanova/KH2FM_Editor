@@ -62,12 +62,14 @@ namespace KH2FM_Editor.Model.System03.Arif
         public void processBlocks(List<byte> raw)
         {
             Blocks = new ObservableCollection<ArifBlock>();
+            byte worldId = 0;
 
             foreach(ArifPointer pointer in Pointers)
             {
                 Console.WriteLine("DELETE DEBUG >>> Pointer at: " + pointer.EntryOffset + ", count: " + pointer.EntryCount);
 
-                Blocks.Add(new ArifBlock(raw.GetRange(pointer.EntryOffset, pointer.EntryCount * ArifItem.Size), pointer.EntryCount));
+                Blocks.Add(new ArifBlock(worldId, raw.GetRange(pointer.EntryOffset, pointer.EntryCount * ArifItem.Size), pointer.EntryCount));
+                worldId++;
             }
         }
 

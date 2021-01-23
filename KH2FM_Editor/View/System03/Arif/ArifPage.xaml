@@ -27,7 +27,7 @@
                 <!-- WalkPath title -->
                 <TabControl.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="Block"></TextBlock>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
                     </DataTemplate>
                 </TabControl.ItemTemplate>
                 <!-- WalkPath content -->
@@ -38,7 +38,40 @@
                                         AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                                         ItemsSource="{Binding Entries}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                                <DataGridTextColumn Header="Flag" Binding="{Binding Path=Flag}" />
+                                <DataGridTextColumn Header="Reverb" Binding="{Binding Path=Reverb}" />
+                                <DataGridTextColumn Header="BgSet1" Binding="{Binding Path=BgSet1}" />
+                                <DataGridTextColumn Header="BgSet2" Binding="{Binding Path=BgSet2}" />
+                                <DataGridTextColumn Header="Bgm1A" Binding="{Binding Path=Bgm1A}" />
+                                <DataGridTextColumn Header="Bgm1B" Binding="{Binding Path=Bgm1B}" />
+                                <DataGridTextColumn Header="Bgm2A" Binding="{Binding Path=Bgm2A}" />
+                                <DataGridTextColumn Header="Bgm2B" Binding="{Binding Path=Bgm2B}" />
+                                <DataGridTextColumn Header="Bgm3A" Binding="{Binding Path=Bgm3A}" />
+                                <DataGridTextColumn Header="Bgm3B" Binding="{Binding Path=Bgm3B}" />
+                                <DataGridTextColumn Header="Bgm4A" Binding="{Binding Path=Bgm4A}" />
+                                <DataGridTextColumn Header="Bgm4B" Binding="{Binding Path=Bgm4B}" />
+                                <DataGridTextColumn Header="Bgm5A" Binding="{Binding Path=Bgm5A}" />
+                                <DataGridTextColumn Header="Bgm5B" Binding="{Binding Path=Bgm5B}" />
+                                <DataGridTextColumn Header="Bgm6A" Binding="{Binding Path=Bgm6A}" />
+                                <DataGridTextColumn Header="Bgm6B" Binding="{Binding Path=Bgm6B}" />
+                                <DataGridTextColumn Header="Bgm7A" Binding="{Binding Path=Bgm7A}" />
+                                <DataGridTextColumn Header="Bgm7B" Binding="{Binding Path=Bgm7B}" />
+                                <DataGridTextColumn Header="Bgm8A" Binding="{Binding Path=Bgm8A}" />
+                                <DataGridTextColumn Header="Bgm8B" Binding="{Binding Path=Bgm8B}" />
+                                <DataGridTextColumn Header="Voice" Binding="{Binding Path=Voice}" />
+                                <DataGridTextColumn Header="Navimap" Binding="{Binding Path=Navimap}" />
+                                <DataGridTextColumn Header="Command" Binding="{Binding Path=Command}" />
+                                <DataGridTextColumn Header="Reserve1" Binding="{Binding Path=Reserve1}" />
+                                <DataGridTextColumn Header="Reserve2" Binding="{Binding Path=Reserve2}" />
+                                <DataGridTextColumn Header="Reserve3" Binding="{Binding Path=Reserve3}" />
+                                <DataGridTextColumn Header="Reserve4" Binding="{Binding Path=Reserve4}" />
+                                <DataGridTextColumn Header="Reserve5" Binding="{Binding Path=Reserve5}" />
+                                <DataGridTextColumn Header="Reserve6" Binding="{Binding Path=Reserve6}" />
+                                <DataGridTextColumn Header="Reserve7" Binding="{Binding Path=Reserve7}" />
+                                <DataGridTextColumn Header="Reserve8" Binding="{Binding Path=Reserve8}" />
+                                <DataGridTextColumn Header="Reserve9" Binding="{Binding Path=Reserve9}" />
+                                <DataGridTextColumn Header="Reserve10" Binding="{Binding Path=Reserve10}" />
+                                <DataGridTextColumn Header="Reserve11" Binding="{Binding Path=Reserve11}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </DataTemplate>

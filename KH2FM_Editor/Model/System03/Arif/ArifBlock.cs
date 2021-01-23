@@ -1,4 +1,5 @@
-﻿using KH2FM_Editor.Libs.Binary;
+﻿using KH2FM_Editor.DataDictionary;
+using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
@@ -10,9 +11,16 @@ namespace KH2FM_Editor.Model.System03.Arif
     {
         // Data Location
         public ObservableCollection<ArifItem> Entries { get; set; }
+        public string Name { get; set; }
 
         public ArifBlock(List<byte> rawData, int entryCount)
         {
+            processEntries(rawData, entryCount);
+        }
+        public ArifBlock(byte worldId, List<byte> rawData, int entryCount)
+        {
+            Name = "World";
+            Name = Worlds.getValue(worldId);
             processEntries(rawData, entryCount);
         }
 
