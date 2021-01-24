@@ -27,7 +27,17 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding RcctFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" />
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                    <DataGridTextColumn Header="Command1" Binding="{Binding Path=Command1Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command1 Id" Binding="{Binding Path=Command1}" />
+                    <DataGridTextColumn Header="Command2" Binding="{Binding Path=Command2Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command2 Id" Binding="{Binding Path=Command2}" />
+                    <DataGridTextColumn Header="Command3" Binding="{Binding Path=Command3Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command3 Id" Binding="{Binding Path=Command3}" />
+                    <DataGridTextColumn Header="Command4" Binding="{Binding Path=Command4Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command4 Id" Binding="{Binding Path=Command4}" />
+                    <DataGridTextColumn Header="Command5" Binding="{Binding Path=Command5Value}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command5 Id" Binding="{Binding Path=Command5}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
