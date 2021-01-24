@@ -13,7 +13,9 @@ namespace KH2FM_Editor.Model.Mixdata.Exp
         public static readonly int expBOffset = 2, expBSize = 2;
         public static readonly int expAOffset = 4, expASize = 2;
         public static readonly int expSOffset = 6, expSSize = 2;
-        public static readonly int unk08Offset = 8, unk08Size = 8;
+        public static readonly int expRateOffset = 8, expRateSize = 4;
+        public static readonly int progressOffset = 12, progressSize = 2;
+        public static readonly int funcOffset = 14, funcSize = 2;
 
         public ExpItem()
         {
@@ -43,10 +45,20 @@ namespace KH2FM_Editor.Model.Mixdata.Exp
             get { return DataAccess.readUShort(raw, expSOffset, expSSize); }
             set { DataAccess.writeUShort(raw, value, expSOffset, expSSize); }
         }
-        public string Unk08
+        public float ExpRate
         {
-            get { return DataAccess.readHexString(raw, unk08Offset, unk08Size); }
-            set { DataAccess.writeHexString(raw, value, unk08Offset, unk08Size); }
+            get { return DataAccess.readFloat(raw, expRateOffset, expRateSize); }
+            set { DataAccess.writeFloat(raw, value, expRateOffset, expRateSize); }
+        }
+        public ushort Progress
+        {
+            get { return DataAccess.readUShort(raw, progressOffset, progressSize); }
+            set { DataAccess.writeUShort(raw, value, progressOffset, progressSize); }
+        }
+        public ushort Func
+        {
+            get { return DataAccess.readUShort(raw, funcOffset, funcSize); }
+            set { DataAccess.writeUShort(raw, value, funcOffset, funcSize); }
         }
     }
 }

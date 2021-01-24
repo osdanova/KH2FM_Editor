@@ -9,10 +9,10 @@ namespace KH2FM_Editor.Model.Mixdata.Leve
     {
         public static readonly int entrySize = 12;
         // Data Location
-        public static readonly int idOffset = 0, idSize = 2;
-        public static readonly int unk02Offset = 2, unk02Size = 2;
-        public static readonly int unk04Offset = 4, unk04Size = 2;
-        public static readonly int unk06Offset = 6, unk06Size = 2;
+        public static readonly int titleOffset = 0, titleSize = 2;
+        public static readonly int statOffset = 2, statSize = 2;
+        public static readonly int enableOffset = 4, enableSize = 2;
+        public static readonly int paddingOffset = 6, paddingSize = 2;
         public static readonly int expOffset = 8, expSize = 4;
 
         public LeveItem()
@@ -23,25 +23,20 @@ namespace KH2FM_Editor.Model.Mixdata.Leve
         {
         }
 
-        public ushort Id
+        public ushort Title
         {
-            get { return DataAccess.readUShort(raw, idOffset, idSize); }
-            set { DataAccess.writeUShort(raw, value, idOffset, idSize); }
+            get { return DataAccess.readUShort(raw, titleOffset, titleSize); }
+            set { DataAccess.writeUShort(raw, value, titleOffset, titleSize); }
         }
-        public string Unk02
+        public ushort Stat
         {
-            get { return DataAccess.readHexString(raw, unk02Offset, unk02Size); }
-            set { DataAccess.writeHexString(raw, value, unk02Offset, unk02Size); }
+            get { return DataAccess.readUShort(raw, statOffset, statSize); }
+            set { DataAccess.writeUShort(raw, value, statOffset, statSize); }
         }
-        public string Unk04
+        public short Enable
         {
-            get { return DataAccess.readHexString(raw, unk04Offset, unk04Size); }
-            set { DataAccess.writeHexString(raw, value, unk04Offset, unk04Size); }
-        }
-        public string Unk06
-        {
-            get { return DataAccess.readHexString(raw, unk06Offset, unk06Size); }
-            set { DataAccess.writeHexString(raw, value, unk06Offset, unk06Size); }
+            get { return DataAccess.readShort(raw, enableOffset, enableSize); }
+            set { DataAccess.writeShort(raw, value, enableOffset, enableSize); }
         }
         public uint Exp
         {

@@ -27,10 +27,9 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding LeveFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Unk02" Binding="{Binding Path=Unk02}" />
-                    <DataGridTextColumn Header="Unk04" Binding="{Binding Path=Unk04}" />
-                    <DataGridTextColumn Header="Unk06" Binding="{Binding Path=Unk06}" />
+                    <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}" />
+                    <DataGridTextColumn Header="Stat" Binding="{Binding Path=Stat}" />
+                    <DataGridTextColumn Header="Enable" Binding="{Binding Path=Enable}" />
                     <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
                 </DataGrid.Columns>
             </DataGrid>
