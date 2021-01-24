@@ -29,35 +29,36 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
                     <DataGridTextColumn Header="SubId" Binding="{Binding Path=SubId}" />
-                    <DataGridTextColumn Header="Pierce" Binding="{Binding Path=Pierce}" />
-                    <DataGridTextColumn Header="DamageReduction" Binding="{Binding Path=DamageReduction}" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding Path=Type}" />
+                    <DataGridTextColumn Header="Crit Adjust" Binding="{Binding Path=CritAdjust}" />
                     <DataGridTextColumn Header="Power" Binding="{Binding Path=Power}" />
+                    <DataGridTextColumn Header="Team" Binding="{Binding Path=Team}" />
                     <DataGridTextColumn Header="Element" Binding="{Binding Path=Element}" />
                     <DataGridTextColumn Header="Knockback" Binding="{Binding Path=Knockback}" />
                     <DataGridTextColumn Header="HitEffect" Binding="{Binding Path=HitEffect}" />
                     <DataGridTextColumn Header="KnockbackStr1" Binding="{Binding Path=KnockbackStr1}" />
                     <DataGridTextColumn Header="KnockbackStr2" Binding="{Binding Path=KnockbackStr2}" />
                     <DataGridTextColumn Header="Unk16" Binding="{Binding Path=Unk16}" />
-                    <DataGridTextColumn Header="Type" Binding="{Binding Path=Type}" />
-                    <DataGridTextColumn Header="Unk19" Binding="{Binding Path=Unk19}" />
-                    <DataGridTextColumn Header="DeflectedMotion" Binding="{Binding Path=DeflectedMotion}" />
-                    <DataGridTextColumn Header="Unk22" Binding="{Binding Path=Unk22}" />
-                    <DataGridTextColumn Header="Unk24" Binding="{Binding Path=Unk24}" />
-                    <DataGridTextColumn Header="Unk26" Binding="{Binding Path=Unk26}" />
+                    <DataGridTextColumn Header="Flag" Binding="{Binding Path=Flag}" />
+                    <DataGridTextColumn Header="Refact Self" Binding="{Binding Path=RefactSelf}" />
+                    <DataGridTextColumn Header="Refact Other" Binding="{Binding Path=RefactOther}" />
+                    <DataGridTextColumn Header="Reflect Motion" Binding="{Binding Path=ReflectMotion}" />
+                    <DataGridTextColumn Header="Reflect Hit Back" Binding="{Binding Path=ReflectHitBack}" />
+                    <DataGridTextColumn Header="Reflect Action" Binding="{Binding Path=ReflectAction}" />
                     <DataGridTextColumn Header="SoundEffect" Binding="{Binding Path=SoundEffect}" />
-                    <DataGridTextColumn Header="Unk32" Binding="{Binding Path=Unk32}" />
-                    <DataGridTextColumn Header="Unk34" Binding="{Binding Path=Unk34}" />
-                    <DataGridTextColumn Header="Unk35" Binding="{Binding Path=Unk35}" />
-                    <DataGridTextColumn Header="Unk36" Binding="{Binding Path=Unk36}" />
-                    <DataGridTextColumn Header="Unk37" Binding="{Binding Path=Unk37}" />
+                    <DataGridTextColumn Header="ReflectRC" Binding="{Binding Path=ReflectRC}" />
+                    <DataGridTextColumn Header="Reflect Range" Binding="{Binding Path=ReflectRange}" />
+                    <DataGridTextColumn Header="Reflect Angle" Binding="{Binding Path=ReflectAngle}" />
+                    <DataGridTextColumn Header="Damage Effect" Binding="{Binding Path=DamageEffect}" />
+                    <DataGridTextColumn Header="Switch" Binding="{Binding Path=Switch}" />
                     <DataGridTextColumn Header="FramesPerHit" Binding="{Binding Path=FramesPerHit}" />
-                    <DataGridTextColumn Header="Unk39" Binding="{Binding Path=Unk39}" />
+                    <DataGridTextColumn Header="Floor Check" Binding="{Binding Path=FloorCheck}" />
                     <DataGridTextColumn Header="DriveDrain" Binding="{Binding Path=DriveDrain}" />
                     <DataGridTextColumn Header="Revenge" Binding="{Binding Path=Revenge}" />
-                    <DataGridTextColumn Header="Unk43" Binding="{Binding Path=Unk43}" />
-                    <DataGridTextColumn Header="Unk44" Binding="{Binding Path=Unk44}" />
-                    <DataGridTextColumn Header="Unk45" Binding="{Binding Path=Unk45}" />
-                    <DataGridTextColumn Header="Unk46" Binding="{Binding Path=Unk46}" />
+                    <DataGridTextColumn Header="Tr Reaction" Binding="{Binding Path=TrReaction}" />
+                    <DataGridTextColumn Header="Combo Group" Binding="{Binding Path=ComboGroup}" />
+                    <DataGridTextColumn Header="Random Effect" Binding="{Binding Path=RandomEffect}" />
+                    <DataGridTextColumn Header="Kind" Binding="{Binding Path=Kind}" />
                     <DataGridTextColumn Header="HpDrain" Binding="{Binding Path=HpDrain}" />
                 </DataGrid.Columns>
             </DataGrid>

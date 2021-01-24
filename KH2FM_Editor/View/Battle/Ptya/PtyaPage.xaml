@@ -39,11 +39,33 @@
                                         ItemsSource="{Binding Entries}">
                             <DataGrid.Columns>
                                 <!--<DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" /> -->
-                                <DataGridTextColumn Header="Unk0" Binding="{Binding Path=Unk0}" />
-                                <DataGridTextColumn Header="Animation" Binding="{Binding Path=AnimationName}" IsReadOnly="True" />
-                                <DataGridTextColumn Header="Animation Id*4" Binding="{Binding Path=AnimationValue}" IsReadOnly="True" />
-                                <DataGridTextColumn Header="Animation Id" Binding="{Binding Path=Animation}" />
-                                <DataGridTextColumn Header="Unk10" Binding="{Binding Path=Unk10}" />
+                                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                                <DataGridTextColumn Header="Type" Binding="{Binding Path=Type}" />
+                                <DataGridTextColumn Header="Sub" Binding="{Binding Path=Sub}" />
+                                <DataGridTextColumn Header="ComboOffset" Binding="{Binding Path=ComboOffset}" />
+                                <DataGridTextColumn Header="Flag" Binding="{Binding Path=Flag}" />
+                                <DataGridTextColumn Header="Motion" Binding="{Binding Path=MotionName}" IsReadOnly="True" />
+                                <DataGridTextColumn Header="Motion Id*4" Binding="{Binding Path=MotionValue}" IsReadOnly="True" />
+                                <DataGridTextColumn Header="Motion Id" Binding="{Binding Path=Motion}" />
+                                <DataGridTextColumn Header="Next Motion" Binding="{Binding Path=NextMotionName}" IsReadOnly="True" />
+                                <DataGridTextColumn Header="Next Motion Id*4" Binding="{Binding Path=NextMotionValue}" IsReadOnly="True" />
+                                <DataGridTextColumn Header="Next Motion Id" Binding="{Binding Path=NextMotion}" />
+                                <DataGridTextColumn Header="Jump" Binding="{Binding Path=Jump}" />
+                                <DataGridTextColumn Header="Jump Max" Binding="{Binding Path=JumpMax}" />
+                                <DataGridTextColumn Header="JumpMin" Binding="{Binding Path=JumpMin}" />
+                                <DataGridTextColumn Header="Speed Min" Binding="{Binding Path=SpeedMin}" />
+                                <DataGridTextColumn Header="Speed Max" Binding="{Binding Path=SpeedMax}" />
+                                <DataGridTextColumn Header="Near" Binding="{Binding Path=Near}" />
+                                <DataGridTextColumn Header="Far" Binding="{Binding Path=Far}" />
+                                <DataGridTextColumn Header="Low" Binding="{Binding Path=Low}" />
+                                <DataGridTextColumn Header="High" Binding="{Binding Path=High}" />
+                                <DataGridTextColumn Header="Inner Min" Binding="{Binding Path=InnerMin}" />
+                                <DataGridTextColumn Header="Inner Max" Binding="{Binding Path=InnerMax}" />
+                                <DataGridTextColumn Header="Blend Time" Binding="{Binding Path=BlendTime}" />
+                                <DataGridTextColumn Header="Distance Adjust" Binding="{Binding Path=DistanceAdjust}" />
+                                <DataGridTextColumn Header="Ability" Binding="{Binding Path=AbilityValue}" />
+                                <DataGridTextColumn Header="Ability Id" Binding="{Binding Path=Ability}" />
+                                <DataGridTextColumn Header="Score" Binding="{Binding Path=Score}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </DataTemplate>

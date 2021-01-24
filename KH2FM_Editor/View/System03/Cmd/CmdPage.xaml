@@ -47,7 +47,7 @@
                     <DataGridTextColumn Header="Mark" Binding="{Binding Path=Mark}" />
                     <DataGridTextColumn Header="Action" Binding="{Binding Path=Action}" />
                     <DataGridTextColumn Header="RcCount" Binding="{Binding Path=RcCount}" />
-                    <DataGridTextColumn Header="DistRange" Binding="{Binding Path=DistRange}" />
+                    <DataGridTextColumn Header="DistanceRange" Binding="{Binding Path=DistanceRange}" />
                     <DataGridTextColumn Header="Score" Binding="{Binding Path=Score}" />
                     <DataGridTextColumn Header="DisableForm" Binding="{Binding Path=DisableForm}" />
                     <DataGridTextColumn Header="Group" Binding="{Binding Path=Group}" />

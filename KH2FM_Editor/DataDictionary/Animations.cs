@@ -7,6 +7,7 @@ namespace KH2FM_Editor.DataDictionary
     {
         // 2 Bytes
         public static Dictionary<ushort, String> soraAnimations = new Dictionary<ushort, string>() {
+{ 16 , "Fall" },
 { 604 , "Attack1" },
 { 608 , "Attack 1 aoe" },
 { 612 , "Attack 2" },
