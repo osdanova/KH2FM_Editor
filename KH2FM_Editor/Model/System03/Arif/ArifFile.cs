@@ -66,7 +66,7 @@ namespace KH2FM_Editor.Model.System03.Arif
 
             foreach(ArifPointer pointer in Pointers)
             {
-                Console.WriteLine("DELETE DEBUG >>> Pointer at: " + pointer.EntryOffset + ", count: " + pointer.EntryCount);
+                //Console.WriteLine("DELETE DEBUG >>> Pointer at: " + pointer.EntryOffset + ", count: " + pointer.EntryCount);
 
                 Blocks.Add(new ArifBlock(worldId, raw.GetRange(pointer.EntryOffset, pointer.EntryCount * ArifItem.Size), pointer.EntryCount));
                 worldId++;

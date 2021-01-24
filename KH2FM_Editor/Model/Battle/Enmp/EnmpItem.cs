@@ -12,7 +12,7 @@ namespace KH2FM_Editor.Model.Battle.Enmp
         public static readonly int entrySize = 92;
         // Data Location
         public static readonly int idOffset = 0, idSize = 2;
-        public static readonly int battleLevelOffset = 2, battleLevelSize = 2; // Forced battle level
+        public static readonly int levelOffset = 2, levelSize = 2; // Forced battle level
         public static readonly int hpOffset = 4, hpSize = 2;
         public static readonly int hp1Offset = 6, hp1Size = 2;
         public static readonly int hp2Offset = 8, hp2Size = 2;
@@ -47,8 +47,8 @@ namespace KH2FM_Editor.Model.Battle.Enmp
         public static readonly int unk64Offset = 64, unk64Size = 2;
         public static readonly int unk66Offset = 66, unk66Size = 2;
 
-        public static readonly int dmgCapOffset = 68, dmgCapSize = 2;
-        public static readonly int unk70Offset = 70, unk70Size = 2;
+        public static readonly int maxDmgOffset = 68, maxDmgSize = 2;
+        public static readonly int minDmgOffset = 70, minDmgSize = 2;
         public static readonly int physResOffset = 72, physResSize = 2;
         public static readonly int fireResOffset = 74, fireResSize = 2;
         public static readonly int blizResOffset = 76, blizResSize = 2;
@@ -57,7 +57,8 @@ namespace KH2FM_Editor.Model.Battle.Enmp
         public static readonly int neutralResOffset = 82, neutralResSize = 2;
         public static readonly int generalResOffset = 84, generalResSize = 2;
         public static readonly int expOffset = 86, expSize = 2;
-        public static readonly int paddingOffset = 88, paddingSize = 4;
+        public static readonly int prizeOffset = 88, prizeSize = 2;
+        public static readonly int bonusLevelOffset = 90, bonusLevelSize = 2;
 
         public EnmpItem()
         {
@@ -76,25 +77,25 @@ namespace KH2FM_Editor.Model.Battle.Enmp
             get { return DataAccess.readUShort(raw, idOffset, idSize); }
             set { DataAccess.writeUShort(raw, value, idOffset, idSize); }
         }
-        public ushort BattleLevel
+        public ushort Level
         {
-            get { return DataAccess.readUShort(raw, battleLevelOffset, battleLevelSize); }
-            set { DataAccess.writeUShort(raw, value, battleLevelOffset, battleLevelSize); }
+            get { return DataAccess.readUShort(raw, levelOffset, levelSize); }
+            set { DataAccess.writeUShort(raw, value, levelOffset, levelSize); }
         }
         public ushort Hp
         {
             get { return DataAccess.readUShort(raw, hpOffset, hpSize); }
             set { DataAccess.writeUShort(raw, value, hpOffset, hpSize); }
         }
-        public ushort DmgCap
+        public ushort MaxDmg
         {
-            get { return DataAccess.readUShort(raw, dmgCapOffset, dmgCapSize); }
-            set { DataAccess.writeUShort(raw, value, dmgCapOffset, dmgCapSize); }
+            get { return DataAccess.readUShort(raw, maxDmgOffset, maxDmgSize); }
+            set { DataAccess.writeUShort(raw, value, maxDmgOffset, maxDmgSize); }
         }
-        public ushort Unk70
+        public ushort MinDmg
         {
-            get { return DataAccess.readUShort(raw, unk70Offset, unk70Size); }
-            set { DataAccess.writeUShort(raw, value, unk70Offset, unk70Size); }
+            get { return DataAccess.readUShort(raw, minDmgOffset, minDmgSize); }
+            set { DataAccess.writeUShort(raw, value, minDmgOffset, minDmgSize); }
         }
         public ushort PhysRes
         {
@@ -135,6 +136,16 @@ namespace KH2FM_Editor.Model.Battle.Enmp
         {
             get { return DataAccess.readUShort(raw, expOffset, expSize); }
             set { DataAccess.writeUShort(raw, value, expOffset, expSize); }
+        }
+        public ushort Prize
+        {
+            get { return DataAccess.readUShort(raw, prizeOffset, prizeSize); }
+            set { DataAccess.writeUShort(raw, value, prizeOffset, prizeSize); }
+        }
+        public ushort BonusLevel
+        {
+            get { return DataAccess.readUShort(raw, bonusLevelOffset, bonusLevelSize); }
+            set { DataAccess.writeUShort(raw, value, bonusLevelOffset, bonusLevelSize); }
         }
         public ushort Hp1
         {

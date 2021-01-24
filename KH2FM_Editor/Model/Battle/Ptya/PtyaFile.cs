@@ -104,29 +104,41 @@ namespace KH2FM_Editor.Model.Battle.Ptya
             //Console.WriteLine("DELETE DEBUG >>> Weapon Set count: " + WeaponSets.Count);
         }
         
-        /*public void recalcPointers()
+        public void recalcPointers()
         {
-            // First 70 Pointers
-            int currentPointer = Pointers.Count;
-            // 24 Sets
-            for (int i = 0; i < PtyaSets.Count; i++)
+            uint offsetAddition = 0;
+            // For each block
+            for(int i = 0; i < PtyaSets.Count; i++)
             {
-                PtyaSets[i].recalcCount();
-                // Update the set's pointers
-                foreach (int pointer in PtyaPointers.getCharacterPointers(i))
+                Console.WriteLine("DELETE DEBUG > offsetAddition: " + offsetAddition);
+                // Store previous values
+                uint oldCount = PtyaSets[i].EntryCount;
+                uint oldPointer = PointerSet[i];
+                Console.WriteLine("DELETE DEBUG > oldPointer: " + oldPointer);
+                Console.WriteLine("DELETE DEBUG > oldCount: " + oldCount);
+
+                // Add the changes from previous pointers and update all of its references
+                PointerSet[i] += offsetAddition;
+                for(int j = 0; j < Pointers.Count; j++)
                 {
-                    Pointers[pointer] = (uint)currentPointer;
+                    if (Pointers[j] == oldPointer) Pointers[j] = PointerSet[i];
                 }
-                currentPointer += (int)PtyaSets[i].TotalSize;
+
+                // Check if size has changed for the following pointers
+                PtyaSets[i].recalcCount();
+                if(oldCount != PtyaSets[i].EntryCount)
+                {
+                    offsetAddition += (uint)((PtyaSets[i].EntryCount - oldCount) * PtyaItem.entrySize);
+                }
             }
-        }*/
+        }
 
         // Returns the object as a byte list
         public List<byte> getAsByteList()
         {
             List<byte> data = new List<byte>();
 
-            //recalcPointers();
+            recalcPointers();
 
             data.AddRange(Header);
 

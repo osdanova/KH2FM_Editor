@@ -32,7 +32,7 @@ namespace KH2FM_Editor.Model.COMMON
         }
         public Str_EntryFile(String name, int typeSize, int entryCountSize, int entrySize, List<byte> raw)
         {
-            Console.WriteLine("DEBUG > Str_EntryFile > Found entry file: " + name);
+            //Console.WriteLine("DEBUG > Str_EntryFile > Found entry file: " + name);
             // File name
             this.Name = name;
             // Header data

@@ -53,14 +53,14 @@ namespace KH2FM_Editor.Model.System03.Pref.Plyr
                 {
                     PointerSet.Add(pointerValue);
                     PointerSet.Sort();
-                    Console.WriteLine("DELETE DEBUG >>> Plyr - Pointer found: " + pointerValue);
+                    //Console.WriteLine("DELETE DEBUG >>> Plyr - Pointer found: " + pointerValue);
                 }
 
                 // Pointers
                 Pointers.Add(pointerValue);
             }
-            Console.WriteLine("DELETE DEBUG >>> Plyr - Pointer count: " + Pointers.Count);
-            Console.WriteLine("DELETE DEBUG >>> Plyr - Pointer Set count: " + PointerSet.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Plyr - Pointer count: " + Pointers.Count);
+            //Console.WriteLine("DELETE DEBUG >>> Plyr - Pointer Set count: " + PointerSet.Count);
         }
         public void processSets(List<byte> raw)
         {

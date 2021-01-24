@@ -29,10 +29,10 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Enemy" Binding="{Binding Path=EnemyValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="BattleLevel" Binding="{Binding Path=BattleLevel}" />
+                    <DataGridTextColumn Header="Level" Binding="{Binding Path=Level}" />
                     <DataGridTextColumn Header="Hp" Binding="{Binding Path=Hp}" />
-                    <DataGridTextColumn Header="DmgCap" Binding="{Binding Path=DmgCap}" />
-                    <DataGridTextColumn Header="Unk70" Binding="{Binding Path=Unk70}" />
+                    <DataGridTextColumn Header="Max Damage" Binding="{Binding Path=MaxDmg}" />
+                    <DataGridTextColumn Header="Min Damage" Binding="{Binding Path=MinDmg}" />
                     <DataGridTextColumn Header="PhysRes" Binding="{Binding Path=PhysRes}" />
                     <DataGridTextColumn Header="FireRes" Binding="{Binding Path=FireRes}" />
                     <DataGridTextColumn Header="BlizzardRes" Binding="{Binding Path=BlizzardRes}" />
@@ -41,6 +41,8 @@
                     <DataGridTextColumn Header="NeutralRes" Binding="{Binding Path=NeutralRes}" />
                     <DataGridTextColumn Header="GeneralRes" Binding="{Binding Path=GeneralRes}" />
                     <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
+                    <DataGridTextColumn Header="Prize" Binding="{Binding Path=Prize}" />
+                    <DataGridTextColumn Header="Bonus Level" Binding="{Binding Path=BonusLevel}" />
                     <DataGridTextColumn Header="Hp1" Binding="{Binding Path=Hp1}" />
                     <DataGridTextColumn Header="Hp2" Binding="{Binding Path=Hp2}" />
                     <DataGridTextColumn Header="Hp3" Binding="{Binding Path=Hp3}" />
