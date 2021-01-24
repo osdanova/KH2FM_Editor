@@ -29,20 +29,28 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="TypeId" Binding="{Binding Path=TypeId}" />
                     <DataGridTextColumn Header="LevelId" Binding="{Binding Path=LevelId}" />
-                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
+                    <DataGridTextColumn Header="World" Binding="{Binding Path=WorldValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="World Id" Binding="{Binding Path=World}" />
                     <DataGridTextColumn Header="Filename" Binding="{Binding Path=Filename}" />
-                    <DataGridTextColumn Header="Unk36" Binding="{Binding Path=Unk36}" />
-                    <DataGridTextColumn Header="CommandValue" Binding="{Binding Path=CommandValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Command" Binding="{Binding Path=Command}" />
-                    <DataGridTextColumn Header="GroundAnim" Binding="{Binding Path=GroundAnim}" />
-                    <DataGridTextColumn Header="GroundUnk" Binding="{Binding Path=GroundUnk}" />
-                    <DataGridTextColumn Header="FinishAnim" Binding="{Binding Path=FinishAnim}" />
-                    <DataGridTextColumn Header="FinishUnk" Binding="{Binding Path=FinishUnk}" />
-                    <DataGridTextColumn Header="AirAnim" Binding="{Binding Path=AirAnim}" />
-                    <DataGridTextColumn Header="AirUnk" Binding="{Binding Path=AirUnk}" />
-                    <DataGridTextColumn Header="Unk52" Binding="{Binding Path=Unk52}" />
-                    <DataGridTextColumn Header="Unk53" Binding="{Binding Path=Unk53}" />
-                    <DataGridTextColumn Header="Unk54" Binding="{Binding Path=Unk54}" />
+                    <DataGridTextColumn Header="Item" Binding="{Binding Path=ItemValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Item Id" Binding="{Binding Path=Item}" />
+                    <DataGridTextColumn Header="Command" Binding="{Binding Path=CommandValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Command Id" Binding="{Binding Path=Command}" />
+                    <DataGridTextColumn Header="Ground Anim*4" Binding="{Binding Path=GroundAnim4}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Ground Anim" Binding="{Binding Path=GroundAnim}" />
+                    <DataGridTextColumn Header="Ground Blend*4" Binding="{Binding Path=GroundBlend4}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Ground Blend" Binding="{Binding Path=GroundBlend}" />
+                    <DataGridTextColumn Header="Finish Anim*4" Binding="{Binding Path=FinishAnim4}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Finish Anim" Binding="{Binding Path=FinishAnim}" />
+                    <DataGridTextColumn Header="Finish Blend*4" Binding="{Binding Path=FinishBlend4}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Finish Blend" Binding="{Binding Path=FinishBlend}" />
+                    <DataGridTextColumn Header="Air Anim*4" Binding="{Binding Path=AirAnim4}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Air Anim" Binding="{Binding Path=AirAnim}" />
+                    <DataGridTextColumn Header="Air Blend*4" Binding="{Binding Path=AirBlend4}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Air Blend" Binding="{Binding Path=AirBlend}" />
+                    <DataGridTextColumn Header="Voice" Binding="{Binding Path=Voice}" />
+                    <DataGridTextColumn Header="Voice Finish" Binding="{Binding Path=VoiceFinish}" />
+                    <DataGridTextColumn Header="VoiceSelf" Binding="{Binding Path=VoiceSelf}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

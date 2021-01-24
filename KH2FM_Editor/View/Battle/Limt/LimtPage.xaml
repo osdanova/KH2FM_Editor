@@ -38,9 +38,9 @@
                     <DataGridTextColumn Header="Spawn Id" Binding="{Binding Path=Spawn}" />
                     <DataGridTextColumn Header="Command" Binding="{Binding Path=CommandValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Command Id" Binding="{Binding Path=Command}" />
-                    <DataGridTextColumn Header="Limit" Binding="{Binding Path=LimitValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Limit Id" Binding="{Binding Path=Limit}" />
-                    <DataGridTextColumn Header="Unk44" Binding="{Binding Path=Unk44}" />
+                    <DataGridTextColumn Header="Item/Ab" Binding="{Binding Path=LimitValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Item/Ab Id" Binding="{Binding Path=Limit}" />
+                    <DataGridTextColumn Header="World" Binding="{Binding Path=World}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

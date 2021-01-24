@@ -15,12 +15,11 @@ namespace KH2FM_Editor.Model.Battle.Limt
         public int summonOffset = 2, summonSize = 1;
         public int groupOffset = 3, groupSize = 1;
         public int fileOffset = 4, fileSize = 32;
-        public int spawnOffset = 36, spawnSize = 2;
-        public int padding1Offset = 36, padding1Size = 2;
+        public int spawnOffset = 36, spawnSize = 4;
         public int commandOffset = 40, commandSize = 2;
         public int limitOffset = 42, limitSize = 2;
-        public int unk44Offset = 44, unk44Size = 4;
-        public int paddingOffset = 48, paddingSize = 16;
+        public int worldOffset = 44, worldSize = 1;
+        public int paddingOffset = 48, paddingSize = 19;
 
         public LimtItem()
         {
@@ -65,17 +64,12 @@ namespace KH2FM_Editor.Model.Battle.Limt
         }
         public string SpawnValue
         {
-            get { return Entities.getValue(Spawn); }
+            get { return Entities.getValue((ushort)Spawn); }
         }
-        public ushort Spawn
+        public uint Spawn
         {
-            get { return DataAccess.readUShort(raw, spawnOffset, spawnSize); }
-            set { DataAccess.writeUShort(raw, value, spawnOffset, spawnSize); NotifyPropertyChanged(nameof(SpawnValue)); }
-        }
-        public string Padding1
-        {
-            get { return DataAccess.readHexString(raw, padding1Offset, padding1Size); }
-            set { DataAccess.writeHexString(raw, value, padding1Offset, padding1Size); }
+            get { return DataAccess.readUInt(raw, spawnOffset, spawnSize); }
+            set { DataAccess.writeUInt(raw, value, spawnOffset, spawnSize); NotifyPropertyChanged(nameof(SpawnValue)); }
         }
         public string CommandValue
         {
@@ -95,10 +89,10 @@ namespace KH2FM_Editor.Model.Battle.Limt
             get { return DataAccess.readUShort(raw, limitOffset, limitSize); }
             set { DataAccess.writeUShort(raw, value, limitOffset, limitSize); NotifyPropertyChanged(nameof(LimitValue)); }
         }
-        public string Unk44
+        public string World
         {
-            get { return DataAccess.readHexString(raw, unk44Offset, unk44Size); }
-            set { DataAccess.writeHexString(raw, value, unk44Offset, unk44Size); }
+            get { return DataAccess.readHexString(raw, worldOffset, worldSize); }
+            set { DataAccess.writeHexString(raw, value, worldOffset, worldSize); }
         }
     }
 }
