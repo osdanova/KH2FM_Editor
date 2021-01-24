@@ -30,8 +30,8 @@
                     <DataGridTextColumn Header="Hp" Binding="{Binding Path=Hp}" />
                     <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
                     <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
-                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=Unk6}" />
-                    <DataGridTextColumn Header="Unk8" Binding="{Binding Path=Unk8}" />
+                    <DataGridTextColumn Header="Max Attack" Binding="{Binding Path=MaxAttack}" />
+                    <DataGridTextColumn Header="Min Attack" Binding="{Binding Path=MinAttack}" />
                     <DataGridTextColumn Header="Exp" Binding="{Binding Path=Exp}" />
                 </DataGrid.Columns>
             </DataGrid>

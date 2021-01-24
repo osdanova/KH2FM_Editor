@@ -27,7 +27,27 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding BtlvFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Raw Data" Binding="{Binding Path=Raw}" />
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
+                    <DataGridTextColumn Header="Progress Flag" Binding="{Binding Path=ProgressFlag}" />
+                    <DataGridTextColumn Header="Battle Level01" Binding="{Binding Path=BattleLevel01}" />
+                    <DataGridTextColumn Header="Battle Level02" Binding="{Binding Path=BattleLevel02}" />
+                    <DataGridTextColumn Header="Battle Level03" Binding="{Binding Path=BattleLevel03}" />
+                    <DataGridTextColumn Header="Battle Level04" Binding="{Binding Path=BattleLevel04}" />
+                    <DataGridTextColumn Header="Battle Level05" Binding="{Binding Path=BattleLevel05}" />
+                    <DataGridTextColumn Header="Battle Level06" Binding="{Binding Path=BattleLevel06}" />
+                    <DataGridTextColumn Header="Battle Level07" Binding="{Binding Path=BattleLevel07}" />
+                    <DataGridTextColumn Header="Battle Level08" Binding="{Binding Path=BattleLevel08}" />
+                    <DataGridTextColumn Header="Battle Level09" Binding="{Binding Path=BattleLevel09}" />
+                    <DataGridTextColumn Header="Battle Level10" Binding="{Binding Path=BattleLevel10}" />
+                    <DataGridTextColumn Header="Battle Level11" Binding="{Binding Path=BattleLevel11}" />
+                    <DataGridTextColumn Header="Battle Level12" Binding="{Binding Path=BattleLevel12}" />
+                    <DataGridTextColumn Header="Battle Level13" Binding="{Binding Path=BattleLevel13}" />
+                    <DataGridTextColumn Header="Battle Level14" Binding="{Binding Path=BattleLevel14}" />
+                    <DataGridTextColumn Header="Battle Level15" Binding="{Binding Path=BattleLevel15}" />
+                    <DataGridTextColumn Header="Battle Level16" Binding="{Binding Path=BattleLevel16}" />
+                    <DataGridTextColumn Header="Battle Level17" Binding="{Binding Path=BattleLevel17}" />
+                    <DataGridTextColumn Header="Battle Level18" Binding="{Binding Path=BattleLevel18}" />
+                    <DataGridTextColumn Header="Battle Level19" Binding="{Binding Path=BattleLevel19}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

@@ -13,8 +13,8 @@ namespace KH2FM_Editor.Model.Battle.Lvpm
         public int hpOffset = 0, hpSize = 2;
         public int strOffset = 2, strSize = 2;
         public int defOffset = 4, defSize = 2;
-        public int unk6Offset = 6, unk6Size = 2;
-        public int unk8Offset = 8, unk8Size = 2;
+        public int maxAtkOffset = 6, maxAtkSize = 2;
+        public int minAtkOffset = 8, minAtkSize = 2;
         public int expOffset = 10, expSize = 2;
 
 
@@ -41,15 +41,15 @@ namespace KH2FM_Editor.Model.Battle.Lvpm
             get { return DataAccess.readUShort(raw, defOffset, defSize); }
             set { DataAccess.writeUShort(raw, value, defOffset, defSize); }
         }
-        public ushort Unk6
+        public ushort MaxAttack
         {
-            get { return DataAccess.readUShort(raw, unk6Offset, unk6Size); }
-            set { DataAccess.writeUShort(raw, value, unk6Offset, unk6Size); }
+            get { return DataAccess.readUShort(raw, maxAtkOffset, maxAtkSize); }
+            set { DataAccess.writeUShort(raw, value, maxAtkOffset, maxAtkSize); }
         }
-        public ushort Unk8
+        public ushort MinAttack
         {
-            get { return DataAccess.readUShort(raw, unk8Offset, unk8Size); }
-            set { DataAccess.writeUShort(raw, value, unk8Offset, unk8Size); }
+            get { return DataAccess.readUShort(raw, minAtkOffset, minAtkSize); }
+            set { DataAccess.writeUShort(raw, value, minAtkOffset, minAtkSize); }
         }
         public ushort Exp
         {
