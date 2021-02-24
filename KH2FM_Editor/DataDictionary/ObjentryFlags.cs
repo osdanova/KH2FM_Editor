@@ -56,6 +56,11 @@ namespace KH2FM_Editor.DataDictionary
         // 1 Byte
         public static Dictionary<byte, String> forms = new Dictionary<byte, string>() {
 { 0 , "Default" },
+{ 1 , "Valor" },
+{ 2 , "Wisdom" },
+{ 3 , "Limit" },
+{ 4 , "Master" },
+{ 5 , "Final" },
 { 6 , "Anti" },
 { 7 , "Lion" },
 { 8 , "Atlantica" },
