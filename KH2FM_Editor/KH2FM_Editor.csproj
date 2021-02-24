@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataDictionary\Abilities.cs" />
+    <Compile Include="DataDictionary\ObjentryFlags.cs" />
     <Compile Include="DataDictionary\ArdOpcodes.cs" />
     <Compile Include="DataDictionary\Animations.cs" />
     <Compile Include="DataDictionary\WentPointers.cs" />

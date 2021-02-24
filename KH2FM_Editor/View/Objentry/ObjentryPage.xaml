@@ -37,27 +37,34 @@
                   ItemsSource="{Binding ObjentryFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Unk02" Binding="{Binding Path=Unk02}" />
                     <DataGridTextColumn Header="Type" Binding="{Binding Path=TypeValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Type ID" Binding="{Binding Path=Type}" />
-                    <DataGridTextColumn Header="Unk05" Binding="{Binding Path=Unk05}" />
-                    <DataGridTextColumn Header="Unk06" Binding="{Binding Path=Unk06}" />
+                    <DataGridTextColumn Header="Subtype" Binding="{Binding Path=Subtype}" />
+                    <DataGridTextColumn Header="Draw Priority" Binding="{Binding Path=DrawPriority}" />
                     <DataGridTextColumn Header="Weapon Joint" Binding="{Binding Path=WeaponJoint}" />
                     <DataGridTextColumn Header="Entity" Binding="{Binding Path=EntityValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Model Name" Binding="{Binding Path=ModelName}" />
                     <DataGridTextColumn Header="Anim Name" Binding="{Binding Path=AnimName}" />
-                    <DataGridTextColumn Header="State" Binding="{Binding Path=State}" />
-                    <DataGridTextColumn Header="Unk73" Binding="{Binding Path=Unk73}" />
-                    <DataGridTextColumn Header="AllyDmgCap" Binding="{Binding Path=AllyDmgCap}" />
+                    <DataGridTextColumn Header="No Apdx?" Binding="{Binding Path=FlagNoApdx}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Before?" Binding="{Binding Path=FlagBefore}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Fix Color?" Binding="{Binding Path=FlagFixColor}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Fly?" Binding="{Binding Path=FlagFly}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Scissoring?" Binding="{Binding Path=FlagScissoring}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Pirate?" Binding="{Binding Path=FlagPirate}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Wall Occlusion?" Binding="{Binding Path=FlagWallOcclusion}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Hift?" Binding="{Binding Path=FlagHift}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Flags" Binding="{Binding Path=Flags}" />
+                    <DataGridTextColumn Header="Target" Binding="{Binding Path=TargetValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Target Id" Binding="{Binding Path=Target}" />
                     <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=NeoStatus}" />
                     <DataGridTextColumn Header="NeoMoveset" Binding="{Binding Path=NeoMoveset}" />
-                    <DataGridTextColumn Header="Unk80" Binding="{Binding Path=Unk80}" />
                     <DataGridTextColumn Header="Weight" Binding="{Binding Path=Weight}" />
                     <DataGridTextColumn Header="Spawn Limit" Binding="{Binding Path=SpawnLimit}" />
-                    <DataGridTextColumn Header="Unk85" Binding="{Binding Path=Unk85}" />
-                    <DataGridTextColumn Header="Unk86" Binding="{Binding Path=Unk86}" />
-                    <DataGridTextColumn Header="Com Menu Opt Name" Binding="{Binding Path=ComMenuOptValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Com Menu Opt" Binding="{Binding Path=ComMenuOpt}" />
+                    <DataGridTextColumn Header="Page" Binding="{Binding Path=Page}" />
+                    <DataGridTextColumn Header="Shadow Size" Binding="{Binding Path=ShadowSizeValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Shadow Size Id" Binding="{Binding Path=ShadowSize}" />
+                    <DataGridTextColumn Header="Form" Binding="{Binding Path=FormValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Form Id" Binding="{Binding Path=Form}" />
                     <DataGridTextColumn Header="Extra Spawn 1 Name" Binding="{Binding Path=ExtraSpawn1Value}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Extra Spawn 1" Binding="{Binding Path=ExtraSpawn1}" />
                     <DataGridTextColumn Header="Extra Spawn 2 Name" Binding="{Binding Path=ExtraSpawn2Value}" IsReadOnly="True" />
