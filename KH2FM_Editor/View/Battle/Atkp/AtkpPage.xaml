@@ -34,7 +34,8 @@
                     <DataGridTextColumn Header="Crit Adjust" Binding="{Binding Path=CritAdjust}" />
                     <DataGridTextColumn Header="Power" Binding="{Binding Path=Power}" />
                     <DataGridTextColumn Header="Team" Binding="{Binding Path=Team}" />
-                    <DataGridTextColumn Header="Element" Binding="{Binding Path=Element}" />
+                    <DataGridTextColumn Header="Element" Binding="{Binding Path=ElementValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Element Id" Binding="{Binding Path=Element}" />
                     <DataGridTextColumn Header="Knockback" Binding="{Binding Path=Knockback}" />
                     <DataGridTextColumn Header="HitEffect" Binding="{Binding Path=HitEffect}" />
                     <DataGridTextColumn Header="KnockbackStr1" Binding="{Binding Path=KnockbackStr1}" />

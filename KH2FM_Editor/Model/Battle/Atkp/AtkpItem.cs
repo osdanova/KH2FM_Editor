@@ -86,10 +86,14 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readByte(raw, teamOffset); }
             set { DataAccess.writeByte(raw, value, teamOffset); }
         }
+        public string ElementValue
+        {
+            get { return Elements.getElement(Element); }
+        }
         public byte Element
         {
             get { return DataAccess.readByte(raw, elementOffset); }
-            set { DataAccess.writeByte(raw, value, elementOffset); }
+            set { DataAccess.writeByte(raw, value, elementOffset); NotifyPropertyChanged(nameof(ElementValue)); }
         }
         public byte Knockback
         {
