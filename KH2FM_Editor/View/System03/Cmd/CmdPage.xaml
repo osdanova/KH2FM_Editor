@@ -30,22 +30,26 @@
                     <DataGridTextColumn Header="Command" Binding="{Binding Path=CommandValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
                     <DataGridTextColumn Header="Exec" Binding="{Binding Path=Exec}" />
-                    <DataGridTextColumn Header="UnkId2" Binding="{Binding Path=UnkId2}" />
+                    <DataGridTextColumn Header="Argument" Binding="{Binding Path=Argument}" />
                     <DataGridTextColumn Header="Submenu" Binding="{Binding Path=Submenu}" />
-                    <DataGridTextColumn Header="Icon" Binding="{Binding Path=Icon}" />
+                    <DataGridTextColumn Header="Icon" Binding="{Binding Path=IconValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Icon Id" Binding="{Binding Path=Icon}" />
                     <DataGridTextColumn Header="Text" Binding="{Binding Path=Text}" />
                     <DataGridTextColumn Header="Flag" Binding="{Binding Path=Flag}" />
                     <DataGridTextColumn Header="Range" Binding="{Binding Path=Range}" />
                     <DataGridTextColumn Header="Dir" Binding="{Binding Path=Dir}" />
                     <DataGridTextColumn Header="DirRange" Binding="{Binding Path=DirRange}" />
                     <DataGridTextColumn Header="MpDrCost" Binding="{Binding Path=MpDrCost}" />
-                    <DataGridTextColumn Header="Camera" Binding="{Binding Path=Camera}" />
+                    <DataGridTextColumn Header="Camera" Binding="{Binding Path=CameraValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Camera Id" Binding="{Binding Path=Camera}" />
                     <DataGridTextColumn Header="Priority" Binding="{Binding Path=Priority}" />
-                    <DataGridTextColumn Header="Receiver" Binding="{Binding Path=Receiver}" />
+                    <DataGridTextColumn Header="Receiver" Binding="{Binding Path=ReceiverValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Receiver Id" Binding="{Binding Path=Receiver}" />
                     <DataGridTextColumn Header="Time" Binding="{Binding Path=Time}" />
                     <DataGridTextColumn Header="Require" Binding="{Binding Path=Require}" />
                     <DataGridTextColumn Header="Mark" Binding="{Binding Path=Mark}" />
-                    <DataGridTextColumn Header="Action" Binding="{Binding Path=Action}" />
+                    <DataGridTextColumn Header="Action" Binding="{Binding Path=ActionValue}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Action Id" Binding="{Binding Path=Action}" />
                     <DataGridTextColumn Header="RcCount" Binding="{Binding Path=RcCount}" />
                     <DataGridTextColumn Header="DistanceRange" Binding="{Binding Path=DistanceRange}" />
                     <DataGridTextColumn Header="Score" Binding="{Binding Path=Score}" />

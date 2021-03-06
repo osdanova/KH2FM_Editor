@@ -12,7 +12,7 @@ namespace KH2FM_Editor.Model.System03.Cmd
         // Data Location
         public static readonly int idOffset = 0, idSize = 2;
         public static readonly int execOffset = 2, execSize = 2;
-        public static readonly int unkId2Offset = 4, unkId2Size = 2;
+        public static readonly int argumentOffset = 4, argumentSize = 2;
         public static readonly int submenuOffset = 6, submenuSize = 1;
         public static readonly int iconOffset = 7, iconSize = 1;
         public static readonly int textOffset = 8, textSize = 4;
@@ -57,20 +57,24 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readUShort(raw, execOffset, execSize); }
             set { DataAccess.writeUShort(raw, value, execOffset, execSize); }
         }
-        public ushort UnkId2
+        public ushort Argument
         {
-            get { return DataAccess.readUShort(raw, unkId2Offset, unkId2Size); }
-            set { DataAccess.writeUShort(raw, value, unkId2Offset, unkId2Size); }
+            get { return DataAccess.readUShort(raw, argumentOffset, argumentSize); }
+            set { DataAccess.writeUShort(raw, value, argumentOffset, argumentSize); }
         }
         public sbyte Submenu
         {
             get { return DataAccess.readSByte(raw, submenuOffset); }
             set { DataAccess.writeSByte(raw, value, submenuOffset); }
         }
+        public string IconValue
+        {
+            get { return CmdDictionary.getIcon(Icon); }
+        }
         public byte Icon
         {
             get { return DataAccess.readByte(raw, iconOffset); }
-            set { DataAccess.writeByte(raw, value, iconOffset); }
+            set { DataAccess.writeByte(raw, value, iconOffset); NotifyPropertyChanged(nameof(IconValue)); }
         }
         public int Text
         {
@@ -102,20 +106,28 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readByte(raw, mpDrCostOffset); }
             set { DataAccess.writeByte(raw, value, mpDrCostOffset); }
         }
+        public string CameraValue
+        {
+            get { return CmdDictionary.getCamera(Camera); }
+        }
         public byte Camera
         {
             get { return DataAccess.readByte(raw, cameraOffset); }
-            set { DataAccess.writeByte(raw, value, cameraOffset); }
+            set { DataAccess.writeByte(raw, value, cameraOffset); NotifyPropertyChanged(nameof(CameraValue)); }
         }
         public byte Priority
         {
             get { return DataAccess.readByte(raw, priorityOffset); }
             set { DataAccess.writeByte(raw, value, priorityOffset); }
         }
+        public string ReceiverValue
+        {
+            get { return CmdDictionary.getReceiver(Receiver); }
+        }
         public byte Receiver
         {
             get { return DataAccess.readByte(raw, receiverOffset); }
-            set { DataAccess.writeByte(raw, value, receiverOffset); }
+            set { DataAccess.writeByte(raw, value, receiverOffset); NotifyPropertyChanged(nameof(Receiver)); }
         }
         public ushort Time
         {
@@ -132,10 +144,14 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readByte(raw, markOffset); }
             set { DataAccess.writeByte(raw, value, markOffset); }
         }
+        public string ActionValue
+        {
+            get { return CmdDictionary.getAction(Action); }
+        }
         public byte Action
         {
             get { return DataAccess.readByte(raw, actionOffset); }
-            set { DataAccess.writeByte(raw, value, actionOffset); }
+            set { DataAccess.writeByte(raw, value, actionOffset); NotifyPropertyChanged(nameof(ActionValue)); }
         }
         public ushort RcCount
         {

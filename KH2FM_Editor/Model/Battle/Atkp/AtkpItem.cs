@@ -1,4 +1,5 @@
-﻿using KH2FM_Editor.Libs.Binary;
+﻿using KH2FM_Editor.DataDictionary;
+using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
@@ -61,10 +62,14 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readUShort(raw, idOffset, idSize); }
             set { DataAccess.writeUShort(raw, value, idOffset, idSize); }
         }
+        public string TypeValue
+        {
+            get { return AtkpDictionary.getType(Type); }
+        }
         public byte Type
         {
             get { return DataAccess.readByte(raw, typeOffset); }
-            set { DataAccess.writeByte(raw, value, typeOffset); }
+            set { DataAccess.writeByte(raw, value, typeOffset); NotifyPropertyChanged(nameof(TypeValue)); }
         }
         public byte CritAdjust
         {
@@ -116,15 +121,23 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readByte(raw, flagOffset); }
             set { DataAccess.writeByte(raw, value, flagOffset); }
         }
+        public string RefactSelfValue
+        {
+            get { return AtkpDictionary.getRefact(RefactSelf); }
+        }
         public byte RefactSelf
         {
             get { return DataAccess.readByte(raw, refactSelfOffset); }
-            set { DataAccess.writeByte(raw, value, refactSelfOffset); }
+            set { DataAccess.writeByte(raw, value, refactSelfOffset); NotifyPropertyChanged(nameof(RefactSelfValue)); }
+        }
+        public string RefactOtherValue
+        {
+            get { return AtkpDictionary.getRefact(RefactOther); }
         }
         public byte RefactOther
         {
             get { return DataAccess.readByte(raw, refactOtherOffset); }
-            set { DataAccess.writeByte(raw, value, refactOtherOffset); }
+            set { DataAccess.writeByte(raw, value, refactOtherOffset); NotifyPropertyChanged(nameof(RefactOtherValue)); }
         }
         public byte ReflectMotion
         {
@@ -191,10 +204,14 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readByte(raw, revengeOffset); }
             set { DataAccess.writeByte(raw, value, revengeOffset); }
         }
+        public string TrReactionValue
+        {
+            get { return AtkpDictionary.getTrReaction(TrReaction); }
+        }
         public byte TrReaction
         {
             get { return DataAccess.readByte(raw, trReactionOffset); }
-            set { DataAccess.writeByte(raw, value, trReactionOffset); }
+            set { DataAccess.writeByte(raw, value, trReactionOffset); NotifyPropertyChanged(nameof(TrReactionValue)); }
         }
         public byte ComboGroup
         {
@@ -206,10 +223,14 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readByte(raw, randomEffectOffset); }
             set { DataAccess.writeByte(raw, value, randomEffectOffset); }
         }
+        public string KindValue
+        {
+            get { return AtkpDictionary.getKind(Kind); }
+        }
         public byte Kind
         {
             get { return DataAccess.readByte(raw, kindOffset); }
-            set { DataAccess.writeByte(raw, value, kindOffset); }
+            set { DataAccess.writeByte(raw, value, kindOffset); NotifyPropertyChanged(nameof(KindValue)); }
         }
         public byte HpDrain
         {
