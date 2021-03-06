@@ -25,6 +25,7 @@ namespace KH2FM_Editor.Model.Battle.Lvup
             processHeader(raw);
             processCharPointers(raw);
             processCharacters(raw);
+            //copyLevels();
         }
 
         public string Type
@@ -95,6 +96,22 @@ namespace KH2FM_Editor.Model.Battle.Lvup
             if (id == 12) return "Tron";
             if (id == 13) return "Riku";
             else return null;
+        }
+
+        private void copyLevels()
+        {
+            for(int i = 0; i < CharacterPointers.Count-1; i++)
+            {
+                if (i >= 4)
+                {
+                    Console.WriteLine("Copying exp to " + getCharacterName(i+1));
+                    for(int j = 0; j < 99; j++)
+                    {
+                        Characters[i].Entries[j].raw.RemoveRange(0, 4);
+                        Characters[i].Entries[j].raw.InsertRange(0, Characters[i-1].Entries[j].raw.GetRange(0, 4));
+                    }
+                }
+            }
         }
 
         // Returns the object as a byte list
