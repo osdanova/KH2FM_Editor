@@ -38,10 +38,14 @@ namespace KH2FM_Editor.Model.Battle.Przt
         {
         }
 
+        public string IdValue
+        {
+            get { return Prizes.getValue(Id); }
+        }
         public ushort Id
         {
             get { return DataAccess.readUShort(raw, idOffset, idSize); }
-            set { DataAccess.writeUShort(raw, value, idOffset, idSize); }
+            set { DataAccess.writeUShort(raw, value, idOffset, idSize); NotifyPropertyChanged(nameof(IdValue)); }
         }
         public byte HpS
         {

@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataDictionary\Abilities.cs" />
+    <Compile Include="DataDictionary\Prizes.cs" />
     <Compile Include="DataDictionary\Elements.cs" />
     <Compile Include="DataDictionary\CmdDictionary.cs" />
     <Compile Include="DataDictionary\ObjentryFlags.cs" />
