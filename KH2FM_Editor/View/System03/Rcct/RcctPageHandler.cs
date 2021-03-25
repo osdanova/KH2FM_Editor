@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Rcct;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.System03.Rcct
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CCB3E0"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public RcctPageHandler(RcctFile file)
         {
-            MemOffset = "21CCB3E0";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > RcctPageHandler > Processing file...");
             RcctFileLoaded = file;
             processFile();
@@ -63,6 +67,14 @@ namespace KH2FM_Editor.View.System03.Rcct
             Console.WriteLine("DEBUG > RcctPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > RcctPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("rcct");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

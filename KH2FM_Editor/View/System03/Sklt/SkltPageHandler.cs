@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Sklt;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.System03.Sklt
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CE26D0"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public SkltPageHandler(SkltFile file)
         {
-            MemOffset = "21CE26D0";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > SkltPageHandler > Processing file...");
             SkltFileLoaded = file;
             processFile();
@@ -63,6 +67,14 @@ namespace KH2FM_Editor.View.System03.Sklt
             Console.WriteLine("DEBUG > SkltPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > SkltPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("sklt");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

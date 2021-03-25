@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.Battle.Sumn;
 using KH2FM_Editor.Model.COMMON;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.Battle.Sumn
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21D19658"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public SumnPageHandler(SumnFile file)
         {
-            MemOffset = "21D19658";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > SumnPageHandler > Processing file...");
             SumnFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Battle.Sumn
             Console.WriteLine("DEBUG > SumnPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > SumnPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("sumn");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

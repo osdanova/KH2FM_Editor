@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.Battle.Bons;
 using KH2FM_Editor.Model.COMMON;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.Battle.Bons
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21D10788"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public BonsPageHandler(BonsFile file)
         {
-            MemOffset = "21D10788";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > BonsPageHandler > Processing file...");
             BonsFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Battle.Bons
             Console.WriteLine("DEBUG > BonsPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > BonsPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("bons");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

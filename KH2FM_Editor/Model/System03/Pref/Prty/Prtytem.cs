@@ -1,4 +1,5 @@
-﻿using KH2FM_Editor.Libs.Binary;
+﻿using KH2FM_Editor.DataDictionary;
+using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ namespace KH2FM_Editor.Model.System03.Pref.Prty
     public class PrtyItem : Str_EntryItem
     {
         public static readonly int entrySize = 52;
+        public int position = -1;
         // Data Location
         public int walkSpeedffset = 0, walkSpeedSize = 4;
         public int runSpeedOffset = 4, runSpeedSize = 4;
@@ -30,7 +32,15 @@ namespace KH2FM_Editor.Model.System03.Pref.Prty
         public PrtyItem(List<byte> rawData) : base(rawData)
         {
         }
+        public PrtyItem(int position, List<byte> rawData) : base(rawData)
+        {
+            this.position = position;
+        }
 
+        public string Entity
+        {
+            get { return PrefsDictionary.getPrty(position); }
+        }
         public float WalkSpeed
         {
             get { return DataAccess.readFloat(raw, walkSpeedffset, walkSpeedSize); }

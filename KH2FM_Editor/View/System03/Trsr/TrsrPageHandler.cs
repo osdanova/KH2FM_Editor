@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Trsr;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.System03.Trsr
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CDF748"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public TrsrPageHandler(TrsrFile file)
         {
-            MemOffset = "21CDF748";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > TrsrPageHandler > Processing file...");
             TrsrFileLoaded = file;
             processFile();
@@ -63,6 +67,14 @@ namespace KH2FM_Editor.View.System03.Trsr
             Console.WriteLine("DEBUG > TrsrPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > TrsrPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("trsr");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

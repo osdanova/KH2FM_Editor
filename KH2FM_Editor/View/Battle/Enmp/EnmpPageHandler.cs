@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.Battle.Enmp;
 using KH2FM_Editor.Model.COMMON;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.Battle.Enmp
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21D119EC"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public EnmpPageHandler(EnmpFile file)
         {
-            MemOffset = "21D119EC";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > EnmpPageHandler > Processing file...");
             EnmpFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Battle.Enmp
             Console.WriteLine("DEBUG > EnmpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > EnmpPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("enmp");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

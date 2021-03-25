@@ -33,5 +33,11 @@ namespace KH2FM_Editor.Libs.Utils
             Array.Clear(array, 0, array.Length);
             return array.ToList();
         }
+
+        // Returns the hex string of 8 digits of the given value
+        public static string getHexString8(int value)
+        {
+            return value.ToString("X8");
+        }
     }
 }

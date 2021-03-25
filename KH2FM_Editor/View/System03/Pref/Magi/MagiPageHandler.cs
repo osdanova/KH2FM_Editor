@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.System03.Pref.Magi;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,13 @@ namespace KH2FM_Editor.View.System03.Magi
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CE3848"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public MagiPageHandler(MagiFile file)
         {
-            MemOffset = "21CE3848";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > MagiPageHandler > Processing file...");
             MagiFileLoaded = file;
             //processFile();
@@ -40,6 +44,14 @@ namespace KH2FM_Editor.View.System03.Magi
             if (MagiFileLoaded == null) return;
             Console.WriteLine("DEBUG > MagiPageHandler > Saving...");
             Console.WriteLine("DEBUG > MagiPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("magi");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

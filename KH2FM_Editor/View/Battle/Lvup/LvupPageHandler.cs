@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.Battle.Lvup;
 using KH2FM_Editor.Model.COMMON;
 using System;
@@ -29,10 +30,13 @@ namespace KH2FM_Editor.View.Battle.Lvup
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21D0B6A4"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public LvupPageHandler(LvupFile file)
         {
-            MemOffset = "21D0B6A4";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > LvupPageHandler > Processing file...");
             LvupFileLoaded = file;
             processFile();
@@ -244,6 +248,15 @@ namespace KH2FM_Editor.View.Battle.Lvup
             Console.WriteLine("DEBUG > LvupPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > LvupPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("lvup");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

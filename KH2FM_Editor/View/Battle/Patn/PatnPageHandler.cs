@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.Battle.Patn;
 using KH2FM_Editor.Model.COMMON;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.Battle.Patn
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21D16C40"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public PatnPageHandler(PatnFile file)
         {
-            MemOffset = "21D16C40";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > PatnPageHandler > Processing file...");
             PatnFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Battle.Patn
             Console.WriteLine("DEBUG > PatnPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > PatnPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("patn");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

@@ -117,7 +117,7 @@ namespace KH2FM_Editor.DataDictionary
 { 120 , "Dusk (Days 2-6)" },
 { 121 , "Creeper (Day 6) ?" },
 { 122 , "" },
-{ 123 , "Creeper Plant pulled ?" },
+{ 123 , "Creeper Plant pulled" },
 { 125 , "Loudmouth stomped" },
 { 126 , "Gambler game won" },
 { 127 , "" },

@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Wmst;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.System03.Wmst
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CD5180"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public WmstPageHandler(WmstFile file)
         {
-            MemOffset = "21CD5180";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > WmstPageHandler > Processing file...");
             WmstFileLoaded = file;
             processFile();
@@ -63,6 +67,14 @@ namespace KH2FM_Editor.View.System03.Wmst
             Console.WriteLine("DEBUG > WmstPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > WmstPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("wmst");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

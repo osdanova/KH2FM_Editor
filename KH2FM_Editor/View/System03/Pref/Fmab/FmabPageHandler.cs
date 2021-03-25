@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.System03.Pref.Fmab;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,13 @@ namespace KH2FM_Editor.View.System03.Fmab
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CE2D88"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public FmabPageHandler(FmabFile file)
         {
-            MemOffset = "21CE2D88";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > FmabPageHandler > Processing file...");
             FmabFileLoaded = file;
             //processFile();
@@ -40,6 +44,15 @@ namespace KH2FM_Editor.View.System03.Fmab
             if (FmabFileLoaded == null) return;
             Console.WriteLine("DEBUG > FmabPageHandler > Saving...");
             Console.WriteLine("DEBUG > FmabPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("fmab");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

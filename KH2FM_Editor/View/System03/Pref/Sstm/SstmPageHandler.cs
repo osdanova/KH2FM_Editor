@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.System03.Pref.Sstm;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,13 @@ namespace KH2FM_Editor.View.System03.Sstm
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CE36C4"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public SstmPageHandler(SstmFile file)
         {
-            MemOffset = "21CE36C4";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > SstmPageHandler > Processing file...");
             SstmFileLoaded = file;
             //processFile();
@@ -40,6 +44,14 @@ namespace KH2FM_Editor.View.System03.Sstm
             if (SstmFileLoaded == null) return;
             Console.WriteLine("DEBUG > SstmPageHandler > Saving...");
             Console.WriteLine("DEBUG > SstmPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("sstm");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.Battle.Ptya;
 using KH2FM_Editor.Model.COMMON;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.Battle.Ptya
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21D05CE0"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public PtyaPageHandler(PtyaFile file)
         {
-            MemOffset = "21D05CE0";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > PtyaPageHandler > Processing file...");
             PtyaFileLoaded = file;
             //processFile();
@@ -42,6 +46,15 @@ namespace KH2FM_Editor.View.Battle.Ptya
             if (PtyaFileLoaded == null) return;
             Console.WriteLine("DEBUG > PtyaPageHandler > Saving...");
             Console.WriteLine("DEBUG > PtyaPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("ptya");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

@@ -4,6 +4,7 @@ using KH2FM_Editor.Model.COMMON;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Libs.Utils;
 
 namespace KH2FM_Editor.View.System03.Arif
 {
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.System03.Arif
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CD6300"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public ArifPageHandler(ArifFile file)
         {
-            MemOffset = "21CD6300";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > ArifPageHandler > Processing file...");
             ArifFileLoaded = file;
             //processFile();
@@ -42,6 +46,14 @@ namespace KH2FM_Editor.View.System03.Arif
             if (ArifFileLoaded == null) return;
             Console.WriteLine("DEBUG > ArifPageHandler > Saving...");
             Console.WriteLine("DEBUG > ArifPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("arif");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

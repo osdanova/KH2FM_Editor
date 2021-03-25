@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Went;
 using System;
@@ -17,10 +18,13 @@ namespace KH2FM_Editor.View.System03.Went
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CD4280"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public WentPageHandler(WentFile file)
         {
-            MemOffset = "21CD4280";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > WentPageHandler > Processing file...");
             WentFileLoaded = file;
             //processFile();
@@ -42,6 +46,14 @@ namespace KH2FM_Editor.View.System03.Went
             if (WentFileLoaded == null) return;
             Console.WriteLine("DEBUG > WentPageHandler > Saving...");
             Console.WriteLine("DEBUG > WentPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("went");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

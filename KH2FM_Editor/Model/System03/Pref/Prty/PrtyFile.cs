@@ -66,7 +66,7 @@ namespace KH2FM_Editor.Model.System03.Pref.Prty
             for (int i = 0; i < PointerSet.Count; i++)
             {
                 //Console.WriteLine("DELETE DEBUG >>> Weapon Set for: " + WentPointers.getCharacter(i) + " - size:" + setSize);
-                PlayerPrefs.Add(new PrtyItem(raw.GetRange((int)PointerSet[i], PrtyItem.entrySize)));
+                PlayerPrefs.Add(new PrtyItem(i, raw.GetRange((int)PointerSet[i], PrtyItem.entrySize)));
             }
             //Console.WriteLine("DELETE DEBUG >>> Weapon Set count: " + WeaponSets.Count);
         }

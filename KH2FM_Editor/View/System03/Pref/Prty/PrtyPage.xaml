@@ -20,6 +20,7 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding PrtyFileLoaded.PlayerPrefs}">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Entity" Binding="{Binding Path=Entity}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Walk Speed" Binding="{Binding Path=WalkSpeed}" />
                     <DataGridTextColumn Header="Run Speed" Binding="{Binding Path=RunSpeed}" />
                     <DataGridTextColumn Header="Jump Height" Binding="{Binding Path=JumpHeight}" />

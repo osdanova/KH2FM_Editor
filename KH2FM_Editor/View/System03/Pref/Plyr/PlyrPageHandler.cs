@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.System03.Pref.Plyr;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,13 @@ namespace KH2FM_Editor.View.System03.Plyr
 
         // OPTIONS
         public string MemOffset { get; set; }
+        public static string MemOffsetFallback = "21CE2810"; // Crazycatz's English patch
+        public static bool AddressFound = false;
 
         public PlyrPageHandler(PlyrFile file)
         {
-            MemOffset = "21CE2810";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > PlyrPageHandler > Processing file...");
             PlyrFileLoaded = file;
             //processFile();
@@ -40,6 +44,14 @@ namespace KH2FM_Editor.View.System03.Plyr
             if (PlyrFileLoaded == null) return;
             Console.WriteLine("DEBUG > PlyrPageHandler > Saving...");
             Console.WriteLine("DEBUG > PlyrPageHandler > Finished saving!");
+        }
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("plyr");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }
