@@ -61,10 +61,10 @@ namespace KH2FM_Editor.Libs.Pcsx2
         public static int findBarFileAddress(String text)
         {
             int fileAddress = findLastAddressOf(text);
-            Debug.WriteLine("DELETE DEBUG > fileAddress: " + fileAddress);
+            //Debug.WriteLine("DELETE DEBUG > fileAddress: " + fileAddress);
             if (fileAddress == -1) return -1;
 
-            Debug.WriteLine("DELETE DEBUG > string found: " + BinaryHandler.bytesAsString(readPcsx2(fileAddress, 4)));
+            //Debug.WriteLine("DELETE DEBUG > string found: " + BinaryHandler.bytesAsString(readPcsx2(fileAddress, 4)));
 
             // Memory address pointer
             fileAddress += 4;
@@ -72,7 +72,7 @@ namespace KH2FM_Editor.Libs.Pcsx2
 
             int barFilePointer = BinaryHandler.bytesAsInt(readPcsx2(fileAddress, 4));
 
-            Debug.WriteLine("DELETE DEBUG > barFilePointer: " + barFilePointer);
+            //Debug.WriteLine("DELETE DEBUG > barFilePointer: " + barFilePointer);
 
             return startingAddress + barFilePointer;
         }

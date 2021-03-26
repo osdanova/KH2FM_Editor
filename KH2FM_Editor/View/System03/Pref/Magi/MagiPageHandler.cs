@@ -22,7 +22,7 @@ namespace KH2FM_Editor.View.System03.Magi
         public MagiPageHandler(MagiFile file)
         {
             MemOffset = MemOffsetFallback;
-            findAddress();
+            //findAddress();
             Console.WriteLine("DEBUG > MagiPageHandler > Processing file...");
             MagiFileLoaded = file;
             //processFile();
