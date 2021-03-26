@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Mixdata.Reci;
 using System;
@@ -16,11 +17,14 @@ namespace KH2FM_Editor.View.Mixdata.Reci
         public ObservableCollection<ReciItem> ReciFileItems { get; set; }
 
         // OPTIONS
+        public static string MemOffsetFallback = "211A9890"; // Crazycatz's English patch
         public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public ReciPageHandler(ReciFile file)
         {
-            MemOffset = "211A9890";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > ReciPageHandler > Processing file...");
             ReciFileLoaded = file;
             processFile();
@@ -63,6 +67,18 @@ namespace KH2FM_Editor.View.Mixdata.Reci
             Console.WriteLine("DEBUG > ReciPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ReciPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            Console.WriteLine("DEBUG > Finding address");
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findAddressOf("MIRE");
+            Console.WriteLine("DEBUG > Address found: " + addressInt);
+            AddressFound = true;
+            if (addressInt == -1) return;
+            Console.WriteLine("DEBUG > Writing address");
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

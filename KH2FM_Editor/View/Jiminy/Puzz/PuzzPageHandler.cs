@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Jiminy.Puzz;
 using System;
@@ -16,11 +17,14 @@ namespace KH2FM_Editor.View.Jiminy.Puzz
         public ObservableCollection<PuzzItem> PuzzFileItems { get; set; }
 
         // OPTIONS
+        public static string MemOffsetFallback = "21512790"; // Crazycatz's English patch
         public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public PuzzPageHandler(PuzzFile file)
         {
-            MemOffset = "21512790";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > PuzzPageHandler > Processing file...");
             PuzzFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Jiminy.Puzz
             Console.WriteLine("DEBUG > PuzzPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > PuzzPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("puzz");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

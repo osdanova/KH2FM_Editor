@@ -16,7 +16,7 @@ namespace KH2FM_Editor.Libs.Pcsx2
 
         public static void findPcsx2()
         {
-            if(pcsx2 == null) pcsx2 = Process.GetProcessesByName("PCSX2").FirstOrDefault();
+            if (pcsx2 == null) pcsx2 = Process.GetProcessesByName("PCSX2").FirstOrDefault();
         }
 
         public static List<byte> readPcsx2(int offset, int size)
@@ -35,7 +35,7 @@ namespace KH2FM_Editor.Libs.Pcsx2
             findPcsx2();
             if (pcsx2 == null) return -1;
 
-            if (memoryDumpString != null)
+            if (memoryDumpString == null)
             {
                 List<byte> memoryDump = MemoryAccess.readMemory(pcsx2, startingAddress, findRange);
                 memoryDumpString = System.Text.Encoding.ASCII.GetString(memoryDump.ToArray());
@@ -64,12 +64,32 @@ namespace KH2FM_Editor.Libs.Pcsx2
             Debug.WriteLine("DELETE DEBUG > fileAddress: " + fileAddress);
             if (fileAddress == -1) return -1;
 
+            Debug.WriteLine("DELETE DEBUG > string found: " + BinaryHandler.bytesAsString(readPcsx2(fileAddress, 4)));
+
+            // Memory address pointer
+            fileAddress += 4;
+
+
+            int barFilePointer = BinaryHandler.bytesAsInt(readPcsx2(fileAddress, 4));
+
+            Debug.WriteLine("DELETE DEBUG > barFilePointer: " + barFilePointer);
+
+            return startingAddress + barFilePointer;
+        }
+        public static int findBarFileAddressMagi(String text)
+        {
+            int fileAddress = findAddressOf(text);
+            //Debug.WriteLine("DELETE DEBUG > fileAddress: " + fileAddress);
+            if (fileAddress == -1) return -1;
+
+            //Debug.WriteLine("DELETE DEBUG > string found: " + BinaryHandler.bytesAsString(readPcsx2(fileAddress, 4)));
+
             // Memory address pointer
             fileAddress += 4;
 
             int barFilePointer = BinaryHandler.bytesAsInt(readPcsx2(fileAddress, 4));
 
-            Debug.WriteLine("DELETE DEBUG > barFilePointer: " + barFilePointer);
+            //Debug.WriteLine("DELETE DEBUG > barFilePointer: " + barFilePointer);
 
             return startingAddress + barFilePointer;
         }

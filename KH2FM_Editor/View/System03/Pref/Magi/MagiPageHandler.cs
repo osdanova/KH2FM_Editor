@@ -15,9 +15,9 @@ namespace KH2FM_Editor.View.System03.Magi
         //public ObservableCollection<MagiItem> MagiFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CE3848"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public MagiPageHandler(MagiFile file)
         {
@@ -48,7 +48,7 @@ namespace KH2FM_Editor.View.System03.Magi
         public void findAddress()
         {
             if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("magi");
+            int addressInt = Pcsx2Memory.findBarFileAddressMagi("magi");
             AddressFound = true;
             if (addressInt == -1) return;
             MemOffset = FormatHandler.getHexString8(addressInt);

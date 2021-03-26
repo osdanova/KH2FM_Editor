@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Mixdata.Exp;
 using System;
@@ -16,11 +17,14 @@ namespace KH2FM_Editor.View.Mixdata.Exp
         public ObservableCollection<ExpItem> ExpFileItems { get; set; }
 
         // OPTIONS
+        public static string MemOffsetFallback = "211A9F80"; // Crazycatz's English patch
         public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public ExpPageHandler(ExpFile file)
         {
-            MemOffset = "211A9F80";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > ExpPageHandler > Processing file...");
             ExpFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Mixdata.Exp
             Console.WriteLine("DEBUG > ExpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ExpPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findAddressOf("MIEX");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

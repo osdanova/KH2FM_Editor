@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.System03.Went
         //public ObservableCollection<WentItem> WentFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CD4280"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public WentPageHandler(WentFile file)
         {

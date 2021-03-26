@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.Battle.Atkp
         public ObservableCollection<AtkpItem> AtkpFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CE5F10"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public AtkpPageHandler(AtkpFile file)
         {

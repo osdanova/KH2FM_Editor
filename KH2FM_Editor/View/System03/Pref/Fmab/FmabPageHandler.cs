@@ -15,9 +15,9 @@ namespace KH2FM_Editor.View.System03.Fmab
         //public ObservableCollection<FmabItem> FmabFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CE2D88"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public FmabPageHandler(FmabFile file)
         {

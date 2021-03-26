@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Mixdata.Cond;
 using System;
@@ -16,11 +17,14 @@ namespace KH2FM_Editor.View.Mixdata.Cond
         public ObservableCollection<CondItem> CondFileItems { get; set; }
 
         // OPTIONS
+        public static string MemOffsetFallback = "211A9C60"; // Crazycatz's English patch
         public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public CondPageHandler(CondFile file)
         {
-            MemOffset = "211A9C60";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > CondPageHandler > Processing file...");
             CondFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Mixdata.Cond
             Console.WriteLine("DEBUG > CondPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > CondPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findAddressOf("MICO");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

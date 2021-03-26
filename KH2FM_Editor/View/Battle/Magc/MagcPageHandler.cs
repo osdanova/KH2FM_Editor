@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.Battle.Magc
         public ObservableCollection<MagcItem> MagcFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21D19760"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public MagcPageHandler(MagcFile file)
         {

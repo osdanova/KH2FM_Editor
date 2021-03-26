@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.Battle.Bons
         public ObservableCollection<BonsItem> BonsFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21D10788"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public BonsPageHandler(BonsFile file)
         {

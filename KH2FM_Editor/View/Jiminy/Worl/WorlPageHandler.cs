@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Jiminy.Worl;
 using System;
@@ -16,11 +17,14 @@ namespace KH2FM_Editor.View.Jiminy.Worl
         public ObservableCollection<WorlItem> WorlFileItems { get; set; }
 
         // OPTIONS
+        public static string MemOffsetFallback = "2150C8F0"; // Crazycatz's English patch
         public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public WorlPageHandler(WorlFile file)
         {
-            MemOffset = "2150C8F0";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > WorlPageHandler > Processing file...");
             WorlFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Jiminy.Worl
             Console.WriteLine("DEBUG > WorlPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > WorlPageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findBarFileAddress("worl");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

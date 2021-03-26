@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.System03.Arif
         //public ObservableCollection<ArifItem> ArifFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CD6300"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public ArifPageHandler(ArifFile file)
         {

@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.Battle.Patn
         public ObservableCollection<PatnItem> PatnFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21D16C40"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public PatnPageHandler(PatnFile file)
         {

@@ -1,4 +1,5 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Mixdata.Leve;
 using System;
@@ -16,11 +17,14 @@ namespace KH2FM_Editor.View.Mixdata.Leve
         public ObservableCollection<LeveItem> LeveFileItems { get; set; }
 
         // OPTIONS
+        public static string MemOffsetFallback = "211A9F00"; // Crazycatz's English patch
         public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public LevePageHandler(LeveFile file)
         {
-            MemOffset = "211A9F00";
+            MemOffset = MemOffsetFallback;
+            findAddress();
             Console.WriteLine("DEBUG > LevePageHandler > Processing file...");
             LeveFileLoaded = file;
             processFile();
@@ -63,6 +67,15 @@ namespace KH2FM_Editor.View.Mixdata.Leve
             Console.WriteLine("DEBUG > LevePageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > LevePageHandler > Finished saving!");
+        }
+
+        public void findAddress()
+        {
+            if (AddressFound) return;
+            int addressInt = Pcsx2Memory.findAddressOf("MILV");
+            AddressFound = true;
+            if (addressInt == -1) return;
+            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

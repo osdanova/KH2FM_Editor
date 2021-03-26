@@ -15,9 +15,9 @@ namespace KH2FM_Editor.View.System03.Sstm
         //public ObservableCollection<SstmItem> SstmFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CE36C4"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public SstmPageHandler(SstmFile file)
         {

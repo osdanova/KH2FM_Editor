@@ -15,9 +15,9 @@ namespace KH2FM_Editor.View.System03.Prty
         //public ObservableCollection<PrtyItem> PrtyFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CE2EF4"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public PrtyPageHandler(PrtyFile file)
         {

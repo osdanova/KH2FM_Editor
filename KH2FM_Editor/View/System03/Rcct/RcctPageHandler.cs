@@ -17,9 +17,9 @@ namespace KH2FM_Editor.View.System03.Rcct
         public ObservableCollection<RcctItem> RcctFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public static string MemOffsetFallback = "21CCB3E0"; // Crazycatz's English patch
-        public static bool AddressFound = false;
+        public string MemOffset { get; set; }
+        public bool AddressFound = false;
 
         public RcctPageHandler(RcctFile file)
         {
