@@ -1,6 +1,7 @@
 ﻿using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.Battle.Btlv
@@ -46,11 +47,6 @@ namespace KH2FM_Editor.Model.Battle.Btlv
             get { return DataAccess.readInt(raw, idOffset, idSize); }
             set { DataAccess.writeInt(raw, value, idOffset, idSize); }
         }
-        public int ProgressFlag
-        {
-            get { return DataAccess.readInt(raw, progFlagOffset, progFlagSize); }
-            set { DataAccess.writeInt(raw, value, progFlagOffset, progFlagSize); }
-        }
         public byte BattleLevel01 { get { return DataAccess.readByte(raw, btlLvl01Offset); } set { DataAccess.writeByte(raw, value, btlLvl01Offset); } }
         public byte BattleLevel02 { get { return DataAccess.readByte(raw, btlLvl02Offset); } set { DataAccess.writeByte(raw, value, btlLvl02Offset); } }
         public byte BattleLevel03 { get { return DataAccess.readByte(raw, btlLvl03Offset); } set { DataAccess.writeByte(raw, value, btlLvl03Offset); } }
@@ -70,5 +66,63 @@ namespace KH2FM_Editor.Model.Battle.Btlv
         public byte BattleLevel17 { get { return DataAccess.readByte(raw, btlLvl17Offset); } set { DataAccess.writeByte(raw, value, btlLvl17Offset); } }
         public byte BattleLevel18 { get { return DataAccess.readByte(raw, btlLvl18Offset); } set { DataAccess.writeByte(raw, value, btlLvl18Offset); } }
         public byte BattleLevel19 { get { return DataAccess.readByte(raw, btlLvl19Offset); } set { DataAccess.writeByte(raw, value, btlLvl19Offset); } }
+
+        public byte FlagA
+        {
+            get { return DataAccess.readByte(raw, progFlagOffset); }
+            set { DataAccess.writeByte(raw, value, progFlagOffset); }
+        }
+        public bool Flag1 { get { return new BitArray(new int[1] { FlagA }).Get(0); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 0, value); } }
+        public bool Flag2 { get { return new BitArray(new int[1] { FlagA }).Get(1); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 1, value); } }
+        public bool Flag3 { get { return new BitArray(new int[1] { FlagA }).Get(2); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 2, value); } }
+        public bool Flag4 { get { return new BitArray(new int[1] { FlagA }).Get(3); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 3, value); } }
+        public bool Flag5 { get { return new BitArray(new int[1] { FlagA }).Get(4); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 4, value); } }
+        public bool Flag6 { get { return new BitArray(new int[1] { FlagA }).Get(5); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 5, value); } }
+        public bool Flag7 { get { return new BitArray(new int[1] { FlagA }).Get(6); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 6, value); } }
+        public bool Flag8 { get { return new BitArray(new int[1] { FlagA }).Get(7); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 7, value); } }
+
+        public byte FlagB
+        {
+            get { return DataAccess.readByte(raw, progFlagOffset + 1); }
+            set { DataAccess.writeByte(raw, value, progFlagOffset + 1); }
+        }
+        public bool Flag9 { get { return new BitArray(new int[1] { FlagB }).Get(0); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 0, value); } }
+        public bool Flag10 { get { return new BitArray(new int[1] { FlagB }).Get(1); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 1, value); } }
+        public bool Flag11 { get { return new BitArray(new int[1] { FlagB }).Get(2); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 2, value); } }
+        public bool Flag12 { get { return new BitArray(new int[1] { FlagB }).Get(3); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 3, value); } }
+        public bool Flag13 { get { return new BitArray(new int[1] { FlagB }).Get(4); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 4, value); } }
+        public bool Flag14 { get { return new BitArray(new int[1] { FlagB }).Get(5); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 5, value); } }
+
+        // UNUSED
+        /*public bool Flag15 { get { return new BitArray(new int[1] { FlagB }).Get(6); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 6, value); } }
+        public bool Flag16 { get { return new BitArray(new int[1] { FlagB }).Get(7); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 7, value); } }
+
+        public byte FlagC
+        {
+            get { return DataAccess.readByte(raw, progFlagOffset + 2); }
+            set { DataAccess.writeByte(raw, value, progFlagOffset + 2); }
+        }
+        public bool Flag17 { get { return new BitArray(new int[1] { FlagC }).Get(0); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 0, value); } }
+        public bool Flag18 { get { return new BitArray(new int[1] { FlagC }).Get(1); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 1, value); } }
+        public bool Flag19 { get { return new BitArray(new int[1] { FlagC }).Get(2); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 2, value); } }
+        public bool Flag20 { get { return new BitArray(new int[1] { FlagC }).Get(3); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 3, value); } }
+        public bool Flag21 { get { return new BitArray(new int[1] { FlagC }).Get(4); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 4, value); } }
+        public bool Flag22 { get { return new BitArray(new int[1] { FlagC }).Get(5); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 5, value); } }
+        public bool Flag23 { get { return new BitArray(new int[1] { FlagC }).Get(6); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 6, value); } }
+        public bool Flag24 { get { return new BitArray(new int[1] { FlagC }).Get(7); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 7, value); } }
+
+        public byte FlagD
+        {
+            get { return DataAccess.readByte(raw, progFlagOffset + 3); }
+            set { DataAccess.writeByte(raw, value, progFlagOffset + 3); }
+        }
+        public bool Flag25 { get { return new BitArray(new int[1] { FlagD }).Get(0); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 0, value); } }
+        public bool Flag26 { get { return new BitArray(new int[1] { FlagD }).Get(1); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 1, value); } }
+        public bool Flag27 { get { return new BitArray(new int[1] { FlagD }).Get(2); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 2, value); } }
+        public bool Flag28 { get { return new BitArray(new int[1] { FlagD }).Get(3); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 3, value); } }
+        public bool Flag29 { get { return new BitArray(new int[1] { FlagD }).Get(4); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 4, value); } }
+        public bool Flag30 { get { return new BitArray(new int[1] { FlagD }).Get(5); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 5, value); } }
+        public bool Flag31 { get { return new BitArray(new int[1] { FlagD }).Get(6); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 6, value); } }
+        public bool Flag32 { get { return new BitArray(new int[1] { FlagD }).Get(7); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 7, value); } }*/
     }
 }

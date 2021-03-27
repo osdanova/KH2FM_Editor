@@ -27,15 +27,18 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding PlrpFileItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Unk0" Binding="{Binding Path=Unk0}" />
+                    <DataGridTextColumn Header="Version" Binding="{Binding Path=Version}" />
                     <DataGridTextColumn Header="Character" Binding="{Binding Path=Character}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Character ID" Binding="{Binding Path=CharacterId}" />
                     <DataGridTextColumn Header="Hp" Binding="{Binding Path=Hp}" />
                     <DataGridTextColumn Header="Mp" Binding="{Binding Path=Mp}" />
                     <DataGridTextColumn Header="Ap" Binding="{Binding Path=Ap}" />
-                    <DataGridTextColumn Header="Unk6" Binding="{Binding Path=Unk6}" />
-                    <DataGridTextColumn Header="Unk8" Binding="{Binding Path=Unk8}" />
-                    <DataGridTextColumn Header="Unk10" Binding="{Binding Path=Unk10}" />
+                    <DataGridTextColumn Header="Strength" Binding="{Binding Path=Strength}" />
+                    <DataGridTextColumn Header="Magic" Binding="{Binding Path=Magic}" />
+                    <DataGridTextColumn Header="Defense" Binding="{Binding Path=Defense}" />
+                    <DataGridTextColumn Header="Armor slots" Binding="{Binding Path=Armor}" />
+                    <DataGridTextColumn Header="Acc slots" Binding="{Binding Path=Acc}" />
+                    <DataGridTextColumn Header="Item slots" Binding="{Binding Path=Item}" />
                     <DataGridTextColumn Header="Item 1" Binding="{Binding Path=Item1Value}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Item 1 ID" Binding="{Binding Path=Item1}" />
                     <DataGridTextColumn Header="Item 2" Binding="{Binding Path=Item2Value}" IsReadOnly="True" />

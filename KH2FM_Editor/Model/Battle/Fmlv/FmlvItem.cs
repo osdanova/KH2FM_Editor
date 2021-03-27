@@ -10,8 +10,8 @@ namespace KH2FM_Editor.Model.Battle.Fmlv
     {
         public static readonly int entrySize = 8;
         // Data Location
-        public int idOffset = 0, idSize = 1;
-        public int abilityLevelOffset = 1, abilityLevelSize = 1;
+        public int fieldsAOffset = 0, fieldsASize = 1;
+        public int fieldsBOffset = 1, fieldsBSize = 1;
         public int rewardOffset = 2, rewardSize = 2;
         public int expOffset = 4, expSize = 4;
 
@@ -25,26 +25,58 @@ namespace KH2FM_Editor.Model.Battle.Fmlv
 
         public string TypeValue
         {
-            get { return FmlvTypes.getValue(Id/16); }
+            get { return FmlvTypes.getValue(Type); }
         }
-        public int LevelValue
+        public int Type
         {
-            get { return Id % 16; }
+            get { return FieldsA / 16; }
+            set
+            {
+                FieldsA -= (byte)(Type * 16);
+                FieldsA += (byte)(value * 16);
+                NotifyPropertyChanged(nameof(TypeValue));
+                NotifyPropertyChanged(nameof(FieldsA));
+            }
         }
-        public byte Id
+        public int Level
         {
-            get { return DataAccess.readByte(raw, idOffset); }
-            set { DataAccess.writeByte(raw, value, idOffset); NotifyPropertyChanged(nameof(TypeValue)); NotifyPropertyChanged(nameof(LevelValue)); }
+            get { return FieldsA % 16; }
+            set
+            {
+                FieldsA -= (byte)Level;
+                FieldsA += (byte)(value);
+                NotifyPropertyChanged(nameof(FieldsA));
+            }
         }
-        public string IdAsHex
+        public byte FieldsA
         {
-            get { return DataAccess.readHexString(raw, idOffset, idSize); }
-            set { DataAccess.writeHexString(raw, value, idOffset, idSize); }
+            get { return DataAccess.readByte(raw, fieldsAOffset); }
+            set { DataAccess.writeByte(raw, value, fieldsAOffset); }
         }
-        public byte AbilityLevel
+        public int AntiRate
         {
-            get { return DataAccess.readByte(raw, abilityLevelOffset); }
-            set { DataAccess.writeByte(raw, value, abilityLevelOffset); }
+            get { return FieldsB / 16; }
+            set
+            {
+                FieldsB -= (byte)(AntiRate * 16);
+                FieldsB += (byte)(value * 16);
+                NotifyPropertyChanged(nameof(FieldsB));
+            }
+        }
+        public int AbilityLevel
+{
+            get { return FieldsB % 16; }
+            set
+            {
+                FieldsB -= (byte)AbilityLevel;
+                FieldsB += (byte)(value);
+                NotifyPropertyChanged(nameof(FieldsB));
+            }
+        }
+        public byte FieldsB
+        {
+            get { return DataAccess.readByte(raw, fieldsBOffset); }
+            set { DataAccess.writeByte(raw, value, fieldsBOffset); }
         }
         public string RewardValue
         {

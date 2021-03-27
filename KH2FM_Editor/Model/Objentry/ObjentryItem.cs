@@ -84,52 +84,26 @@ namespace KH2FM_Editor.Model.Objentry
             get { return DataAccess.readString(raw, animNameOffset, animNameSize); }
             set { DataAccess.writeString32(raw, value, animNameOffset, animNameSize); }
         }
-        public bool FlagNoApdx
+        public byte FlagA
         {
-            get { return new BitArray(new int[1] { Flags }).Get(0); }
+            get { return DataAccess.readByte(raw, flagsOffset); }
+            set { DataAccess.writeByte(raw, value, flagsOffset); }
         }
-        public bool FlagBefore
+        public bool FlagNoApdx { get { return new BitArray(new int[1] { FlagA }).Get(0); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 0, value); } }
+        public bool FlagBefore { get { return new BitArray(new int[1] { FlagA }).Get(1); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 1, value); } }
+        public bool FlagFixColor { get { return new BitArray(new int[1] { FlagA }).Get(2); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 2, value); } }
+        public bool FlagFly { get { return new BitArray(new int[1] { FlagA }).Get(3); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 3, value); } }
+        public bool FlagScissoring { get { return new BitArray(new int[1] { FlagA }).Get(4); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 4, value); } }
+        public bool FlagPirate { get { return new BitArray(new int[1] { FlagA }).Get(5); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 5, value); } }
+        public bool FlagWallOcclusion { get { return new BitArray(new int[1] { FlagA }).Get(6); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 6, value); } }
+        public bool FlagHift { get { return new BitArray(new int[1] { FlagA }).Get(7); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 7, value); } }
+
+        public byte FlagB // Unused
         {
-            get { return new BitArray(new int[1] { Flags }).Get(1); }
+            get { return DataAccess.readByte(raw, flagsOffset + 1); }
+            set { DataAccess.writeByte(raw, value, flagsOffset + 1); }
         }
-        public bool FlagFixColor
-        {
-            get { return new BitArray(new int[1] { Flags }).Get(2); }
-        }
-        public bool FlagFly
-        {
-            get { return new BitArray(new int[1] { Flags }).Get(3); }
-        }
-        public bool FlagScissoring
-        {
-            get { return new BitArray(new int[1] { Flags }).Get(4); }
-        }
-        public bool FlagPirate
-        {
-            get { return new BitArray(new int[1] { Flags }).Get(5); }
-        }
-        public bool FlagWallOcclusion
-        {
-            get { return new BitArray(new int[1] { Flags }).Get(6); }
-        }
-        public bool FlagHift
-        {
-            get { return new BitArray(new int[1] { Flags }).Get(7); }
-        }
-        public ushort Flags
-        {
-            get { return DataAccess.readUShort(raw, flagsOffset, flagsSize); }
-            set { DataAccess.writeUShort(raw, value, flagsOffset, flagsSize);
-                NotifyPropertyChanged(nameof(FlagNoApdx));
-                NotifyPropertyChanged(nameof(FlagBefore));
-                NotifyPropertyChanged(nameof(FlagFixColor));
-                NotifyPropertyChanged(nameof(FlagFly));
-                NotifyPropertyChanged(nameof(FlagScissoring));
-                NotifyPropertyChanged(nameof(FlagPirate));
-                NotifyPropertyChanged(nameof(FlagWallOcclusion));
-                NotifyPropertyChanged(nameof(FlagHift));
-            }
-        }
+
         public string TargetValue
         {
             get { return ObjentryFlags.getTarget(Target); }

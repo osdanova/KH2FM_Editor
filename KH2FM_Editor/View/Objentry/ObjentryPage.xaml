@@ -45,15 +45,14 @@
                     <DataGridTextColumn Header="Entity" Binding="{Binding Path=EntityValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Model Name" Binding="{Binding Path=ModelName}" />
                     <DataGridTextColumn Header="Anim Name" Binding="{Binding Path=AnimName}" />
-                    <DataGridTextColumn Header="No Apdx?" Binding="{Binding Path=FlagNoApdx}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Before?" Binding="{Binding Path=FlagBefore}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Fix Color?" Binding="{Binding Path=FlagFixColor}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Fly?" Binding="{Binding Path=FlagFly}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Scissoring?" Binding="{Binding Path=FlagScissoring}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Pirate?" Binding="{Binding Path=FlagPirate}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Wall Occlusion?" Binding="{Binding Path=FlagWallOcclusion}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Hift?" Binding="{Binding Path=FlagHift}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Flags" Binding="{Binding Path=Flags}" />
+                    <DataGridCheckBoxColumn Header="No Apdx?" Binding="{Binding Path=FlagNoApdx}" />
+                    <DataGridCheckBoxColumn Header="Before?" Binding="{Binding Path=FlagBefore}" />
+                    <DataGridCheckBoxColumn Header="Fix Color?" Binding="{Binding Path=FlagFixColor}" />
+                    <DataGridCheckBoxColumn Header="Fly?" Binding="{Binding Path=FlagFly}" />
+                    <DataGridCheckBoxColumn Header="Scissoring?" Binding="{Binding Path=FlagScissoring}" />
+                    <DataGridCheckBoxColumn Header="Pirate?" Binding="{Binding Path=FlagPirate}" />
+                    <DataGridCheckBoxColumn Header="Wall Occlusion?" Binding="{Binding Path=FlagWallOcclusion}" />
+                    <DataGridCheckBoxColumn Header="Hift?" Binding="{Binding Path=FlagHift}" />
                     <DataGridTextColumn Header="Target" Binding="{Binding Path=TargetValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Target Id" Binding="{Binding Path=Target}" />
                     <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=NeoStatus}" />

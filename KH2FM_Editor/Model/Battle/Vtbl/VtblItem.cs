@@ -14,7 +14,7 @@ namespace KH2FM_Editor.Model.Battle.Vtbl
         public int charOffset = 0, charSize = 1;
         public int actionOffset = 1, actionSize = 1;
         public int priorityOffset = 2, prioritySize = 1;
-        public int unk03Offset = 3, unk03Size = 1;
+        public int res03Offset = 3, res03Size = 1;
         public int voice1Offset = 4, voice1Size = 1;
         public int voice1ChanceOffset = 5, voice1ChanceSize = 1;
         public int voice2Offset = 6, voice2Size = 1;
@@ -52,11 +52,6 @@ namespace KH2FM_Editor.Model.Battle.Vtbl
         {
             get { return DataAccess.readHexString(raw, priorityOffset, prioritySize); }
             set { DataAccess.writeHexString(raw, value, priorityOffset, prioritySize); }
-        }
-        public string Unk03
-        {
-            get { return DataAccess.readHexString(raw, unk03Offset, unk03Size); }
-            set { DataAccess.writeHexString(raw, value, unk03Offset, unk03Size); }
         }
         public byte Voice1
         {

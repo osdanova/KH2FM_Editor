@@ -28,26 +28,57 @@
                   ItemsSource="{Binding BtlvFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Progress Flag" Binding="{Binding Path=ProgressFlag}" />
-                    <DataGridTextColumn Header="Battle Level01" Binding="{Binding Path=BattleLevel01}" />
-                    <DataGridTextColumn Header="Battle Level02" Binding="{Binding Path=BattleLevel02}" />
-                    <DataGridTextColumn Header="Battle Level03" Binding="{Binding Path=BattleLevel03}" />
-                    <DataGridTextColumn Header="Battle Level04" Binding="{Binding Path=BattleLevel04}" />
-                    <DataGridTextColumn Header="Battle Level05" Binding="{Binding Path=BattleLevel05}" />
-                    <DataGridTextColumn Header="Battle Level06" Binding="{Binding Path=BattleLevel06}" />
-                    <DataGridTextColumn Header="Battle Level07" Binding="{Binding Path=BattleLevel07}" />
-                    <DataGridTextColumn Header="Battle Level08" Binding="{Binding Path=BattleLevel08}" />
-                    <DataGridTextColumn Header="Battle Level09" Binding="{Binding Path=BattleLevel09}" />
-                    <DataGridTextColumn Header="Battle Level10" Binding="{Binding Path=BattleLevel10}" />
-                    <DataGridTextColumn Header="Battle Level11" Binding="{Binding Path=BattleLevel11}" />
-                    <DataGridTextColumn Header="Battle Level12" Binding="{Binding Path=BattleLevel12}" />
-                    <DataGridTextColumn Header="Battle Level13" Binding="{Binding Path=BattleLevel13}" />
-                    <DataGridTextColumn Header="Battle Level14" Binding="{Binding Path=BattleLevel14}" />
-                    <DataGridTextColumn Header="Battle Level15" Binding="{Binding Path=BattleLevel15}" />
-                    <DataGridTextColumn Header="Battle Level16" Binding="{Binding Path=BattleLevel16}" />
-                    <DataGridTextColumn Header="Battle Level17" Binding="{Binding Path=BattleLevel17}" />
-                    <DataGridTextColumn Header="Battle Level18" Binding="{Binding Path=BattleLevel18}" />
-                    <DataGridTextColumn Header="Battle Level19" Binding="{Binding Path=BattleLevel19}" />
+                    <DataGridTextColumn Header="ZZ" Binding="{Binding Path=BattleLevel01}" />
+                    <DataGridTextColumn Header="Realm of Darkness" Binding="{Binding Path=BattleLevel02}" />
+                    <DataGridTextColumn Header="Twilight Town" Binding="{Binding Path=BattleLevel03}" />
+                    <DataGridTextColumn Header="Destiny Islands" Binding="{Binding Path=BattleLevel04}" />
+                    <DataGridTextColumn Header="Hollow Bastion" Binding="{Binding Path=BattleLevel05}" />
+                    <DataGridTextColumn Header="Beast's Castle" Binding="{Binding Path=BattleLevel06}" />
+                    <DataGridTextColumn Header="Olympus Coliseum" Binding="{Binding Path=BattleLevel07}" />
+                    <DataGridTextColumn Header="Agrabah" Binding="{Binding Path=BattleLevel08}" />
+                    <DataGridTextColumn Header="Land of Dragons" Binding="{Binding Path=BattleLevel09}" />
+                    <DataGridTextColumn Header="100 Acre Woods" Binding="{Binding Path=BattleLevel10}" />
+                    <DataGridTextColumn Header="Pride Lands" Binding="{Binding Path=BattleLevel11}" />
+                    <DataGridTextColumn Header="Atlantica" Binding="{Binding Path=BattleLevel12}" />
+                    <DataGridTextColumn Header="Disney Castle" Binding="{Binding Path=BattleLevel13}" />
+                    <DataGridTextColumn Header="Timeless River" Binding="{Binding Path=BattleLevel14}" />
+                    <DataGridTextColumn Header="Halloween Town" Binding="{Binding Path=BattleLevel15}" />
+                    <DataGridTextColumn Header="World Map" Binding="{Binding Path=BattleLevel16}" />
+                    <DataGridTextColumn Header="Port Royal" Binding="{Binding Path=BattleLevel17}" />
+                    <DataGridTextColumn Header="Space Paranoids" Binding="{Binding Path=BattleLevel18}" />
+                    <DataGridTextColumn Header="The World That Never Was" Binding="{Binding Path=BattleLevel19}" />
+                    <DataGridCheckBoxColumn Header="Flag1" Binding="{Binding Path=Flag1}" />
+                    <DataGridCheckBoxColumn Header="Flag2" Binding="{Binding Path=Flag2}" />
+                    <DataGridCheckBoxColumn Header="Flag3" Binding="{Binding Path=Flag3}" />
+                    <DataGridCheckBoxColumn Header="Flag4" Binding="{Binding Path=Flag4}" />
+                    <DataGridCheckBoxColumn Header="Flag5" Binding="{Binding Path=Flag5}" />
+                    <DataGridCheckBoxColumn Header="Flag6" Binding="{Binding Path=Flag6}" />
+                    <DataGridCheckBoxColumn Header="Flag7" Binding="{Binding Path=Flag7}" />
+                    <DataGridCheckBoxColumn Header="Flag8" Binding="{Binding Path=Flag8}" />
+                    <DataGridCheckBoxColumn Header="Flag9" Binding="{Binding Path=Flag9}" />
+                    <DataGridCheckBoxColumn Header="Flag10" Binding="{Binding Path=Flag10}" />
+                    <DataGridCheckBoxColumn Header="Flag11" Binding="{Binding Path=Flag11}" />
+                    <DataGridCheckBoxColumn Header="Flag12" Binding="{Binding Path=Flag12}" />
+                    <DataGridCheckBoxColumn Header="Flag13" Binding="{Binding Path=Flag13}" />
+                    <DataGridCheckBoxColumn Header="Flag14" Binding="{Binding Path=Flag14}" />
+                    <!--<DataGridCheckBoxColumn Header="Flag15" Binding="{Binding Path=Flag15}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag16" Binding="{Binding Path=Flag16}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag17" Binding="{Binding Path=Flag17}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag18" Binding="{Binding Path=Flag18}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag19" Binding="{Binding Path=Flag19}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag20" Binding="{Binding Path=Flag20}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag21" Binding="{Binding Path=Flag21}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag22" Binding="{Binding Path=Flag22}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag23" Binding="{Binding Path=Flag23}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag24" Binding="{Binding Path=Flag24}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag25" Binding="{Binding Path=Flag25}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag26" Binding="{Binding Path=Flag26}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag27" Binding="{Binding Path=Flag27}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag28" Binding="{Binding Path=Flag28}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag29" Binding="{Binding Path=Flag29}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag30" Binding="{Binding Path=Flag30}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag31" Binding="{Binding Path=Flag31}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag32" Binding="{Binding Path=Flag32}" />-->
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

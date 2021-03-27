@@ -2,6 +2,7 @@
 using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.Battle.Atkp
@@ -120,11 +121,18 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readHexString(raw, unk16Offset, unk16Size); }
             set { DataAccess.writeHexString(raw, value, unk16Offset, unk16Size); }
         }
-        public byte Flag
+        public byte Flags
         {
             get { return DataAccess.readByte(raw, flagOffset); }
             set { DataAccess.writeByte(raw, value, flagOffset); }
         }
+        public bool FlagBGHit { get { return new BitArray(new int[1] { Flags }).Get(0); } set { Flags = BinaryHandler.setBitFromFlagTo(Flags, 0, value); } }
+        public bool FlagLimitPAX { get { return new BitArray(new int[1] { Flags }).Get(1); } set { Flags = BinaryHandler.setBitFromFlagTo(Flags, 1, value); } }
+        public bool FlagLand { get { return new BitArray(new int[1] { Flags }).Get(2); } set { Flags = BinaryHandler.setBitFromFlagTo(Flags, 2, value); } }
+        public bool FlagCapturePAX { get { return new BitArray(new int[1] { Flags }).Get(3); } set { Flags = BinaryHandler.setBitFromFlagTo(Flags, 3, value); } }
+        public bool FlagThankYou { get { return new BitArray(new int[1] { Flags }).Get(4); } set { Flags = BinaryHandler.setBitFromFlagTo(Flags, 4, value); } }
+        public bool FlagKillBoss { get { return new BitArray(new int[1] { Flags }).Get(5); } set { Flags = BinaryHandler.setBitFromFlagTo(Flags, 5, value); } }
+
         public string RefactSelfValue
         {
             get { return AtkpDictionary.getRefact(RefactSelf); }

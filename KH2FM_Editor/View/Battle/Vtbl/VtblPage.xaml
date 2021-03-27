@@ -31,7 +31,6 @@
                     <DataGridTextColumn Header="Char Id" Binding="{Binding Path=Char}" />
                     <DataGridTextColumn Header="Action" Binding="{Binding Path=Action}" />
                     <DataGridTextColumn Header="Priority" Binding="{Binding Path=Priority}" />
-                    <DataGridTextColumn Header="Unk03" Binding="{Binding Path=Unk03}" />
                     <DataGridTextColumn Header="Voice 1" Binding="{Binding Path=Voice1}" />
                     <DataGridTextColumn Header="Voice 1 Chance" Binding="{Binding Path=Voice1Chance}" />
                     <DataGridTextColumn Header="Voice 2" Binding="{Binding Path=Voice2}" />

@@ -10,14 +10,17 @@ namespace KH2FM_Editor.Model.Battle.Plrp
     {
         public static readonly int entrySize = 128;
         // Data Location
-        public int unk0Offset = 0, unk0Size = 2;
+        public int versionOffset = 0, versionSize = 2;
         public int characterOffset = 2, characterSize = 1;
         public int hpOffset = 3, hpSize = 1;
         public int mpOffset = 4, mpSize = 1;
         public int apOffset = 5, apSize = 1;
-        public int unk6Offset = 6, unk6Size = 2;
-        public int unk8Offset = 8, unk8Size = 2;
-        public int unk10Offset = 10, unk10Size = 2;
+        public int strengthOffset = 6, strengthSize = 1;
+        public int magicOffset = 7, magicSize = 1;
+        public int defenseOffset = 8, defenseSize = 1;
+        public int armorOffset = 9, armorSize = 1;
+        public int accOffset = 10, accSize = 1;
+        public int itemOffset = 11, itemSize = 1;
         //public int itemsOffset = 12, itemsSize = 116;
         public static readonly int item1Offset = 12, item1Size = 2;
         public static readonly int item2Offset = 14, item2Size = 2;
@@ -79,10 +82,10 @@ namespace KH2FM_Editor.Model.Battle.Plrp
         {
         }
 
-        public string Unk0
+        public ushort Version
         {
-            get { return DataAccess.readHexString(raw, unk0Offset, unk0Size); }
-            set { DataAccess.writeHexString(raw, value, unk0Offset, unk0Size); }
+            get { return DataAccess.readUShort(raw, versionOffset, versionSize); }
+            set { DataAccess.writeUShort(raw, value, versionOffset, versionSize); }
         }
         public string Character
         {
@@ -108,20 +111,35 @@ namespace KH2FM_Editor.Model.Battle.Plrp
             get { return DataAccess.readByte(raw, apOffset); }
             set { DataAccess.writeByte(raw, value, apOffset); }
         }
-        public string Unk6
+        public byte Strength
         {
-            get { return DataAccess.readHexString(raw, unk6Offset, unk6Size); }
-            set { DataAccess.writeHexString(raw, value, unk6Offset, unk6Size); }
+            get { return DataAccess.readByte(raw, strengthOffset); }
+            set { DataAccess.writeByte(raw, value, strengthOffset); }
         }
-        public string Unk8
+        public byte Magic
         {
-            get { return DataAccess.readHexString(raw, unk8Offset, unk8Size); }
-            set { DataAccess.writeHexString(raw, value, unk8Offset, unk8Size); }
+            get { return DataAccess.readByte(raw, magicOffset); }
+            set { DataAccess.writeByte(raw, value, magicOffset); }
         }
-        public string Unk10
+        public byte Defense
         {
-            get { return DataAccess.readHexString(raw, unk10Offset, unk10Size); }
-            set { DataAccess.writeHexString(raw, value, unk10Offset, unk10Size); }
+            get { return DataAccess.readByte(raw, defenseOffset); }
+            set { DataAccess.writeByte(raw, value, defenseOffset); }
+        }
+        public byte Armor
+        {
+            get { return DataAccess.readByte(raw, armorOffset); }
+            set { DataAccess.writeByte(raw, value, armorOffset); }
+        }
+        public byte Acc
+        {
+            get { return DataAccess.readByte(raw, accOffset); }
+            set { DataAccess.writeByte(raw, value, accOffset); }
+        }
+        public byte Item
+        {
+            get { return DataAccess.readByte(raw, itemOffset); }
+            set { DataAccess.writeByte(raw, value, itemOffset); }
         }/*
         public string Items
         {

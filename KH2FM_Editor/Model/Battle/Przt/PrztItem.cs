@@ -22,7 +22,7 @@ namespace KH2FM_Editor.Model.Battle.Przt
         public int mpLOffset = 8, mpLSize = 1;
         public int driveSOffset = 9, driveSSize = 1;
         public int driveLOffset = 10, driveLSize = 1;
-        public int unk11Offset = 11, unk11Size = 1;
+        public int pad11Offset = 11, pad11Size = 1;
         public int drop1Offset = 12, drop1Size = 2;
         public int drop1ChanceOffset = 14, drop1ChanceSize = 2;
         public int drop2Offset = 16, drop2Size = 2;
@@ -91,11 +91,6 @@ namespace KH2FM_Editor.Model.Battle.Przt
         {
             get { return DataAccess.readByte(raw, driveLOffset); }
             set { DataAccess.writeByte(raw, value, driveLOffset); }
-        }
-        public byte Unk11
-        {
-            get { return DataAccess.readByte(raw, unk11Offset); }
-            set { DataAccess.writeByte(raw, value, unk11Offset); }
         }
         public string Drop1Value
         {

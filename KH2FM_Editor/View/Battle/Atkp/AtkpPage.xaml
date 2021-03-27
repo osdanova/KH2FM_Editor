@@ -41,7 +41,12 @@
                     <DataGridTextColumn Header="KnockbackStr1" Binding="{Binding Path=KnockbackStr1}" />
                     <DataGridTextColumn Header="KnockbackStr2" Binding="{Binding Path=KnockbackStr2}" />
                     <DataGridTextColumn Header="Unk16" Binding="{Binding Path=Unk16}" />
-                    <DataGridTextColumn Header="Flag" Binding="{Binding Path=Flag}" />
+                    <DataGridCheckBoxColumn Header="BGHit?" Binding="{Binding Path=FlagBGHit}" />
+                    <DataGridCheckBoxColumn Header="Limit PAX?" Binding="{Binding Path=FlagLimitPAX}" />
+                    <DataGridCheckBoxColumn Header="Land?" Binding="{Binding Path=FlagLand}" />
+                    <DataGridCheckBoxColumn Header="Capture PAX?" Binding="{Binding Path=FlagCapturePAX}" />
+                    <DataGridCheckBoxColumn Header="Thank You?" Binding="{Binding Path=FlagThankYou}" />
+                    <DataGridCheckBoxColumn Header="Kill Boss?" Binding="{Binding Path=FlagKillBoss}" />
                     <DataGridTextColumn Header="Refact Self" Binding="{Binding Path=RefactSelfValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Refact Self Id" Binding="{Binding Path=RefactSelf}" />
                     <DataGridTextColumn Header="Refact Other" Binding="{Binding Path=RefactOtherValue}" IsReadOnly="True" />

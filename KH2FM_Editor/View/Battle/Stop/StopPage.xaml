@@ -28,7 +28,10 @@
                   ItemsSource="{Binding StopFileItems}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Unk2" Binding="{Binding Path=Unk2}" />
+                    <DataGridCheckBoxColumn Header="Exist" Binding="{Binding Path=Exist}" />
+                    <DataGridCheckBoxColumn Header="DisableDamageReaction" Binding="{Binding Path=DisableDamageReaction}" />
+                    <DataGridCheckBoxColumn Header="Star" Binding="{Binding Path=Star}" />
+                    <DataGridCheckBoxColumn Header="DisableDraw" Binding="{Binding Path=DisableDraw}" />
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

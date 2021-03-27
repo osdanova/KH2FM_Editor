@@ -38,7 +38,6 @@
                     <DataGridTextColumn Header="MpL" Binding="{Binding Path=MpL}" />
                     <DataGridTextColumn Header="DriveS" Binding="{Binding Path=DriveS}" />
                     <DataGridTextColumn Header="DriveL" Binding="{Binding Path=DriveL}" />
-                    <DataGridTextColumn Header="Unk11" Binding="{Binding Path=Unk11}" />
                     <DataGridTextColumn Header="Drop 1" Binding="{Binding Path=Drop1Value}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Drop 1 Id" Binding="{Binding Path=Drop1}" />
                     <DataGridTextColumn Header="Drop 1 Chance" Binding="{Binding Path=Drop1Chance}" />

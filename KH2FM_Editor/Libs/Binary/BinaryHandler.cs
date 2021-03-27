@@ -1,5 +1,6 @@
 ﻿using KH2FM_Editor.Libs.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -69,6 +70,17 @@ namespace KH2FM_Editor.Libs.Binary
             {
                 input.Insert(0,0);
             }
+        }
+
+        public static byte setBitFromFlagTo(Byte flag, int pos, bool one)
+        {
+            byte[] bytes = new byte[1];
+            bytes[0] = flag;
+            BitArray ba = new BitArray(bytes);
+            ba.Set(pos, one);
+            //Convert back to byte.
+            ba.CopyTo(bytes, 0);
+            return bytes[0];
         }
     }
 }
