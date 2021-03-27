@@ -35,7 +35,6 @@
                     <DataGridTextColumn Header="Icon" Binding="{Binding Path=IconValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Icon Id" Binding="{Binding Path=Icon}" />
                     <DataGridTextColumn Header="Text" Binding="{Binding Path=Text}" />
-                    <DataGridTextColumn Header="Flag" Binding="{Binding Path=Flag}" />
                     <DataGridTextColumn Header="Range" Binding="{Binding Path=Range}" />
                     <DataGridTextColumn Header="Dir" Binding="{Binding Path=Dir}" />
                     <DataGridTextColumn Header="DirRange" Binding="{Binding Path=DirRange}" />
@@ -56,6 +55,38 @@
                     <DataGridTextColumn Header="DisableForm" Binding="{Binding Path=DisableForm}" />
                     <DataGridTextColumn Header="Group" Binding="{Binding Path=Group}" />
                     <DataGridTextColumn Header="Reserve" Binding="{Binding Path=Reserve}" />
+                    <DataGridCheckBoxColumn Header="Cursor?" Binding="{Binding Path=FlagCursor}" />
+                    <DataGridCheckBoxColumn Header="Land?" Binding="{Binding Path=FlagLand}" />
+                    <DataGridCheckBoxColumn Header="Force?" Binding="{Binding Path=FlagForce}" />
+                    <DataGridCheckBoxColumn Header="Combo?" Binding="{Binding Path=FlagCombo}" />
+                    <DataGridCheckBoxColumn Header="Flag5" Binding="{Binding Path=Flag5}" />
+                    <DataGridCheckBoxColumn Header="Flag6" Binding="{Binding Path=Flag6}" />
+                    <DataGridCheckBoxColumn Header="Flag7" Binding="{Binding Path=Flag7}" />
+                    <DataGridCheckBoxColumn Header="Flag8" Binding="{Binding Path=Flag8}" />
+                    <DataGridCheckBoxColumn Header="Flag9" Binding="{Binding Path=Flag9}" />
+                    <DataGridCheckBoxColumn Header="Flag10" Binding="{Binding Path=Flag10}" />
+                    <DataGridCheckBoxColumn Header="Flag11" Binding="{Binding Path=Flag11}" />
+                    <DataGridCheckBoxColumn Header="Flag12" Binding="{Binding Path=Flag12}" />
+                    <DataGridCheckBoxColumn Header="Flag13" Binding="{Binding Path=Flag13}" />
+                    <DataGridCheckBoxColumn Header="Flag14" Binding="{Binding Path=Flag14}" />
+                    <DataGridCheckBoxColumn Header="Flag15" Binding="{Binding Path=Flag15}" />
+                    <DataGridCheckBoxColumn Header="Flag16" Binding="{Binding Path=Flag16}" />
+                    <DataGridCheckBoxColumn Header="Flag17" Binding="{Binding Path=Flag17}" />
+                    <!--<DataGridCheckBoxColumn Header="Flag18" Binding="{Binding Path=Flag18}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag19" Binding="{Binding Path=Flag19}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag20" Binding="{Binding Path=Flag20}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag21" Binding="{Binding Path=Flag21}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag22" Binding="{Binding Path=Flag22}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag23" Binding="{Binding Path=Flag23}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag24" Binding="{Binding Path=Flag24}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag25" Binding="{Binding Path=Flag25}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag26" Binding="{Binding Path=Flag26}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag27" Binding="{Binding Path=Flag27}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag28" Binding="{Binding Path=Flag28}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag29" Binding="{Binding Path=Flag29}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag30" Binding="{Binding Path=Flag30}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag31" Binding="{Binding Path=Flag31}" />-->
+                    <!--<DataGridCheckBoxColumn Header="Flag32" Binding="{Binding Path=Flag32}" />-->
                 </DataGrid.Columns>
             </DataGrid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />

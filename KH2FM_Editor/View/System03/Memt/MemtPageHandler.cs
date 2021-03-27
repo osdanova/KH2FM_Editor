@@ -15,6 +15,7 @@ namespace KH2FM_Editor.View.System03.Memt
         //String FilePath { get; set; }
         public MemtFile MemtFileLoaded { get; set; }
         public ObservableCollection<MemtItem> MemtFileItems { get; set; }
+        public ObservableCollection<MemtConf> MemtFileConfs { get; set; }
 
         // OPTIONS
         public static string MemOffsetFallback = "21CE0BA0"; // Crazycatz's English patch
@@ -40,6 +41,11 @@ namespace KH2FM_Editor.View.System03.Memt
             {
                 MemtFileItems.Add(entry);
             }
+            MemtFileConfs = new ObservableCollection<MemtConf>();
+            foreach (MemtConf entry in MemtFileLoaded.MemtConfs)
+            {
+                MemtFileConfs.Add(entry);
+            }
         }
 
         public void insertDataToFile()
@@ -48,6 +54,11 @@ namespace KH2FM_Editor.View.System03.Memt
             foreach (MemtItem entry in MemtFileItems)
             {
                 MemtFileLoaded.Entries.Add(entry);
+            }
+            MemtFileLoaded.Entries = new ObservableCollection<Str_EntryItem>();
+            foreach (MemtConf entry in MemtFileConfs)
+            {
+                MemtFileLoaded.MemtConfs.Add(entry);
             }
         }
 

@@ -2,6 +2,7 @@
 using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace KH2FM_Editor.Model.System03.Cmd
@@ -80,11 +81,6 @@ namespace KH2FM_Editor.Model.System03.Cmd
         {
             get { return DataAccess.readInt(raw, textOffset, textSize); }
             set { DataAccess.writeInt(raw, value, textOffset, textSize); }
-        }
-        public uint Flag
-        {
-            get { return DataAccess.readUInt(raw, flagOffset, flagSize); }
-            set { DataAccess.writeUInt(raw, value, flagOffset, flagSize); }
         }
         public float Range
         {
@@ -183,5 +179,61 @@ namespace KH2FM_Editor.Model.System03.Cmd
             get { return DataAccess.readByte(raw, reserveOffset); }
             set { DataAccess.writeByte(raw, value, reserveOffset); }
         }
+
+        public byte FlagA
+        {
+            get { return DataAccess.readByte(raw, flagOffset); }
+            set { DataAccess.writeByte(raw, value, flagOffset); }
+        }
+        public bool FlagCursor { get { return new BitArray(new int[1] { FlagA }).Get(0); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 0, value); } }
+        public bool FlagLand { get { return new BitArray(new int[1] { FlagA }).Get(1); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 1, value); } }
+        public bool FlagForce { get { return new BitArray(new int[1] { FlagA }).Get(2); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 2, value); } }
+        public bool FlagCombo { get { return new BitArray(new int[1] { FlagA }).Get(3); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 3, value); } }
+        public bool Flag5 { get { return new BitArray(new int[1] { FlagA }).Get(4); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 4, value); } }
+        public bool Flag6 { get { return new BitArray(new int[1] { FlagA }).Get(5); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 5, value); } }
+        public bool Flag7 { get { return new BitArray(new int[1] { FlagA }).Get(6); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 6, value); } }
+        public bool Flag8 { get { return new BitArray(new int[1] { FlagA }).Get(7); } set { FlagA = BinaryHandler.setBitFromFlagTo(FlagA, 7, value); } }
+
+        public byte FlagB
+        {
+            get { return DataAccess.readByte(raw, flagOffset + 1); }
+            set { DataAccess.writeByte(raw, value, flagOffset + 1); }
+        }
+        public bool Flag9 { get { return new BitArray(new int[1] { FlagB }).Get(0); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 0, value); } }
+        public bool Flag10 { get { return new BitArray(new int[1] { FlagB }).Get(1); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 1, value); } }
+        public bool Flag11 { get { return new BitArray(new int[1] { FlagB }).Get(2); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 2, value); } }
+        public bool Flag12 { get { return new BitArray(new int[1] { FlagB }).Get(3); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 3, value); } }
+        public bool Flag13 { get { return new BitArray(new int[1] { FlagB }).Get(4); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 4, value); } }
+        public bool Flag14 { get { return new BitArray(new int[1] { FlagB }).Get(5); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 5, value); } }
+        public bool Flag15 { get { return new BitArray(new int[1] { FlagB }).Get(6); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 6, value); } }
+        public bool Flag16 { get { return new BitArray(new int[1] { FlagB }).Get(7); } set { FlagB = BinaryHandler.setBitFromFlagTo(FlagB, 7, value); } }
+
+        public byte FlagC
+        {
+            get { return DataAccess.readByte(raw, flagOffset + 2); }
+            set { DataAccess.writeByte(raw, value, flagOffset + 2); }
+        }
+        public bool Flag17 { get { return new BitArray(new int[1] { FlagC }).Get(0); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 0, value); } }
+        /*public bool Flag18 { get { return new BitArray(new int[1] { FlagC }).Get(1); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 1, value); } }
+        public bool Flag19 { get { return new BitArray(new int[1] { FlagC }).Get(2); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 2, value); } }
+        public bool Flag20 { get { return new BitArray(new int[1] { FlagC }).Get(3); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 3, value); } }
+        public bool Flag21 { get { return new BitArray(new int[1] { FlagC }).Get(4); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 4, value); } }
+        public bool Flag22 { get { return new BitArray(new int[1] { FlagC }).Get(5); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 5, value); } }
+        public bool Flag23 { get { return new BitArray(new int[1] { FlagC }).Get(6); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 6, value); } }
+        public bool Flag24 { get { return new BitArray(new int[1] { FlagC }).Get(7); } set { FlagC = BinaryHandler.setBitFromFlagTo(FlagC, 7, value); } }
+
+        public byte FlagD
+        {
+            get { return DataAccess.readByte(raw, flagOffset + 3); }
+            set { DataAccess.writeByte(raw, value, flagOffset + 3); }
+        }
+        public bool Flag25 { get { return new BitArray(new int[1] { FlagD }).Get(0); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 0, value); } }
+        public bool Flag26 { get { return new BitArray(new int[1] { FlagD }).Get(1); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 1, value); } }
+        public bool Flag27 { get { return new BitArray(new int[1] { FlagD }).Get(2); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 2, value); } }
+        public bool Flag28 { get { return new BitArray(new int[1] { FlagD }).Get(3); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 3, value); } }
+        public bool Flag29 { get { return new BitArray(new int[1] { FlagD }).Get(4); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 4, value); } }
+        public bool Flag30 { get { return new BitArray(new int[1] { FlagD }).Get(5); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 5, value); } }
+        public bool Flag31 { get { return new BitArray(new int[1] { FlagD }).Get(6); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 6, value); } }
+        public bool Flag32 { get { return new BitArray(new int[1] { FlagD }).Get(7); } set { FlagD = BinaryHandler.setBitFromFlagTo(FlagD, 7, value); } }*/
     }
 }

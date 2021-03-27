@@ -11,7 +11,9 @@ namespace KH2FM_Editor.Model.System03.Memt
         public static readonly int entrySize = 52;
         // Data Location
         public static readonly int worldIdOffset = 0, worldIdSize = 1;
-        public static readonly int unk2Offset = 1, unk2Size = 15;
+        public static readonly int worldStoryOffset = 2, worldStorySize = 2;
+        public static readonly int worldStoryNegOffset = 4, worldStoryNegSize = 2;
+        public static readonly int unk06Offset = 6, unk06Size = 10;
         public static readonly int playerOffset = 16, playerSize = 2;
         public static readonly int party1Offset = 18, party1Size = 2;
         public static readonly int party2Offset = 20, party2Size = 2;
@@ -48,10 +50,20 @@ namespace KH2FM_Editor.Model.System03.Memt
             get { return DataAccess.readByte(raw, worldIdOffset); }
             set { DataAccess.writeByte(raw, value, worldIdOffset); NotifyPropertyChanged(nameof(World)); }
         }
-        public string Unk2
+        public string WorldStory
         {
-            get { return DataAccess.readHexString(raw, unk2Offset, unk2Size); }
-            set { DataAccess.writeHexString(raw, value, unk2Offset, unk2Size); }
+            get { return DataAccess.readHexString(raw, worldStoryOffset, worldStorySize); }
+            set { DataAccess.writeHexString(raw, value, worldStoryOffset, worldStorySize); }
+        }
+        public string WorldStoryNeg
+        {
+            get { return DataAccess.readHexString(raw, worldStoryNegOffset, worldStoryNegSize); }
+            set { DataAccess.writeHexString(raw, value, worldStoryNegOffset, worldStoryNegSize); }
+        }
+        public string Unk06
+        {
+            get { return DataAccess.readHexString(raw, unk06Offset, unk06Size); }
+            set { DataAccess.writeHexString(raw, value, unk06Offset, unk06Size); }
         }
         public string Player
         {

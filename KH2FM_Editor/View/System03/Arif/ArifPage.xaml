@@ -61,17 +61,6 @@
                                 <DataGridTextColumn Header="Voice" Binding="{Binding Path=Voice}" />
                                 <DataGridTextColumn Header="Navimap" Binding="{Binding Path=Navimap}" />
                                 <DataGridTextColumn Header="Command" Binding="{Binding Path=Command}" />
-                                <DataGridTextColumn Header="Reserve1" Binding="{Binding Path=Reserve1}" />
-                                <DataGridTextColumn Header="Reserve2" Binding="{Binding Path=Reserve2}" />
-                                <DataGridTextColumn Header="Reserve3" Binding="{Binding Path=Reserve3}" />
-                                <DataGridTextColumn Header="Reserve4" Binding="{Binding Path=Reserve4}" />
-                                <DataGridTextColumn Header="Reserve5" Binding="{Binding Path=Reserve5}" />
-                                <DataGridTextColumn Header="Reserve6" Binding="{Binding Path=Reserve6}" />
-                                <DataGridTextColumn Header="Reserve7" Binding="{Binding Path=Reserve7}" />
-                                <DataGridTextColumn Header="Reserve8" Binding="{Binding Path=Reserve8}" />
-                                <DataGridTextColumn Header="Reserve9" Binding="{Binding Path=Reserve9}" />
-                                <DataGridTextColumn Header="Reserve10" Binding="{Binding Path=Reserve10}" />
-                                <DataGridTextColumn Header="Reserve11" Binding="{Binding Path=Reserve11}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </DataTemplate>

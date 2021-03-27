@@ -32,17 +32,7 @@ namespace KH2FM_Editor.Model.System03.Arif
         public int voiceOffset = 48, voiceSize = 2;
         public int navimapOffset = 50, navimapSize = 2;
         public int commandOffset = 52, commandSize = 1;
-        public int reserve1Offset = 53, reserve1Size = 1;
-        public int reserve2Offset = 54, reserve2Size = 1;
-        public int reserve3Offset = 55, reserve3Size = 1;
-        public int reserve4Offset = 56, reserve4Size = 1;
-        public int reserve5Offset = 57, reserve5Size = 1;
-        public int reserve6Offset = 58, reserve6Size = 1;
-        public int reserve7Offset = 59, reserve7Size = 1;
-        public int reserve8Offset = 60, reserve8Size = 1;
-        public int reserve9Offset = 61, reserve9Size = 1;
-        public int reserve10Offset = 62, reserve10Size = 1;
-        public int reserve11Offset = 63, reserve11Size = 1;
+        public int reserveOffset = 53, reserveSize = 11;
 
         public ArifItem()
         {
@@ -167,6 +157,7 @@ namespace KH2FM_Editor.Model.System03.Arif
             get { return DataAccess.readByte(raw, commandOffset); }
             set { DataAccess.writeByte(raw, value, commandOffset); }
         }
+        /*
         public byte Reserve1
         {
             get { return DataAccess.readByte(raw, reserve1Offset); }
@@ -222,5 +213,6 @@ namespace KH2FM_Editor.Model.System03.Arif
             get { return DataAccess.readByte(raw, reserve11Offset); }
             set { DataAccess.writeByte(raw, value, reserve11Offset); }
         }
+        */
     }
 }
