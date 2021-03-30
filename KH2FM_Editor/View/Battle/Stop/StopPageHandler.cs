@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Stop;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Stop;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Stop
 {
-    class StopPageHandler
+    class StopPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public StopFile StopFileLoaded { get; set; }
         public ObservableCollection<StopItem> StopFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D1A394"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public StopPageHandler(StopFile file)
         {
+            MemOffsetFallback = "21D1A394"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "stop";
+
             findAddress();
             Console.WriteLine("DEBUG > StopPageHandler > Processing file...");
             StopFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Battle.Stop
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = StopFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > StopPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Battle.Stop
             Console.WriteLine("DEBUG > StopPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > StopPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("stop");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

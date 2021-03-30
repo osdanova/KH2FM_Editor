@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using KH2FM_Editor.Enum;
 
 namespace KH2FM_Editor.Libs.Utils
 {
@@ -35,9 +36,11 @@ namespace KH2FM_Editor.Libs.Utils
         }
 
         // Returns the hex string of 8 digits of the given value
-        public static string getHexString8(int value)
+        public static string getHexString(long value, ProcessType procType)
         {
-            return value.ToString("X8");
+            if(procType == ProcessType.PCSX2) return value.ToString("X8");
+            if (procType == ProcessType.EGS) return value.ToString("X12");
+            return null;
         }
     }
 }

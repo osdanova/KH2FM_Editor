@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Plrp;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Plrp;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Plrp
 {
-    class PlrpPageHandler
+    class PlrpPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public PlrpFile PlrpFileLoaded { get; set; }
         public ObservableCollection<PlrpItem> PlrpFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D16E88"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public PlrpPageHandler(PlrpFile file)
         {
+            MemOffsetFallback = "21D16E88"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "plrp";
+
             findAddress();
             Console.WriteLine("DEBUG > PlrpPageHandler > Processing file...");
             PlrpFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Battle.Plrp
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = PlrpFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > PlrpPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Battle.Plrp
             Console.WriteLine("DEBUG > PlrpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > PlrpPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("plrp");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

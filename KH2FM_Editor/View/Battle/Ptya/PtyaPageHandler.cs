@@ -1,29 +1,21 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Ptya;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Ptya;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Ptya
 {
-    class PtyaPageHandler
+    class PtyaPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public PtyaFile PtyaFileLoaded { get; set; }
         //public ObservableCollection<PtyaItem> PtyaFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D05CE0"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public PtyaPageHandler(PtyaFile file)
         {
+            MemOffsetFallback = "21D05CE0"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "ptya";
+
             findAddress();
             Console.WriteLine("DEBUG > PtyaPageHandler > Processing file...");
             PtyaFileLoaded = file;
@@ -37,7 +29,7 @@ namespace KH2FM_Editor.View.Battle.Ptya
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = PtyaFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > PtyaPageHandler > Finished writing!");
         }
 
@@ -46,15 +38,6 @@ namespace KH2FM_Editor.View.Battle.Ptya
             if (PtyaFileLoaded == null) return;
             Console.WriteLine("DEBUG > PtyaPageHandler > Saving...");
             Console.WriteLine("DEBUG > PtyaPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("ptya");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

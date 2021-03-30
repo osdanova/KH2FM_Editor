@@ -1,16 +1,16 @@
-﻿using KH2FM_Editor.Libs.FileHandler;
-using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.Objentry;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using KH2FM_Editor.Libs.FileHandler;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Objentry;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Objentry
 {
-    class ObjentryPageHandler
+    class ObjentryPageHandler : memoryLoadFile
     {
         // DATA
         String FileName { get; set; }
@@ -19,12 +19,15 @@ namespace KH2FM_Editor.View.Objentry
         public ObservableCollection<ObjentryItem> ObjentryFileItems { get; set; }
 
         // OPTIONS
-        public string MemOffset { get; set; }
         public string EntitySearch { get; set; }
 
         public ObjentryPageHandler(String filepath)
         {
-            MemOffset = "21C94100";
+            MemOffsetFallback = "21CE3848"; // PCSX2 CCZ's eng patch
+            MemOffset = MemOffsetFallback;
+            stringToFind = "NONE";
+
+            //findAddress();
             EntitySearch = "";
             Console.WriteLine("DEBUG > ObjentryPageHandler > Processing file...");
             processFile(filepath);
@@ -66,7 +69,7 @@ namespace KH2FM_Editor.View.Objentry
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = ObjentryFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > ObjentryPageHandler > Finished writing!");
         }
 

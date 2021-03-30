@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Vtbl;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Vtbl;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Vtbl
 {
-    class VtblPageHandler
+    class VtblPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public VtblFile VtblFileLoaded { get; set; }
         public ObservableCollection<VtblItem> VtblFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D0A96C"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public VtblPageHandler(VtblFile file)
         {
+            MemOffsetFallback = "21D0A96C"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "vtbl";
+
             findAddress();
             Console.WriteLine("DEBUG > VtblPageHandler > Processing file...");
             VtblFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Battle.Vtbl
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = VtblFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > VtblPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Battle.Vtbl
             Console.WriteLine("DEBUG > VtblPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > VtblPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("vtbl");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

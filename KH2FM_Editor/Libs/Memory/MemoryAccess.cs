@@ -37,7 +37,7 @@ namespace KH2FM_Editor.Libs.Memory
 
         //------------------------
 
-        public static List<byte> readMemory(Process process, int address, long size)
+        public static List<byte> readMemory(Process process, long address, long size)
         {
             var hProc = OpenProcess(ProcessAccessFlags.All, false, (int)process.Id);
             var val = new byte[size];
@@ -50,7 +50,7 @@ namespace KH2FM_Editor.Libs.Memory
             return val.ToList();
         }
 
-        public static void writeMemory(Process process, int address, long size, List<byte> input)
+        public static void writeMemory(Process process, long address, long size, List<byte> input)
         {
             var hProc = OpenProcess(ProcessAccessFlags.All, false, (int)process.Id);
             var val = input.ToArray();

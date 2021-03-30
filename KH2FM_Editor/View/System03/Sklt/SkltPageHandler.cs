@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.System03.Sklt;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.System03.Sklt;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.System03.Sklt
 {
-    class SkltPageHandler
+    class SkltPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public SkltFile SkltFileLoaded { get; set; }
         public ObservableCollection<SkltItem> SkltFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21CE26D0"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public SkltPageHandler(SkltFile file)
         {
+            MemOffsetFallback = "21CE26D0"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "sklt";
+
             findAddress();
             Console.WriteLine("DEBUG > SkltPageHandler > Processing file...");
             SkltFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.System03.Sklt
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = SkltFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > SkltPageHandler > Finished writing!");
         }
 
@@ -67,14 +61,6 @@ namespace KH2FM_Editor.View.System03.Sklt
             Console.WriteLine("DEBUG > SkltPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > SkltPageHandler > Finished saving!");
-        }
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("sklt");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

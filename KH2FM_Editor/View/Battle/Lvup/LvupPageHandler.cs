@@ -1,18 +1,14 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Lvup;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Lvup;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Lvup
 {
-    class LvupPageHandler
+    class LvupPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public LvupFile LvupFileLoaded { get; set; }
         public ObservableCollection<LvupItem> LvupFileItemsSoraRoxas { get; set; }
         public ObservableCollection<LvupItem> LvupFileItemsDonald { get; set; }
@@ -28,14 +24,12 @@ namespace KH2FM_Editor.View.Battle.Lvup
         public ObservableCollection<LvupItem> LvupFileItemsTron { get; set; }
         public ObservableCollection<LvupItem> LvupFileItemsRiku { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D0B6A4"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public LvupPageHandler(LvupFile file)
         {
+            MemOffsetFallback = "21D0B6A4"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "lvup";
+
             findAddress();
             Console.WriteLine("DEBUG > LvupPageHandler > Processing file...");
             LvupFileLoaded = file;
@@ -238,7 +232,7 @@ namespace KH2FM_Editor.View.Battle.Lvup
             //insertDataToFile();
             List<byte> fileToWrite = LvupFileLoaded.getAsByteList();
             Console.WriteLine("DEBUG > LvupPageHandler > Writing "+fileToWrite.Count+" bytes at address: " + int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber));
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > LvupPageHandler > Finished writing!");
         }
 
@@ -248,15 +242,6 @@ namespace KH2FM_Editor.View.Battle.Lvup
             Console.WriteLine("DEBUG > LvupPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > LvupPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("lvup");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

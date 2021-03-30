@@ -1,30 +1,24 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.Mixdata.Leve;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Mixdata.Leve;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Mixdata.Leve
 {
-    class LevePageHandler
+    class LevePageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public LeveFile LeveFileLoaded { get; set; }
         public ObservableCollection<LeveItem> LeveFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "211A9F00"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public LevePageHandler(LeveFile file)
         {
+            MemOffsetFallback = "211A9F00"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
-            findAddress();
+            stringToFind = "MILV";
+
+            findAddressDirect();
             Console.WriteLine("DEBUG > LevePageHandler > Processing file...");
             LeveFileLoaded = file;
             processFile();
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Mixdata.Leve
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = LeveFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > LevePageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Mixdata.Leve
             Console.WriteLine("DEBUG > LevePageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > LevePageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findAddressOf("MILV");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

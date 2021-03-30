@@ -1,30 +1,24 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.System03.Item;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.System03.Item;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.System03.Item
 {
-    class ItemPageHandler
+    class ItemPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public ItemFile ItemFileLoaded { get; set; }
         public ObservableCollection<ItemItem> ItemFileItems { get; set; }
         public ObservableCollection<EquipmentItem> ItemFileEquipment { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21CDBBA0"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public ItemPageHandler(ItemFile file)
         {
+            MemOffsetFallback = "21CDBBA0"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "item";
+
             findAddress();
             Console.WriteLine("DEBUG > ItemPageHandler > Processing file...");
             ItemFileLoaded = file;
@@ -68,7 +62,7 @@ namespace KH2FM_Editor.View.System03.Item
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = ItemFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > ItemPageHandler > Finished writing!");
         }
 
@@ -78,15 +72,6 @@ namespace KH2FM_Editor.View.System03.Item
             Console.WriteLine("DEBUG > ItemPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ItemPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("item");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

@@ -1,30 +1,24 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.Mixdata.Reci;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Mixdata.Reci;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Mixdata.Reci
 {
-    class ReciPageHandler
+    class ReciPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public ReciFile ReciFileLoaded { get; set; }
         public ObservableCollection<ReciItem> ReciFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "211A9890"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public ReciPageHandler(ReciFile file)
         {
+            MemOffsetFallback = "211A9890"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
-            findAddress();
+            stringToFind = "MIRE";
+
+            findAddressDirect();
             Console.WriteLine("DEBUG > ReciPageHandler > Processing file...");
             ReciFileLoaded = file;
             processFile();
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Mixdata.Reci
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = ReciFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > ReciPageHandler > Finished writing!");
         }
 
@@ -67,18 +61,6 @@ namespace KH2FM_Editor.View.Mixdata.Reci
             Console.WriteLine("DEBUG > ReciPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ReciPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            Console.WriteLine("DEBUG > Finding address");
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findAddressOf("MIRE");
-            Console.WriteLine("DEBUG > Address found: " + addressInt);
-            AddressFound = true;
-            if (addressInt == -1) return;
-            Console.WriteLine("DEBUG > Writing address");
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

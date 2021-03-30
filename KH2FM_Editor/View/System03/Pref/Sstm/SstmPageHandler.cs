@@ -1,27 +1,21 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.System03.Pref.Sstm;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using KH2FM_Editor.Model.System03.Pref.Sstm;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.System03.Sstm
 {
-    class SstmPageHandler
+    class SstmPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public SstmFile SstmFileLoaded { get; set; }
         //public ObservableCollection<SstmItem> SstmFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21CE36C4"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public SstmPageHandler(SstmFile file)
         {
+            MemOffsetFallback = "21CE36C4"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "sstm";
+
             findAddress();
             Console.WriteLine("DEBUG > SstmPageHandler > Processing file...");
             SstmFileLoaded = file;
@@ -35,7 +29,7 @@ namespace KH2FM_Editor.View.System03.Sstm
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = SstmFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > SstmPageHandler > Finished writing!");
         }
 
@@ -44,14 +38,6 @@ namespace KH2FM_Editor.View.System03.Sstm
             if (SstmFileLoaded == null) return;
             Console.WriteLine("DEBUG > SstmPageHandler > Saving...");
             Console.WriteLine("DEBUG > SstmPageHandler > Finished saving!");
-        }
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("sstm");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

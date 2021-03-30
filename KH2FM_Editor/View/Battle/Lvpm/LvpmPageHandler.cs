@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Lvpm;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Lvpm;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Lvpm
 {
-    class LvpmPageHandler
+    class LvpmPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public LvpmFile LvpmFileLoaded { get; set; }
         public ObservableCollection<LvpmItem> LvpmFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D11548"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public LvpmPageHandler(LvpmFile file)
         {
+            MemOffsetFallback = "21D11548"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "lvpm";
+
             findAddress();
             Console.WriteLine("DEBUG > LvpmPageHandler > Processing file...");
             LvpmFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Battle.Lvpm
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = LvpmFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > LvpmPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Battle.Lvpm
             Console.WriteLine("DEBUG > LvpmPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > LvpmPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("lvpm");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.Jiminy.Worl;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Jiminy.Worl;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Jiminy.Worl
 {
-    class WorlPageHandler
+    class WorlPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public WorlFile WorlFileLoaded { get; set; }
         public ObservableCollection<WorlItem> WorlFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "2150C8F0"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public WorlPageHandler(WorlFile file)
         {
+            MemOffsetFallback = "2150C8F0"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "worl";
+
             findAddress();
             Console.WriteLine("DEBUG > WorlPageHandler > Processing file...");
             WorlFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Jiminy.Worl
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = WorlFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > WorlPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Jiminy.Worl
             Console.WriteLine("DEBUG > WorlPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > WorlPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("worl");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

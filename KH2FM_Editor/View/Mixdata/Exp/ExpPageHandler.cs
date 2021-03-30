@@ -1,30 +1,24 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.Mixdata.Exp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Mixdata.Exp;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Mixdata.Exp
 {
-    class ExpPageHandler
+    class ExpPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public ExpFile ExpFileLoaded { get; set; }
         public ObservableCollection<ExpItem> ExpFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "211A9F80"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public ExpPageHandler(ExpFile file)
         {
+            MemOffsetFallback = "211A9F80"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
-            findAddress();
+            stringToFind = "MIEX";
+
+            findAddressDirect();
             Console.WriteLine("DEBUG > ExpPageHandler > Processing file...");
             ExpFileLoaded = file;
             processFile();
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Mixdata.Exp
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = ExpFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > ExpPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Mixdata.Exp
             Console.WriteLine("DEBUG > ExpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ExpPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findAddressOf("MIEX");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

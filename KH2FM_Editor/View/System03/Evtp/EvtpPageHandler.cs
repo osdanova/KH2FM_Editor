@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.System03.Evtp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.System03.Evtp;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.System03.Evtp
 {
-    class EvtpPageHandler
+    class EvtpPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public EvtpFile EvtpFileLoaded { get; set; }
         public ObservableCollection<EvtpItem> EvtpFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21CE4480"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public EvtpPageHandler(EvtpFile file)
         {
+            MemOffsetFallback = "21CE4480"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "evtp";
+
             findAddress();
             Console.WriteLine("DEBUG > EvtpPageHandler > Processing file...");
             EvtpFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.System03.Evtp
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = EvtpFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > EvtpPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.System03.Evtp
             Console.WriteLine("DEBUG > EvtpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > EvtpPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("evtp");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

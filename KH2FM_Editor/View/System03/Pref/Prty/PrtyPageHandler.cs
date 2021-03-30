@@ -1,27 +1,21 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.System03.Pref.Prty;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using KH2FM_Editor.Model.System03.Pref.Prty;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.System03.Prty
 {
-    class PrtyPageHandler
+    class PrtyPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public PrtyFile PrtyFileLoaded { get; set; }
         //public ObservableCollection<PrtyItem> PrtyFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21CE2EF4"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public PrtyPageHandler(PrtyFile file)
         {
+            MemOffsetFallback = "21CE2EF4"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "prty";
+
             findAddress();
             Console.WriteLine("DEBUG > PrtyPageHandler > Processing file...");
             PrtyFileLoaded = file;
@@ -35,7 +29,7 @@ namespace KH2FM_Editor.View.System03.Prty
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = PrtyFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > PrtyPageHandler > Finished writing!");
         }
 
@@ -44,14 +38,6 @@ namespace KH2FM_Editor.View.System03.Prty
             if (PrtyFileLoaded == null) return;
             Console.WriteLine("DEBUG > PrtyPageHandler > Saving...");
             Console.WriteLine("DEBUG > PrtyPageHandler > Finished saving!");
-        }
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("prty");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

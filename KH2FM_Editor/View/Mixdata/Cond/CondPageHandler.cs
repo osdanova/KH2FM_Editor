@@ -1,30 +1,24 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.Mixdata.Cond;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.Mixdata.Cond;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Mixdata.Cond
 {
-    class CondPageHandler
+    class CondPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public CondFile CondFileLoaded { get; set; }
         public ObservableCollection<CondItem> CondFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "211A9C60"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public CondPageHandler(CondFile file)
         {
+            MemOffsetFallback = "211A9C60"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
-            findAddress();
+            stringToFind = "MICO";
+
+            findAddressDirect();
             Console.WriteLine("DEBUG > CondPageHandler > Processing file...");
             CondFileLoaded = file;
             processFile();
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Mixdata.Cond
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = CondFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > CondPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Mixdata.Cond
             Console.WriteLine("DEBUG > CondPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > CondPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findAddressOf("MICO");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

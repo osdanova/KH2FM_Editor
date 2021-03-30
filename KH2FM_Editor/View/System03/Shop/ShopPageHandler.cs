@@ -1,31 +1,24 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.System03.Shop;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.System03.Shop;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.System03.Shop
 {
-    class ShopPageHandler
+    class ShopPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public ShopFile ShopFileLoaded { get; set; }
         public ObservableCollection<ShopItem> ShopFileShops { get; set; }
         public ObservableCollection<InventoryItem> ShopFileInventories { get; set; }
         public ObservableCollection<ProductItem> ShopFileProducts { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21CE1630"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public ShopPageHandler(ShopFile file)
         {
+            MemOffsetFallback = "21CE1630"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "shop";
+
             findAddress();
             Console.WriteLine("DEBUG > ShopPageHandler > Processing file...");
             ShopFileLoaded = file;
@@ -79,7 +72,7 @@ namespace KH2FM_Editor.View.System03.Shop
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = ShopFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > ShopPageHandler > Finished writing!");
         }
 
@@ -89,14 +82,6 @@ namespace KH2FM_Editor.View.System03.Shop
             Console.WriteLine("DEBUG > ShopPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ShopPageHandler > Finished saving!");
-        }
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("shop");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }

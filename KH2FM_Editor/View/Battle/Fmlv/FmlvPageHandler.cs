@@ -1,29 +1,23 @@
-﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Libs.Utils;
-using KH2FM_Editor.Model.Battle.Fmlv;
-using KH2FM_Editor.Model.COMMON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.Model.Battle.Fmlv;
+using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Fmlv
 {
-    class FmlvPageHandler
+    class FmlvPageHandler : memoryLoadFile
     {
-        // DATA
-        //String FileName { get; set; }
-        //String FilePath { get; set; }
         public FmlvFile FmlvFileLoaded { get; set; }
         public ObservableCollection<FmlvItem> FmlvFileItems { get; set; }
 
-        // OPTIONS
-        public static string MemOffsetFallback = "21D1A224"; // Crazycatz's English patch
-        public string MemOffset { get; set; }
-        public bool AddressFound = false;
-
         public FmlvPageHandler(FmlvFile file)
         {
+            MemOffsetFallback = "21D1A224"; // PCSX2 CCZ's eng patch
             MemOffset = MemOffsetFallback;
+            stringToFind = "fmlv";
+
             findAddress();
             Console.WriteLine("DEBUG > FmlvPageHandler > Processing file...");
             FmlvFileLoaded = file;
@@ -57,7 +51,7 @@ namespace KH2FM_Editor.View.Battle.Fmlv
             // For whenever an entry is added
             //insertDataToFile();
             List<byte> fileToWrite = FmlvFileLoaded.getAsByteList();
-            Pcsx2Memory.writePcsx2(int.Parse(MemOffset, System.Globalization.NumberStyles.HexNumber), fileToWrite.Count, fileToWrite);
+            writeFileToProcess(fileToWrite);
             Console.WriteLine("DEBUG > FmlvPageHandler > Finished writing!");
         }
 
@@ -67,15 +61,6 @@ namespace KH2FM_Editor.View.Battle.Fmlv
             Console.WriteLine("DEBUG > FmlvPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > FmlvPageHandler > Finished saving!");
-        }
-
-        public void findAddress()
-        {
-            if (AddressFound) return;
-            int addressInt = Pcsx2Memory.findBarFileAddress("fmlv");
-            AddressFound = true;
-            if (addressInt == -1) return;
-            MemOffset = FormatHandler.getHexString8(addressInt);
         }
     }
 }
