@@ -20,6 +20,7 @@
             </MenuItem>
             <!-- <MenuItem Header="DEBUG"> -->
             <!-- <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" /> -->
+            <!-- <MenuItem Header="Find EGS" Click="findKH2EGS" /> -->
             <!-- </MenuItem> -->
         </Menu>
         <!-- APP -->

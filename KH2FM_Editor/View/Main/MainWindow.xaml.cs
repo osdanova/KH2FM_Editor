@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using KH2FM_Editor.Libs.Pcsx2;
 
 namespace KH2FM_Editor.View.Main
 {
@@ -58,6 +59,11 @@ namespace KH2FM_Editor.View.Main
         // Debug
         private void menuDebugBreakpoint(object sender, EventArgs e)
         {
+            Console.WriteLine("MENU >>> DEBUG >>> BREAKPOINT");
+        }
+        private void findKH2EGS(object sender, EventArgs e)
+        {
+            Pcsx2Memory.findProcess();
             Console.WriteLine("MENU >>> DEBUG >>> BREAKPOINT");
         }
 
