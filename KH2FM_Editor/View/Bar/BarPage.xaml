@@ -5,7 +5,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BarPage">
+      Title="BarPage"
+      ShowsNavigationUI="False">
 
     <Page.Resources>
         <Style TargetType="ListViewItem">
@@ -30,9 +31,9 @@
                     Content="{Binding Path=BarFileLoaded.Identifier, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <!-- Test -->
-            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData">TEST BAR</Button>
-            <TextBox DockPanel.Dock="Right" Width="100" Background="White" Text="{Binding MemOffset}" VerticalAlignment="Center"></TextBox>
-            <Label DockPanel.Dock="Right" Foreground="White" FontFamily="Arial" FontWeight="Bold" VerticalAlignment="Center">Test Offset</Label>
+            <Button DockPanel.Dock="Right" Width="100" Click="btn_testData" Visibility="Hidden">TEST BAR</Button>
+            <TextBox DockPanel.Dock="Right" Width="100" Background="White" Text="{Binding MemOffset}" VerticalAlignment="Center" Visibility="Hidden"></TextBox>
+            <Label DockPanel.Dock="Right" Foreground="White" FontFamily="Arial" FontWeight="Bold" VerticalAlignment="Center" Visibility="Hidden">Test Offset</Label>
         </DockPanel>
         <Grid>
             <!-- Column sizes -->

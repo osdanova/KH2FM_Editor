@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Stop
         public StopPageHandler(StopFile file)
         {
             MemOffsetFallback = "21D1A394"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "stop";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "stop";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > StopPageHandler > Processing file...");

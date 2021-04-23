@@ -13,8 +13,10 @@ namespace KH2FM_Editor.View.System03.Fmab
         public FmabPageHandler(FmabFile file)
         {
             MemOffsetFallback = "21CE2D88"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "fmab";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "pref";
+            subSubBarName = "fmab";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > FmabPageHandler > Processing file...");

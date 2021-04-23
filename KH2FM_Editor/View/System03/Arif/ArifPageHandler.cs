@@ -13,8 +13,9 @@ namespace KH2FM_Editor.View.System03.Arif
         public ArifPageHandler(ArifFile file)
         {
             MemOffsetFallback = "21CD6300"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "arif";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "arif";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > ArifPageHandler > Processing file...");

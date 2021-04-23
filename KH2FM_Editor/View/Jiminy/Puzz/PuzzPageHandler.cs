@@ -15,8 +15,7 @@ namespace KH2FM_Editor.View.Jiminy.Puzz
         public PuzzPageHandler(PuzzFile file)
         {
             MemOffsetFallback = "21512790"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "puzz";
+            stringToFind = "JMPZ";
 
             findAddress();
             Console.WriteLine("DEBUG > PuzzPageHandler > Processing file...");

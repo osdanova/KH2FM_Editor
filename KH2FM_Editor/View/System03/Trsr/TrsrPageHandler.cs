@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.System03.Trsr
         public TrsrPageHandler(TrsrFile file)
         {
             MemOffsetFallback = "21CDF748"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "trsr";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "trsr";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > TrsrPageHandler > Processing file...");

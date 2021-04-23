@@ -91,6 +91,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace KH2FM_Editor.View.Bar
 {
@@ -174,6 +175,8 @@ namespace KH2FM_Editor.View.Bar
             //BarFileLoaded.Items.IndexOf(entry);
 
             Console.WriteLine("DEBUG > BarPageHandler > Opening: " + entry.Name);
+
+            loadFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
 
             switch (FileHandler.getFileType(FileName))
             {

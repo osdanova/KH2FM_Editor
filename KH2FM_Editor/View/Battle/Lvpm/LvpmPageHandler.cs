@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Lvpm
         public LvpmPageHandler(LvpmFile file)
         {
             MemOffsetFallback = "21D11548"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "lvpm";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "lvpm";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > LvpmPageHandler > Processing file...");

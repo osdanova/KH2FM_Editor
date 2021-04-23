@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Btlv
         public BtlvPageHandler(BtlvFile file)
         {
             MemOffsetFallback = "21D19760"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "btlv";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "btlv";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > BtlvPageHandler > Processing file...");

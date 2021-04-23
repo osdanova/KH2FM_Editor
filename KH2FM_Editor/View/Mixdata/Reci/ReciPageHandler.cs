@@ -15,10 +15,11 @@ namespace KH2FM_Editor.View.Mixdata.Reci
         public ReciPageHandler(ReciFile file)
         {
             MemOffsetFallback = "211A9890"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
+            //fileType = Enum.FileType.KH2_MIXDATA;
+            //subBarName = "reci";
             stringToFind = "MIRE";
 
-            findAddressDirect();
+            findAddress();
             Console.WriteLine("DEBUG > ReciPageHandler > Processing file...");
             ReciFileLoaded = file;
             processFile();

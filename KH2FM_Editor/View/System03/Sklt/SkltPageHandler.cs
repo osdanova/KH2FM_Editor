@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.System03.Sklt
         public SkltPageHandler(SkltFile file)
         {
             MemOffsetFallback = "21CE26D0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "sklt";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "sklt";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > SkltPageHandler > Processing file...");

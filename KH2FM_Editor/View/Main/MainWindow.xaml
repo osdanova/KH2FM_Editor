@@ -18,10 +18,16 @@
             <MenuItem Header="About">
                 <MenuItem Header="About" Click="about_Open" />
             </MenuItem>
-            <!-- <MenuItem Header="DEBUG"> -->
-            <!-- <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" /> -->
-            <!-- <MenuItem Header="Find EGS" Click="findKH2EGS" /> -->
-            <!-- </MenuItem> -->
+            <MenuItem Header="DEBUG" Visibility="Hidden">
+                <MenuItem Header="Breakpoint" Click="menuDebugBreakpoint" />
+                <MenuItem Header="Find PCSX2" Click="findPCSX2" />
+                <MenuItem Header="Find KH1" Click="findKH1" />
+                <MenuItem Header="Find KH2" Click="findKH2" />
+                <MenuItem Header="Find KH3" Click="findKH3" />
+                <MenuItem Header="Find KH3" Click="findKH3" />
+                <MenuItem Header="Find KH Processes" Click="findKHProcesses" />
+                <MenuItem Header="Find File" Click="findFileOffset" />
+            </MenuItem>
         </Menu>
         <!-- APP -->
         <Grid>
@@ -50,7 +56,7 @@
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
             <!-- Page loader -->
             <Grid Grid.Column="2" Background="#2d2d2d">
-                <Frame x:Name="load_frame"/>
+                <Frame x:Name="load_frame" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
     </DockPanel>

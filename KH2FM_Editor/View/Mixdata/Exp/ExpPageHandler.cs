@@ -15,10 +15,11 @@ namespace KH2FM_Editor.View.Mixdata.Exp
         public ExpPageHandler(ExpFile file)
         {
             MemOffsetFallback = "211A9F80"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
+            //fileType = Enum.FileType.KH2_MIXDATA;
+            //subBarName = "exp\0";
             stringToFind = "MIEX";
 
-            findAddressDirect();
+            findAddress();
             Console.WriteLine("DEBUG > ExpPageHandler > Processing file...");
             ExpFileLoaded = file;
             processFile();

@@ -15,10 +15,11 @@ namespace KH2FM_Editor.View.Mixdata.Cond
         public CondPageHandler(CondFile file)
         {
             MemOffsetFallback = "211A9C60"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
+            //fileType = Enum.FileType.KH2_MIXDATA;
+            //subBarName = "cond";
             stringToFind = "MICO";
 
-            findAddressDirect();
+            findAddress();
             Console.WriteLine("DEBUG > CondPageHandler > Processing file...");
             CondFileLoaded = file;
             processFile();

@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.System03.Evtp
         public EvtpPageHandler(EvtpFile file)
         {
             MemOffsetFallback = "21CE4480"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "evtp";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "evtp";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > EvtpPageHandler > Processing file...");

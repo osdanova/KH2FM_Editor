@@ -16,8 +16,9 @@ namespace KH2FM_Editor.View.System03.Shop
         public ShopPageHandler(ShopFile file)
         {
             MemOffsetFallback = "21CE1630"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "shop";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "shop";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > ShopPageHandler > Processing file...");

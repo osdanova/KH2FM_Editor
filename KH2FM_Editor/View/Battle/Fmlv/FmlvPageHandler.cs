@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Fmlv
         public FmlvPageHandler(FmlvFile file)
         {
             MemOffsetFallback = "21D1A224"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "fmlv";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "fmlv";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > FmlvPageHandler > Processing file...");

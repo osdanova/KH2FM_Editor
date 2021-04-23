@@ -3,6 +3,7 @@
     enum ProcessType
     {
         PCSX2,
-        EGS
+        EGS,
+        NULL
     }
 }

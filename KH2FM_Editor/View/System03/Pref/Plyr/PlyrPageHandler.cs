@@ -13,8 +13,10 @@ namespace KH2FM_Editor.View.System03.Plyr
         public PlyrPageHandler(PlyrFile file)
         {
             MemOffsetFallback = "21CE2810"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "plyr";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "pref";
+            subSubBarName = "plyr";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > PlyrPageHandler > Processing file...");

@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Bons
         public BonsPageHandler(BonsFile file)
         {
             MemOffsetFallback = "21D10788"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "bons";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "bons";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > BonsPageHandler > Processing file...");

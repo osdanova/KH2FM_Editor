@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Limt
         public LimtPageHandler(LimtFile file)
         {
             MemOffsetFallback = "21D18E90"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "limt";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "limt";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > LimtPageHandler > Processing file...");

@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.System03.Cmd
         public CmdPageHandler(CmdFile file)
         {
             MemOffsetFallback = "21CCB5A0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "cmd";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "cmd\0";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > CmdPageHandler > Processing file...");

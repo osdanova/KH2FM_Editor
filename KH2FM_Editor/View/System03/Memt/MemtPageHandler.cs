@@ -16,8 +16,9 @@ namespace KH2FM_Editor.View.System03.Memt
         public MemtPageHandler(MemtFile file)
         {
             MemOffsetFallback = "21CE0BA0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "memt";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "memt";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > MemtPageHandler > Processing file...");

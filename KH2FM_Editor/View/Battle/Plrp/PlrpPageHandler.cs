@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Plrp
         public PlrpPageHandler(PlrpFile file)
         {
             MemOffsetFallback = "21D16E88"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "plrp";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "plrp";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > PlrpPageHandler > Processing file...");

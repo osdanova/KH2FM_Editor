@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.System03.Rcct
         public RcctPageHandler(RcctFile file)
         {
             MemOffsetFallback = "21CCB3E0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "rcct";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "rcct";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > RcctPageHandler > Processing file...");

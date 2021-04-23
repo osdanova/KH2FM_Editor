@@ -15,10 +15,11 @@ namespace KH2FM_Editor.View.Mixdata.Leve
         public LevePageHandler(LeveFile file)
         {
             MemOffsetFallback = "211A9F00"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
+            //fileType = Enum.FileType.KH2_MIXDATA;
+            //subBarName = "leve";
             stringToFind = "MILV";
 
-            findAddressDirect();
+            findAddress();
             Console.WriteLine("DEBUG > LevePageHandler > Processing file...");
             LeveFileLoaded = file;
             processFile();

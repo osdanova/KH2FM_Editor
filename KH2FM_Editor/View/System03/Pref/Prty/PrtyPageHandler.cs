@@ -13,8 +13,10 @@ namespace KH2FM_Editor.View.System03.Prty
         public PrtyPageHandler(PrtyFile file)
         {
             MemOffsetFallback = "21CE2EF4"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "prty";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "pref";
+            subSubBarName = "prty";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > PrtyPageHandler > Processing file...");

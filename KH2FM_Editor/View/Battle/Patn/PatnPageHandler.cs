@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Patn
         public PatnPageHandler(PatnFile file)
         {
             MemOffsetFallback = "21D16C40"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "patn";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "patn";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > PatnPageHandler > Processing file...");

@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Atkp
         public AtkpPageHandler(AtkpFile file)
         {
             MemOffsetFallback = "21CE5F10"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "atkp";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "atkp";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > AtkpPageHandler > Processing file...");

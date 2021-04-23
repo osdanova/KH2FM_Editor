@@ -13,8 +13,9 @@ namespace KH2FM_Editor.View.System03.Went
         public WentPageHandler(WentFile file)
         {
             MemOffsetFallback = "21CD4280"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "went";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "went";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > WentPageHandler > Processing file...");

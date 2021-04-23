@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Enmp
         public EnmpPageHandler(EnmpFile file)
         {
             MemOffsetFallback = "21D119EC"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "enmp";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "enmp";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > EnmpPageHandler > Processing file...");

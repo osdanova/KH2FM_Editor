@@ -16,8 +16,9 @@ namespace KH2FM_Editor.View.System03.Item
         public ItemPageHandler(ItemFile file)
         {
             MemOffsetFallback = "21CDBBA0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "item";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "item";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > ItemPageHandler > Processing file...");

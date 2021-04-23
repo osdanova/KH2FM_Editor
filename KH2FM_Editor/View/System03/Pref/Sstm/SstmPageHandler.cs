@@ -13,8 +13,10 @@ namespace KH2FM_Editor.View.System03.Sstm
         public SstmPageHandler(SstmFile file)
         {
             MemOffsetFallback = "21CE36C4"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "sstm";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "pref";
+            subSubBarName = "sstm";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > SstmPageHandler > Processing file...");

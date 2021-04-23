@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Vtbl
         public VtblPageHandler(VtblFile file)
         {
             MemOffsetFallback = "21D0A96C"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "vtbl";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "vtbl";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > VtblPageHandler > Processing file...");

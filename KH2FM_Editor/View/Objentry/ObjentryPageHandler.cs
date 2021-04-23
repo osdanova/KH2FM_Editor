@@ -24,10 +24,10 @@ namespace KH2FM_Editor.View.Objentry
         public ObjentryPageHandler(String filepath)
         {
             MemOffsetFallback = "21CE3848"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "NONE";
+            fileType = Enum.FileType.KH2_00OBJENTRY;
+            stringToFind = subBarName;
 
-            //findAddress();
+            findAddress();
             EntitySearch = "";
             Console.WriteLine("DEBUG > ObjentryPageHandler > Processing file...");
             processFile(filepath);

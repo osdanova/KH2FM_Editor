@@ -13,10 +13,12 @@ namespace KH2FM_Editor.View.System03.Magi
         public MagiPageHandler(MagiFile file)
         {
             MemOffsetFallback = "21CE3848"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "magi";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "pref";
+            subSubBarName = "magi";
+            stringToFind = subBarName;
 
-            //findAddress();
+            findAddress();
             Console.WriteLine("DEBUG > MagiPageHandler > Processing file...");
             MagiFileLoaded = file;
             //processFile();

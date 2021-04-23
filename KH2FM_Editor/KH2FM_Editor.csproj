@@ -85,6 +85,8 @@
     <Compile Include="DataDictionary\Rooms.cs" />
     <Compile Include="DataDictionary\Shops.cs" />
     <Compile Include="DataDictionary\Worlds.cs" />
+    <Compile Include="Enum\FilePointer.cs" />
+    <Compile Include="Enum\FileType.cs" />
     <Compile Include="Enum\ProcessType.cs" />
     <Compile Include="Libs\FileHandler\FileTypesEnum.cs" />
     <Compile Include="Model\Ard\Spawn\ArdBlockFile.cs" />

@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.System03.Wmst
         public WmstPageHandler(WmstFile file)
         {
             MemOffsetFallback = "21CD5180"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "wmst";
+            fileType = Enum.FileType.KH2_03SYSTEM;
+            subBarName = "wmst";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > WmstPageHandler > Processing file...");

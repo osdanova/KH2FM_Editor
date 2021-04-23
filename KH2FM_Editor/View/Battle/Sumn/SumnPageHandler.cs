@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Sumn
         public SumnPageHandler(SumnFile file)
         {
             MemOffsetFallback = "21D19658"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "sumn";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "sumn";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > SumnPageHandler > Processing file...");

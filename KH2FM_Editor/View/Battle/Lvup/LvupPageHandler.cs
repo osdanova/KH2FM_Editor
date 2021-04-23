@@ -27,8 +27,9 @@ namespace KH2FM_Editor.View.Battle.Lvup
         public LvupPageHandler(LvupFile file)
         {
             MemOffsetFallback = "21D0B6A4"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "lvup";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "lvup";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > LvupPageHandler > Processing file...");

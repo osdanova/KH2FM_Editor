@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Przt
         public PrztPageHandler(PrztFile file)
         {
             MemOffsetFallback = "21D09824"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "przt";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "przt";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > PrztPageHandler > Processing file...");

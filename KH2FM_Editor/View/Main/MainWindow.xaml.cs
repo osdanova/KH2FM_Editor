@@ -2,7 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using KH2FM_Editor.Enum;
 using KH2FM_Editor.Libs.Pcsx2;
+using KH2FM_Editor.Libs.Utils;
 
 namespace KH2FM_Editor.View.Main
 {
@@ -61,10 +63,35 @@ namespace KH2FM_Editor.View.Main
         {
             Console.WriteLine("MENU >>> DEBUG >>> BREAKPOINT");
         }
-        private void findKH2EGS(object sender, EventArgs e)
+        private void findPCSX2(object sender, EventArgs e)
         {
-            Pcsx2Memory.findProcess();
-            Console.WriteLine("MENU >>> DEBUG >>> BREAKPOINT");
+            Pcsx2Memory.findPCSX2();
+        }
+        private void findKH1(object sender, EventArgs e)
+        {
+            Pcsx2Memory.findKH1();
+        }
+        private void findKH2(object sender, EventArgs e)
+        {
+            Pcsx2Memory.findKH2();
+        }
+        private void findKH3(object sender, EventArgs e)
+        {
+            Pcsx2Memory.findKH3();
+        }
+        private void findKHProcesses(object sender, EventArgs e)
+        {
+            Pcsx2Memory.findProcessContainingString("KINGDOM");
+        }
+        private void findFileOffset(object sender, EventArgs e)
+        {
+            Console.WriteLine("DEBUG > 03system Offset: " + FormatHandler.getHexString(Pcsx2Memory.getFileOffset(Enum.FileType.KH2_03SYSTEM), ProcessType.PCSX2));
+            //Console.WriteLine("DEBUG > 00battle Offset: " + Pcsx2Memory.getFileOffset(Enum.FileType.KH2_00BATTLE));
+            //Console.WriteLine("DEBUG > 00objentry Offset: " + Pcsx2Memory.getFileOffset(Enum.FileType.KH2_00OBJENTRY));
+            //Console.WriteLine("DEBUG > jiminy Offset: " + Pcsx2Memory.getFileOffset(Enum.FileType.KH2_JIMINY));
+            //Console.WriteLine("DEBUG > mixdata Offset: " + Pcsx2Memory.getFileOffset(Enum.FileType.KH2_MIXDATA));
+            //Console.WriteLine("DEBUG > SUBBAR: " + Pcsx2Memory.getOffsetOfSubBar(0x20000000 + Pcsx2Memory.getFileOffset(Enum.FileType.KH2_03SYSTEM), "cmd\0"));
+            //Console.WriteLine("DEBUG > SUBSUBBAR: " + FormatHandler.getHexString(Pcsx2Memory.getAddressOfSubSubBar(Enum.FileType.KH2_03SYSTEM, "pref", "magi"), ProcessType.PCSX2));
         }
 
     }

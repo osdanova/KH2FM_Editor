@@ -13,8 +13,9 @@ namespace KH2FM_Editor.View.Battle.Ptya
         public PtyaPageHandler(PtyaFile file)
         {
             MemOffsetFallback = "21D05CE0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "ptya";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "ptya";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > PtyaPageHandler > Processing file...");

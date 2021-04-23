@@ -15,8 +15,9 @@ namespace KH2FM_Editor.View.Battle.Magc
         public MagcPageHandler(MagcFile file)
         {
             MemOffsetFallback = "21D19760"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "magc";
+            fileType = Enum.FileType.KH2_00BATTLE;
+            subBarName = "magc";
+            stringToFind = subBarName;
 
             findAddress();
             Console.WriteLine("DEBUG > MagcPageHandler > Processing file...");

@@ -15,8 +15,7 @@ namespace KH2FM_Editor.View.Jiminy.Worl
         public WorlPageHandler(WorlFile file)
         {
             MemOffsetFallback = "2150C8F0"; // PCSX2 CCZ's eng patch
-            MemOffset = MemOffsetFallback;
-            stringToFind = "worl";
+            stringToFind = "JMWO";
 
             findAddress();
             Console.WriteLine("DEBUG > WorlPageHandler > Processing file...");
