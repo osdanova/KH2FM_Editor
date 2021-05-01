@@ -2,9 +2,9 @@
 using KH2FM_Editor.Libs.TreeView;
 using KH2FM_Editor.View.About;
 using KH2FM_Editor.View.Bar;
-using KH2FM_Editor.View.Debug.Abilities;
-using KH2FM_Editor.View.Debug.Inventory;
-using KH2FM_Editor.View.Debug.Stats;
+using KH2FM_Editor.View.DebugView.Abilities;
+using KH2FM_Editor.View.DebugView.Inventory;
+using KH2FM_Editor.View.DebugView.Stats;
 using KH2FM_Editor.View.Objentry;
 using System.Windows.Controls;
 

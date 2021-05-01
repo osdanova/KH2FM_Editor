@@ -276,18 +276,18 @@
     </Compile>
     <Compile Include="View\Battle\Atkp\AtkpPageHandler.cs" />
     <Compile Include="View\Common\memoryLoadFile.cs" />
-    <Compile Include="View\Debug\Abilities\AbilitiesPage.xaml.cs">
+    <Compile Include="View\DebugView\Abilities\AbilitiesPage.xaml.cs">
       <DependentUpon>AbilitiesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Debug\Abilities\AbilitiesPageHandler.cs" />
-    <Compile Include="View\Debug\Inventory\InventoryPage.xaml.cs">
+    <Compile Include="View\DebugView\Abilities\AbilitiesPageHandler.cs" />
+    <Compile Include="View\DebugView\Inventory\InventoryPage.xaml.cs">
       <DependentUpon>InventoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Debug\Inventory\InventoryPageHandler.cs" />
-    <Compile Include="View\Debug\Stats\StatsPage.xaml.cs">
+    <Compile Include="View\DebugView\Inventory\InventoryPageHandler.cs" />
+    <Compile Include="View\DebugView\Stats\StatsPage.xaml.cs">
       <DependentUpon>StatsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Debug\Stats\StatsPageHandler.cs" />
+    <Compile Include="View\DebugView\Stats\StatsPageHandler.cs" />
     <Compile Include="View\Jiminy\Puzz\PuzzPage.xaml.cs">
       <DependentUpon>PuzzPage.xaml</DependentUpon>
     </Compile>
@@ -473,15 +473,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Debug\Abilities\AbilitiesPage.xaml">
+    <Page Include="View\DebugView\Abilities\AbilitiesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Debug\Inventory\InventoryPage.xaml">
+    <Page Include="View\DebugView\Inventory\InventoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Debug\Stats\StatsPage.xaml">
+    <Page Include="View\DebugView\Stats\StatsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
