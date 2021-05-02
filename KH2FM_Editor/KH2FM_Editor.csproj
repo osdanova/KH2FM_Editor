@@ -138,8 +138,8 @@
     <Compile Include="Model\Battle\Sumn\SumnFile.cs" />
     <Compile Include="Model\Battle\Vtbl\VtblItem.cs" />
     <Compile Include="Model\Battle\Vtbl\VtblFile.cs" />
-    <Compile Include="Model\DEBUG\AbilitiesFile.cs" />
-    <Compile Include="Model\DEBUG\InventoryFile.cs" />
+    <Compile Include="Model\DebugModel\AbilitiesFile.cs" />
+    <Compile Include="Model\DebugModel\InventoryFile.cs" />
     <Compile Include="Model\Jiminy\JiminyFile.cs" />
     <Compile Include="Model\Jiminy\Puzz\PuzzItem.cs" />
     <Compile Include="Model\Jiminy\Puzz\PuzzFile.cs" />

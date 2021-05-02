@@ -1,8 +1,8 @@
 ﻿using KH2FM_Editor.Libs.Pcsx2;
-using KH2FM_Editor.Model.DEBUG;
+using KH2FM_Editor.Model.DebugModel;
 using System;
 using System.Collections.ObjectModel;
-using static KH2FM_Editor.Model.DEBUG.InventoryFile;
+using static KH2FM_Editor.Model.DebugModel.InventoryFile;
 
 namespace KH2FM_Editor.View.DebugView.Inventory
 {
