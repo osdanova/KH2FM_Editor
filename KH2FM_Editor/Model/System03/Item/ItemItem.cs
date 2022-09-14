@@ -15,8 +15,8 @@ namespace KH2FM_Editor.Model.System03.Item
         public int visibilityOffset = 3, visibilitySize = 1;
         public int subIdOffset = 4, subIdSize = 1;
         public int rankOffset = 5, rankSize = 1;
-        public int statusWepOffset = 6, statusWepSize = 1;
-        public int statusOffset = 7, statusSize = 1;
+        public int statusOffset = 6, statusSize = 1;
+        public int apcostOffset = 7, apcostSize = 1;
         public int nameOffset = 8, nameSize = 2;
         public int descriptionOffset = 10, descriptionSize = 2;
         public int buyOffset = 12, buySize = 2;
@@ -72,15 +72,15 @@ namespace KH2FM_Editor.Model.System03.Item
             get { return DataAccess.readByte(raw, rankOffset); }
             set { DataAccess.writeByte(raw, value, rankOffset); }
         }
-        public byte StatusWep
-        {
-            get { return DataAccess.readByte(raw, statusWepOffset); }
-            set { DataAccess.writeByte(raw, value, statusWepOffset); }
-        }
         public byte Status
         {
             get { return DataAccess.readByte(raw, statusOffset); }
             set { DataAccess.writeByte(raw, value, statusOffset); }
+        }
+        public byte APCost
+        {
+            get { return DataAccess.readByte(raw, apcostOffset); }
+            set { DataAccess.writeByte(raw, value, apcostOffset); }
         }
         public ushort Name
         {
