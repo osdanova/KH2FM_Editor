@@ -37,8 +37,8 @@
                             <DataGridTextColumn Header="Visibility Id" Binding="{Binding Path=Visibility}" />
                             <DataGridTextColumn Header="SubId" Binding="{Binding Path=SubId}" />
                             <DataGridTextColumn Header="Rank" Binding="{Binding Path=Rank}" />
-                            <DataGridTextColumn Header="StatusWep" Binding="{Binding Path=StatusWep}" />
                             <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" />
+                            <DataGridTextColumn Header="APCost" Binding="{Binding Path=APCost}" />
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />
                             <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" />
                             <DataGridTextColumn Header="Buy" Binding="{Binding Path=Buy}" />
