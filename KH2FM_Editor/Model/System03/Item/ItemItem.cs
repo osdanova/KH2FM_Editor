@@ -1,4 +1,4 @@
-﻿using KH2FM_Editor.DataDictionary;
+using KH2FM_Editor.DataDictionary;
 using KH2FM_Editor.Libs.Binary;
 using KH2FM_Editor.Libs.Utils;
 using KH2FM_Editor.Model.COMMON;
@@ -15,7 +15,8 @@ namespace KH2FM_Editor.Model.System03.Item
         public int visibilityOffset = 3, visibilitySize = 1;
         public int subIdOffset = 4, subIdSize = 1;
         public int rankOffset = 5, rankSize = 1;
-        public int statusOffset = 6, statusSize = 2;
+        public int statusWepOffset = 6, statusWepSize = 1;
+        public int statusOffset = 7, statusSize = 1;
         public int nameOffset = 8, nameSize = 2;
         public int descriptionOffset = 10, descriptionSize = 2;
         public int buyOffset = 12, buySize = 2;
@@ -71,10 +72,15 @@ namespace KH2FM_Editor.Model.System03.Item
             get { return DataAccess.readByte(raw, rankOffset); }
             set { DataAccess.writeByte(raw, value, rankOffset); }
         }
-        public ushort Status
+        public byte StatusWep
         {
-            get { return DataAccess.readUShort(raw, statusOffset, statusSize); }
-            set { DataAccess.writeUShort(raw, value, statusOffset, statusSize); }
+            get { return DataAccess.readByte(raw, statusWepOffset); }
+            set { DataAccess.writeByte(raw, value, statusWepOffset); }
+        }
+        public byte Status
+        {
+            get { return DataAccess.readByte(raw, statusOffset); }
+            set { DataAccess.writeByte(raw, value, statusOffset); }
         }
         public ushort Name
         {
