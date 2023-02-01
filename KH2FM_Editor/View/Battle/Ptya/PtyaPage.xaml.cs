@@ -48,7 +48,7 @@ namespace KH2FM_Editor.View.Battle.Ptya
             int selectedRow = dg.SelectedIndex;
             if (e.Key == Key.Up)
             {
-                if (selectedRow <= 0 || selectedRow >= set.Entries.Count - 1)
+                if (selectedRow < 0 || selectedRow >= set.Entries.Count - 1)
                 {
                     return;
                 }
