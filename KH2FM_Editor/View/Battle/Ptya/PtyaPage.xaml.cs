@@ -1,6 +1,7 @@
 ﻿using KH2FM_Editor.Model.Battle.Ptya;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace KH2FM_Editor.View.Battle.Ptya
 {
@@ -32,6 +33,51 @@ namespace KH2FM_Editor.View.Battle.Ptya
         public void btn_save(object sender, RoutedEventArgs e)
         {
             handler.act_save();
+        }
+
+        // Move the selected entry above or below
+        public void key_up(object sender,KeyEventArgs e)
+        {
+            DataGrid dg = (DataGrid)sender;
+
+            TabControl mtc = (TabControl)this.FindName("MyTabControl");
+            int selectedSet = mtc.SelectedIndex;
+
+            PtyaSet set = handler.PtyaFileLoaded.PtyaSets[selectedSet];
+
+            int selectedRow = dg.SelectedIndex;
+            if (e.Key == Key.Up)
+            {
+                if (selectedRow <= 0 || selectedRow >= set.Entries.Count - 1)
+                {
+                    return;
+                }
+                selectedRow++;
+            }
+            else if (e.Key == Key.Down)
+            {
+                if (selectedRow >= set.Entries.Count)
+                {
+                    return;
+                }
+                selectedRow--;
+            }
+
+            PtyaItem item = set.Entries[selectedRow];
+            if (e.Key == Key.Up)
+            {
+                set.Entries.Move(selectedRow, selectedRow - 1);
+                dg.SelectedIndex--;
+                dg.CurrentItem = item;
+                dg.SelectedItem = item;
+            }
+            else if(e.Key == Key.Down)
+            {
+                set.Entries.Move(selectedRow, selectedRow + 1);
+                dg.SelectedIndex++;
+                dg.CurrentItem = item;
+                dg.SelectedItem = item;
+            }
         }
     }
 }

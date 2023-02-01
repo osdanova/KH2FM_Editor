@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- BLOCKS -->
-            <TabControl ItemsSource="{Binding PtyaFileLoaded.PtyaSets}">
+            <TabControl ItemsSource="{Binding PtyaFileLoaded.PtyaSets}" Name="MyTabControl">
                 <!-- WalkPath title -->
                 <TabControl.ItemTemplate>
                     <DataTemplate>
@@ -32,10 +32,11 @@
                 </TabControl.ItemTemplate>
                 <!-- WalkPath content -->
                 <TabControl.ContentTemplate>
-                    <DataTemplate>
-                        <DataGrid
+                    <DataTemplate x:Name="MyDataTemplate">
+                        <DataGrid       Name="MyDataGrid"
                                         AlternatingRowBackground="LightGray" CanUserAddRows="True"
                                         AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                                        KeyUp="key_up"
                                         ItemsSource="{Binding Entries}">
                             <DataGrid.Columns>
                                 <!--<DataGridTextColumn Header="Raw" Binding="{Binding Path=Raw}" /> -->
