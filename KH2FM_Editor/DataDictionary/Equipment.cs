@@ -107,7 +107,7 @@ namespace KH2FM_Editor.DataDictionary
 { 113 , "Sword of the Ancestor" },
 { 114 , "Sword of the Ancestor Dummy" },
 { 115 , "Identity Disk" },
-{ 116 , "NULL (Kingdom Key)" },
+{ 116 , "Kingdom Key (Mickey weapon)" },
 { 117 , "Beast's Claw" },
 { 118 , "Bone Fist" },
 { 119 , "Proud Fang" },
