@@ -83,7 +83,7 @@ namespace KH2FM_Editor.DataDictionary
 { 78 , "Protect Belt" },
 { 79 , "Gaia Belt" },
 { 80 , "Sword of Ancestors Dummy" },
-{ 81 , "Kingdom Key Dummy" },
+{ 81 , "Kingdom Key (Mickey Weapon)" },
 { 82 , "Guard" },
 { 87 , "Magnet Element" },
 { 88 , "Reflect Element" },
