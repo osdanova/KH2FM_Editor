@@ -16,18 +16,27 @@
         <Grid VirtualizingStackPanel.VirtualizationMode ="Recycling">
             <!-- Column sizes -->
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="2" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="2" />
                 <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
 
-            <TabControl>
+            <!--LEFT MENU-->
+            <DockPanel Grid.Column="0" LastChildFill = "False">
+                <Label DockPanel.Dock="Top" Foreground="White" FontFamily="Arial" FontWeight="Bold">Search</Label>
+                <TextBox DockPanel.Dock="Top" Width="100" Background="White" Text="{Binding SearchString}"></TextBox>
+                <Button DockPanel.Dock="Bottom" Width="100" Click="btn_search">SEARCH</Button>
+            </DockPanel>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+            <TabControl Grid.Column="2">
                 <TabItem Header="Items">
                     <!--DATAGRID-->
-                    <DataGrid Grid.Column="0"
+                    <DataGrid 
                   AlternatingRowBackground="LightGray" CanUserAddRows="True"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
-                  ItemsSource="{Binding ItemFileItems}">
+                  ItemsSource="{Binding ItemFileItemsDisplay}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Item" Binding="{Binding Path=ItemValue}" IsReadOnly="True" />
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
@@ -58,7 +67,7 @@
                     <DataGrid Grid.Column="0"
                   AlternatingRowBackground="LightGray" CanUserAddRows="True"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
-                  ItemsSource="{Binding ItemFileEquipment}">
+                  ItemsSource="{Binding ItemFileEquipmentDisplay}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Equipment" Binding="{Binding Path=EquipmentValue}" IsReadOnly="True" />
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
@@ -80,8 +89,8 @@
                 </TabItem>
             </TabControl>
             
-            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
-            <DockPanel Grid.Column="2" LastChildFill="False">
+            <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" />
+            <DockPanel Grid.Column="4" LastChildFill="False">
                 <Button DockPanel.Dock="Bottom" Width="100" Click="btn_save">Save current</Button>
             </DockPanel>
 

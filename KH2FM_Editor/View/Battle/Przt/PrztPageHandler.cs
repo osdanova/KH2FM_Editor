@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using KH2FM_Editor.Model.Battle.Przt;
 using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Przt
@@ -11,6 +12,8 @@ namespace KH2FM_Editor.View.Battle.Przt
     {
         public PrztFile PrztFileLoaded { get; set; }
         public ObservableCollection<PrztItem> PrztFileItems { get; set; }
+        public ObservableCollection<PrztItem> PrztFileItemsDisplay { get; set; }
+        public string SearchString { get; set; }
 
         public PrztPageHandler(PrztFile file)
         {
@@ -31,9 +34,11 @@ namespace KH2FM_Editor.View.Battle.Przt
             Console.WriteLine("DEBUG > PrztPageHandler > Getting file info...");
 
             PrztFileItems = new ObservableCollection<PrztItem>();
+            PrztFileItemsDisplay = new ObservableCollection<PrztItem>();
             foreach (PrztItem entry in PrztFileLoaded.Entries)
             {
                 PrztFileItems.Add(entry);
+                PrztFileItemsDisplay.Add(entry);
             }
         }
 
@@ -62,6 +67,21 @@ namespace KH2FM_Editor.View.Battle.Przt
             Console.WriteLine("DEBUG > PrztPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > PrztPageHandler > Finished saving!");
+        }
+        public void act_search()
+        {
+            Console.WriteLine("DEBUG > PrztPageHandler > Searching...");
+            PrztFileItemsDisplay.Clear();
+            foreach (PrztItem entry in PrztFileItems)
+            {
+                if (SearchString == "" ||
+                    entry.IdValue.ToLower().Contains(SearchString) ||
+                    entry.Id.ToString() == SearchString)
+                {
+                    PrztFileItemsDisplay.Add(entry);
+                }
+            }
+            Console.WriteLine("DEBUG > PrztPageHandler > Finished searching!");
         }
     }
 }

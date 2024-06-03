@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using KH2FM_Editor.Model.COMMON;
+using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.Model.System03.Item;
 using KH2FM_Editor.View.Common;
 
@@ -11,7 +12,10 @@ namespace KH2FM_Editor.View.System03.Item
     {
         public ItemFile ItemFileLoaded { get; set; }
         public ObservableCollection<ItemItem> ItemFileItems { get; set; }
+        public ObservableCollection<ItemItem> ItemFileItemsDisplay { get; set; }
         public ObservableCollection<EquipmentItem> ItemFileEquipment { get; set; }
+        public ObservableCollection<EquipmentItem> ItemFileEquipmentDisplay { get; set; }
+        public string SearchString { get; set; }
 
         public ItemPageHandler(ItemFile file)
         {
@@ -32,14 +36,18 @@ namespace KH2FM_Editor.View.System03.Item
             Console.WriteLine("DEBUG > ItemPageHandler > Getting file info...");
 
             ItemFileItems = new ObservableCollection<ItemItem>();
+            ItemFileItemsDisplay = new ObservableCollection<ItemItem>();
             ItemFileEquipment = new ObservableCollection<EquipmentItem>();
+            ItemFileEquipmentDisplay = new ObservableCollection<EquipmentItem>();
             foreach (ItemItem entry in ItemFileLoaded.Items.Entries)
             {
                 ItemFileItems.Add(entry);
+                ItemFileItemsDisplay.Add(entry);
             }
             foreach (EquipmentItem entry in ItemFileLoaded.Equipment.Entries)
             {
                 ItemFileEquipment.Add(entry);
+                ItemFileEquipmentDisplay.Add(entry);
             }
         }
 
@@ -73,6 +81,31 @@ namespace KH2FM_Editor.View.System03.Item
             Console.WriteLine("DEBUG > ItemPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > ItemPageHandler > Finished saving!");
+        }
+        public void act_search()
+        {
+            Console.WriteLine("DEBUG > ItemPageHandler > Searching...");
+            ItemFileItemsDisplay.Clear();
+            foreach (ItemItem entry in ItemFileItems)
+            {
+                if (SearchString == "" ||
+                    entry.ItemValue.ToLower().Contains(SearchString) ||
+                    entry.Id.ToString() == SearchString)
+                {
+                    ItemFileItemsDisplay.Add(entry);
+                }
+            }
+            ItemFileEquipmentDisplay.Clear();
+            foreach (EquipmentItem entry in ItemFileEquipment)
+            {
+                if (SearchString == "" ||
+                    entry.EquipmentValue.ToLower().Contains(SearchString) ||
+                    entry.Id.ToString() == SearchString)
+                {
+                    ItemFileEquipmentDisplay.Add(entry);
+                }
+            }
+            Console.WriteLine("DEBUG > ItemPageHandler > Finished searching!");
         }
     }
 }

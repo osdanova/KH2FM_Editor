@@ -11,6 +11,8 @@ namespace KH2FM_Editor.View.Battle.Enmp
     {
         public EnmpFile EnmpFileLoaded { get; set; }
         public ObservableCollection<EnmpItem> EnmpFileItems { get; set; }
+        public ObservableCollection<EnmpItem> EnmpFileItemsDisplay { get; set; }
+        public string SearchString { get; set; }
 
         public EnmpPageHandler(EnmpFile file)
         {
@@ -31,9 +33,11 @@ namespace KH2FM_Editor.View.Battle.Enmp
             Console.WriteLine("DEBUG > EnmpPageHandler > Getting file info...");
 
             EnmpFileItems = new ObservableCollection<EnmpItem>();
+            EnmpFileItemsDisplay = new ObservableCollection<EnmpItem>();
             foreach (EnmpItem entry in EnmpFileLoaded.Entries)
             {
                 EnmpFileItems.Add(entry);
+                EnmpFileItemsDisplay.Add(entry);
             }
         }
 
@@ -62,6 +66,22 @@ namespace KH2FM_Editor.View.Battle.Enmp
             Console.WriteLine("DEBUG > EnmpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > EnmpPageHandler > Finished saving!");
+        }
+
+        public void act_search()
+        {
+            Console.WriteLine("DEBUG > EnmpPageHandler > Searching...");
+            EnmpFileItemsDisplay.Clear();
+            foreach (EnmpItem entry in EnmpFileItems)
+            {
+                if (SearchString == "" ||
+                    entry.EnemyValue.ToLower().Contains(SearchString) ||
+                    entry.Id.ToString() == SearchString)
+                {
+                    EnmpFileItemsDisplay.Add(entry);
+                }
+            }
+            Console.WriteLine("DEBUG > EnmpPageHandler > Finished searching!");
         }
     }
 }

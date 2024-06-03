@@ -33,5 +33,9 @@ namespace KH2FM_Editor.View.Battle.Enmp
         {
             handler.act_save();
         }
+        public void btn_search(object sender, RoutedEventArgs e)
+        {
+            handler.act_search();
+        }
     }
 }

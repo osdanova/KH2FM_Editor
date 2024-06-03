@@ -11,6 +11,8 @@ namespace KH2FM_Editor.View.System03.Cmd
     {
         public CmdFile CmdFileLoaded { get; set; }
         public ObservableCollection<CmdItem> CmdFileItems { get; set; }
+        public ObservableCollection<CmdItem> CmdFileItemsDisplay { get; set; }
+        public string SearchString { get; set; }
 
         public CmdPageHandler(CmdFile file)
         {
@@ -31,9 +33,11 @@ namespace KH2FM_Editor.View.System03.Cmd
             Console.WriteLine("DEBUG > CmdPageHandler > Getting file info...");
 
             CmdFileItems = new ObservableCollection<CmdItem>();
+            CmdFileItemsDisplay = new ObservableCollection<CmdItem>();
             foreach (CmdItem entry in CmdFileLoaded.Entries)
             {
                 CmdFileItems.Add(entry);
+                CmdFileItemsDisplay.Add(entry);
             }
         }
 
@@ -62,6 +66,22 @@ namespace KH2FM_Editor.View.System03.Cmd
             Console.WriteLine("DEBUG > CmdPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > CmdPageHandler > Finished saving!");
+        }
+
+        public void act_search()
+        {
+            Console.WriteLine("DEBUG > CmdPageHandler > Searching...");
+            CmdFileItemsDisplay.Clear();
+            foreach (CmdItem entry in CmdFileItems)
+            {
+                if (SearchString == "" ||
+                    entry.CommandValue.ToLower().Contains(SearchString) ||
+                    entry.Id.ToString() == SearchString)
+                {
+                    CmdFileItemsDisplay.Add(entry);
+                }
+            }
+            Console.WriteLine("DEBUG > CmdPageHandler > Finished searching!");
         }
     }
 }
