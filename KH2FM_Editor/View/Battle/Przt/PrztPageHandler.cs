@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using KH2FM_Editor.Model.Battle.Przt;
 using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.View.Common;
 
 namespace KH2FM_Editor.View.Battle.Przt

@@ -11,6 +11,8 @@ namespace KH2FM_Editor.View.Battle.Atkp
     {
         public AtkpFile AtkpFileLoaded { get; set; }
         public ObservableCollection<AtkpItem> AtkpFileItems { get; set; }
+        public ObservableCollection<AtkpItem> AtkpFileItemsDisplay { get; set; }
+        public string SearchString { get; set; }
 
         public AtkpPageHandler(AtkpFile file)
         {
@@ -31,9 +33,11 @@ namespace KH2FM_Editor.View.Battle.Atkp
             Console.WriteLine("DEBUG > AtkpPageHandler > Getting file info...");
 
             AtkpFileItems = new ObservableCollection<AtkpItem>();
+            AtkpFileItemsDisplay = new ObservableCollection<AtkpItem>();
             foreach (AtkpItem entry in AtkpFileLoaded.Entries)
             {
                 AtkpFileItems.Add(entry);
+                AtkpFileItemsDisplay.Add(entry);
             }
         }
         
@@ -62,6 +66,20 @@ namespace KH2FM_Editor.View.Battle.Atkp
             Console.WriteLine("DEBUG > AtkpPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > AtkpPageHandler > Finished saving!");
+        }
+        public void act_search()
+        {
+            Console.WriteLine("DEBUG > AtkpPageHandler > Searching...");
+            AtkpFileItemsDisplay.Clear();
+            foreach (AtkpItem entry in AtkpFileItems)
+            {
+                if (SearchString == "" ||
+                    entry.Id.ToString() == SearchString)
+                {
+                    AtkpFileItemsDisplay.Add(entry);
+                }
+            }
+            Console.WriteLine("DEBUG > AtkpPageHandler > Finished searching!");
         }
     }
 }

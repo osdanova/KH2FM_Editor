@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using KH2FM_Editor.Model.COMMON;
-using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.Model.System03.Item;
 using KH2FM_Editor.View.Common;
 
