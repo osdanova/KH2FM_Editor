@@ -6,7 +6,7 @@ namespace KH2FM_Editor.DataDictionary
     public class ItemData
     {
         // 2 Bytes
-        public static Dictionary<ushort, String> categories = new Dictionary<ushort, string>() {
+        public static Dictionary<byte, String> categories = new Dictionary<byte, string>() {
 { 0 , "Consumable (Equippable)" },
 { 1 , "Consumable (Menu)" },
 { 2 , "Keyblade" },
@@ -33,7 +33,7 @@ namespace KH2FM_Editor.DataDictionary
 { 23 , "Report" }
         };
 
-        public static String getCategory(ushort id)
+        public static String getCategory(byte id)
         {
             if (categories.ContainsKey(id)) return categories[id];
             return "";

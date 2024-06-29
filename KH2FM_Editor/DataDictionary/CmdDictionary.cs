@@ -8,7 +8,7 @@ namespace KH2FM_Editor.DataDictionary
         // 1 Byte
         // 00battle/cmd
         public static Dictionary<byte, String> iconDictionary = new Dictionary<byte, string>() {
-{ 0 , "None" },
+{ 0 , "-" },
 { 1 , "Attack" },
 { 2 , "Magic" },
 { 3 , "Item" },

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
+﻿using KH2FM_Editor.DataDictionary;
 using KH2FM_Editor.Libs.FileHandler;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.Objentry;
 using KH2FM_Editor.View.Common;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
 
 namespace KH2FM_Editor.View.Objentry
 {
@@ -17,12 +18,16 @@ namespace KH2FM_Editor.View.Objentry
         String FilePath { get; set; }
         public ObjentryFile ObjentryFileLoaded { get; set; }
         public ObservableCollection<ObjentryItem> ObjentryFileItems { get; set; }
+        public static Dictionary<byte, string> TypeOptions { get; set; }
+        public static Dictionary<byte, string> ShadowSizeOptions { get; set; }
+        public static Dictionary<byte, string> TargetOptions { get; set; }
 
         // OPTIONS
         public string EntitySearch { get; set; }
 
         public ObjentryPageHandler(String filepath)
         {
+            LoadOptions();
             MemOffsetFallback = "21CE3848"; // PCSX2 CCZ's eng patch
             fileType = Enum.FileType.KH2_00OBJENTRY;
             stringToFind = subBarName;
@@ -109,6 +114,13 @@ namespace KH2FM_Editor.View.Objentry
             Console.WriteLine("DEBUG > ObjentryPageHandler > Exporting...");
             FileHandler.saveFile(FileName, ObjentryFileLoaded.getAsByteList());
             Console.WriteLine("DEBUG > ObjentryPageHandler > Export saving!");
+        }
+
+        private void LoadOptions()
+        {
+            TypeOptions = ObjTypes.valuesDictionary;
+            ShadowSizeOptions = ObjentryFlags.shadowSizes;
+            TargetOptions = ObjentryFlags.targets;
         }
     }
 }

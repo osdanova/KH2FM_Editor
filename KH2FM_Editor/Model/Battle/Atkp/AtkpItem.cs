@@ -14,12 +14,12 @@ namespace KH2FM_Editor.Model.Battle.Atkp
         public static readonly int subIdOffset = 0, subIdSize = 2;
         public static readonly int idOffset = 2, idSize = 2;
         public static readonly int typeOffset = 4, typeSize = 1;
-        public static readonly int critAdjustOffset = 5, critAdjustSize = 1;
-        public static readonly int powerOffset = 6, powerSize = 2;
+        public static readonly int critAdjustOffset = 5, critAdjustSize = 1; // Base
+        public static readonly int powerOffset = 6, powerSize = 2; // Adjust
         public static readonly int teamOffset = 8, teamSize = 1;
         public static readonly int elementOffset = 9, elementSize = 1;
-        public static readonly int knockbackOffset = 10, knockbackSize = 1;
-        public static readonly int hitEffectOffset = 11, hitEffectSize = 1;
+        public static readonly int knockbackOffset = 10, knockbackSize = 1; // Reaction
+        public static readonly int hitEffectOffset = 11, hitEffectSize = 1; // Effect
         public static readonly int knockbackStr1Offset = 12, knockbackStr1Size = 2;
         public static readonly int knockbackStr2Offset = 14, knockbackStr2Size = 2;
         public static readonly int unk16Offset = 16, unk16Size = 2;
@@ -35,15 +35,15 @@ namespace KH2FM_Editor.Model.Battle.Atkp
         public static readonly int reflectAngleOffset = 35, reflectAngleSize = 1;
         public static readonly int damageEffectOffset = 36, damageEffectSize = 1;
         public static readonly int switchOffset = 37, switchSize = 1;
-        public static readonly int framesPerHitOffset = 38, framesPerHitSize = 2;
+        public static readonly int framesPerHitOffset = 38, framesPerHitSize = 2; // Interval
         public static readonly int floorCheckOffset = 40, floorCheckSize = 1;
-        public static readonly int driveDrainOffset = 41, driveDrainSize = 1;
-        public static readonly int revengeOffset = 42, revengeSize = 1;
+        public static readonly int driveDrainOffset = 41, driveDrainSize = 1; // AddDrive
+        public static readonly int revengeOffset = 42, revengeSize = 1; // Karma
         public static readonly int trReactionOffset = 43, trReactionSize = 1;
         public static readonly int comboGroupOffset = 44, comboGroupSize = 1;
         public static readonly int randomEffectOffset = 45, randomEffectSize = 1;
         public static readonly int kindOffset = 46, kindSize = 1;
-        public static readonly int hpDrainOffset = 47, hpDrainSize = 1;
+        public static readonly int hpDrainOffset = 47, hpDrainSize = 1; // Recovery
 
         public AtkpItem()
         {
@@ -96,7 +96,7 @@ namespace KH2FM_Editor.Model.Battle.Atkp
             get { return DataAccess.readByte(raw, elementOffset); }
             set { DataAccess.writeByte(raw, value, elementOffset); NotifyPropertyChanged(nameof(ElementValue)); }
         }
-        public byte Knockback
+        public byte Reaction
         {
             get { return DataAccess.readByte(raw, knockbackOffset); }
             set { DataAccess.writeByte(raw, value, knockbackOffset); }

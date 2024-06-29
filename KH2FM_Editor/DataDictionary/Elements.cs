@@ -12,7 +12,8 @@ namespace KH2FM_Editor.DataDictionary
 { 2 , "Blizzard" },
 { 3 , "Thunder" },
 { 4 , "Dark" },
-{ 5 , "Special" }
+{ 5 , "Special" },
+{ 6 , "General" }
         };
 
         public static String getElement(byte id)

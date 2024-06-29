@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using KH2FM_Editor.DataDictionary;
 using KH2FM_Editor.Model.Battle.Atkp;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.View.Common;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace KH2FM_Editor.View.Battle.Atkp
 {
@@ -13,9 +14,15 @@ namespace KH2FM_Editor.View.Battle.Atkp
         public ObservableCollection<AtkpItem> AtkpFileItems { get; set; }
         public ObservableCollection<AtkpItem> AtkpFileItemsDisplay { get; set; }
         public string SearchString { get; set; }
+        public static Dictionary<byte, string> TypeOptions { get; set; }
+        public static Dictionary<byte, string> ElementOptions { get; set; }
+        public static Dictionary<byte, string> RefactOptions { get; set; }
+        public static Dictionary<byte, string> TrReactionOptions { get; set; }
+        public static Dictionary<byte, string> KindOptions { get; set; }
 
         public AtkpPageHandler(AtkpFile file)
         {
+            LoadOptions();
             MemOffsetFallback = "21CE5F10"; // PCSX2 CCZ's eng patch
             fileType = Enum.FileType.KH2_00BATTLE;
             subBarName = "atkp";
@@ -80,6 +87,15 @@ namespace KH2FM_Editor.View.Battle.Atkp
                 }
             }
             Console.WriteLine("DEBUG > AtkpPageHandler > Finished searching!");
+        }
+
+        private void LoadOptions()
+        {
+            TypeOptions = AtkpDictionary.typeDictionary;
+            ElementOptions = Elements.elementDictionary;
+            RefactOptions = AtkpDictionary.refactDictionary;
+            TrReactionOptions = AtkpDictionary.trReactionDictionary;
+            KindOptions = AtkpDictionary.kindDictionary;
         }
     }
 }

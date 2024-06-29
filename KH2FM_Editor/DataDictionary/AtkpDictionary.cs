@@ -55,6 +55,7 @@ namespace KH2FM_Editor.DataDictionary
         // 1 Byte
         // 00battle/atkp
         public static Dictionary<byte, String> kindDictionary = new Dictionary<byte, string>() {
+{ 0 , "-" },
 { 1 , "Combo Finisher" },
 { 2 , "Air Combo Finisher" },
 { 4 , "Reaction Command" }

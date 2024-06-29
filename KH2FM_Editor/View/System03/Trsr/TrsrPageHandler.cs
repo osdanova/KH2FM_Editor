@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using KH2FM_Editor.Model.COMMON;
+﻿using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Trsr;
 using KH2FM_Editor.View.Common;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace KH2FM_Editor.View.System03.Trsr
 {
@@ -11,9 +11,11 @@ namespace KH2FM_Editor.View.System03.Trsr
     {
         public TrsrFile TrsrFileLoaded { get; set; }
         public ObservableCollection<TrsrItem> TrsrFileItems { get; set; }
+        public static Dictionary<byte, string> TypeOptions { get; set; }
 
         public TrsrPageHandler(TrsrFile file)
         {
+            LoadOptions();
             MemOffsetFallback = "21CDF748"; // PCSX2 CCZ's eng patch
             fileType = Enum.FileType.KH2_03SYSTEM;
             subBarName = "trsr";
@@ -62,6 +64,11 @@ namespace KH2FM_Editor.View.System03.Trsr
             Console.WriteLine("DEBUG > TrsrPageHandler > Saving...");
             insertDataToFile();
             Console.WriteLine("DEBUG > TrsrPageHandler > Finished saving!");
+        }
+
+        private void LoadOptions()
+        {
+            TypeOptions = TypeConverter.TypeDictionary;
         }
     }
 }

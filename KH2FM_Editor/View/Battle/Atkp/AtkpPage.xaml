@@ -3,6 +3,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:KH2FM_Editor.View.Battle.Atkp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AtkpPage">
@@ -35,17 +36,56 @@
                   AlternatingRowBackground="LightGray" CanUserAddRows="True"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding AtkpFileItemsDisplay}">
+                
+                <DataGrid.Resources>
+                    <local:TypeConverter x:Key="TypeConverter" />
+                    <local:ElementConverter x:Key="ElementConverter" />
+                    <local:RefactConverter x:Key="RefactConverter" />
+                    <local:TrReactionConverter x:Key="TrReactionConverter" />
+                    <local:KindConverter x:Key="KindConverter" />
+                </DataGrid.Resources>
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
                     <DataGridTextColumn Header="SubId" Binding="{Binding Path=SubId}" />
-                    <DataGridTextColumn Header="Type" Binding="{Binding Path=TypeValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Type Id" Binding="{Binding Path=Type}" />
+
+                    <DataGridTemplateColumn Header="Type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Type, Converter={StaticResource TypeConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding Type}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.TypeOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    
                     <DataGridTextColumn Header="Crit Adjust" Binding="{Binding Path=CritAdjust}" />
                     <DataGridTextColumn Header="Power" Binding="{Binding Path=Power}" />
                     <DataGridTextColumn Header="Team" Binding="{Binding Path=Team}" />
-                    <DataGridTextColumn Header="Element" Binding="{Binding Path=ElementValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Element Id" Binding="{Binding Path=Element}" />
-                    <DataGridTextColumn Header="Knockback" Binding="{Binding Path=Knockback}" />
+
+                    <DataGridTemplateColumn Header="Element">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Element, Converter={StaticResource ElementConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding Element}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.ElementOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Reaction" Binding="{Binding Path=Reaction}" />
                     <DataGridTextColumn Header="HitEffect" Binding="{Binding Path=HitEffect}" />
                     <DataGridTextColumn Header="KnockbackStr1" Binding="{Binding Path=KnockbackStr1}" />
                     <DataGridTextColumn Header="KnockbackStr2" Binding="{Binding Path=KnockbackStr2}" />
@@ -56,10 +96,39 @@
                     <DataGridCheckBoxColumn Header="Capture PAX?" Binding="{Binding Path=FlagCapturePAX}" />
                     <DataGridCheckBoxColumn Header="Thank You?" Binding="{Binding Path=FlagThankYou}" />
                     <DataGridCheckBoxColumn Header="Kill Boss?" Binding="{Binding Path=FlagKillBoss}" />
-                    <DataGridTextColumn Header="Refact Self" Binding="{Binding Path=RefactSelfValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Refact Self Id" Binding="{Binding Path=RefactSelf}" />
-                    <DataGridTextColumn Header="Refact Other" Binding="{Binding Path=RefactOtherValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Refact Other Id" Binding="{Binding Path=RefactOther}" />
+
+                    <DataGridTemplateColumn Header="Refact Self">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RefactSelf, Converter={StaticResource RefactConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding RefactSelf}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.RefactOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Refact Other">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RefactOther, Converter={StaticResource RefactConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding RefactOther}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.RefactOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    
                     <DataGridTextColumn Header="Reflect Motion" Binding="{Binding Path=ReflectMotion}" />
                     <DataGridTextColumn Header="Reflect Hit Back" Binding="{Binding Path=ReflectHitBack}" />
                     <DataGridTextColumn Header="Reflect Action" Binding="{Binding Path=ReflectAction}" />
@@ -73,12 +142,42 @@
                     <DataGridTextColumn Header="Floor Check" Binding="{Binding Path=FloorCheck}" />
                     <DataGridTextColumn Header="DriveDrain" Binding="{Binding Path=DriveDrain}" />
                     <DataGridTextColumn Header="Revenge" Binding="{Binding Path=Revenge}" />
-                    <DataGridTextColumn Header="Tr Reaction" Binding="{Binding Path=TrReactionValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Tr Reaction Id" Binding="{Binding Path=TrReaction}" />
+
+                    <DataGridTemplateColumn Header="TrReaction">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TrReaction, Converter={StaticResource TrReactionConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding TrReaction}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.TrReactionOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
                     <DataGridTextColumn Header="Combo Group" Binding="{Binding Path=ComboGroup}" />
                     <DataGridTextColumn Header="Random Effect" Binding="{Binding Path=RandomEffect}" />
-                    <DataGridTextColumn Header="Kind" Binding="{Binding Path=KindValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Kind Id" Binding="{Binding Path=Kind}" />
+
+                    <DataGridTemplateColumn Header="Kind">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Kind, Converter={StaticResource KindConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding Kind}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.KindOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    
                     <DataGridTextColumn Header="HpDrain" Binding="{Binding Path=HpDrain}" />
                 </DataGrid.Columns>
             </DataGrid>

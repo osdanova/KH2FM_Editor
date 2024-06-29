@@ -3,6 +3,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:KH2FM_Editor.View.Objentry"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ObjentryPage">
@@ -35,10 +36,32 @@
                   AlternatingRowBackground="LightGray" CanUserAddRows="True"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding ObjentryFileItems}">
+
+                <DataGrid.Resources>
+                    <local:TypeConverter x:Key="TypeConverter" />
+                    <local:ShadowSizeConverter x:Key="ShadowSizeConverter" />
+                    <local:TargetConverter x:Key="TargetConverter" />
+                </DataGrid.Resources>
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />
-                    <DataGridTextColumn Header="Type" Binding="{Binding Path=TypeValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Type ID" Binding="{Binding Path=Type}" />
+
+                    <DataGridTemplateColumn Header="Type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Type, Converter={StaticResource TypeConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding Type}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.TypeOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
                     <DataGridTextColumn Header="Subtype" Binding="{Binding Path=Subtype}" />
                     <DataGridTextColumn Header="Draw Priority" Binding="{Binding Path=DrawPriority}" />
                     <DataGridTextColumn Header="Weapon Joint" Binding="{Binding Path=WeaponJoint}" />
@@ -53,15 +76,45 @@
                     <DataGridCheckBoxColumn Header="Pirate?" Binding="{Binding Path=FlagPirate}" />
                     <DataGridCheckBoxColumn Header="Wall Occlusion?" Binding="{Binding Path=FlagWallOcclusion}" />
                     <DataGridCheckBoxColumn Header="Hift?" Binding="{Binding Path=FlagHift}" />
-                    <DataGridTextColumn Header="Target" Binding="{Binding Path=TargetValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Target Id" Binding="{Binding Path=Target}" />
+
+                    <DataGridTemplateColumn Header="Target">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Target, Converter={StaticResource TargetConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding Target}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.TargetOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
                     <DataGridTextColumn Header="NeoStatus" Binding="{Binding Path=NeoStatus}" />
                     <DataGridTextColumn Header="NeoMoveset" Binding="{Binding Path=NeoMoveset}" />
                     <DataGridTextColumn Header="Weight" Binding="{Binding Path=Weight}" />
                     <DataGridTextColumn Header="Spawn Limit" Binding="{Binding Path=SpawnLimit}" />
                     <DataGridTextColumn Header="Page" Binding="{Binding Path=Page}" />
-                    <DataGridTextColumn Header="Shadow Size" Binding="{Binding Path=ShadowSizeValue}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Shadow Size Id" Binding="{Binding Path=ShadowSize}" />
+
+                    <DataGridTemplateColumn Header="ShadowSize">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ShadowSize, Converter={StaticResource ShadowSizeConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedValue="{Binding ShadowSize}"
+                                          SelectedValuePath="Key"
+                                          DisplayMemberPath="Value"
+                                          ItemsSource="{Binding DataContext.ShadowSizeOptions, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
                     <DataGridTextColumn Header="Form" Binding="{Binding Path=FormValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Form Id" Binding="{Binding Path=Form}" />
                     <DataGridTextColumn Header="Extra Spawn 1 Name" Binding="{Binding Path=ExtraSpawn1Value}" IsReadOnly="True" />

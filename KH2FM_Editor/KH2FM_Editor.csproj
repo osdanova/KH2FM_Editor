@@ -211,6 +211,11 @@
       <DependentUpon>BarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Bar\BarPageHandler.cs" />
+    <Compile Include="View\Battle\Atkp\ElementConverter.cs" />
+    <Compile Include="View\Battle\Atkp\KindConverter.cs" />
+    <Compile Include="View\Battle\Atkp\RefactConverter.cs" />
+    <Compile Include="View\Battle\Atkp\TrReactionConverter.cs" />
+    <Compile Include="View\Battle\Atkp\TypeConverter.cs" />
     <Compile Include="View\Battle\Btlv\BtlvPage.xaml.cs">
       <DependentUpon>BtlvPage.xaml</DependentUpon>
     </Compile>
@@ -329,22 +334,32 @@
     <Compile Include="Libs\Pcsx2\Pcsx2Memory.cs" />
     <Compile Include="Libs\TreeView\SimpleFileNode.cs" />
     <Compile Include="Libs\TreeView\TreeViewHandler.cs" />
+    <Compile Include="View\Objentry\ShadowSizeConverter.cs" />
+    <Compile Include="View\Objentry\TargetConverter.cs" />
+    <Compile Include="View\Objentry\TypeConverter.cs" />
     <Compile Include="View\System03\Arif\ArifPage.xaml.cs">
       <DependentUpon>ArifPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Arif\ArifPageHandler.cs" />
+    <Compile Include="View\System03\Cmd\ActionConverter.cs" />
+    <Compile Include="View\System03\Cmd\CameraConverter.cs" />
     <Compile Include="View\System03\Cmd\CmdPage.xaml.cs">
       <DependentUpon>CmdPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Cmd\CmdPageHandler.cs" />
+    <Compile Include="View\System03\Cmd\IconConverter.cs" />
+    <Compile Include="View\System03\Cmd\ReceiverConverter.cs" />
     <Compile Include="View\System03\Evtp\EvtpPage.xaml.cs">
       <DependentUpon>EvtpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Evtp\EvtpPageHandler.cs" />
+    <Compile Include="View\System03\Item\CategoryConverter.cs" />
     <Compile Include="View\System03\Item\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Item\ItemPageHandler.cs" />
+    <Compile Include="View\System03\Item\PrizeBoxConverter.cs" />
+    <Compile Include="View\System03\Item\VisibilityConverter.cs" />
     <Compile Include="View\System03\Memt\MemtPage.xaml.cs">
       <DependentUpon>MemtPage.xaml</DependentUpon>
     </Compile>
@@ -385,6 +400,7 @@
       <DependentUpon>TrsrPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\System03\Trsr\TrsrPageHandler.cs" />
+    <Compile Include="View\System03\Trsr\TypeConverter.cs" />
     <Compile Include="View\System03\Went\WentPage.xaml.cs">
       <DependentUpon>WentPage.xaml</DependentUpon>
     </Compile>

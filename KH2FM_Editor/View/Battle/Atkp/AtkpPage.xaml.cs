@@ -4,12 +4,9 @@ using System.Windows.Controls;
 
 namespace KH2FM_Editor.View.Battle.Atkp
 {
-    /// <summary>
-    /// Interaction logic for AtkpPage.xaml
-    /// </summary>
     public partial class AtkpPage : Page
     {
-        AtkpPageHandler handler;
+        AtkpPageHandler handler {  get; set; }
 
         public AtkpPage()
         {
@@ -17,11 +14,10 @@ namespace KH2FM_Editor.View.Battle.Atkp
         }
         public AtkpPage(AtkpFile file)
         {
+            InitializeComponent();
             //Console.WriteLine("DEBUG > AtkpPage > Filepath: " + filepath);
             handler = new AtkpPageHandler(file);
             DataContext = handler;
-
-            InitializeComponent();
         }
 
         public void btn_testData(object sender, RoutedEventArgs e)

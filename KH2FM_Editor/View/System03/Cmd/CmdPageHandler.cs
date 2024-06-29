@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using KH2FM_Editor.DataDictionary;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Cmd;
 using KH2FM_Editor.View.Common;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace KH2FM_Editor.View.System03.Cmd
 {
@@ -13,9 +14,14 @@ namespace KH2FM_Editor.View.System03.Cmd
         public ObservableCollection<CmdItem> CmdFileItems { get; set; }
         public ObservableCollection<CmdItem> CmdFileItemsDisplay { get; set; }
         public string SearchString { get; set; }
+        public static Dictionary<byte, string> IconOptions { get; set; }
+        public static Dictionary<byte, string> CameraOptions { get; set; }
+        public static Dictionary<byte, string> ReceiverOptions { get; set; }
+        public static Dictionary<byte, string> ActionOptions { get; set; }
 
         public CmdPageHandler(CmdFile file)
         {
+            LoadOptions();
             MemOffsetFallback = "21CCB5A0"; // PCSX2 CCZ's eng patch
             fileType = Enum.FileType.KH2_03SYSTEM;
             subBarName = "cmd\0";
@@ -82,6 +88,14 @@ namespace KH2FM_Editor.View.System03.Cmd
                 }
             }
             Console.WriteLine("DEBUG > CmdPageHandler > Finished searching!");
+        }
+
+        private void LoadOptions()
+        {
+            IconOptions = CmdDictionary.iconDictionary;
+            CameraOptions = CmdDictionary.cameraDictionary;
+            ReceiverOptions = CmdDictionary.receiverDictionary;
+            ActionOptions = CmdDictionary.actionDictionary;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using KH2FM_Editor.DataDictionary;
 using KH2FM_Editor.Model.COMMON;
 using KH2FM_Editor.Model.System03.Item;
 using KH2FM_Editor.View.Common;
@@ -15,9 +16,13 @@ namespace KH2FM_Editor.View.System03.Item
         public ObservableCollection<EquipmentItem> ItemFileEquipment { get; set; }
         public ObservableCollection<EquipmentItem> ItemFileEquipmentDisplay { get; set; }
         public string SearchString { get; set; }
+        public static Dictionary<byte, string> CategoryOptions { get; set; }
+        public static Dictionary<byte, string> VisibilityOptions { get; set; }
+        public static Dictionary<byte, string> PrizeBoxOptions { get; set; }
 
         public ItemPageHandler(ItemFile file)
         {
+            LoadOptions();
             MemOffsetFallback = "21CDBBA0"; // PCSX2 CCZ's eng patch
             fileType = Enum.FileType.KH2_03SYSTEM;
             subBarName = "item";
@@ -105,6 +110,13 @@ namespace KH2FM_Editor.View.System03.Item
                 }
             }
             Console.WriteLine("DEBUG > ItemPageHandler > Finished searching!");
+        }
+
+        private void LoadOptions()
+        {
+            CategoryOptions = ItemData.categories;
+            VisibilityOptions = ItemData.visibilities;
+            PrizeBoxOptions = ItemData.prizeBoxes;
         }
     }
 }
