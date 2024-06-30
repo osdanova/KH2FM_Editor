@@ -32,8 +32,8 @@
             </DockPanel>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
             <!--DATAGRID-->
-            <DataGrid Grid.Column="2"
-                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+            <DataGrid Name="AtkpGrid" Grid.Column="2"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="False" CanUserDeleteRows="False"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding AtkpFileItemsDisplay}">
                 
@@ -44,6 +44,13 @@
                     <local:TrReactionConverter x:Key="TrReactionConverter" />
                     <local:KindConverter x:Key="KindConverter" />
                 </DataGrid.Resources>
+
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Add entry" Click="AddEntry"/>
+                        <MenuItem Header="Remove entry" Click="RemoveEntry"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
                 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />

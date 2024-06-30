@@ -31,8 +31,8 @@
             </DockPanel>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
             <!--DATAGRID-->
-            <DataGrid Grid.Column="2"
-                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+            <DataGrid Name="CmdGrid" Grid.Column="2"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="False" CanUserDeleteRows="False"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding CmdFileItemsDisplay}">
 
@@ -42,7 +42,14 @@
                     <local:ReceiverConverter x:Key="ReceiverConverter" />
                     <local:ActionConverter x:Key="ActionConverter" />
                 </DataGrid.Resources>
-                
+
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Add entry" Click="AddEntry"/>
+                        <MenuItem Header="Remove entry" Click="RemoveEntry"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Command" Binding="{Binding Path=CommandValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />

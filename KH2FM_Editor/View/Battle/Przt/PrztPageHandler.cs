@@ -73,7 +73,7 @@ namespace KH2FM_Editor.View.Battle.Przt
             PrztFileItemsDisplay.Clear();
             foreach (PrztItem entry in PrztFileItems)
             {
-                if (SearchString == "" ||
+                if (SearchString == null || SearchString == "" ||
                     entry.IdValue.ToLower().Contains(SearchString) ||
                     entry.Id.ToString() == SearchString)
                 {

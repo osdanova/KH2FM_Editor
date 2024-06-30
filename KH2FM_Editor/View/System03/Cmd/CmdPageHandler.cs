@@ -80,7 +80,7 @@ namespace KH2FM_Editor.View.System03.Cmd
             CmdFileItemsDisplay.Clear();
             foreach (CmdItem entry in CmdFileItems)
             {
-                if (SearchString == "" ||
+                if (SearchString == null || SearchString == "" ||
                     entry.CommandValue.ToLower().Contains(SearchString) ||
                     entry.Id.ToString() == SearchString)
                 {

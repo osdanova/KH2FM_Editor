@@ -80,7 +80,7 @@ namespace KH2FM_Editor.View.Battle.Atkp
             AtkpFileItemsDisplay.Clear();
             foreach (AtkpItem entry in AtkpFileItems)
             {
-                if (SearchString == "" ||
+                if (SearchString == null || SearchString == "" ||
                     entry.Id.ToString() == SearchString)
                 {
                     AtkpFileItemsDisplay.Add(entry);

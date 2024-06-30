@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace KH2FM_Editor.View.System03.Cmd
 {
-    /// <summary>
-    /// Interaction logic for CmdPage.xaml
-    /// </summary>
     public partial class CmdPage : Page
     {
         CmdPageHandler handler;
@@ -36,6 +33,24 @@ namespace KH2FM_Editor.View.System03.Cmd
         public void btn_search(object sender, RoutedEventArgs e)
         {
             handler.act_search();
+        }
+
+        public void AddEntry(object sender, RoutedEventArgs e)
+        {
+            if (CmdGrid.SelectedItem != null)
+            {
+                handler.CmdFileItems.Add(new CmdItem());
+                handler.act_search();
+            }
+        }
+        public void RemoveEntry(object sender, RoutedEventArgs e)
+        {
+            if (CmdGrid.SelectedItem != null)
+            {
+                CmdItem item = (CmdItem)CmdGrid.SelectedItem;
+                handler.CmdFileItems.Remove(item);
+                handler.act_search();
+            }
         }
     }
 }

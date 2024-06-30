@@ -37,5 +37,22 @@ namespace KH2FM_Editor.View.Battle.Enmp
         {
             handler.act_search();
         }
+        public void AddEntry(object sender, RoutedEventArgs e)
+        {
+            if (EnmpGrid.SelectedItem != null)
+            {
+                handler.EnmpFileItems.Add(new EnmpItem());
+                handler.act_search();
+            }
+        }
+        public void RemoveEntry(object sender, RoutedEventArgs e)
+        {
+            if (EnmpGrid.SelectedItem != null)
+            {
+                EnmpItem item = (EnmpItem)EnmpGrid.SelectedItem;
+                handler.EnmpFileItems.Remove(item);
+                handler.act_search();
+            }
+        }
     }
 }

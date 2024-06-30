@@ -74,7 +74,7 @@ namespace KH2FM_Editor.View.Battle.Enmp
             EnmpFileItemsDisplay.Clear();
             foreach (EnmpItem entry in EnmpFileItems)
             {
-                if (SearchString == "" ||
+                if (SearchString == null || SearchString == "" ||
                     entry.EnemyValue.ToLower().Contains(SearchString) ||
                     entry.Id.ToString() == SearchString)
                 {

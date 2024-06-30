@@ -92,7 +92,7 @@ namespace KH2FM_Editor.View.System03.Item
             ItemFileItemsDisplay.Clear();
             foreach (ItemItem entry in ItemFileItems)
             {
-                if (SearchString == "" ||
+                if (SearchString == null || SearchString == "" ||
                     entry.ItemValue.ToLower().Contains(SearchString) ||
                     entry.Id.ToString() == SearchString)
                 {
@@ -102,7 +102,7 @@ namespace KH2FM_Editor.View.System03.Item
             ItemFileEquipmentDisplay.Clear();
             foreach (EquipmentItem entry in ItemFileEquipment)
             {
-                if (SearchString == "" ||
+                if (SearchString == null || SearchString == "" ||
                     entry.EquipmentValue.ToLower().Contains(SearchString) ||
                     entry.Id.ToString() == SearchString)
                 {

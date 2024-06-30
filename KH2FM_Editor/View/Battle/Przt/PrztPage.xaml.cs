@@ -37,5 +37,23 @@ namespace KH2FM_Editor.View.Battle.Przt
         {
             handler.act_search();
         }
+
+        public void AddEntry(object sender, RoutedEventArgs e)
+        {
+            if (PrztGrid.SelectedItem != null)
+            {
+                handler.PrztFileItems.Add(new PrztItem());
+                handler.act_search();
+            }
+        }
+        public void RemoveEntry(object sender, RoutedEventArgs e)
+        {
+            if (PrztGrid.SelectedItem != null)
+            {
+                PrztItem item = (PrztItem)PrztGrid.SelectedItem;
+                handler.PrztFileItems.Remove(item);
+                handler.act_search();
+            }
+        }
     }
 }

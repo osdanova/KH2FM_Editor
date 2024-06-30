@@ -33,16 +33,23 @@
             <TabControl Grid.Column="2">
                 <TabItem Header="Items">
                     <!--DATAGRID-->
-                    <DataGrid 
-                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
-                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
-                  ItemsSource="{Binding ItemFileItemsDisplay}">
+                    <DataGrid Name="ItemGrid"
+                              AlternatingRowBackground="LightGray" CanUserAddRows="False" CanUserDeleteRows="False"
+                              AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                              ItemsSource="{Binding ItemFileItemsDisplay}">
 
                         <DataGrid.Resources>
                             <local:CategoryConverter x:Key="CategoryConverter" />
                             <local:VisibilityConverter x:Key="VisibilityConverter" />
                             <local:PrizeBoxConverter x:Key="PrizeBoxConverter" />
                         </DataGrid.Resources>
+
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Add entry" Click="AddItemEntry"/>
+                                <MenuItem Header="Remove entry" Click="RemoveItemEntry"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Item" Binding="{Binding Path=ItemValue}" IsReadOnly="True" />
@@ -115,10 +122,18 @@
                 </TabItem>
                 <TabItem Header="Equipment">
                     <!--DATAGRID-->
-                    <DataGrid Grid.Column="0"
-                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
-                  AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
-                  ItemsSource="{Binding ItemFileEquipmentDisplay}">
+                    <DataGrid Name="EquipmentGrid" Grid.Column="0"
+                              AlternatingRowBackground="LightGray" CanUserAddRows="False" CanUserDeleteRows="False"
+                              AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                              ItemsSource="{Binding ItemFileEquipmentDisplay}">
+
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Add entry" Click="AddEquipmentEntry"/>
+                                <MenuItem Header="Remove entry" Click="RemoveEquipmentEntry"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Equipment" Binding="{Binding Path=EquipmentValue}" IsReadOnly="True" />
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />

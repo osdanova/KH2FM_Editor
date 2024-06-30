@@ -31,10 +31,18 @@
             </DockPanel>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
             <!--DATAGRID-->
-            <DataGrid Grid.Column="2"
-                  AlternatingRowBackground="LightGray" CanUserAddRows="True"
+            <DataGrid Name="EnmpGrid" Grid.Column="2"
+                  AlternatingRowBackground="LightGray" CanUserAddRows="False" CanUserDeleteRows="False"
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ItemsSource="{Binding EnmpFileItemsDisplay}">
+
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Add entry" Click="AddEntry"/>
+                        <MenuItem Header="Remove entry" Click="RemoveEntry"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Enemy" Binding="{Binding Path=EnemyValue}" IsReadOnly="True" />
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" />

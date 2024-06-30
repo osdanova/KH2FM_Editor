@@ -33,5 +33,23 @@ namespace KH2FM_Editor.View.Battle.Atkp
         {
             handler.act_search();
         }
+
+        public void AddEntry(object sender, RoutedEventArgs e)
+        {
+            if (AtkpGrid.SelectedItem != null)
+            {
+                handler.AtkpFileItems.Add(new AtkpItem());
+                handler.act_search();
+            }
+        }
+        public void RemoveEntry(object sender, RoutedEventArgs e)
+        {
+            if (AtkpGrid.SelectedItem != null)
+            {
+                AtkpItem item = (AtkpItem)AtkpGrid.SelectedItem;
+                handler.AtkpFileItems.Remove(item);
+                handler.act_search();
+            }
+        }
     }
 }
