@@ -167,7 +167,7 @@ namespace KH2FM_Editor.Model.System03.Cmd
         public ushort DisableForm
         {
             get { return DataAccess.readUShort(raw, disableFormOffset, disableFormSize); }
-            set { DataAccess.writeUShort(raw, value, requireOffset, requireSize); }
+            set { DataAccess.writeUShort(raw, value, disableFormOffset, disableFormSize); }
         }
         public byte Group
         {
